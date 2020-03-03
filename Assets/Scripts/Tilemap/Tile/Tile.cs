@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Tile : MonoBehaviour
 {
 
-    public Color hoverColor;
+    //public Color hoverColor;
 
     public Vector3 coord;
     public float StraightLineDistanceToEnd, MinCostToStart;
