@@ -15,5 +15,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BrickManager.Instance.Init();
+
+    }
+
+    public Vector3[] floorCenterPositions;
+
+    private void Update()
+    {
+        floorCenterPositions = Floor.centerPositions;
     }
 }

@@ -27,6 +27,14 @@ public class BrickFloorGenerator : MonoBehaviour {
             }
         }
 
+
+        Vector3[] positions = new Vector3[brickWall.Length];
+        for (int i = 0; i < positions.Length; i++)
+        {
+            positions[i] = brickWall[i].transform.position;
+        }
+
+        Floor.centerPositions = positions;
     }
 
     Brick CreateBrick(int row, int line)
@@ -61,6 +69,7 @@ public class BrickFloorGenerator : MonoBehaviour {
                 GenerateBrick(i, j, data);
             }
         }
+
     }
 
     void GenerateBrick(int row, int line, BrickFloorData data)

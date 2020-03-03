@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-
     public BrickSettings settings;
 
     public MeshRenderer mr;
