@@ -64,4 +64,6 @@ public class Tile : MonoBehaviour
 
         return res;
     }
+
+    public virtual void SetInShortestPath(bool inShortestPath) { }
 }
