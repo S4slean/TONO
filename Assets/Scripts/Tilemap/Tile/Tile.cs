@@ -8,10 +8,15 @@ public class Tile : MonoBehaviour
 
     //public Color hoverColor;
 
+    protected Renderer rend;
+    protected Material defaultMaterial;
+
     public Vector3 coord;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
     public Tile previous;
+
+    public bool hovered;
 
     public object Connections { get; internal set; }
 
@@ -23,17 +28,8 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-
-    }
-
-    void OnMouseEnter()
-    {
-
-    }
-
-    void OnMouseExit()
-    {
-
+        rend = GetComponent<Renderer>();
+        defaultMaterial = rend.material;
     }
 
     public float StraightLineDistanceTo(Tile end)
@@ -68,4 +64,6 @@ public class Tile : MonoBehaviour
 
         return res;
     }
+
+    public virtual void SetInShortestPath(bool inShortestPath) { }
 }
