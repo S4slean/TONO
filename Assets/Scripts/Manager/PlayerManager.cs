@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]public LayerMask mouseMask;
 
     public Material hoveringMaterial;
+    public Material highlightMaterial;
 
     public void Awake()
     {
@@ -37,14 +39,14 @@ public class PlayerManager : MonoBehaviour
         {
             //Debug.Log(hit.transform.tag);
 
-            if(hit.transform.tag == "Player")
+            if (hit.transform.tag == "Player")
             {
                 selectedCharacter = hit.transform.GetComponentInChildren<PlayerCharacter>();
             }
-            else if(hit.transform.tag == "FreeTile" && selectedCharacter != null)
+            else if (hit.transform.tag == "FreeTile" && selectedCharacter != null)
             {
                 selectedCharacter.SetDestination(hit.transform.GetComponent<Free>());
-            }
+            }            
         }
     }
 }

@@ -40,7 +40,7 @@ public class Grid : MonoBehaviour
                         newTile.coord.z = row;
                         newTile.coord.x = column;
                         //Spawn player
-                        GameObject player = Instantiate(TileManager_PlaceHolder.instance.PlayerPrefab, new Vector3(position.x, 0.5f, position.z), new Quaternion(0f, 0f, 0f, 0f));
+                        GameObject player = Instantiate(TileManager_PlaceHolder.instance.PlayerPrefab, new Vector3(position.x, newTile.transform.localScale.y, position.z), new Quaternion(0f, 0f, 0f, 0f));
                         player.GetComponentInChildren<PlayerCharacter>().SetPlayerTile(newTile);
                         freeTiles.Add(newTile);
                         break;
