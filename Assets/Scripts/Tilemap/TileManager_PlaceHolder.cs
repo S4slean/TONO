@@ -9,6 +9,7 @@ public class TileManager_PlaceHolder : MonoBehaviour
     public GameObject WallPrefab;
     public GameObject FreePrefab;
     public GameObject PlayerPrefab;
+    public GameObject container;
 
     private Grid grid;
     public Grid Grid { get { return grid; } }

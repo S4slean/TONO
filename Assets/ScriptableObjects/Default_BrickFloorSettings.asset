@@ -15,5 +15,5 @@ MonoBehaviour:
   centerPos: {x: 0, y: 0, z: 0}
   xDistance: 1
   yDistance: 1
-  lineAmount: 10
-  rowAmount: 14
+  lineAmount: 12
+  rowAmount: 12

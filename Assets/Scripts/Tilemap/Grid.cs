@@ -20,14 +20,14 @@ public class Grid : MonoBehaviour
                 switch (array[row-1,column-1])
                 {
                     case "W":
-                        GameObject newWall = Instantiate(TileManager_PlaceHolder.instance.WallPrefab, position, new Quaternion(0f, 0f, 0f, 0f));
+                        GameObject newWall = Instantiate(TileManager_PlaceHolder.instance.WallPrefab, position, new Quaternion(0f, 0f, 0f, 0f), TileManager_PlaceHolder.instance.container.transform);
                         newTile = newWall.GetComponent<Wall>();
                         newTile.coord.z = row;
                         newTile.coord.x = column;
                         break;
 
                     case "F":
-                        GameObject newFree = Instantiate(TileManager_PlaceHolder.instance.FreePrefab, position, new Quaternion(0f, 0f, 0f, 0f));
+                        GameObject newFree = Instantiate(TileManager_PlaceHolder.instance.FreePrefab, position, new Quaternion(0f, 0f, 0f, 0f), TileManager_PlaceHolder.instance.container.transform);
                         newTile = newFree.GetComponent<Free>();
                         newTile.coord.z = row;
                         newTile.coord.x = column;
@@ -35,13 +35,13 @@ public class Grid : MonoBehaviour
                         break;
 
                     case "P":
-                        GameObject newFreePlayer = Instantiate(TileManager_PlaceHolder.instance.FreePrefab, position, new Quaternion(0f, 0f, 0f, 0f));
+                        GameObject newFreePlayer = Instantiate(TileManager_PlaceHolder.instance.FreePrefab, position, new Quaternion(0f, 0f, 0f, 0f), TileManager_PlaceHolder.instance.container.transform);
                         newTile = newFreePlayer.GetComponent<Free>();
                         newTile.coord.z = row;
                         newTile.coord.x = column;
                         //Spawn player
-                        GameObject player = Instantiate(TileManager_PlaceHolder.instance.PlayerPrefab, new Vector3(position.x, 0.5f, position.z), new Quaternion(0f, 0f, 0f, 0f));
-                        player.GetComponent<Player>().SetPlayerTile(newTile);
+                        GameObject player = Instantiate(TileManager_PlaceHolder.instance.PlayerPrefab, new Vector3(position.x, newTile.transform.localScale.y, position.z), new Quaternion(0f, 0f, 0f, 0f));
+                        player.GetComponentInChildren<PlayerCharacter>().SetPlayerTile(newTile);
                         freeTiles.Add(newTile);
                         break;
                 }
