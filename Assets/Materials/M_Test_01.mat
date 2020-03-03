@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Test
+  m_Name: M_Test_01
   m_Shader: {fileID: -6465566751694194690, guid: 8188571b69c111047bdeeddaccb844f5,
     type: 3}
   m_ShaderKeywords: 
@@ -108,8 +108,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_1C0B1C14: 1
+    - Boolean_5A38A64B: 1
     - Boolean_616DC92C: 1
+    - Boolean_6ED24283: 1
+    - Boolean_8E29B666: 1
     - Vector1_15BFCB3F: 1
+    - Vector1_1AE57C88: 1
     - Vector1_217879B3: 1
     - Vector1_2BFE627E: 3
     - Vector1_3F2E42D1: 1
@@ -118,6 +123,7 @@ Material:
     - Vector1_6C2761F2: 1
     - Vector1_94E6201D: 1
     - Vector1_D5FBFB1E: 1
+    - Vector1_D8985208: 1
     - Vector1_F114064B: 2
     - Vector1_F29F096F: 1
     - Vector1_FABFEAC9: 1
