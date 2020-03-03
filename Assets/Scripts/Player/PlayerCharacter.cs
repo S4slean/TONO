@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerCharacter : MonoBehaviour
 {
     private Tile playerTile;
 
@@ -14,5 +14,10 @@ public class Player : MonoBehaviour
     public void SetPlayerTile(Tile newTile)
     {
         playerTile = newTile;
+    }
+
+    public void SetDestination(Tile destination)
+    {
+        print("Destination : " + destination.coord);
     }
 }
