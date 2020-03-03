@@ -5,8 +5,14 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class TextureScaler : MonoBehaviour
 {
-    public Transform self;
-    public Renderer rd;
+    private Transform self;
+    private Renderer rd;
+
+    public void Awake()
+    {
+        self = transform;
+        rd = GetComponent<Renderer>();
+    }
 
     private void Update()
     {
@@ -14,5 +20,7 @@ public class TextureScaler : MonoBehaviour
         rd.material.SetFloat("Vector1_D8985208", self.localScale.y);
         rd.material.SetFloat("Vector1_1AE57C88", self.localScale.z);
     }
+
+
 
 }
