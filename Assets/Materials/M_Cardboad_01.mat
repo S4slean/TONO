@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Test_01
+  m_Name: M_Cardboad_01
   m_Shader: {fileID: -6465566751694194690, guid: 8188571b69c111047bdeeddaccb844f5,
     type: 3}
   m_ShaderKeywords: 
@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6B512FF:
-        m_Texture: {fileID: 2800000, guid: edd23d450368e60439dbd60f53262047, type: 3}
+        m_Texture: {fileID: 2800000, guid: 69743a63274fee04b8e42137e11c0c66, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_700EE9ED:
-        m_Texture: {fileID: 2800000, guid: ab8ae69ea6c7df040b5c3a333cedf180, type: 3}
+        m_Texture: {fileID: 2800000, guid: 90011fe54c7d6a246906d6d1fe704e28, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_863E8CB0:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_8C974323:
-        m_Texture: {fileID: 2800000, guid: 2c8c004f6be9850428ec7358e2ff870d, type: 3}
+        m_Texture: {fileID: 2800000, guid: de785bedb9aa7f849a285ed7080ad896, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9A9F0150:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_DB331ABB:
-        m_Texture: {fileID: 2800000, guid: 45e706fce9d8e9944a562c402bc73201, type: 3}
+        m_Texture: {fileID: 2800000, guid: 85de755281afb02489fdcec99e7f1b5a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_DDB47210:
@@ -173,6 +173,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_C15DB6D4: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
