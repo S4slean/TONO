@@ -15,8 +15,6 @@ public class Free : Tile
     private TileState oldState;
     public TileState tileState;
 
-    public Free(Vector3 position, float row, float column):base(position, row, column)
-    {}
 
     void OnMouseEnter()
     {

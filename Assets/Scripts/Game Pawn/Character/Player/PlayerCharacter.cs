@@ -13,6 +13,9 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Start()
     {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, LayerMask.GetMask("FreeTile"));
+        playerTile = hit.transform.GetComponent<Tile>();
         rend = GetComponent<Renderer>();
     }
 
@@ -45,7 +48,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void SetDestination(Tile destination)
     {
-        print("Destination : " + destination.coord);
+        print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder.instance.SearchForShortestPath(playerTile, destination);
         Sequence s = DOTween.Sequence();
         foreach(Tile tile in path)
