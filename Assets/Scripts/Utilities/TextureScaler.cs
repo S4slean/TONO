@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class TextureScaler : MonoBehaviour
 {
     private Transform self;
@@ -16,9 +16,9 @@ public class TextureScaler : MonoBehaviour
 
     private void Update()
     {
-        rd.material.SetFloat("Vector1_D5FBFB1E", self.localScale.x );
-        rd.material.SetFloat("Vector1_D8985208", self.localScale.y);
-        rd.material.SetFloat("Vector1_1AE57C88", self.localScale.z);
+        rd.material.SetFloat("_ScaleX", self.localScale.x );
+        rd.material.SetFloat("_ScaleY", self.localScale.y);
+        rd.material.SetFloat("_ScaleZ", self.localScale.z);
     }
 
 
