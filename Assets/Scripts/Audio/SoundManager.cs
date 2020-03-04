@@ -27,12 +27,9 @@ public class SoundManager : MonoBehaviour
         templateReceptacle.transform.parent = transform;
         templateReceptacle.AddComponent<AudioSource>();
 
-
-
         receptaclePool = new Queue<GameObject>();
 
         FillReceptaclePool();
-
     }
 
 
@@ -113,6 +110,5 @@ public class SoundManager : MonoBehaviour
             yield return new WaitForSeconds(source.clip.length);
             RepoolSource(source);
         }
-
     }
 }
