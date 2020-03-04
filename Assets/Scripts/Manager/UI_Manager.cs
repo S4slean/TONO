@@ -13,7 +13,7 @@ public enum UIMode
 public class UI_Manager : MonoBehaviour
 {
     [Header("Cursor Variables")]
-    public CursorIcon cursorPreset;
+    public UI_Presets cursorPreset;
 
     /// <summary>
     /// Player Character actions
@@ -32,23 +32,6 @@ public class UI_Manager : MonoBehaviour
 
 
 
-
-    /// <summary>
-    /// Display character Info UI
-    /// </summary>
-    /// <param name="characterPosition">Player Character concerned</param>
-    public void DisplayCharacterInfo(/*PlayerCharacter*/)
-    {
-
-    }
-
-    /// <summary>
-    /// Hide character info UI
-    /// </summary>
-    public void HideCharacterInfo(/*PlayerCharacter*/)
-    {
-
-    }
 
 
     public void SetCursorIcon(CursorIconMode icon)
