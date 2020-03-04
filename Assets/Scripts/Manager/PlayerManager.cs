@@ -46,7 +46,8 @@ public class PlayerManager : MonoBehaviour
             else if (hit.transform.tag == "FreeTile" && selectedCharacter != null)
             {
                 selectedCharacter.SetDestination(hit.transform.GetComponent<Free>());
-            }            
+                selectedCharacter = null;
+            }
         }
     }
 }

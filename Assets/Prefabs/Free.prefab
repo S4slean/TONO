@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5642725319652559026}
   - component: {fileID: 5642725319652559025}
   - component: {fileID: 5642725319652559036}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Free
   m_TagString: FreeTile
   m_Icon: {fileID: 0}
@@ -106,7 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d39e26f028b3be49a4aded8a2a36a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coord: {x: 0, y: 0, z: 0}
+  rend: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  highlighted: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
