@@ -15,6 +15,7 @@ public class Free : Tile
     private TileState oldState;
     public TileState tileState;
 
+    protected GamePawn pawnOnTile;
 
     void OnMouseEnter()
     {
@@ -58,5 +59,10 @@ public class Free : Tile
             tileState = TileState.Default;
 
         UpdateMaterial();
+    }
+
+    public override void SetPawnOnTile(GamePawn pawn)
+    {
+        pawnOnTile = pawn;
     }
 }

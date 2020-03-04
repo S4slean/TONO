@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : GamePawn
 {
-    private Tile playerTile;
 
     private Renderer rend;
     private Material oldMaterial;
@@ -13,15 +12,12 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Start()
     {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, LayerMask.GetMask("FreeTile"));
-        playerTile = hit.transform.GetComponent<Tile>();
         rend = GetComponent<Renderer>();
     }
 
     public Tile GetPlayerTile()
     {
-        return playerTile;
+        return associatedTile;
     }
     void OnMouseEnter()
     {
@@ -43,13 +39,13 @@ public class PlayerCharacter : MonoBehaviour
 
     public void SetPlayerTile(Tile newTile)
     {
-        playerTile = newTile;
+        associatedTile = newTile;
     }
 
     public void SetDestination(Tile destination)
     {
         print("Destination : " + destination.transform.position);
-        List<Tile> path = Pathfinder.instance.SearchForShortestPath(playerTile, destination);
+        List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
         Sequence s = DOTween.Sequence();
         foreach(Tile tile in path)
         {
@@ -58,7 +54,7 @@ public class PlayerCharacter : MonoBehaviour
                 .OnComplete(() =>
                 {
                     tile.SetInShortestPath(false);
-                    playerTile = tile;
+                    associatedTile = tile;
                 }));              
         }
     }
