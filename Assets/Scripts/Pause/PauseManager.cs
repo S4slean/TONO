@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemieBehaviour : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
