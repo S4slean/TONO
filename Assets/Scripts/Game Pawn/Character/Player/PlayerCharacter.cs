@@ -10,9 +10,10 @@ public class PlayerCharacter : GamePawn
     private Material oldMaterial;
     private bool hovered;
 
-    public void Start()
+    protected override void Start()
     {
         rend = GetComponent<Renderer>();
+        base.Start();
     }
 
     public Tile GetPlayerTile()
@@ -44,8 +45,11 @@ public class PlayerCharacter : GamePawn
 
     public void SetDestination(Tile destination)
     {
-        print("Destination : " + destination.transform.position);
+        //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
+
+        Highlight_Manager.instance.ShowHighlight(path, HighlightMode.Movement);
+
         Sequence s = DOTween.Sequence();
         foreach(Tile tile in path)
         {
@@ -53,8 +57,10 @@ public class PlayerCharacter : GamePawn
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    tile.SetInShortestPath(false);
+                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
+                    associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
+                    associatedTile.SetPawnOnTile(this);
                 }));              
         }
     }
