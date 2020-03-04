@@ -16,6 +16,8 @@ public class Pathfinder : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        else
+            Destroy(gameObject);
     }
 
     public List<Tile> SearchForShortestPath(Tile start, Tile end)
@@ -24,7 +26,7 @@ public class Pathfinder : MonoBehaviour
         End = end;
         TileVisited = 0;
 
-        foreach (Tile tile in TileManager_PlaceHolder.instance.Grid.freeTiles)
+        foreach (Tile tile in GridManager.instance.freeTiles)
         {
             tile.StraightLineDistanceToEnd = tile.StraightLineDistanceTo(end);
         }
@@ -34,8 +36,9 @@ public class Pathfinder : MonoBehaviour
         ShortestPath.Add(end);
         BuildShortestPath(ShortestPath, end);
         ShortestPath.Reverse();
-        print(ShortestPath.Count);
-        HighlightShortestPath();
+        //print(ShortestPath.Count);
+
+        ResetTile();
 
         return ShortestPath;
     }
@@ -82,12 +85,11 @@ public class Pathfinder : MonoBehaviour
         BuildShortestPath(shortestPath, tile.previous);
     }
 
-    private void HighlightShortestPath()
+    public void ResetTile()
     {
-        foreach(Tile tile in ShortestPath)
+        foreach(Tile tile in GridManager.instance.freeTiles)
         {
-            tile.SetInShortestPath(true);
+            tile.Reset();
         }
     }
-
 }

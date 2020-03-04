@@ -3,33 +3,55 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
+
+public struct Neighbours
+{
+    public Tile up;
+    public Tile right;
+    public Tile down;
+    public Tile left;
+}
 public class Tile : MonoBehaviour
 {
 
     //public Color hoverColor;
 
-    protected Renderer rend;
-    protected Material defaultMaterial;
+    //GRAPHIC
+    public Renderer rend;
+    public Material defaultMaterial;
+    public bool highlighted;
 
-    public Vector3 coord;
+    //LOGIC
+    public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
     public Tile previous;
 
-    public bool hovered;
-
     public object Connections { get; internal set; }
-
-    public Tile(Vector3 position, float row, float column)
-    {
-        coord.z = (int)row;
-        coord.x = (int)column;
-    }
 
     void Start()
     {
+        ScanNeighbours();
+
         rend = GetComponent<Renderer>();
         defaultMaterial = rend.material;
+    }
+
+    public void ScanNeighbours()
+    {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.forward, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        if(hit.transform != null)
+            neighbours.up = hit.transform.GetComponent<Tile>();
+        Physics.Raycast(transform.position, Vector3.right, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        if(hit.transform != null)
+            neighbours.right = hit.transform.GetComponent<Tile>();
+        Physics.Raycast(transform.position, Vector3.back, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        if(hit.transform != null)
+            neighbours.down = hit.transform.GetComponent<Tile>();
+        Physics.Raycast(transform.position, Vector3.left, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        if(hit.transform != null)
+            neighbours.left = hit.transform.GetComponent<Tile>();
     }
 
     public float StraightLineDistanceTo(Tile end)
@@ -42,28 +64,36 @@ public class Tile : MonoBehaviour
     {
         List<Tile> res = new List<Tile>();
 
-        if(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z-1,coord.x) is Free && coord.z !=0)
+        if(neighbours.up != null)
         {
-            res.Add(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z - 1, coord.x));
+            res.Add(neighbours.up);
         }
 
-        if(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z+1, coord.x) is Free && coord.z != TileManager_PlaceHolder.instance.Grid.tilemap.GetLength(0))
+        if(neighbours.right != null)
         {
-            res.Add(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z + 1, coord.x));
+            res.Add(neighbours.right);
         }
 
-        if(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z, coord.x - 1) is Free && coord.x != 0)
+        if(neighbours.down != null)
         {
-            res.Add(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z, coord.x - 1));
+            res.Add(neighbours.down);
         }
 
-        if(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z, coord.x + 1) is Free && coord.x != TileManager_PlaceHolder.instance.Grid.tilemap.GetLength(1))
+        if(neighbours.left != null)
         {
-            res.Add(TileManager_PlaceHolder.instance.Grid.GetTile(coord.z, coord.x + 1));
+            res.Add(neighbours.left);
         }
 
         return res;
     }
 
-    public virtual void SetInShortestPath(bool inShortestPath) { }
+    public void Reset()
+    {
+        Visited = false;
+        StraightLineDistanceToEnd = 0f;
+        MinCostToStart = 0f;
+        previous = null;
+    }
+
+    public virtual void SetPawnOnTile(GamePawn pawn) { }
 }
