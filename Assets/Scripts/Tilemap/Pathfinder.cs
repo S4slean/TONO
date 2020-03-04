@@ -37,6 +37,8 @@ public class Pathfinder : MonoBehaviour
         print(ShortestPath.Count);
         HighlightShortestPath();
 
+        ResetTile();
+
         return ShortestPath;
     }
 
@@ -82,9 +84,19 @@ public class Pathfinder : MonoBehaviour
         BuildShortestPath(shortestPath, tile.previous);
     }
 
+    public void ResetTile()
+    {
+        foreach(Tile tile in TileManager_PlaceHolder.instance.Grid.freeTiles)
+        {
+            tile.Reset();
+        }
+    }
+
     private void HighlightShortestPath()
     {
-        foreach(Tile tile in ShortestPath)
+        
+
+        foreach (Tile tile in ShortestPath)
         {
             tile.SetInShortestPath(true);
         }

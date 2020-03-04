@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class TileGrid : MonoBehaviour
 {
     public List<Tile> freeTiles = new List<Tile>();
     public Tile[,] tilemap = new Tile[20,20];
 
-    public Grid(string[,] array)
+    public TileGrid(string[,] array)
     {
         Vector3 position = Vector3.zero;
         Tile newTile = null;

@@ -11,8 +11,8 @@ public class TileManager_PlaceHolder : MonoBehaviour
     public GameObject PlayerPrefab;
     public GameObject container;
 
-    private Grid grid;
-    public Grid Grid { get { return grid; } }
+    private TileGrid grid;
+    public TileGrid Grid { get { return grid; } }
 
     public void Awake()
     {
@@ -40,7 +40,7 @@ public class TileManager_PlaceHolder : MonoBehaviour
                                             { "W", "F", "F", "F", "F", "W", "W", "W", "F", "F", "F", "W", "F", "W", "F", "F", "F", "F", "F", "W"},
                                             { "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}
                                             };
-        this.grid = new Grid(array);
+        this.grid = new TileGrid(array);
     }
 
 }

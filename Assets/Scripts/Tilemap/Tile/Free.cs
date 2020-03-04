@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TileState
+{
+    Default,
+    Hovered,
+    MoveHighlight,
+}
+
 public class Free : Tile
 {
     private bool inShortestPath;
-    private Material oldMaterial;
+    private TileState oldState;
+    public TileState tileState;
 
     public Free(Vector3 position, float row, float column):base(position, row, column)
     {}
@@ -14,26 +22,43 @@ public class Free : Tile
     {
         if(PlayerManager.instance.mouseMask == LayerMask.GetMask("Tile"))
         {
-            hovered = true;
-            oldMaterial = rend.material;
-            rend.material = PlayerManager.instance.hoveringMaterial;
+            oldState = tileState;
+            tileState = TileState.Hovered;
+            UpdateMaterial();
         }
     }
     void OnMouseExit()
     {
-        if (hovered)
+        if (tileState == TileState.Hovered)
         {
-            hovered = false;
-            rend.material = oldMaterial;
+            tileState = oldState;
+            UpdateMaterial();
         }
     }
 
+    void UpdateMaterial()
+    {
+        switch (tileState)
+        {
+            case TileState.Default:
+                rend.material = defaultMaterial;
+                break;
+            case TileState.Hovered:
+                rend.material = PlayerManager.instance.hoveringMaterial;
+                break;
+            case TileState.MoveHighlight:
+                rend.material = PlayerManager.instance.highlightMaterial;
+                break;
+        }
+    }
     public override void SetInShortestPath(bool inShortestPath)
     {
         this.inShortestPath = inShortestPath;
         if(inShortestPath)
-            rend.material = PlayerManager.instance.highlightMaterial;
+            tileState = TileState.MoveHighlight;
         else
-            rend.material = defaultMaterial;
+            tileState = TileState.Default;
+
+        UpdateMaterial();
     }
 }
