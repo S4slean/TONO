@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<EnemieBehaviour> enemyList = new List<EnemieBehaviour>();
+
+    public void GetAllenemies()
     {
-        
+        enemyList = new List<EnemieBehaviour>();
+        EnemieBehaviour[] enemiesArray = GameObject.FindObjectsOfType<EnemieBehaviour>();
+        foreach(EnemieBehaviour en in enemiesArray)
+        {
+            enemyList.Add(en);
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class EnemieBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemieBehaviour()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        name = gameObject.name;
     }
 }
