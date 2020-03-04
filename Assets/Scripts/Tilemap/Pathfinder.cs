@@ -24,7 +24,7 @@ public class Pathfinder : MonoBehaviour
         End = end;
         TileVisited = 0;
 
-        foreach (Tile tile in TileManager_PlaceHolder.instance.Grid.freeTiles)
+        foreach (Tile tile in GridManager.instance.freeTiles)
         {
             tile.StraightLineDistanceToEnd = tile.StraightLineDistanceTo(end);
         }
@@ -86,7 +86,7 @@ public class Pathfinder : MonoBehaviour
 
     public void ResetTile()
     {
-        foreach(Tile tile in TileManager_PlaceHolder.instance.Grid.freeTiles)
+        foreach(Tile tile in GridManager.instance.freeTiles)
         {
             tile.Reset();
         }
