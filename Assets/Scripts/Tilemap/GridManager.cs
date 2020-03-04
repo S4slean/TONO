@@ -20,7 +20,7 @@ public class GridManager : MonoBehaviour
         GetAllTiles();
     }
 
-    private void GetAllTiles()
+    public void GetAllTiles()
     {
         freeTiles = new List<Tile>();
         Tile[] temp = GameObject.FindObjectsOfType<Tile>();

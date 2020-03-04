@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class EnemieBehaviour : MonoBehaviour
 {
-    public EnemieBehaviour()
-    {
-        name = gameObject.name;
-    }
 }
