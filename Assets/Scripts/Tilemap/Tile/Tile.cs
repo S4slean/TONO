@@ -28,8 +28,6 @@ public class Tile : MonoBehaviour
 
     public object Connections { get; internal set; }
 
-
-
     void Start()
     {
         ScanNeighbours();
@@ -97,4 +95,5 @@ public class Tile : MonoBehaviour
     }
 
     public virtual void SetInShortestPath(bool inShortestPath) { }
+    public virtual void SetPawnOnTile(GamePawn pawn) { }
 }
