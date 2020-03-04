@@ -12,5 +12,21 @@ public class GridManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        GetAllTiles();
+    }
+
+    private void GetAllTiles()
+    {
+        freeTiles = new List<Tile>();
+        Tile[] temp = GameObject.FindObjectsOfType<Tile>();
+        foreach (Tile t in temp)
+        {
+            freeTiles.Add(t);
+        }
     }
 }
