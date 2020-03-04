@@ -10,9 +10,10 @@ public class PlayerCharacter : GamePawn
     private Material oldMaterial;
     private bool hovered;
 
-    public void Start()
+    protected override void Start()
     {
         rend = GetComponent<Renderer>();
+        base.Start();
     }
 
     public Tile GetPlayerTile()

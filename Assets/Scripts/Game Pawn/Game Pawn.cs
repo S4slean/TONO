@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class GamePawn : MonoBehaviour
 {
-    protected Tile associatedTile;
+    [SerializeField]protected Tile associatedTile;
+    public LayerMask mask;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    protected virtual void Start()
+    {        
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, LayerMask.GetMask("FreeTile"));
+        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
+        //print("Pawn tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
