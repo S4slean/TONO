@@ -17,8 +17,9 @@ public class Tile : MonoBehaviour
     //public Color hoverColor;
 
     //GRAPHIC
-    protected Renderer rend;
-    [SerializeField]protected Material defaultMaterial;
+    public Renderer rend;
+    public Material defaultMaterial;
+    public bool highlighted;
 
     //LOGIC
     public Neighbours neighbours;
@@ -94,6 +95,5 @@ public class Tile : MonoBehaviour
         previous = null;
     }
 
-    public virtual void SetInShortestPath(bool inShortestPath) { }
     public virtual void SetPawnOnTile(GamePawn pawn) { }
 }

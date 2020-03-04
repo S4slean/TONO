@@ -16,6 +16,8 @@ public class Pathfinder : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        else
+            Destroy(gameObject);
     }
 
     public List<Tile> SearchForShortestPath(Tile start, Tile end)
@@ -35,7 +37,6 @@ public class Pathfinder : MonoBehaviour
         BuildShortestPath(ShortestPath, end);
         ShortestPath.Reverse();
         print(ShortestPath.Count);
-        HighlightShortestPath();
 
         ResetTile();
 
@@ -91,15 +92,4 @@ public class Pathfinder : MonoBehaviour
             tile.Reset();
         }
     }
-
-    private void HighlightShortestPath()
-    {
-        
-
-        foreach (Tile tile in ShortestPath)
-        {
-            tile.SetInShortestPath(true);
-        }
-    }
-
 }
