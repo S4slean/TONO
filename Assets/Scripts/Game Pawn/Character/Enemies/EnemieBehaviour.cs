@@ -9,9 +9,11 @@ public class EnemieBehaviour : GamePawn
 
     public int health = 1;
     public int movementPoints = 0;
+    public Skill meleeAttack;
+    public Skill rangedAttack;
+    public Skill buff;
 
-    private bool _isMyTurn = false;
-    private bool _isDoingSomething = false;
+
     private PlayerCharacter _player;
 
     protected override void Start()
@@ -20,6 +22,13 @@ public class EnemieBehaviour : GamePawn
 
         movementPoints = enemyStats.movement;
         health = enemyStats.health;
+        StartCoroutine(Initialisation());
+    }
+
+    IEnumerator Initialisation()
+    {
+        yield return new WaitForEndOfFrame();
+        _player = PlayerManager.instance.playerCharacter;
     }
 
 
@@ -27,20 +36,14 @@ public class EnemieBehaviour : GamePawn
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _player = PlayerManager.instance.playerCharacter;
-            Debug.Log(PlayerManager.instance.playerCharacter);
-            Debug.Log(IsInLineSight(5));
+            _isMyTurn = !_isMyTurn;
         }
 
         if (_isMyTurn == false) return;
 
         if (!_isDoingSomething)
         {
-
-        }
-        else
-        {
-
+            DecideAction();
         }
     }
 
@@ -51,11 +54,40 @@ public class EnemieBehaviour : GamePawn
         _isMyTurn = true;
     }
 
-    public virtual void DecideAction()
+    public void EndTurn()
     {
 
+    }
 
+    public virtual void DecideAction()
+    {
         _isDoingSomething = true;
+
+        if (IsInMeleeRange())
+        {
+            meleeAttack.Activate(this, _player.GetTile());
+        }
+        else if (IsInLineSight(rangedAttack.range))
+        {
+            rangedAttack.Activate(this, _player.GetTile());
+        }
+        else if (movementPoints > 0)
+        {
+            if (DiceDecision(50))
+            {
+                GetInLineSight(_player.GetTile());
+            }
+            else
+            {
+                GetClose(_player.GetTile());
+            }
+        }
+        else
+        {
+            _isDoingSomething = false;
+
+        }
+
     }
 
     public float GetDistanceFromPlayer()
@@ -72,18 +104,22 @@ public class EnemieBehaviour : GamePawn
         Vector3 dir = _player.transform.position - transform.position;
         dir.Normalize();
         RaycastHit hit;
-        Physics.Raycast(transform.position, dir,out hit, range * 2 );
+        Physics.Raycast(transform.position, dir, out hit, range * 2);
         if (hit.transform == null || hit.transform.tag != "Player")
             return false;
         else
+        {
             return true;
+        }
     }
 
     public bool IsInMeleeRange()
     {
         Tile playerTile = _player.GetTile();
         if (GetTile().neighbours.up == playerTile || GetTile().neighbours.down == playerTile || GetTile().neighbours.left == playerTile || GetTile().neighbours.right == playerTile)
+        {
             return true;
+        }
         else
             return false;
 
@@ -91,13 +127,23 @@ public class EnemieBehaviour : GamePawn
 
     public void GetClose(Tile tile)
     {
-        SetDestination(tile);
+        List<Tile> adjacentTile = _player.GetTile().GetFreeNeighbours();
+        if (adjacentTile.Count > 0)
+        {
+            Tile destination;
+            destination = adjacentTile[Random.Range(0, adjacentTile.Count)];
+            SetDestination(destination);
+        }
+        else
+        {
+            _isDoingSomething = false;
+        }
     }
 
     public void GetInLineSight(Tile target)
     {
         Tile destinaton = GetTile();
-        if(Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
+        if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
         {
             while (destinaton.transform.position.z != target.transform.position.z)
             {
@@ -119,6 +165,7 @@ public class EnemieBehaviour : GamePawn
         }
 
         SetDestination(destinaton);
+
     }
 
     public void DisplayMovementRange()
@@ -135,7 +182,8 @@ public class EnemieBehaviour : GamePawn
     {
         return Random.Range(0, 100) < threshold;
     }
-    
+
+
 
 
 

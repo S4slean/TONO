@@ -1,18 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static MenuManager Instance;
+
+    public int combatsCompleted;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        DataManager.Instance.Load(true, SceneType.menu);
+    }
+
+    public void NewGame()
+    {
+
+    }
+
+    public void Continue()
+    {
+
+    }
+
+    public void StartGame()
+    {
+
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

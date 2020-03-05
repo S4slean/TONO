@@ -31,6 +31,8 @@ public class Tile : MonoBehaviour
 
     public object Connections { get; internal set; }
 
+    protected GamePawn pawnOnTile;
+
     void Start()
     {
         ScanNeighbours();
@@ -98,5 +100,16 @@ public class Tile : MonoBehaviour
         previous = null;
     }
 
-    public virtual void SetPawnOnTile(GamePawn pawn) { }
+    public virtual void SetPawnOnTile(GamePawn pawn)
+    {
+        pawnOnTile = pawn;
+    }
+
+    public virtual GamePawn GetPawnOnTile()
+    {
+        return pawnOnTile;
+    }
+
+
+
 }

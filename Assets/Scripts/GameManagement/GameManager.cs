@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-
     private void Start()
     {
+        DataManager.Instance.Load(true, SceneType.game);
+
         PauseManager.Instance.Initialize();
 
         BrickManager.Instance.Init();
