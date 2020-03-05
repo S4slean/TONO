@@ -8,6 +8,8 @@ public class GamePawn : MonoBehaviour
     [SerializeField]protected Tile associatedTile;
     public LayerMask mask;
 
+    protected int skillPreviewID;
+
     protected virtual void Start()
     {        
         RaycastHit hit;
@@ -20,6 +22,16 @@ public class GamePawn : MonoBehaviour
     public Tile GetTile()
     {
         return associatedTile;
+    }
+
+    public int GetSkillPreviewID()
+    {
+        return skillPreviewID;
+    }
+
+    public void SetPreviewID(int id)
+    {
+        skillPreviewID = id;
     }
 
     void Update()

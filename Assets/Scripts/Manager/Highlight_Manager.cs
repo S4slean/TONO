@@ -13,6 +13,7 @@ public class Highlight_Manager : MonoBehaviour
     public static Highlight_Manager instance;
 
     public List<Material> previewMaterials;
+    private int idKey = 0;
 
     public void Awake()
     {
@@ -22,7 +23,7 @@ public class Highlight_Manager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
+    public int ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
     {
         Material highlightMat = previewMaterials[(int)highlightMode];
         foreach(Tile tile in tilesToHighlight)
@@ -30,6 +31,9 @@ public class Highlight_Manager : MonoBehaviour
             tile.highlighted = true;
             tile.rend.material = highlightMat;
         }
+
+        idKey++;
+        return idKey;
     }
 
     public void HideHighlight(List<Tile> tilesToHide)
