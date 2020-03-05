@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Free : Tile
 {
-    protected GamePawn pawnOnTile;
+
     protected bool hovered;
     public Material materialBeforeHover;
 
     void OnMouseEnter()
     {
-        if(PlayerManager.instance.mouseMask == LayerMask.GetMask("Tile") && isWalkable)
+        if(isWalkable)
         {
             hovered = true;
             materialBeforeHover = rend.material;
@@ -27,8 +27,4 @@ public class Free : Tile
         }
     }
 
-    public override void SetPawnOnTile(GamePawn pawn)
-    {
-        pawnOnTile = pawn;
-    }
 }

@@ -145,3 +145,6 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 8229f25a31b118945b1fcd198e6f9eee, type: 2}
   health: 1
   movementPoints: 0
+  meleeAttack: {fileID: 11400000, guid: 4f37cfbb016f8cc4c9ec371eeb6f0000, type: 2}
+  rangedAttack: {fileID: 11400000, guid: 30ce78c68db51d347b75ad2a8a442d32, type: 2}
+  buff: {fileID: 11400000, guid: e9d4a7bf0549dc24e8265dcfb386e326, type: 2}

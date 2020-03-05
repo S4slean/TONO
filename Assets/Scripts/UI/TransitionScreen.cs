@@ -4,15 +4,48 @@ using UnityEngine;
 
 public class TransitionScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static TransitionScreen Instance;
+    public Animator animator;
+    public float transitionDuration;
+    float transitionCount;
+
+    public GameObject graphics;
+
+    public void PlayTransition()
     {
-        
+        graphics.SetActive(true);
+        animator.SetTrigger("transition");
+        transitionCount = transitionDuration;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndTransition()
     {
-        
+        graphics.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(transitionCount > 0f)
+        {
+            transitionCount -= Time.deltaTime;
+            if(transitionCount <= 0f)
+            {
+                EndTransition();
+            }
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 }
