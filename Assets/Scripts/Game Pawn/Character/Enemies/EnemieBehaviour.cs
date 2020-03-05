@@ -18,12 +18,16 @@ public class EnemieBehaviour : GamePawn
     {
         base.Start();
 
+        _player = PlayerManager.instance.playerCharacter;
         movementPoints = enemyStats.movement;
         health = enemyStats.health;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log(IsInLineSight(5));
+
         if (_isMyTurn == false) return;
 
         if (!_isDoingSomething)
