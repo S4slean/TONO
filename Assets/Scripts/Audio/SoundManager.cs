@@ -9,6 +9,9 @@ public class SoundManager : MonoBehaviour
 
     public Queue<GameObject> receptaclePool;
 
+    public Sound click;
+    public Sound hover;
+
     public float sfxVolume;
 
     private void Awake()

@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class Free : Tile
 {
-    protected GamePawn pawnOnTile;
+
+    protected bool hovered;
+    public Material materialBeforeHover;
 
     void OnMouseEnter()
     {
-        if(PlayerManager.instance.mouseMask == LayerMask.GetMask("Tile"))
+        if(isWalkable)
         {
-            Highlight_Manager.instance.ShowHighlight(new List<Tile> { this }, HighlightMode.Hover);
+            hovered = true;
+            materialBeforeHover = rend.material;
+            rend.material = Highlight_Manager.instance.previewMaterials[0];
         }
     }
     void OnMouseExit()
     {
-        if (highlighted)
+        if (hovered && !highlighted)
         {
-            Highlight_Manager.instance.HideHighlight(new List<Tile> { this });
+            hovered = false;
+            rend.material = materialBeforeHover;
+            materialBeforeHover = null;
         }
     }
 
-    public override void SetPawnOnTile(GamePawn pawn)
-    {
-        pawnOnTile = pawn;
-    }
 }

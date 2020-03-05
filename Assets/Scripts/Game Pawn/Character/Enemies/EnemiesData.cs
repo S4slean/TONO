@@ -6,11 +6,12 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
 
-    public enum EnemyType { Default, Distance, Big}
+    public enum EnemyType { Moussaillon, Captain, Kamikaze, Hooker}
 
     public string enemyName = "Enemy";
     public EnemyType enemyType;
     public int health = 1;
-    public int movement = 3;
+    public int movement = 5;
+    public int action = 7;
 
 }

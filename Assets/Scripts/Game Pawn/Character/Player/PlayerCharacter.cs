@@ -5,36 +5,41 @@ using UnityEngine;
 
 public class PlayerCharacter : GamePawn
 {
-
+    //GRAPHIC
     private Renderer rend;
     private Material oldMaterial;
+
+    //LOGIC
     private bool hovered;
+    public List<Skill> skills = new List<Skill>();
+    private Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
     protected override void Start()
     {
         rend = GetComponent<Renderer>();
         base.Start();
-    }
+        PlayerManager.instance.playerCharacter = this;
 
-    public Tile GetPlayerTile()
-    {
-        return associatedTile;
-    }
-    void OnMouseEnter()
-    {
-        if (PlayerManager.instance.mouseMask == LayerMask.GetMask("Player"))
+        foreach(Skill skill in skills)
         {
-            hovered = true;
-            oldMaterial = rend.material;
-            rend.material = PlayerManager.instance.hoveringMaterial;
+            activatedSkill.Add(skill.name, false);
         }
     }
-    void OnMouseExit()
+
+    public override void OnMouseEnter()
+    {
+        hovered = true;
+        oldMaterial = rend.material;
+        rend.material = Highlight_Manager.instance.previewMaterials[0];
+        ShowMoveRange();
+    }
+    public override void OnMouseExit()
     {
         if (hovered)
         {
             hovered = false;
             rend.material = oldMaterial;
+            HideMoveRange();
         }
     }
 
@@ -43,25 +48,32 @@ public class PlayerCharacter : GamePawn
         associatedTile = newTile;
     }
 
-    public void SetDestination(Tile destination)
+    public void ShowSkillPreview(Skill skill)
     {
-        //print("Destination : " + destination.transform.position);
-        List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
-
-        Highlight_Manager.instance.ShowHighlight(path, HighlightMode.Movement);
-
-        Sequence s = DOTween.Sequence();
-        foreach(Tile tile in path)
+        if (activatedSkill[skill.name])
         {
-            s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
-                    associatedTile.SetPawnOnTile(null);
-                    associatedTile = tile;
-                    associatedTile.SetPawnOnTile(this);
-                }));              
+            Highlight_Manager.instance.HideHighlight(skillPreviewID);
+            activatedSkill[skill.name] = false;
         }
+        else
+        {
+            skill.Preview(this);
+            activatedSkill[skill.name] = true;
+        }
+    }
+
+    public void ShowMoveRange()
+    {
+        SetPreviewID(Highlight_Manager.instance.ShowHighlight(Pathfinder_Dijkstra.instance.SearchForRange(GetTile(), 5, false), HighlightMode.Range));
+    }
+
+    public void HideMoveRange()
+    {
+        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
+    }
+
+    public void ActivateSkill(Skill skill, Tile target)
+    {
+        skill.Activate(this, target);
     }
 }
