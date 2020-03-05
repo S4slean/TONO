@@ -48,5 +48,7 @@ MonoBehaviour:
     saved: 0
     musicVolume: 0
     sfxVolume: 0
+    combatsCompleted: 0
   saved: 0
   wipe: 0
+  levelList: {fileID: 11400000, guid: 0e6e619d617634840b436d262158202c, type: 2}
