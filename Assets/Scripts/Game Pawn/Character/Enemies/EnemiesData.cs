@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
 
     public string enemyName = "Enemy";
     public EnemyType enemyType;
+    public List<Skill> skills;
     public int health = 1;
     public int movement = 3;
 

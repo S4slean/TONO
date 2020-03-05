@@ -6,6 +6,7 @@ public class EnemieBehaviour : GamePawn
 {
     public EnemyData enemyStats;
 
+
     public int health = 1;
     public int movementPoints = 0;
 
@@ -17,9 +18,25 @@ public class EnemieBehaviour : GamePawn
         health = enemyStats.health;
     }
 
-    public void PlayTurn()
+    public virtual void PlayTurn()
     {
 
+    }
+
+    public int GetDistanceFromPlayer()
+    {
+        int dist = 2;
+        return dist;
+    }
+
+    public bool IsInLineSight()
+    {
+        return true;
+    }
+
+    public bool IsInMeleeRange()
+    {
+        return true;
     }
 
     public void GetClose(Tile tile)
@@ -27,23 +44,23 @@ public class EnemieBehaviour : GamePawn
 
     }
 
-    public void GetInRange()
+    public void GetInLineSight(Tile tile)
+    {
+        
+    }
+
+    public void DisplayMovementRange()
     {
 
     }
 
-    public void Drink()
+    public void DisplayAttackRange()
     {
-
+        
     }
 
-    public void Attack()
-    {
+    
 
-    }
 
-    public void ThrowAlcohol()
-    {
 
-    }
 }
