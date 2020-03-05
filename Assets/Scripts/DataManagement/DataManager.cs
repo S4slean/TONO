@@ -84,6 +84,7 @@ public class DataManager : MonoBehaviour
         if (game)
         {
             print("Setting Data Game");
+            data.playerStats = GameManager.Instance.playerStats;
         }
         else
         {
@@ -148,6 +149,8 @@ public class DataManager : MonoBehaviour
         {
             MusicManager.Instance.musicVolume = data.musicVolume;
         }
+
+        GameManager.Instance.playerStats = data.playerStats;
     }
 
 
