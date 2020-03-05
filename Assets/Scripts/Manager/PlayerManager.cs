@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
 
     [HideInInspector]public PlayerCharacter playerCharacter;
-    [HideInInspector] public bool playerIsSelected;
+    [HideInInspector]public bool playerIsSelected;
     [HideInInspector]public Camera cam;
     [HideInInspector]public LayerMask mouseMask;
 

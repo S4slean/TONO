@@ -8,6 +8,8 @@ public class GamePawn : MonoBehaviour
     [SerializeField]protected Tile associatedTile;
     public LayerMask mask;
 
+    protected int skillPreviewID;
+
     protected virtual void Start()
     {        
         RaycastHit hit;
@@ -22,6 +24,16 @@ public class GamePawn : MonoBehaviour
         return associatedTile;
     }
 
+    public int GetSkillPreviewID()
+    {
+        return skillPreviewID;
+    }
+
+    public void SetPreviewID(int id)
+    {
+        skillPreviewID = id;
+    }
+
     void Update()
     {
         
@@ -30,7 +42,7 @@ public class GamePawn : MonoBehaviour
     public void SetDestination(Tile destination, bool showHighlight = false)
     {
         //print("Destination : " + destination.transform.position);
-        List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
         if (showHighlight)
             Highlight_Manager.instance.ShowHighlight(path, HighlightMode.Movement);
