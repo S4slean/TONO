@@ -9,6 +9,7 @@ public class EnemieBehaviour : GamePawn
 
     public int health = 1;
     public int movementPoints = 0;
+    public int actionPoints = 0;
     public Skill meleeAttack;
     public Skill rangedAttack;
     public Skill buff;
@@ -20,8 +21,10 @@ public class EnemieBehaviour : GamePawn
     {
         base.Start();
 
-        movementPoints = enemyStats.movement;
+
         health = enemyStats.health;
+        movementPoints = enemyStats.movement;
+        actionPoints = enemyStats.action;
         StartCoroutine(Initialisation());
     }
 
@@ -52,22 +55,25 @@ public class EnemieBehaviour : GamePawn
     public void PlayTurn()
     {
         _isMyTurn = true;
+        movementPoints = enemyStats.movement;
+        actionPoints = enemyStats.action;
     }
 
     public void EndTurn()
     {
-
+        _isDoingSomething = false;
+        _isMyTurn = false;
     }
 
     public virtual void DecideAction()
     {
         _isDoingSomething = true;
 
-        if (IsInMeleeRange())
+        if (IsInMeleeRange() && actionPoints >= meleeAttack.cost)
         {
             meleeAttack.Activate(this, _player.GetTile());
         }
-        else if (IsInLineSight(rangedAttack.range))
+        else if (IsInLineSight(rangedAttack.range) && actionPoints >= rangedAttack.cost)
         {
             rangedAttack.Activate(this, _player.GetTile());
         }
@@ -81,11 +87,12 @@ public class EnemieBehaviour : GamePawn
             {
                 GetClose(_player.GetTile());
             }
+
+            movementPoints = 0;
         }
         else
         {
-            _isDoingSomething = false;
-
+            EndTurn();
         }
 
     }
