@@ -855,6 +855,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Action
       objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1152287934}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSkillPreview
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Skill, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7185284910787579803, guid: 5fe890a67ff204d46953fafdf0fc9024,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7765,7 +7795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a48691f99e0674cbe8509e835ac627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter: {fileID: 0}
+  playerCharacter: {fileID: 0}
+  playerIsSelected: 0
   cam: {fileID: 0}
   mouseMask:
     serializedVersion: 2
@@ -8481,6 +8512,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1148923126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1152287934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5411019509788784342, guid: a56c89b22f2ae5c4384f96551ee6c1fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 317829867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe653fe071979848a38af293a035b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1152876492
 PrefabInstance:
   m_ObjectHideFlags: 0

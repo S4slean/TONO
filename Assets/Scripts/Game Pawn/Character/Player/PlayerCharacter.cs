@@ -11,13 +11,19 @@ public class PlayerCharacter : GamePawn
 
     //LOGIC
     private bool hovered;
-    List<Skill> skills = new List<Skill>();
+    public List<Skill> skills = new List<Skill>();
+    private Dictionary<Skill, bool> activatedSkill = new Dictionary<Skill, bool>();
 
     protected override void Start()
     {
         rend = GetComponent<Renderer>();
         base.Start();
         PlayerManager.instance.playerCharacter = this;
+
+        foreach(Skill skill in skills)
+        {
+            activatedSkill.Add(skill, false);
+        }
     }
 
     void OnMouseEnter()
@@ -45,7 +51,14 @@ public class PlayerCharacter : GamePawn
 
     public void ShowSkillPreview(Skill skill)
     {
-        skill.Preview(this);
+        if (activatedSkill[skill])
+        {
+            Highlight_Manager.instance.HideHighlight(skillPreviewID);
+        }
+        else
+        {
+            skill.Preview(this);
+        }
     }
 
     public void ActivateSkill(Skill skill, Tile target)

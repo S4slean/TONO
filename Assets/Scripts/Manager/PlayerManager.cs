@@ -33,11 +33,12 @@ public class PlayerManager : MonoBehaviour
         else
             mouseMask = LayerMask.GetMask("Player");
 
-        RaycastHit hit;
-        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
 
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
+            Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
+
             //Debug.Log(hit.transform.tag);
 
             if (hit.transform.tag == "Player")

@@ -54,7 +54,7 @@ public class GamePawn : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
