@@ -9,6 +9,8 @@ public class GamePawn : MonoBehaviour
     public LayerMask mask;
 
     protected int skillPreviewID;
+    protected bool _isMyTurn = false;
+    protected bool _isDoingSomething = false;
 
     protected virtual void Start()
     {        
@@ -59,7 +61,17 @@ public class GamePawn : MonoBehaviour
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
                 }));
+            
         }
+        s.OnComplete(() =>
+        {
+            _isDoingSomething = false;
+        });
+    }
+
+    public void EndAction()
+    {
+        _isDoingSomething = false;
     }
 
 }

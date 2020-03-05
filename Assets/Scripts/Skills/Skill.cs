@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Skill", menuName = "TONO/Skill/DefaultSkill")]
 public class Skill : ScriptableObject
 {
     public enum RangeType {Default ,Line, Cross, Square, X }
@@ -14,7 +15,8 @@ public class Skill : ScriptableObject
 
     public virtual void Activate(GamePawn user, Tile target)
     {
-
+        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name );
+        user.EndAction();
     }
 
     public virtual void Preview(GamePawn user)

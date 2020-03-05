@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Free : Tile
 {
-    protected GamePawn pawnOnTile;
+
     protected bool hovered;
     public Material materialBeforeHover;
 
@@ -27,8 +27,4 @@ public class Free : Tile
         }
     }
 
-    public override void SetPawnOnTile(GamePawn pawn)
-    {
-        pawnOnTile = pawn;
-    }
 }
