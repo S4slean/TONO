@@ -88,6 +88,7 @@ public class Tile : MonoBehaviour
         return res;
     }
 
+
     public void Reset()
     {
         Visited = false;
