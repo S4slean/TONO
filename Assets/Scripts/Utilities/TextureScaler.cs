@@ -7,18 +7,22 @@ public class TextureScaler : MonoBehaviour
 {
     private Transform self;
     private Renderer rd;
+    private MaterialPropertyBlock _propBlock;
 
     public void Awake()
     {
         self = transform;
+        _propBlock = new MaterialPropertyBlock();
         rd = GetComponent<Renderer>();
     }
 
     private void Update()
     {
-        rd.material.SetFloat("_ScaleX", self.localScale.x );
-        rd.material.SetFloat("_ScaleY", self.localScale.y);
-        rd.material.SetFloat("_ScaleZ", self.localScale.z);
+        rd.GetPropertyBlock(_propBlock);
+        _propBlock.SetFloat("_Scale X", self.localScale.x);
+        _propBlock.SetFloat("_Scale Y", self.localScale.y);
+        _propBlock.SetFloat("_Scale z", self.localScale.z);
+        rd.SetPropertyBlock(_propBlock);
     }
 
 
