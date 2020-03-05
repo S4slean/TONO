@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-//[ExecuteInEditMode]
+[ExecuteInEditMode]
 public class TextureScaler : MonoBehaviour
 {
     private Transform self;
@@ -16,7 +17,7 @@ public class TextureScaler : MonoBehaviour
         rd = GetComponent<Renderer>();
     }
 
-    private void Update()
+    public void Update()
     {
         rd.GetPropertyBlock(_propBlock);
         _propBlock.SetFloat("_Scale X", self.localScale.x);
@@ -24,7 +25,23 @@ public class TextureScaler : MonoBehaviour
         _propBlock.SetFloat("_Scale z", self.localScale.z);
         rd.SetPropertyBlock(_propBlock);
     }
-
-
-
 }
+
+[CustomEditor(typeof(TextureScaler))]
+public class TextureScalerEditor : Editor
+{
+
+    public override void OnInspectorGUI()
+    {
+        if(GUILayout.Button("Update Material Scale"))
+        {
+            TextureScaler scaler = serializedObject.targetObject as TextureScaler;
+            //scaler.UpdateMaterial();
+        }
+
+        serializedObject.ApplyModifiedProperties();
+
+        
+    }
+}
+
