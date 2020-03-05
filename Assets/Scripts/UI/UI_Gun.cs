@@ -5,105 +5,61 @@ using UnityEngine.UI;
 
 public class UI_Gun : MonoBehaviour
 {
-    [Header("GUN")]
-    public Image gunImage;
-    public Sprite gunUsableSprite;
-    public Sprite gunReloadSprite;
-
     [Header("BULLETS")]
-    public Transform bulletsParent;
-    List<Image> bulletsImage;
-    public GameObject uiBulletPrefab;
-    public Sprite bulletFullSprite;
-    public Sprite bulletEmptySprite;
+    public Image bulletImage;
+    public RectTransform bulletRect;
 
     [Header("Debug")]
-    public int totalOfBullets;
-    public int currentNumberOfBullets;
+    public bool isLoaded;
 
 
-    //private void Awake()
-    //{
-    //    SetUpBulletCounterUI();
-    //}
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        RefreshUI();
-    //    }
-    //}
+    private void Awake()
+    {
+        SetUpBullet();
+    }
+
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    RefreshUI();
+        //}
+    }
+
+
 
 
     /// <summary>
     /// Call at the beginnning of the game to set the max number 4 Bullets
     /// </summary>
-    public void SetUpBulletCounterUI()
+    public void SetUpBullet()
     {
-        bulletsImage = new List<Image>();
-
-        //Check/Get total bullets number
-        for (int i = 0; i < totalOfBullets; i++)
-        {
-            GameObject obj = Instantiate(uiBulletPrefab, Vector2.zero, Quaternion.identity, bulletsParent);
-            Image image = obj.GetComponent<Image>();
-            RectTransform rect = obj.GetComponent<RectTransform>();
-            rect.anchoredPosition3D = new Vector3((rect.sizeDelta.x * i), 0, 0);
-
-            bulletsImage.Add(image);
-        }
-
+        bulletImage.sprite = UI_Manager.instance.uiPreset.unusedBullet;
         RefreshUI();
     }
 
-    /// <summary>
-    /// Call refresh functions
-    /// </summary>
     public void RefreshUI()
     {
-        RefreshUIBulletsImage();
-        RefreshUIGunImage();
-    }
-
-    public void ShowGunUI()
-    {
-        bulletsParent.gameObject.SetActive(true);
-        gunImage.gameObject.SetActive(true);
-    }
-
-    public void HideGunUI()
-    {
-        bulletsParent.gameObject.SetActive(false);
-        gunImage.gameObject.SetActive(false);
-    }
-
-
-    /// <summary>
-    /// Refresh gun sprite corresponding to the current number of bullets
-    /// </summary>
-    private void RefreshUIGunImage()
-    {
-        //Check bullets number
-        if (currentNumberOfBullets == 0)
-            gunImage.sprite = gunReloadSprite;
-        else
-            gunImage.sprite = gunUsableSprite;
-    }
-
-    /// <summary>
-    /// Refresh bullet(s) sprite(s) corresponding to the current number of bullets
-    /// </summary>
-    private void RefreshUIBulletsImage()
-    {
-        for (int i = 0; i < bulletsImage.Count; i++)
+        if (isLoaded)
         {
-            if (i < currentNumberOfBullets)
-                bulletsImage[i].sprite = bulletFullSprite;
-            else
-                bulletsImage[i].sprite = bulletEmptySprite;
+            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            bulletRect.anchoredPosition3D = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            bulletRect.anchoredPosition3D = new Vector3(0, -10, 0);
         }
     }
 
-    
+    public void ShowBulletUI()
+    {
+        bulletImage.gameObject.SetActive(true);
+    }
+
+    public void HideBulletUI()
+    {
+        bulletImage.gameObject.SetActive(false);
+    }
 }

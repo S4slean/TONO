@@ -7,7 +7,11 @@ public class UI_OrderPanel : MonoBehaviour
 {
     [Header("Icons")]
     public GameObject characterIconPrefab;
+    public RectTransform panelRect;
     List<RectTransform> charactersIcons = new List<RectTransform>();
+
+    //List<RectTransform> characterToRemove = new List<RectTransform>();
+
     public float currentY = 0;
     public float newY = 0;
     public float diffY = 0;
@@ -32,6 +36,7 @@ public class UI_OrderPanel : MonoBehaviour
     private float replaceDisplacement = 50;
     public float replaceMaxTime;
     float replaceCurrentTime;
+
     List<RectTransform> charactersToReplace = new List<RectTransform>();
     List<float> currentsX = new List<float>();
 
@@ -52,9 +57,6 @@ public class UI_OrderPanel : MonoBehaviour
     [Header("Debug")]
     public int numberOfIcons = 5;
     public int removeIconAtIndex = 0;
-
-    public Sprite portrait;
-    public Sprite stickSprite;
 
 
 
@@ -198,8 +200,8 @@ public class UI_OrderPanel : MonoBehaviour
                     charactersToReplace[i].anchoredPosition3D = new Vector3(currentsX[i] + (prefabSize * percent), charactersToReplace[i].anchoredPosition3D.y, charactersToReplace[i].anchoredPosition3D.z);
                 }
 
+                panelRect.anchoredPosition3D = new Vector3(currentY - (prefabSize * percent), panelRect.anchoredPosition3D.y, panelRect.anchoredPosition3D.z);
 
-                    
             }
             else
             {
@@ -210,6 +212,10 @@ public class UI_OrderPanel : MonoBehaviour
         }
     }
 
+    public void CheckRemoveList()
+    {
+
+    }
 
     public void SetUpIcons()
     {
@@ -238,10 +244,10 @@ public class UI_OrderPanel : MonoBehaviour
 
 
             ////Get character TYPE (Ennemy, Player) surement un SWITCH
-            values.backgroundImage.sprite = portrait;
-            values.portraitImage.sprite = portrait;
+            values.backgroundImage.sprite = UI_Manager.instance.uiPreset.playerPortait;
+            values.portraitImage.sprite = UI_Manager.instance.uiPreset.playerPortait;
 
-            values.stickImage.sprite = stickSprite;
+            values.stickImage.sprite = UI_Manager.instance.uiPreset.stick;
             values.stickImage.color = new Color32((byte)255, (byte)0, (byte)0, (byte)255);
 
             charactersIcons.Add(rect);
@@ -284,6 +290,8 @@ public class UI_OrderPanel : MonoBehaviour
                 currentsX.Add(currentY);
                 charactersToReplace.Add(charactersIcons[i]);
             }
+
+            currentY = panelRect.anchoredPosition3D.x;
 
             isReplacing = true;
             isMoving = true;
