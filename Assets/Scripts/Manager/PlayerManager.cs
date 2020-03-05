@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
 
     [HideInInspector]public PlayerCharacter playerCharacter;
-    [HideInInspector]public bool playerIsSelected;
+    [HideInInspector]public bool playerCanMove = true;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
 
@@ -16,20 +16,20 @@ public class PlayerManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        else
+            Destroy(gameObject);
+
+        cam = Camera.main;
+
     }
 
     public void Start()
     {
-        cam = Camera.main;
+
     }
 
     public void Update()
     {
-        if (playerIsSelected)
-            mouseMask = LayerMask.GetMask("Tile");
-        else
-            mouseMask = LayerMask.GetMask("Player");
-
         RaycastHit hit;
         Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
 
@@ -37,19 +37,12 @@ public class PlayerManager : MonoBehaviour
         {
             //Debug.Log(hit.transform.tag);
 
-            if (hit.transform.tag == "Player")
-            {
-                playerCharacter = hit.transform.GetComponentInChildren<PlayerCharacter>();
-                playerIsSelected = true;
-            }
-            else if (hit.transform.tag == "FreeTile" && playerIsSelected)
+            if (hit.transform.tag == "FreeTile")
             {
                 Tile clickedTile = hit.transform.GetComponent<Free>();
                 if (clickedTile.isWalkable)
                 {
                     playerCharacter.SetDestination(clickedTile, true);
-                    playerCharacter = null;
-                    playerIsSelected = false;
                 }
             }
         }

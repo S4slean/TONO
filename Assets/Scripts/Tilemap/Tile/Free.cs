@@ -10,7 +10,7 @@ public class Free : Tile
 
     void OnMouseEnter()
     {
-        if(PlayerManager.instance.mouseMask == LayerMask.GetMask("Tile") && isWalkable)
+        if(isWalkable)
         {
             hovered = true;
             materialBeforeHover = rend.material;

@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
 
     //LOGIC
     public bool isWalkable;
+    public bool isClickable;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
