@@ -10,6 +10,8 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     public int movementPoints = 0;
 
+    private bool _isMyTurn = false;
+    private bool _isDoingSomething = false;
     private PlayerCharacter _player;
 
     protected override void Start()
@@ -20,15 +22,38 @@ public class EnemieBehaviour : GamePawn
         health = enemyStats.health;
     }
 
-    public virtual void PlayTurn()
+    private void Update()
     {
+        if (_isMyTurn == false) return;
 
+        if (!_isDoingSomething)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
-    public int GetDistanceFromPlayer()
+
+
+    public void PlayTurn()
     {
-        int dist = 2;
-        return dist;
+        _isMyTurn = true;
+    }
+
+    public virtual void DecideAction()
+    {
+
+
+        _isDoingSomething = true;
+    }
+
+    public float GetDistanceFromPlayer()
+    {
+        Vector3 dir = _player.transform.position - transform.position;
+        return dir.magnitude / 2;
     }
 
     public bool IsInLineSight(int range)
@@ -40,7 +65,10 @@ public class EnemieBehaviour : GamePawn
         dir.Normalize();
         RaycastHit hit;
         Physics.Raycast(transform.position, dir,out hit, range * 2 );
-        return true;
+        if (hit.transform == null || hit.transform.tag != "Player")
+            return false;
+        else
+            return true;
     }
 
     public bool IsInMeleeRange()
@@ -90,9 +118,9 @@ public class EnemieBehaviour : GamePawn
 
     }
 
-    public void DisplayAttackRange()
+    public void DiplaySkillRange(Skill skill)
     {
-        
+        skill.Preview(this);
     }
 
     public bool DiceDecision(int threshold)
