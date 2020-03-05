@@ -10,7 +10,7 @@ public class DataManager : MonoBehaviour
 
     public string path;
 
-    public Data data = new Data();
+    public GameData data = new GameData();
 
     public bool saved;
 
@@ -36,7 +36,7 @@ public class DataManager : MonoBehaviour
 
     void Wipe()
     {
-        data = new Data();
+        data = new GameData();
     }
 
     void SetPath()
@@ -44,15 +44,14 @@ public class DataManager : MonoBehaviour
         path = Path.Combine(Application.persistentDataPath, "data.json");
     }
 
-    public void Save(bool game)
+    public void Save(SceneType sceneType)
     {
         if(SavingIcon.Instance)
         {
             SavingIcon.Instance.PlaySaveAnimation();
         }
 
-        //print("Saving");
-        SetData(game);
+        SetData(sceneType);
 
         if(!data.saved)
         {
@@ -69,9 +68,9 @@ public class DataManager : MonoBehaviour
         SerializeData();
     }
 
-    void SetData(bool game)
+    void SetData(SceneType sceneType)
     {
-        //sounds & music
+        //generic
         if (SoundManager.Instance)
         {
             data.sfxVolume = SoundManager.Instance.sfxVolume;
@@ -81,13 +80,17 @@ public class DataManager : MonoBehaviour
             data.musicVolume = MusicManager.Instance.musicVolume;
         }
 
-        if (game)
+        if (sceneType == SceneType.game)
         {
-            print("Setting Data Game");
+            data.playerStats = GameManager.Instance.playerStats;
+        }
+        else if(sceneType == SceneType.map)
+        {
+
         }
         else
         {
-            print("Setting Data Menu");
+            
         }
     }
 
@@ -97,7 +100,7 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path, dataString);
     }
 
-    public void Load(bool exploits, bool game)
+    public void Load(bool exploits, SceneType sceneType)
     {
         if (File.Exists(path))
         {
@@ -105,7 +108,7 @@ public class DataManager : MonoBehaviour
         }
         else
         {
-            data = new Data();
+            data = new GameData();
         }
 
         if (wipe)
@@ -116,14 +119,7 @@ public class DataManager : MonoBehaviour
         {
             if (exploits)
             {
-                if (game)
-                {
-                    ExploitDataGame();
-                }
-                else
-                {
-                    ExploitDataMenu();
-                }
+                ExploitData(sceneType);
             }
         }
 
@@ -132,14 +128,12 @@ public class DataManager : MonoBehaviour
     public void DeserializeData()
     {
         string loadedString = File.ReadAllText(path);
-        data = JsonUtility.FromJson<Data>(loadedString);
+        data = JsonUtility.FromJson<GameData>(loadedString);
     }
 
-    public void ExploitDataGame()
+    public void ExploitData(SceneType sceneType)
     {
-        print("Exploiting Data Game");
-
-        //sounds & music
+        //generic behaviors
         if (SoundManager.Instance)
         {
             SoundManager.Instance.sfxVolume = data.sfxVolume;
@@ -148,21 +142,26 @@ public class DataManager : MonoBehaviour
         {
             MusicManager.Instance.musicVolume = data.musicVolume;
         }
-    }
 
-
-    public void ExploitDataMenu()
-    {
-        print("Exploiting Data Menu");
-
-        //sounds & music
-        if(SoundManager.Instance)
+        //specific behaviors
+        if (sceneType == SceneType.game)
         {
-            SoundManager.Instance.sfxVolume = data.sfxVolume;
+            GameManager.Instance.playerStats = data.playerStats;
         }
-        if(MusicManager.Instance)
+        else if(sceneType == SceneType.map)
         {
-            MusicManager.Instance.musicVolume = data.musicVolume;
+
+        }
+        else
+        {
+            MenuManager.Instance.combatsCompleted = data.combatsCompleted;
         }
     }
+}
+
+public enum SceneType
+{
+    game,
+    map,
+    menu
 }
