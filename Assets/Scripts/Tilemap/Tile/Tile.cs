@@ -22,6 +22,7 @@ public class Tile : MonoBehaviour
     public bool highlighted;
 
     //LOGIC
+    public bool isWalkable;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
@@ -64,22 +65,22 @@ public class Tile : MonoBehaviour
     {
         List<Tile> res = new List<Tile>();
 
-        if(neighbours.up != null)
+        if(neighbours.up != null && neighbours.up.isWalkable)
         {
             res.Add(neighbours.up);
         }
 
-        if(neighbours.right != null)
+        if(neighbours.right != null && neighbours.right.isWalkable)
         {
             res.Add(neighbours.right);
         }
 
-        if(neighbours.down != null)
+        if(neighbours.down != null && neighbours.down.isWalkable)
         {
             res.Add(neighbours.down);
         }
 
-        if(neighbours.left != null)
+        if(neighbours.left != null && neighbours.left.isWalkable)
         {
             res.Add(neighbours.left);
         }

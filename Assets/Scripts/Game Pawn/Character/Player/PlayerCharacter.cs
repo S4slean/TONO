@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class PlayerCharacter : GamePawn
 {
-
+    //GRAPHIC
     private Renderer rend;
     private Material oldMaterial;
+
+    //LOGIC
     private bool hovered;
+    List<Skill> skills = new List<Skill>();
 
     protected override void Start()
     {
@@ -16,10 +19,7 @@ public class PlayerCharacter : GamePawn
         base.Start();
     }
 
-    public Tile GetPlayerTile()
-    {
-        return associatedTile;
-    }
+
     void OnMouseEnter()
     {
         if (PlayerManager.instance.mouseMask == LayerMask.GetMask("Player"))
@@ -43,25 +43,8 @@ public class PlayerCharacter : GamePawn
         associatedTile = newTile;
     }
 
-    public void SetDestination(Tile destination)
+    public void ActivateSkillPreview(Skill skill)
     {
-        //print("Destination : " + destination.transform.position);
-        List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
 
-        Highlight_Manager.instance.ShowHighlight(path, HighlightMode.Movement);
-
-        Sequence s = DOTween.Sequence();
-        foreach(Tile tile in path)
-        {
-            s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
-                    associatedTile.SetPawnOnTile(null);
-                    associatedTile = tile;
-                    associatedTile.SetPawnOnTile(this);
-                }));              
-        }
     }
 }

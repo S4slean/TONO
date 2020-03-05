@@ -7,7 +7,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
-    [HideInInspector]public PlayerCharacter selectedCharacter = null;
+    [HideInInspector]public PlayerCharacter playerCharacter;
+    [HideInInspector] public bool playerIsSelected;
     [HideInInspector]public Camera cam;
     [HideInInspector]public LayerMask mouseMask;
 
@@ -27,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
-        if (selectedCharacter != null)
+        if (playerCharacter != null)
             mouseMask = LayerMask.GetMask("Tile");
         else
             mouseMask = LayerMask.GetMask("Player");
@@ -41,12 +42,16 @@ public class PlayerManager : MonoBehaviour
 
             if (hit.transform.tag == "Player")
             {
-                selectedCharacter = hit.transform.GetComponentInChildren<PlayerCharacter>();
+                playerCharacter = hit.transform.GetComponentInChildren<PlayerCharacter>();
             }
-            else if (hit.transform.tag == "FreeTile" && selectedCharacter != null)
+            else if (hit.transform.tag == "FreeTile" && playerIsSelected)
             {
-                selectedCharacter.SetDestination(hit.transform.GetComponent<Free>());
-                selectedCharacter = null;
+                Tile clickedTile = hit.transform.GetComponent<Free>();
+                if (clickedTile.isWalkable)
+                {
+                    playerCharacter.SetDestination(clickedTile, true);
+                    playerCharacter = null;
+                }
             }
         }
     }

@@ -26,6 +26,11 @@ public class GridManager : MonoBehaviour
         Tile[] temp = GameObject.FindObjectsOfType<Tile>();
         foreach (Tile t in temp)
         {
+            if (t is Water)
+                t.isWalkable = false;
+            else
+                t.isWalkable = true;
+
             freeTiles.Add(t);
         }
     }
