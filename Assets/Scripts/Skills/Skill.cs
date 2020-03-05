@@ -8,9 +8,16 @@ public class Skill : ScriptableObject
 
     public RangeType rangeType;
     public int range;
+    public string skillName;
+    public string description;
 
 
-    public virtual void Activate()
+    public virtual void Activate(GamePawn user, Tile target)
+    {
+
+    }
+
+    public virtual void Preview(GamePawn user)
     {
 
     }

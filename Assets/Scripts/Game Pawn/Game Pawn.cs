@@ -17,7 +17,7 @@ public class GamePawn : MonoBehaviour
         associatedTile.SetPawnOnTile(this);
     }
 
-    public Tile GetPlayerTile()
+    public Tile GetTile()
     {
         return associatedTile;
     }
