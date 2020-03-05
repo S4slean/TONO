@@ -13,7 +13,7 @@ public enum UIMode
 public class UI_Manager : MonoBehaviour
 {
     [Header("Cursor Variables")]
-    public UI_Presets cursorPreset;
+    public UI_Presets uiPreset;
 
     /// <summary>
     /// Player Character actions
@@ -39,15 +39,15 @@ public class UI_Manager : MonoBehaviour
         switch(icon)
         {
             case CursorIconMode.Select:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
                 break;
 
             case CursorIconMode.MoveTo:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
                 break;
 
             case CursorIconMode.Fire:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
                 break;
 
             case CursorIconMode.Invisible:
@@ -56,10 +56,6 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void DisplayRoundPanel()
-    {
-
-    }
 
     public void SetNextPhase()
     {

@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UI_ActionPanelBehaviour : MonoBehaviour
 {
     [Header("Panel References")]
     public GameObject actionButtonPrefab;
-    public RectTransform rect;
-    List<GameObject> actionGO;
+    public RectTransform uiRect;
+    List<GameObject> actionGO = new List<GameObject>();
+
     float actionSpace = 0;
     bool isDisplayed = false;
 
+    public UI_ActionButton selectedAction;
+
+
     [Header("Debug")]
-    public int numberOfAcions;
+    public int numberOfActions;
+
 
 
     private void Awake()
@@ -22,63 +28,118 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
         actionSpace = actionButtonPrefab.GetComponent<RectTransform>().sizeDelta.x;
     }
 
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    CleanPanel();
+        //    SetUpPanel();
+        //}
+    }
+
+
+
+    public void SetUpTooltip(UI_ActionButton action)
+    {
+
+    }
+
+
+    #region DEBUG
+    public void Move()
+    {
+        Debug.Log("MOVE");
+    }
+
+    public void JUMP()
+    {
+        Debug.Log("JUMP");
+    }
+
+    public void SHOOT()
+    {
+        Debug.Log("SHOOT");
+    }
+
+    public void RELOAD()
+    {
+        Debug.Log("RELOAD");
+    }
+
+    public void SMOKE()
+    {
+        Debug.Log("SMOKE");
+    }
+    #endregion
+
+
+    /// <summary>
+    /// Set Up panel action corresponding to a Character
+    /// </summary>
     private void SetUpPanel()
     {
         isDisplayed = true;
 
-        if (numberOfAcions == 0)
+        float xStart = 0;
+        
+
+
+        if (numberOfActions != 0)
+            xStart = (actionSpace / 2) * (numberOfActions - 1);
+
+        uiRect.anchoredPosition3D = new Vector3(-xStart, -245, 0);
+
+        if (numberOfActions == 0)
             return;
+
 
         actionGO = new List<GameObject>();
 
         //Set action panel
-        for (int i = 0; i < numberOfAcions; i++)
+        for (int i = 0; i < numberOfActions; i++)
         {
             GameObject obj = Instantiate(actionButtonPrefab, Vector3.zero, Quaternion.identity, this.transform);
+            UI_ActionButton actionButton = obj.GetComponent<UI_ActionButton>();
+            actionButton.rect.anchoredPosition3D = new Vector3(actionSpace * (i), 0, 0);
 
-            RectTransform rect = obj.GetComponent<RectTransform>();
-            rect.anchoredPosition3D = new Vector3(0, actionSpace * (i + 1), 0);
+            //Set tooltip information 4 action
+            SetUpTooltip(actionButton);
 
-            TextMeshProUGUI text = obj.GetComponentInChildren<TextMeshProUGUI>();
-            //Get list of actions from cell data (ennemy, player, object, or empty path)
-            text.text = "action " + i + 1;
 
             Button button = obj.GetComponent<Button>();
-            //Add listener corresponding to each action
-            button.onClick.AddListener(() => Debug.Log(text.text));
+            //Add listener corresponding to each action SWITCH
+
+            switch(i)
+            {
+                case 0:
+                    button.onClick.AddListener(Move);
+                    break;
+
+                case 1:
+                    button.onClick.AddListener(JUMP);
+                    break;
+
+                case 2:
+                    button.onClick.AddListener(SHOOT);
+                    break;
+
+                case 3:
+                    button.onClick.AddListener(RELOAD);
+                    break;
+
+                default:
+                    break;
+            }
 
             actionGO.Add(obj);
         }
-
-        /*
-         * Check player character possibilities
-         * 
-         * ON PLAYER________
-         * RELOAD - if currentNumberOfBullets < totalNumberOfBullets && enough PA
-         * ATTACK - if ennemy near && enough PA
-         * THROW - if object near && enough PA
-         * PASS - if passable object near && enough PA
-         * WAIT
-         * 
-         * ON ENNEMY________
-         * THROW - if enough PA
-         * ATTACK
-         * 
-         * ON INTERACTABLE OBJECT/COMBUSTIBLE_______
-         * WAIT
-         * FIRE - if enough bullet
-         * 
-         * ON EMPTY________
-         * WAIT
-         * 
-         * ON ALL
-         * CANCEL
-         */
     }
 
+    /// <summary>
+    /// Clear panel
+    /// </summary>
     private void CleanPanel()
     {
-
         if (actionGO.Count == 0)
         {
             isDisplayed = false;
@@ -91,6 +152,9 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Clear then call the setUp function
+    /// </summary>
     public void ShowPanelAction()
     {
         /////Get list of Actions/////
@@ -101,6 +165,9 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
         SetUpPanel();
     }
 
+    /// <summary>
+    /// Call clear function
+    /// </summary>
     public void HidePanelAction()
     {
         CleanPanel();
