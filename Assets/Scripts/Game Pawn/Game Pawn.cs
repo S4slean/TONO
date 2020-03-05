@@ -9,6 +9,8 @@ public class GamePawn : MonoBehaviour
     public LayerMask mask;
 
     protected int skillPreviewID;
+    protected bool _isMyTurn = false;
+    protected bool _isDoingSomething = false;
 
     protected virtual void Start()
     {        
@@ -18,6 +20,9 @@ public class GamePawn : MonoBehaviour
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
     }
+
+    public virtual void OnMouseEnter() { }
+    public virtual void OnMouseExit() { }
 
     public Tile GetTile()
     {
@@ -54,12 +59,22 @@ public class GamePawn : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
+                    associatedTile.highlighted = false;
                 }));
+            
         }
+        s.OnComplete(() =>
+        {
+            _isDoingSomething = false;
+        });
     }
 
+    public void EndAction()
+    {
+        _isDoingSomething = false;
+    }
 }
