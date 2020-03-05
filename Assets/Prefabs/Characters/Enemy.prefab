@@ -138,3 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4153c5247ae3648499a869261232a515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  associatedTile: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 1536
+  enemyStats: {fileID: 11400000, guid: 8229f25a31b118945b1fcd198e6f9eee, type: 2}
+  health: 1
+  movementPoints: 0

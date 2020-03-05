@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Default
+  m_Name: DefaultEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Default
+  enemyName: Enemy
   enemyType: 0
+  skills: []
   health: 1
   movement: 3
