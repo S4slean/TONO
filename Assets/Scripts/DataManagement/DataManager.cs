@@ -16,6 +16,8 @@ public class DataManager : MonoBehaviour
 
     public bool wipe;
 
+    public LevelList levelList;
+
     private void Awake()
     {
         if (Instance == null)
@@ -80,6 +82,12 @@ public class DataManager : MonoBehaviour
             data.musicVolume = MusicManager.Instance.musicVolume;
         }
 
+        if(LevelManager.levelProgresses != null)
+        {
+            data.levelProgresses = LevelManager.levelProgresses;
+        }
+
+
         if (sceneType == SceneType.game)
         {
             data.playerStats = GameManager.Instance.playerStats;
@@ -141,6 +149,18 @@ public class DataManager : MonoBehaviour
         if (MusicManager.Instance)
         {
             MusicManager.Instance.musicVolume = data.musicVolume;
+        }
+
+        if(data.levelProgresses != null)
+        {
+            LevelManager.levelProgresses = data.levelProgresses;
+        }
+        else
+        {
+            if(LevelManager.levelProgresses == null)
+            {
+                LevelManager.InitializeLevelProgresses(levelList);
+            }
         }
 
         //specific behaviors

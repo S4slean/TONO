@@ -13,5 +13,6 @@ public class GameData
     public int combatsCompleted;
 
     public PlayerStats playerStats;
+    public LevelProgress[] levelProgresses;
 }
 
