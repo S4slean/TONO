@@ -17,8 +17,8 @@ public class PlayerCharacter : GamePawn
     {
         rend = GetComponent<Renderer>();
         base.Start();
+        PlayerManager.instance.playerCharacter = this;
     }
-
 
     void OnMouseEnter()
     {
@@ -43,8 +43,13 @@ public class PlayerCharacter : GamePawn
         associatedTile = newTile;
     }
 
-    public void ActivateSkillPreview(Skill skill)
+    public void ShowSkillPreview(Skill skill)
     {
+        skill.Preview(this);
+    }
 
+    public void ActivateSkill(Skill skill, Tile target)
+    {
+        skill.Activate(this, target);
     }
 }

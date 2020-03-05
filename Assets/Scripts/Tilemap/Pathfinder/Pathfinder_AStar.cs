@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Pathfinder : MonoBehaviour
+public class Pathfinder_AStar : MonoBehaviour
 {
-    public static Pathfinder instance;
+    public static Pathfinder_AStar instance;
 
     private Tile Start, End;
     public int TileVisited = 0;
