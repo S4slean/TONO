@@ -12,7 +12,7 @@ public class PlayerCharacter : GamePawn
     //LOGIC
     private bool hovered;
     public List<Skill> skills = new List<Skill>();
-    private Dictionary<Skill, bool> activatedSkill = new Dictionary<Skill, bool>();
+    private Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
     protected override void Start()
     {
@@ -22,20 +22,20 @@ public class PlayerCharacter : GamePawn
 
         foreach(Skill skill in skills)
         {
-            activatedSkill.Add(skill, false);
+            activatedSkill.Add(skill.name, false);
         }
     }
 
-    void OnMouseEnter()
+    public override void OnMouseEnter()
     {
         if (PlayerManager.instance.mouseMask == LayerMask.GetMask("Player"))
         {
             hovered = true;
             oldMaterial = rend.material;
-            rend.material = PlayerManager.instance.hoveringMaterial;
+            rend.material = Highlight_Manager.instance.previewMaterials[0];
         }
     }
-    void OnMouseExit()
+    public override void OnMouseExit()
     {
         if (hovered)
         {
@@ -51,14 +51,21 @@ public class PlayerCharacter : GamePawn
 
     public void ShowSkillPreview(Skill skill)
     {
-        if (activatedSkill[skill])
+        if (activatedSkill[skill.name])
         {
             Highlight_Manager.instance.HideHighlight(skillPreviewID);
+            activatedSkill[skill.name] = false;
         }
         else
         {
             skill.Preview(this);
+            activatedSkill[skill.name] = true;
         }
+    }
+
+    public void ShowMoveRange()
+    {
+        //SetPreviewID(Highlight_Manager.instance.ShowHighlight(Pathfinder_Dijkstra.instance.SearchForRange(GetTile(), range, false), HighlightMode.Range));
     }
 
     public void ActivateSkill(Skill skill, Tile target)

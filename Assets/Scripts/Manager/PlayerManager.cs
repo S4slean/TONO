@@ -10,10 +10,7 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]public PlayerCharacter playerCharacter;
     [HideInInspector]public bool playerIsSelected;
     [HideInInspector]public Camera cam;
-    [HideInInspector]public LayerMask mouseMask;
-
-    public Material hoveringMaterial;
-    public Material highlightMaterial;
+    public LayerMask mouseMask;
 
     public void Awake()
     {
@@ -28,22 +25,22 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
-        if (playerCharacter != null)
+        if (playerIsSelected)
             mouseMask = LayerMask.GetMask("Tile");
         else
             mouseMask = LayerMask.GetMask("Player");
 
+        RaycastHit hit;
+        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
-
             //Debug.Log(hit.transform.tag);
 
             if (hit.transform.tag == "Player")
             {
                 playerCharacter = hit.transform.GetComponentInChildren<PlayerCharacter>();
+                playerIsSelected = true;
             }
             else if (hit.transform.tag == "FreeTile" && playerIsSelected)
             {
@@ -52,6 +49,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     playerCharacter.SetDestination(clickedTile, true);
                     playerCharacter = null;
+                    playerIsSelected = false;
                 }
             }
         }

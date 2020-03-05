@@ -19,6 +19,9 @@ public class GamePawn : MonoBehaviour
         associatedTile.SetPawnOnTile(this);
     }
 
+    public virtual void OnMouseEnter() { }
+    public virtual void OnMouseExit() { }
+
     public Tile GetTile()
     {
         return associatedTile;
@@ -54,12 +57,12 @@ public class GamePawn : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    associatedTile.rend.material = associatedTile.defaultMaterial;
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
+                    associatedTile.highlighted = false;
                 }));
         }
     }
-
 }

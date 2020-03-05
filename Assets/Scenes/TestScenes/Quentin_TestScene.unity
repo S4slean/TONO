@@ -885,6 +885,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Skill, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7185284910787579802, guid: 5fe890a67ff204d46953fafdf0fc9024,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ea2b5f9130c4364a84c0156d8583dbf,
+        type: 2}
     - target: {fileID: 7185284910787579803, guid: 5fe890a67ff204d46953fafdf0fc9024,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2134,6 +2140,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5411019509788784342, guid: a56c89b22f2ae5c4384f96551ee6c1fc,
+        type: 3}
+      propertyPath: skills.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411019509788784342, guid: a56c89b22f2ae5c4384f96551ee6c1fc,
+        type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ea2b5f9130c4364a84c0156d8583dbf,
+        type: 2}
     - target: {fileID: 6377274619040127272, guid: a56c89b22f2ae5c4384f96551ee6c1fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4912,6 +4929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760071616}
   - component: {fileID: 760071617}
+  - component: {fileID: 760071618}
   m_Layer: 0
   m_Name: Pathfinder
   m_TagString: Untagged
@@ -4943,6 +4961,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ee99e945d17c664291c497ba5aa8739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileVisited: 0
+--- !u!114 &760071618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760071615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0bebb42a865f542972a567e6d93e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TileVisited: 0

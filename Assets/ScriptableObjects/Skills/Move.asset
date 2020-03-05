@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Move
   m_EditorClassIdentifier: 
   rangeType: 0
-  range: 0
-  skillName: 
+  range: 5
+  skillName: Move
   description: 
