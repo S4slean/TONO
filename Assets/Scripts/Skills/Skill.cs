@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skill : ScriptableObject
 {
-    public enum RangeType {Line, Cross, Square, X }
+    public enum RangeType {Default ,Line, Cross, Square, X }
 
     public RangeType rangeType;
     public int range;
