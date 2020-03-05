@@ -9,5 +9,7 @@ public class Data
 
     public float musicVolume;
     public float sfxVolume;
+
+    public PlayerStats playerStats;
 }
 
