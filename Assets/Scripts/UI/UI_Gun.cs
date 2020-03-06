@@ -14,7 +14,7 @@ public class UI_Gun : MonoBehaviour
 
 
 
-    private void Awake()
+    private void Start()
     {
         SetUpBullet();
     }
