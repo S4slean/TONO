@@ -36,10 +36,13 @@ public class PlayerCharacter : GamePawn
 
     public override void OnMouseEnter()
     {
-        hovered = true;
-        oldMaterial = rend.material;
-        rend.material = Highlight_Manager.instance.previewMaterials[0];
-        ShowMoveRange();
+        if(PlayerManager.instance.hoverMode == HoverMode.MovePath)
+        {
+            hovered = true;
+            oldMaterial = rend.material;
+            rend.material = Highlight_Manager.instance.hoverMat;
+            ShowMoveRange();
+        }
     }
     public override void OnMouseExit()
     {
@@ -79,7 +82,7 @@ public class PlayerCharacter : GamePawn
 
     public void ShowMoveRange()
     {
-        SetPreviewID(Highlight_Manager.instance.ShowHighlight(range, HighlightMode.MoveRangePreview));
+        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview));
     }
 
     public void HideMoveRange()
@@ -95,12 +98,12 @@ public class PlayerCharacter : GamePawn
     public void InitializeAllSkillRange(Tile destination)
     {
         //Move Range
-        foreach (Tile tile in range)
+        foreach (Tile tile in moveRange)
         {
             tile.isClickable = false;
         }
-        range = Pathfinder_Dijkstra.instance.SearchForRange(destination, 5, false);
-        foreach (Tile tile in range)
+        moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, 5, false);
+        foreach (Tile tile in moveRange)
         {
             tile.isClickable = true;
         }
