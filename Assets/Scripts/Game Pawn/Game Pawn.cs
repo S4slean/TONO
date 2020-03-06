@@ -7,6 +7,11 @@ public class GamePawn : MonoBehaviour
 {
     [SerializeField]protected Tile associatedTile;
     public LayerMask mask;
+    [HideInInspector] public List<Tile> range = new List<Tile>();
+
+    protected int skillPreviewID;
+    protected bool _isMyTurn = false;
+    protected bool _isDoingSomething = false;
 
     protected virtual void Start()
     {        
@@ -15,11 +20,25 @@ public class GamePawn : MonoBehaviour
         //print("Pawn tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
+
     }
+
+    public virtual void OnMouseEnter() { }
+    public virtual void OnMouseExit() { }
 
     public Tile GetTile()
     {
         return associatedTile;
+    }
+
+    public int GetSkillPreviewID()
+    {
+        return skillPreviewID;
+    }
+
+    public void SetPreviewID(int id)
+    {
+        skillPreviewID = id;
     }
 
     void Update()
@@ -27,13 +46,13 @@ public class GamePawn : MonoBehaviour
         
     }
 
-    public void SetDestination(Tile destination, bool showHighlight = false)
+    public virtual void SetDestination(Tile destination, bool showHighlight = false)
     {
         //print("Destination : " + destination.transform.position);
-        List<Tile> path = Pathfinder.instance.SearchForShortestPath(associatedTile, destination);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
         if (showHighlight)
-            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.Movement);
+            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
@@ -42,12 +61,23 @@ public class GamePawn : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    Highlight_Manager.instance.HideHighlight(new List<Tile> { tile });
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
+                    associatedTile.highlighted = false;
                 }));
+            
         }
+
+        s.OnComplete(() =>
+        {
+            _isDoingSomething = false;
+        });
     }
 
+    public void EndAction()
+    {
+        _isDoingSomething = false;
+    }
 }

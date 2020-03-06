@@ -23,12 +23,15 @@ public class Tile : MonoBehaviour
 
     //LOGIC
     public bool isWalkable;
+    public bool isClickable;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
     public Tile previous;
 
     public object Connections { get; internal set; }
+
+    protected GamePawn pawnOnTile;
 
     void Start()
     {
@@ -97,5 +100,16 @@ public class Tile : MonoBehaviour
         previous = null;
     }
 
-    public virtual void SetPawnOnTile(GamePawn pawn) { }
+    public virtual void SetPawnOnTile(GamePawn pawn)
+    {
+        pawnOnTile = pawn;
+    }
+
+    public virtual GamePawn GetPawnOnTile()
+    {
+        return pawnOnTile;
+    }
+
+
+
 }

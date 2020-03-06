@@ -5,14 +5,20 @@ using UnityEngine;
 public enum HighlightMode
 {
     Hover,
-    Movement,
-    Range
+    MoveHighlight,
+    MoveRangePreview,
+    ActionPreview,
+    ActionHighlight
 }
 public class Highlight_Manager : MonoBehaviour
 {
     public static Highlight_Manager instance;
 
     public List<Material> previewMaterials;
+    private int idKey = 0;
+
+    //LOGIC
+    Dictionary<int, List<Tile>> highlights = new Dictionary<int, List<Tile>>();
 
     public void Awake()
     {
@@ -22,7 +28,7 @@ public class Highlight_Manager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
+    public int ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
     {
         Material highlightMat = previewMaterials[(int)highlightMode];
         foreach(Tile tile in tilesToHighlight)
@@ -30,15 +36,20 @@ public class Highlight_Manager : MonoBehaviour
             tile.highlighted = true;
             tile.rend.material = highlightMat;
         }
+
+        idKey++;
+        highlights.Add(idKey, tilesToHighlight);
+
+        return idKey;
     }
 
-    public void HideHighlight(List<Tile> tilesToHide)
+    public void HideHighlight(int id)
     {
-        foreach(Tile tile in tilesToHide)
+        foreach(Tile tile in highlights[id])
         {
             tile.highlighted = false;
             tile.rend.material = tile.defaultMaterial;
         }
+        //Suppr la liste de highlights
     }
-
 }
