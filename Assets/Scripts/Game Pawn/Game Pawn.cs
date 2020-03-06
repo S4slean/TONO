@@ -46,10 +46,13 @@ public class GamePawn : MonoBehaviour
         
     }
 
-    public virtual void SetDestination(Tile destination)
+    public virtual void SetDestination(Tile destination, bool showHighlight = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
+
+        if (showHighlight)
+            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
