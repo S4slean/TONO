@@ -12,8 +12,7 @@ public enum UIMode
 
 public class UI_Manager : MonoBehaviour
 {
-    [Header("Cursor Variables")]
-    public UI_Presets cursorPreset;
+    public UI_Presets uiPreset;
 
     /// <summary>
     /// Player Character actions
@@ -30,36 +29,37 @@ public class UI_Manager : MonoBehaviour
         Throw
     }
 
+    public static UI_Manager instance;
 
 
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void SetCursorIcon(CursorIconMode icon)
     {
-        switch(icon)
-        {
-            case CursorIconMode.Select:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
-                break;
+        //switch(icon)
+        //{
+        //    case CursorIconMode.Select:
+        //        Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+        //        break;
 
-            case CursorIconMode.MoveTo:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
-                break;
+        //    case CursorIconMode.MoveTo:
+        //        Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+        //        break;
 
-            case CursorIconMode.Fire:
-                Cursor.SetCursor(cursorPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
-                break;
+        //    case CursorIconMode.Fire:
+        //        Cursor.SetCursor(uiPreset.cursorIcons[0], Vector2.zero, CursorMode.Auto);
+        //        break;
 
-            case CursorIconMode.Invisible:
-                Cursor.SetCursor(Texture2D.whiteTexture, Vector2.zero, CursorMode.Auto);
-                break;
-        }
+        //    case CursorIconMode.Invisible:
+        //        Cursor.SetCursor(Texture2D.whiteTexture, Vector2.zero, CursorMode.Auto);
+        //        break;
+        //}
     }
 
-    public void DisplayRoundPanel()
-    {
-
-    }
 
     public void SetNextPhase()
     {

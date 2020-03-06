@@ -178,7 +178,7 @@ Material:
     - _DetailSmoothnessScale: 1
     - _DiffusionProfile: 0
     - _DiffusionProfileHash: 0
-    - _DisplacementIntensity: 1
+    - _DisplacementIntensity: 1.5
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -224,6 +224,7 @@ Material:
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
+    - _NormalIntensity: 50
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _PPDLodThreshold: 5
@@ -231,6 +232,7 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
+    - _Power: 50
     - _PowerIntensity: 10
     - _ReceivesSSR: 1
     - _RefractionModel: 0
@@ -261,7 +263,7 @@ Material:
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
-    - _Tiling: 5
+    - _Tiling: 3
     - _Tint: 0.514
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
