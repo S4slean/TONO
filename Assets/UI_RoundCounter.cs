@@ -84,6 +84,18 @@ public class UI_RoundCounter : MonoBehaviour
         //}
     }
 
+    public void ShowRoundUI()
+    {
+        indicatorImage.gameObject.SetActive(true);
+        wheelRect.gameObject.SetActive(true);
+    }
+
+    public void HideRoundUI()
+    {
+        indicatorImage.gameObject.SetActive(false);
+        wheelRect.gameObject.SetActive(false);
+    }
+
     public void RotateCounter(float tilt)
     {
         if (!isTargetSet)

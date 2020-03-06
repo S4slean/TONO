@@ -889,11 +889,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 190
       objectReference: {fileID: 0}
-    - target: {fileID: 1364907000749825307, guid: a1eccf7665dab75429f4a977edaef1c8,
-        type: 3}
-      propertyPath: oneRotationOf
-      value: -40
-      objectReference: {fileID: 0}
     - target: {fileID: 1750358569044108418, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_SizeDelta.y

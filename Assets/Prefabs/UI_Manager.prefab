@@ -1663,7 +1663,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   animTime: 0.5
-  oneRotationOf: 40
+  oneRotationOf: -40
 --- !u!1 &3919592759206412708
 GameObject:
   m_ObjectHideFlags: 0
