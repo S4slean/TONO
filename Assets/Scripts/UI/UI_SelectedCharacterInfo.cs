@@ -47,7 +47,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     public int currentPM;
 
 
-    void Awake()
+    void Start()
     {
         SetUpCharacterInfo();
     }

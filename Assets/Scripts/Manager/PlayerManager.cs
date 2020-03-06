@@ -8,23 +8,28 @@ public struct GunModePointOnScreen
     public Vector3 screenPointUp,
             screenPointRight,
             screenPointDown,
-            screenPointLeft,
-            upRight,
-            upLeft,
-            downRight,
-            downLeft;
+            screenPointLeft;
+}
+
+public enum HoverMode
+{
+    NoHover,
+    MovePath,
+    GunShotHover
 }
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    [Header("Preview")]
+    public bool showMoveRangeWithPathHighlight;
+
     [HideInInspector]public PlayerCharacter playerCharacter;
-    [HideInInspector]public bool playerCanMove = true;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
+    [HideInInspector]public HoverMode hoverMode;
 
-    public bool gunModeActivated;
     public GunModePointOnScreen pointsOnScreen;
 
     public void Awake()
@@ -36,6 +41,7 @@ public class PlayerManager : MonoBehaviour
 
         cam = Camera.main;
 
+        hoverMode = HoverMode.MovePath;
     }
 
     public void Start()
@@ -45,56 +51,64 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
-        RaycastHit hit;
-        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Debug.Log(hit.transform.tag);
-
-            if (hit.transform.tag == "FreeTile")
-            {
-                Tile clickedTile = hit.transform.GetComponent<Free>();
-                if (clickedTile.isWalkable)
-                {
-                    playerCharacter.SetDestination(clickedTile, true);
-                }
-            }
-        }
-
         //GUN SKILL
         if (Input.GetKeyDown(KeyCode.R))
         {
             GunShotSkill();
         }
 
-        if (gunModeActivated)
+        switch (hoverMode)
         {
-            Vector3 pivotScreenPoint = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position);
-            //print("Pivot : " + pivotScreenPoint);
+            case HoverMode.MovePath:
+                RaycastHit hit;
+                Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
 
-            Vector3 mouseOnScreen = Input.mousePosition;
-            //print("Mouse : " + mouseOnScreen);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    //Debug.Log(hit.transform.tag);
+
+                    if (hit.transform != null && hit.transform.tag == "FreeTile")
+                    {
+                        Tile clickedTile = hit.transform.GetComponent<Free>();
+                        if (clickedTile.isWalkable && playerCharacter.moveRange.Contains(clickedTile))
+                        {
+                            playerCharacter.BeginAction();
+                            playerCharacter.SetDestination(clickedTile);
+                        }
+                    }
+                }
+                break;
+
+            case HoverMode.GunShotHover:
+                Vector3 pivotScreenPoint = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position);
+                //print("Pivot : " + pivotScreenPoint);
+
+                Vector3 mouseOnScreen = Input.mousePosition;
+                //print("Mouse : " + mouseOnScreen);
+                break;
         }
+
     }
 
     public void GunShotSkill()
     {
+        if (hoverMode != HoverMode.GunShotHover)
+        {
+            hoverMode = HoverMode.GunShotHover;
+            playerCharacter.HideMoveRange();
+        }
+        else
+            hoverMode = HoverMode.MovePath;
+
         playerCharacter.ShowSkillPreview(playerCharacter.skills[(int)Skills.GunShot]);
 
-        if (playerCharacter.activatedSkill[playerCharacter.skills[(int)Skills.GunShot].name])
+        if (hoverMode == HoverMode.GunShotHover)
         {
-            pointsOnScreen.screenPointUp = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.up.transform.position);
-            pointsOnScreen.screenPointRight = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.right.transform.position);
-            pointsOnScreen.screenPointDown = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.down.transform.position);
-            pointsOnScreen.screenPointLeft = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.left.transform.position);
-
-            pointsOnScreen.upRight = Vector3.Lerp(pointsOnScreen.screenPointUp, pointsOnScreen.screenPointRight, 0.5f);
-            pointsOnScreen.upLeft = Vector3.Lerp(pointsOnScreen.screenPointUp, pointsOnScreen.screenPointLeft, 0.5f);
-            pointsOnScreen.downRight = Vector3.Lerp(pointsOnScreen.screenPointDown, pointsOnScreen.screenPointRight, 0.5f);
-            pointsOnScreen.downLeft = Vector3.Lerp(pointsOnScreen.screenPointDown, pointsOnScreen.screenPointLeft, 0.5f);
+            pointsOnScreen.screenPointUp = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.forward*2);
+            pointsOnScreen.screenPointRight = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.right*2);
+            pointsOnScreen.screenPointDown = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.back*2);
+            pointsOnScreen.screenPointLeft = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.left*2);
 
         }
-        gunModeActivated = !gunModeActivated;
     }
 }

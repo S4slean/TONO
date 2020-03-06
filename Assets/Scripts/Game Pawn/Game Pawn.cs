@@ -7,7 +7,7 @@ public class GamePawn : MonoBehaviour
 {
     [SerializeField]protected Tile associatedTile;
     public LayerMask mask;
-    [HideInInspector] public List<Tile> range = new List<Tile>();
+    [HideInInspector] public List<Tile> moveRange = new List<Tile>();
 
     protected int skillPreviewID;
     protected bool _isMyTurn = false;
@@ -64,20 +64,33 @@ public class GamePawn : MonoBehaviour
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
-                    associatedTile.rend.material = associatedTile.defaultMaterial;
-                    associatedTile.highlighted = false;
+                    if (tile.highlighted)
+                    {
+                        associatedTile.rend.material = associatedTile.defaultMaterial;
+                        associatedTile.highlighted = false;
+                    }
                 }));
             
         }
 
         s.OnComplete(() =>
         {
-            _isDoingSomething = false;
+            EndAction();
         });
     }
 
     public void EndAction()
     {
         _isDoingSomething = false;
+    }
+
+    public void BeginAction()
+    {
+        _isDoingSomething = true;
+    }
+
+    public bool IsDoingSomething()
+    {
+        return _isDoingSomething;
     }
 }

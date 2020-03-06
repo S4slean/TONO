@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class Free : Tile
 {
-
-    protected bool hovered;
-    public Material materialBeforeHover;
-
+    int previewID;
     void OnMouseEnter()
     {
-        if(isWalkable && isClickable)
+        switch (PlayerManager.instance.hoverMode)
         {
-            hovered = true;
-            materialBeforeHover = rend.material;
-            rend.material = Highlight_Manager.instance.previewMaterials[0];
+            case HoverMode.MovePath:
+                if (isWalkable && isClickable && !PlayerManager.instance.playerCharacter.IsDoingSomething())
+                {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
+                    if (PlayerManager.instance.showMoveRangeWithPathHighlight)
+                    {
+                        player.ShowMoveRange();
+                    }
+                    List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
+
+                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+                }
+                break;
         }
     }
     void OnMouseExit()
     {
-        if (hovered && !highlighted)
+        switch (PlayerManager.instance.hoverMode)
         {
-            hovered = false;
-            rend.material = materialBeforeHover;
-            materialBeforeHover = null;
+            case HoverMode.MovePath:
+                if (highlighted)
+                {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
+                    if (PlayerManager.instance.showMoveRangeWithPathHighlight)
+                    {
+                        player.HideMoveRange();
+                    }
+                    Highlight_Manager.instance.HideHighlight(previewID);
+                }
+                break;
         }
     }
-
 }
