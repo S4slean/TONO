@@ -7,11 +7,12 @@ public class Skill : ScriptableObject
 {
     public enum RangeType {Default ,Line, Cross, Square, X }
 
-    public RangeType rangeType;
-    public int range;
-    public int cost;
     public string skillName;
     public string description;
+    public int cost;
+    public int damage;
+    public RangeType rangeType;
+    public int range;
 
 
     public virtual void Activate(GamePawn user, Tile target)

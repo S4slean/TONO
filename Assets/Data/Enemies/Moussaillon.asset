@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: DefaultEnemy
+  m_Name: Moussaillon
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Enemy
+  enemyName: Moussaillon
   enemyType: 0
-  skills: []
   health: 1
   movement: 3
+  action: 7
+  rageThreshold: 5
+  meleeAttack: {fileID: 11400000, guid: 4f37cfbb016f8cc4c9ec371eeb6f0000, type: 2}
+  rangedAttack: {fileID: 11400000, guid: 30ce78c68db51d347b75ad2a8a442d32, type: 2}
+  buff: {fileID: 0}

@@ -1,7 +1,7 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemieBehaviour : GamePawn
 {
@@ -9,20 +9,17 @@ public class EnemieBehaviour : GamePawn
 
 
     public int health = 1;
-    public int movementPoints = 0;
-    public int actionPoints = 0;
-    private int rageThreshold = 5;
-    public Skill meleeAttack;
-    public Skill rangedAttack;
-    public Buff buff;
+    [HideInInspector] public int movementPoints = 0;
+    [HideInInspector] public int actionPoints = 0;
 
 
-    private PlayerCharacter _player;
-    private bool _enraged = false;
-    private int _currentRage = 0;
-    private bool _buffed = false;
-    private int _buffRoundTracker = 0;
-    private bool _useBuffedThisTurn = false;
+    protected int rageThreshold = 5;
+    protected PlayerCharacter _player;
+    protected bool _enraged = false;
+    protected int _currentRage = 0;
+    protected bool _buffed = false;
+    protected int _buffRoundTracker = 0;
+    protected bool _buffedThisTurn = false;
     
 
     protected override void Start()
@@ -33,6 +30,7 @@ public class EnemieBehaviour : GamePawn
         health = enemyStats.health;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
+        rageThreshold = enemyStats.rageThreshold;
         StartCoroutine(Initialisation());
     }
     IEnumerator Initialisation()
@@ -62,14 +60,14 @@ public class EnemieBehaviour : GamePawn
         _isMyTurn = true;
 
     }
-    public void EndTurn()
+    public virtual void EndTurn()
     {
         Debug.Log("EndTurn");
         _isDoingSomething = false;
         _isMyTurn = false;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
-        _useBuffedThisTurn = false; 
+        _buffedThisTurn = false; 
 
         if (_buffed)
         {
@@ -78,8 +76,8 @@ public class EnemieBehaviour : GamePawn
             {
                 _buffed = false;
             }
-            movementPoints += buff.movmentBuff;
-            actionPoints += buff.actionBuff;
+            movementPoints += enemyStats.buff.movmentBuff;
+            actionPoints += enemyStats.buff.actionBuff;
         }
         
     }
@@ -87,17 +85,17 @@ public class EnemieBehaviour : GamePawn
     {
         _isDoingSomething = true;
 
-        if (meleeAttack != null && IsInMeleeRange() && actionPoints >= meleeAttack.cost)
+        if (enemyStats.meleeAttack != null && IsInMeleeRange() && actionPoints >= enemyStats.meleeAttack.cost)
         {
-            meleeAttack.Activate(this, _player.GetTile());
+            enemyStats.meleeAttack.Activate(this, _player.GetTile());
         }
-        else if (rangedAttack != null && IsInLineSight(rangedAttack.range) && actionPoints >= rangedAttack.cost)
+        else if (enemyStats.rangedAttack != null && IsInLineSight(enemyStats.rangedAttack.range) && actionPoints >= enemyStats.rangedAttack.cost)
         {
-            rangedAttack.Activate(this, _player.GetTile());
+            enemyStats.rangedAttack.Activate(this, _player.GetTile());
         }
-        else if(buff != null && !_useBuffedThisTurn && actionPoints >= buff.cost && !_buffed)
+        else if(enemyStats.buff != null && !_buffedThisTurn && actionPoints >= enemyStats.buff.cost && !_buffed)
         {
-            buff.Activate(this, GetTile());
+            enemyStats.buff.Activate(this, GetTile());
         }
         else if (movementPoints > 0)
         {
@@ -126,10 +124,10 @@ public class EnemieBehaviour : GamePawn
     public virtual void Buff()
     {
         //_buffed = true;
-        _currentRage += buff.rageIncrease;
-        health += buff.healthBuff;
-        _buffRoundTracker = buff.buffDuration;
-        _useBuffedThisTurn = true;
+        _currentRage += enemyStats.buff.rageIncrease;
+        health += enemyStats.buff.healthBuff;
+        _buffRoundTracker = enemyStats.buff.buffDuration;
+        _buffedThisTurn = true;
 
         if(_currentRage >= rageThreshold)
         {
@@ -280,7 +278,7 @@ public class EnemieBehaviour : GamePawn
                     associatedTile.highlighted = false;
                     movementPoints--;
 
-                    if (IsInLineSight(rangedAttack.range))
+                    if (IsInLineSight(enemyStats.rangedAttack.range))
                     {
                         s.Kill();
                     }

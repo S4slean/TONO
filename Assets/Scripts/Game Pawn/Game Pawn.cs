@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GamePawn : MonoBehaviour
 {
-    [SerializeField]protected Tile associatedTile;
+    [HideInInspector][SerializeField]protected Tile associatedTile;
     public LayerMask mask;
     [HideInInspector] public List<Tile> moveRange = new List<Tile>();
 
