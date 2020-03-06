@@ -18,7 +18,6 @@ Material:
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
-  - MOTIONVECTORS
   - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
