@@ -44,16 +44,16 @@ public class Tile : MonoBehaviour
     public void ScanNeighbours()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.forward, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        Physics.Raycast(transform.position, Vector3.forward, out hit, 2f, 1<<9 | 1<<10);
         if(hit.transform != null)
             neighbours.up = hit.transform.GetComponent<Tile>();
-        Physics.Raycast(transform.position, Vector3.right, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        Physics.Raycast(transform.position, Vector3.right, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
             neighbours.right = hit.transform.GetComponent<Tile>();
-        Physics.Raycast(transform.position, Vector3.back, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        Physics.Raycast(transform.position, Vector3.back, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
             neighbours.down = hit.transform.GetComponent<Tile>();
-        Physics.Raycast(transform.position, Vector3.left, out hit, 2f, LayerMask.GetMask("FreeTile"));
+        Physics.Raycast(transform.position, Vector3.left, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
             neighbours.left = hit.transform.GetComponent<Tile>();
     }
