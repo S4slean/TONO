@@ -5,7 +5,23 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public static EnemyManager instance;
+
     public List<EnemieBehaviour> enemyList = new List<EnemieBehaviour>();
+    private int _enemyIndex = 0;
+
+    private void OnEnable()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            instance.gameObject.SetActive(false);
+            instance = this;
+        }
+    }
 
     public void GetAllenemies()
     {
@@ -15,8 +31,33 @@ public class EnemyManager : MonoBehaviour
         {
             enemyList.Add(en);
         }
-
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayEnemyTurn();
+        }
+    }
+
+    public void PlayEnemyTurn()
+    {
+
+        if(_enemyIndex < enemyList.Count - 1)
+        {
+            enemyList[_enemyIndex].PlayTurn();
+        }
+        else
+        {
+            _enemyIndex = 0;
+            //RoundManager.instance.PlayEnemyTurn
+        }
+    }
     
+    public void PlayNextEnemyTurn()
+    {
+        _enemyIndex++;
+        PlayEnemyTurn();
+    }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GamePawn : MonoBehaviour
 {
-    [SerializeField]protected Tile associatedTile;
+    [HideInInspector][SerializeField]protected Tile associatedTile;
     public LayerMask mask;
-    [HideInInspector] public List<Tile> range = new List<Tile>();
+    [HideInInspector] public List<Tile> moveRange = new List<Tile>();
 
     protected int skillPreviewID;
     protected bool _isMyTurn = false;
@@ -52,7 +52,10 @@ public class GamePawn : MonoBehaviour
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
         if (showHighlight)
+        {
             Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+            Highlight_Manager.instance.HideHighlight(skillPreviewID);
+        }
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
@@ -69,18 +72,27 @@ public class GamePawn : MonoBehaviour
                         associatedTile.rend.material = associatedTile.defaultMaterial;
                         associatedTile.highlighted = false;
                     }
-                }));
-            
+                }));            
         }
 
         s.OnComplete(() =>
         {
-            _isDoingSomething = false;
+            EndAction();
         });
     }
 
     public void EndAction()
     {
         _isDoingSomething = false;
+    }
+
+    public void BeginAction()
+    {
+        _isDoingSomething = true;
+    }
+
+    public bool IsDoingSomething()
+    {
+        return _isDoingSomething;
     }
 }
