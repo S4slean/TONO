@@ -12,7 +12,9 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
     public RectTransform uiRect;
     List<GameObject> actionGO = new List<GameObject>();
 
-    float actionSpace = 0;
+
+    float actionHeight = 0;
+    public float spacing = 100;
     bool isDisplayed = false;
 
     public UI_ActionButton selectedAction;
@@ -20,21 +22,21 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
     [Header("Debug")]
     public int numberOfActions;
-
+    //GetActionType
 
 
     private void Awake()
     {
-        actionSpace = actionButtonPrefab.GetComponent<RectTransform>().sizeDelta.x;
+        actionHeight = actionButtonPrefab.GetComponent<RectTransform>().sizeDelta.y;
     }
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    CleanPanel();
-        //    SetUpPanel();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CleanPanel();
+            SetUpPanel();
+        }
     }
 
 
@@ -80,15 +82,6 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
     {
         isDisplayed = true;
 
-        float xStart = 0;
-        
-
-
-        if (numberOfActions != 0)
-            xStart = (actionSpace / 2) * (numberOfActions - 1);
-
-        uiRect.anchoredPosition3D = new Vector3(-xStart, -245, 0);
-
         if (numberOfActions == 0)
             return;
 
@@ -100,36 +93,10 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
         {
             GameObject obj = Instantiate(actionButtonPrefab, Vector3.zero, Quaternion.identity, this.transform);
             UI_ActionButton actionButton = obj.GetComponent<UI_ActionButton>();
-            actionButton.rect.anchoredPosition3D = new Vector3(actionSpace * (i), 0, 0);
+            actionButton.rect.anchoredPosition3D = new Vector3(0, spacing * i + actionHeight * i, 0);
 
             //Set tooltip information 4 action
             SetUpTooltip(actionButton);
-
-
-            Button button = obj.GetComponent<Button>();
-            //Add listener corresponding to each action SWITCH
-
-            switch(i)
-            {
-                case 0:
-                    button.onClick.AddListener(Move);
-                    break;
-
-                case 1:
-                    button.onClick.AddListener(JUMP);
-                    break;
-
-                case 2:
-                    button.onClick.AddListener(SHOOT);
-                    break;
-
-                case 3:
-                    button.onClick.AddListener(RELOAD);
-                    break;
-
-                default:
-                    break;
-            }
 
             actionGO.Add(obj);
         }

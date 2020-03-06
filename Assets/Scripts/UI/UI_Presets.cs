@@ -40,4 +40,38 @@ public class UI_Presets : ScriptableObject
     public Sprite reloadImage = null;
     public Sprite kickImage = null;
     public Sprite jumpImage = null;
+
+    public UI_Presets()
+    {
+        lifeBarImage = null;
+
+        paImage = null;
+        unusedPA = null;
+
+        pmImage = null;
+        unusedPM = null;
+
+        barrel_01 = null;
+        barrel_02 = null;
+        barrel_03 = null;
+        barrel_Mystery = null;
+
+        stick = null;
+
+        playerPortait = null;
+        boatPortait = null;
+        ennemy_01 = null;
+        ennemy_02 = null;
+        ennemy_03 = null;
+        ennemy_04 = null;
+
+        usedBullet = null;
+        unusedBullet = null;
+
+        moveImage = null;
+        shootImage = null;
+        reloadImage = null;
+        kickImage = null;
+        jumpImage = null;
+    }
 }

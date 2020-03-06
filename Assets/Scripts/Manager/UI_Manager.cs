@@ -38,6 +38,11 @@ public class UI_Manager : MonoBehaviour
         instance = this;
     }
 
+    public void debug()
+    {
+        Debug.Log("DO IT");
+    }
+
     public void SetCursorIcon(CursorIconMode icon)
     {
         //switch(icon)
