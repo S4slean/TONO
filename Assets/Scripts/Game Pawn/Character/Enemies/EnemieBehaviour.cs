@@ -178,8 +178,6 @@ public class EnemieBehaviour : GamePawn
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
-        if (showHighlight)
-            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
@@ -209,9 +207,6 @@ public class EnemieBehaviour : GamePawn
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
-        if (showHighlight)
-            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
-
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
         {
@@ -231,9 +226,7 @@ public class EnemieBehaviour : GamePawn
                         s.Kill();
                     }
                 }));
-
         }
-
 
         s.OnComplete(() =>
         {
