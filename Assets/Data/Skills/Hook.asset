@@ -9,17 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb61ef9946cbf784688722f86a44d694, type: 3}
-  m_Name: Beer
+  m_Script: {fileID: 11500000, guid: 3e9843be2ae931c4da26694783cde5d3, type: 3}
+  m_Name: Hook
   m_EditorClassIdentifier: 
-  skillName: Drink
+  skillName: Ancre Grappin
   description: 
-  cost: 1
+  cost: 3
   damage: 0
-  rangeType: 0
-  range: 0
-  movmentBuff: 6
-  actionBuff: 5
-  healthBuff: 0
-  rageIncrease: 1
-  buffDuration: 0
+  rangeType: 1
+  range: 6
