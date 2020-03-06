@@ -14,7 +14,12 @@ public class Highlight_Manager : MonoBehaviour
 {
     public static Highlight_Manager instance;
 
-    public List<Material> previewMaterials;
+    public Material hoverMat;
+    public Material moveRangePreviewMat;
+    public Material moveHighlightMat;
+    public Material actionPreviewMat;
+    public Material actionHighlightMat;
+
     private int idKey = 0;
 
     //LOGIC
@@ -30,7 +35,27 @@ public class Highlight_Manager : MonoBehaviour
 
     public int ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
     {
-        Material highlightMat = previewMaterials[(int)highlightMode];
+        Material highlightMat;
+
+        switch (highlightMode)
+        {
+            case HighlightMode.MoveHighlight:
+                highlightMat = moveHighlightMat;
+                break;
+            case HighlightMode.MoveRangePreview:
+                highlightMat = moveRangePreviewMat;
+                break;
+            case HighlightMode.ActionPreview:
+                highlightMat = actionPreviewMat;
+                break;
+            case HighlightMode.ActionHighlight:
+                highlightMat = actionHighlightMat;
+                break;
+            default:
+                highlightMat = hoverMat;
+                break;
+        }
+
         foreach(Tile tile in tilesToHighlight)
         {
             tile.highlighted = true;
@@ -43,12 +68,15 @@ public class Highlight_Manager : MonoBehaviour
         return idKey;
     }
 
-    public void HideHighlight(int id)
+    public void HideHighlight(int id, Material materialAfterHiding = null)
     {
         foreach(Tile tile in highlights[id])
         {
             tile.highlighted = false;
-            tile.rend.material = tile.defaultMaterial;
+            if (materialAfterHiding != null)
+                tile.rend.material = materialAfterHiding;
+            else
+                tile.rend.material = tile.defaultMaterial;
         }
         //Suppr la liste de highlights
     }

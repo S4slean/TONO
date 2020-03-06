@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Free : Tile
 {
+    int previewID;
     void OnMouseEnter()
     {
         switch (PlayerManager.instance.hoverMode)
         {
             case HoverMode.MovePath:
-                if (isWalkable && isClickable)
+                if (isWalkable && isClickable && !PlayerManager.instance.playerCharacter.IsDoingSomething())
                 {
                     PlayerCharacter player = PlayerManager.instance.playerCharacter;
+                    if (PlayerManager.instance.showMoveRangeWithPathHighlight)
+                    {
+                        player.ShowMoveRange();
+                    }
                     List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
 
-                    player.SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight));
+                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
                 }
                 break;
         }
@@ -27,7 +32,11 @@ public class Free : Tile
                 if (highlighted)
                 {
                     PlayerCharacter player = PlayerManager.instance.playerCharacter;
-                    Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID());
+                    if (PlayerManager.instance.showMoveRangeWithPathHighlight)
+                    {
+                        player.HideMoveRange();
+                    }
+                    Highlight_Manager.instance.HideHighlight(previewID);
                 }
                 break;
         }
