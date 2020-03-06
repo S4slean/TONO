@@ -10,7 +10,7 @@ public class Free : Tile
 
     void OnMouseEnter()
     {
-        if(isWalkable)
+        if(isWalkable && isClickable)
         {
             hovered = true;
             materialBeforeHover = rend.material;

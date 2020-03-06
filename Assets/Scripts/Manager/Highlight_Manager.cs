@@ -5,8 +5,10 @@ using UnityEngine;
 public enum HighlightMode
 {
     Hover,
-    Movement,
-    Range
+    MoveHighlight,
+    MoveRangePreview,
+    ActionPreview,
+    ActionHighlight
 }
 public class Highlight_Manager : MonoBehaviour
 {
@@ -50,5 +52,4 @@ public class Highlight_Manager : MonoBehaviour
         }
         //Suppr la liste de highlights
     }
-
 }
