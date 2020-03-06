@@ -33,7 +33,6 @@ public class UI_OrderPanel : MonoBehaviour
     float removeCurrentTime;
 
     public AnimationCurve replaceIconsCurve;
-    private float replaceDisplacement = 50;
     public float replaceMaxTime;
     float replaceCurrentTime;
 

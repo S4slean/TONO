@@ -10,9 +10,11 @@ public class UI_Presets : ScriptableObject
 
     public Sprite paImage = null;
     public Sprite unusedPA = null;
+    public Sprite usedPA = null;
 
     public Sprite pmImage = null;
     public Sprite unusedPM = null;
+    public Sprite usedPM = null;
 
     [Header("Boat Infos")]
     public Sprite barrel_01 = null;
@@ -36,10 +38,15 @@ public class UI_Presets : ScriptableObject
 
     [Header("Skills images")]
     public Sprite moveImage = null;
+    public Sprite moveImageDeactivated = null;
     public Sprite shootImage = null;
+    public Sprite shootImageDeactivated = null;
     public Sprite reloadImage = null;
+    public Sprite reloadImageDeactivated = null;
     public Sprite kickImage = null;
+    public Sprite kickImageDeactivated = null;
     public Sprite jumpImage = null;
+    public Sprite jumpImageDeactivated = null;
 
     public UI_Presets()
     {
@@ -47,9 +54,11 @@ public class UI_Presets : ScriptableObject
 
         paImage = null;
         unusedPA = null;
+        usedPA = null;
 
         pmImage = null;
         unusedPM = null;
+        usedPM = null;
 
         barrel_01 = null;
         barrel_02 = null;
@@ -69,9 +78,14 @@ public class UI_Presets : ScriptableObject
         unusedBullet = null;
 
         moveImage = null;
+        moveImageDeactivated = null;
         shootImage = null;
+        shootImageDeactivated = null;
         reloadImage = null;
+        reloadImageDeactivated = null;
         kickImage = null;
+        kickImageDeactivated = null;
         jumpImage = null;
+        jumpImageDeactivated = null;
     }
 }

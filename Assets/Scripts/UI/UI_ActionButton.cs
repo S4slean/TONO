@@ -7,12 +7,17 @@ using TMPro;
 
 public class UI_ActionButton : MonoBehaviour
 {
+    [Header("Prefab References")]
+    public GameObject paCostPrefab;
+    float costPrefabHeightSize = 0;
+
     [Header("IMAGE References")]
     public Image actionImage;
     public Image backgroundImage;
 
     [Header("RECT References")]
     public RectTransform rect;
+    public RectTransform costParent;
 
     [Header("TMP References")]
     public TextMeshProUGUI tooltipDescription;
@@ -30,16 +35,20 @@ public class UI_ActionButton : MonoBehaviour
     private float diff;
 
     public float unfoldPos = 300f;
+    public int actionCost;
 
 
 
+
+    private void Awake()
+    {
+        costPrefabHeightSize = paCostPrefab.GetComponent<RectTransform>().sizeDelta.y;
+    }
 
     private void Update()
     {
         if (isMoving)
             TooltipAnimation();
-
-        //Debug.Log(EventSystem.current.IsPointerOverGameObject() + this.gameObject.name);
     }
 
     private void TooltipAnimation()
@@ -91,8 +100,6 @@ public class UI_ActionButton : MonoBehaviour
         if (!isUnfold)
             return;
 
-        Debug.Log("SHOW");
-
         isMoving = false;
 
         current = rect.anchoredPosition3D.x;
@@ -107,8 +114,6 @@ public class UI_ActionButton : MonoBehaviour
         if (isUnfold)
             return;
 
-        Debug.Log("HIDE");
-
         isMoving = false;
 
         current = rect.anchoredPosition3D.x;
@@ -116,6 +121,19 @@ public class UI_ActionButton : MonoBehaviour
 
         isUnfold = true;
         isMoving = true;
+    }
+
+    public void SetUpActionCost()
+    {
+        costParent.anchoredPosition3D = new Vector3(costParent.anchoredPosition3D.x, (costPrefabHeightSize * 0.5f) * -(actionCost - 1), costParent.anchoredPosition3D.z);
+
+        for (int i = 0; i < actionCost; i++)
+        {
+            GameObject costObj = Instantiate(paCostPrefab, Vector3.zero, Quaternion.identity, costParent.transform);
+            RectTransform costRect = costObj.GetComponent<RectTransform>();
+
+            costRect.anchoredPosition3D = new Vector3(0, costPrefabHeightSize * i, 0);
+        }
     }
 
     public void DebugAction()

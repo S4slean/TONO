@@ -22,6 +22,7 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
     [Header("Debug")]
     public int numberOfActions;
+    public int actionCost;
     //GetActionType
 
 
@@ -43,37 +44,10 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
     public void SetUpTooltip(UI_ActionButton action)
     {
-
+        action.actionCost = 3;
+        action.tooltipDescription.text = "My Description is about .... ME!";
+        action.tooltipName.text = "My name is .... Edouard";
     }
-
-
-    #region DEBUG
-    public void Move()
-    {
-        Debug.Log("MOVE");
-    }
-
-    public void JUMP()
-    {
-        Debug.Log("JUMP");
-    }
-
-    public void SHOOT()
-    {
-        Debug.Log("SHOOT");
-    }
-
-    public void RELOAD()
-    {
-        Debug.Log("RELOAD");
-    }
-
-    public void SMOKE()
-    {
-        Debug.Log("SMOKE");
-    }
-    #endregion
-
 
     /// <summary>
     /// Set Up panel action corresponding to a Character
@@ -97,6 +71,7 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
             //Set tooltip information 4 action
             SetUpTooltip(actionButton);
+            actionButton.SetUpActionCost();
 
             actionGO.Add(obj);
         }

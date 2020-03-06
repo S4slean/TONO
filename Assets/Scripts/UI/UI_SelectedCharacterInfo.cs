@@ -54,57 +54,57 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    PreviewCharacterInfo(Stats.Life, 6);
-        //}
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PreviewCharacterInfo(Stats.Life, 6);
+        }
 
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    ResetCharacterInfo(Stats.Life);
-        //}
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            ResetCharacterInfo(Stats.Life);
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    SetCharacterInfoWithCost(Stats.Life, 1);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    PreviewCharacterInfo(Stats.PA, 2);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.Z))
-        //{
-        //    ResetCharacterInfo(Stats.PA);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PA, 1);
-        //}
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SetCharacterInfoWithCost(Stats.Life, 1);
+        }
 
 
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    PreviewCharacterInfo(Stats.PM, 3);
-        //}
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            PreviewCharacterInfo(Stats.PA, 2);
+        }
 
-        //if (Input.GetKeyUp(KeyCode.E))
-        //{
-        //    ResetCharacterInfo(Stats.PM);
-        //}
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            ResetCharacterInfo(Stats.PA);
+        }
 
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PM, 1);
-        //}
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SetCharacterInfoWithCost(Stats.PA, 1);
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetUpCharacterInfo();
-        //}
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PreviewCharacterInfo(Stats.PM, 3);
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            ResetCharacterInfo(Stats.PM);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SetCharacterInfoWithCost(Stats.PM, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetUpCharacterInfo();
+        }
     }
 
 
@@ -225,8 +225,6 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     public void SetCharacterInfoWithCost(Stats concernedStat, int cost)
     {
-        float amount = 0;
-
         switch (concernedStat)
         {
             case Stats.Life:

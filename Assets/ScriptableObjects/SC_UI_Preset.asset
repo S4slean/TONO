@@ -15,8 +15,10 @@ MonoBehaviour:
   lifeBarImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   paImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedPA: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  usedPA: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   pmImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedPM: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  usedPM: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_01: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_02: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_03: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
@@ -31,7 +33,13 @@ MonoBehaviour:
   usedBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedBullet: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  moveImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   shootImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  shootImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   reloadImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  reloadImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000,
+    type: 0}
   kickImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  kickImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   jumpImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  jumpImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
