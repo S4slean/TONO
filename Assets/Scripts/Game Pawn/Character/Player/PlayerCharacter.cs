@@ -116,14 +116,11 @@ public class PlayerCharacter : GamePawn
         lineDown.Clear();
         lineLeft.Clear();
 
-        if(destination.neighbours.up != null && destination.neighbours.up.isWalkable && (destination.neighbours.up.GetPawnOnTile() == null || destination.neighbours.up.GetPawnOnTile() == this))
-            lineUp = GridManager.instance.GetLineUntilObstacle(new List<Tile> { destination.neighbours.up }, Direction.Up);
-        if (destination.neighbours.right != null && destination.neighbours.right.isWalkable && (destination.neighbours.right.GetPawnOnTile() == null || destination.neighbours.right.GetPawnOnTile() == this))
-            lineRight = GridManager.instance.GetLineUntilObstacle(new List<Tile> { destination.neighbours.right }, Direction.Right);
-        if (destination.neighbours.down != null && destination.neighbours.down.isWalkable && (destination.neighbours.down.GetPawnOnTile() == null || destination.neighbours.down.GetPawnOnTile() == this))
-            lineDown = GridManager.instance.GetLineUntilObstacle(new List<Tile> { destination.neighbours.down }, Direction.Down);
-        if (destination.neighbours.left != null && destination.neighbours.left.isWalkable && (destination.neighbours.left.GetPawnOnTile() == null || destination.neighbours.left.GetPawnOnTile() == this))
-            lineLeft = GridManager.instance.GetLineUntilObstacle(new List<Tile> { destination.neighbours.left }, Direction.Left);
+        lineUp = GridManager.instance.GetLineUntilObstacle(Direction.Up, destination, true);
+        lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true);
+        lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true);
+        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
+        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
 
         gunRange = lineUp;
         gunRange.AddRange(lineRight);

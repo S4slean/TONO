@@ -52,7 +52,10 @@ public class GamePawn : MonoBehaviour
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
         if (showHighlight)
+        {
             Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+            Highlight_Manager.instance.HideHighlight(skillPreviewID);
+        }
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
@@ -69,8 +72,7 @@ public class GamePawn : MonoBehaviour
                         associatedTile.rend.material = associatedTile.defaultMaterial;
                         associatedTile.highlighted = false;
                     }
-                }));
-            
+                }));            
         }
 
         s.OnComplete(() =>
