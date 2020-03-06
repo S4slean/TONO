@@ -46,13 +46,10 @@ public class GamePawn : MonoBehaviour
         
     }
 
-    public virtual void SetDestination(Tile destination, bool showHighlight = false)
+    public virtual void SetDestination(Tile destination)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
-
-        if (showHighlight)
-            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
 
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
@@ -64,8 +61,11 @@ public class GamePawn : MonoBehaviour
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
-                    associatedTile.rend.material = associatedTile.defaultMaterial;
-                    associatedTile.highlighted = false;
+                    if (tile.highlighted)
+                    {
+                        associatedTile.rend.material = associatedTile.defaultMaterial;
+                        associatedTile.highlighted = false;
+                    }
                 }));
             
         }

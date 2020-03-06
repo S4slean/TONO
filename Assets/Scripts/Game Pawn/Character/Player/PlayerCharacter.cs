@@ -51,12 +51,11 @@ public class PlayerCharacter : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination)
     {
-        base.SetDestination(destination, showHighlight);
+        base.SetDestination(destination);
 
         InitializeAllSkillRange(destination);
-
     }
 
     public void SetPlayerTile(Tile newTile)
