@@ -11,12 +11,19 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     public int movementPoints = 0;
     public int actionPoints = 0;
+    private int rageThreshold = 5;
     public Skill meleeAttack;
     public Skill rangedAttack;
-    public Skill buff;
+    public Buff buff;
 
 
     private PlayerCharacter _player;
+    private bool _enraged = false;
+    private int _currentRage = 0;
+    private bool _buffed = false;
+    private int _buffRoundTracker = 0;
+    private bool _useBuffedThisTurn = false;
+    
 
     protected override void Start()
     {
@@ -35,7 +42,7 @@ public class EnemieBehaviour : GamePawn
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             PlayTurn();
         }
@@ -53,45 +60,81 @@ public class EnemieBehaviour : GamePawn
     {
         Debug.Log(transform.name + "'s Turn");
         _isMyTurn = true;
-        movementPoints = enemyStats.movement;
-        actionPoints = enemyStats.action;
+
     }
     public void EndTurn()
     {
         Debug.Log("EndTurn");
         _isDoingSomething = false;
         _isMyTurn = false;
+        movementPoints = enemyStats.movement;
+        actionPoints = enemyStats.action;
+        _useBuffedThisTurn = false; 
+
+        if (_buffed)
+        {
+            _buffRoundTracker--;
+            if(_buffRoundTracker <= 0)
+            {
+                _buffed = false;
+            }
+            movementPoints += buff.movmentBuff;
+            actionPoints += buff.actionBuff;
+        }
+        
     }
     public virtual void DecideAction()
     {
         _isDoingSomething = true;
 
-        if (IsInMeleeRange() && actionPoints >= meleeAttack.cost)
+        if (meleeAttack != null && IsInMeleeRange() && actionPoints >= meleeAttack.cost)
         {
             meleeAttack.Activate(this, _player.GetTile());
         }
-        else if (IsInLineSight(rangedAttack.range) && actionPoints >= rangedAttack.cost)
+        else if (rangedAttack != null && IsInLineSight(rangedAttack.range) && actionPoints >= rangedAttack.cost)
         {
             rangedAttack.Activate(this, _player.GetTile());
         }
+        else if(buff != null && !_useBuffedThisTurn && actionPoints >= buff.cost && !_buffed)
+        {
+            buff.Activate(this, GetTile());
+        }
         else if (movementPoints > 0)
         {
-            if (DiceDecision(50))
+            if (IsInMeleeRange())
+            {
+                _isDoingSomething = false;
+                EndTurn();
+            }
+            else if ( !IsInLineSight(30) && DiceDecision(50))
             {
                 GetInLineSight(_player.GetTile());
             }
-            else
+            else 
             {
                 GetClose(_player.GetTile());
             }
-
-            movementPoints = 0;
         }
         else
         {
+            _isDoingSomething = false;
             EndTurn();
         }
 
+    }
+
+    public virtual void Buff()
+    {
+        //_buffed = true;
+        _currentRage += buff.rageIncrease;
+        health += buff.healthBuff;
+        _buffRoundTracker = buff.buffDuration;
+        _useBuffedThisTurn = true;
+
+        if(_currentRage >= rageThreshold)
+        {
+            _buffed = true;
+        }
     }
 
     public float GetFlyDistanceFromPlayer()
@@ -133,12 +176,13 @@ public class EnemieBehaviour : GamePawn
     }
     public void GetClose(Tile tile)
     {
+        Debug.Log("Get Close");
         List<Tile> adjacentTile = _player.GetTile().GetFreeNeighbours();
         if (adjacentTile.Count > 0)
         {
             Tile destination;
             List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), tile);
-            destination = path[Mathf.Clamp(movementPoints, 0, path.Count -2)];
+            destination = path[Mathf.Clamp(movementPoints - 1, 0, Mathf.Clamp(path.Count - 2, 0, path.Count - 2))];
             SetDestination(destination);
         }
         else
@@ -148,29 +192,44 @@ public class EnemieBehaviour : GamePawn
     }
     public void GetInLineSight(Tile target)
     {
-        Tile destinaton = GetTile();
+        Debug.Log("Get In Line");
+        Tile destination = GetTile();
         if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
         {
-            while (destinaton.transform.position.z != target.transform.position.z)
+            while (destination.transform.position.z != target.transform.position.z)
             {
-                if (destinaton.transform.position.z - target.transform.position.z > 0)
-                    destinaton = destinaton.neighbours.down;
-                else if ((destinaton.transform.position.z - target.transform.position.z < 0))
-                    destinaton = destinaton.neighbours.up;
+                if (destination.transform.position.z - target.transform.position.z > 0)
+                {
+                    if(destination.neighbours.down != null)
+                        destination = destination.neighbours.down;
+                }
+                else if ((destination.transform.position.z - target.transform.position.z < 0))
+                {
+                    if (destination.neighbours.up != null)
+                        destination = destination.neighbours.up;
+                }
             }
         }
         else if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) < Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
         {
-            while (destinaton.transform.position.x != target.transform.position.x)
+            while (destination.transform.position.x != target.transform.position.x)
             {
-                if (destinaton.transform.position.x - target.transform.position.x > 0)
-                    destinaton = destinaton.neighbours.left;
-                else if ((destinaton.transform.position.x - target.transform.position.x < 0))
-                    destinaton = destinaton.neighbours.right;
+                if (destination.transform.position.x - target.transform.position.x > 0)
+                {
+                    if (destination.neighbours.left != null)
+                        destination = destination.neighbours.left;
+                }
+                else if ((destination.transform.position.x - target.transform.position.x < 0))
+                {
+                    if (destination.neighbours.right != null)
+                        destination = destination.neighbours.right;
+                }
             }
         }
 
-        SetRangedDestination(destinaton);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), destination);
+        destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
+        SetRangedDestination(destination);
 
     }
     public override void SetDestination(Tile destination, bool showHighlight = false)
@@ -231,7 +290,7 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
-  
+
         });
 
         s.OnKill(() =>
@@ -253,18 +312,5 @@ public class EnemieBehaviour : GamePawn
     {
         return Random.Range(0, 100) < threshold;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

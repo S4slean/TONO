@@ -109,6 +109,8 @@ MonoBehaviour:
   rend: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
+  isWalkable: 0
+  isClickable: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
