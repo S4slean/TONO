@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public struct GunModePointOnScreen
+{
+    public Vector3 screenPointUp,
+            screenPointRight,
+            screenPointDown,
+            screenPointLeft;
+}
+
+public enum HoverMode
+{
+    NoHover,
+    MovePath,
+    GunShotHover
+}
+
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
@@ -11,6 +26,9 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]public bool playerCanMove = true;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
+    public HoverMode hoverMode;
+
+    public GunModePointOnScreen pointsOnScreen;
 
     public void Awake()
     {
@@ -21,6 +39,7 @@ public class PlayerManager : MonoBehaviour
 
         cam = Camera.main;
 
+        hoverMode = HoverMode.MovePath;
     }
 
     public void Start()
@@ -30,21 +49,60 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
-        RaycastHit hit;
-        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
-
-        if (Input.GetMouseButtonDown(0))
+        //GUN SKILL
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            //Debug.Log(hit.transform.tag);
+            GunShotSkill();
+        }
 
-            if (hit.transform.tag == "FreeTile")
-            {
-                Tile clickedTile = hit.transform.GetComponent<Free>();
-                if (clickedTile.isWalkable)
+        switch (hoverMode)
+        {
+            case HoverMode.MovePath:
+                RaycastHit hit;
+                Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    playerCharacter.SetDestination(clickedTile, true);
+                    //Debug.Log(hit.transform.tag);
+
+                    if (hit.transform != null && hit.transform.tag == "FreeTile")
+                    {
+                        Tile clickedTile = hit.transform.GetComponent<Free>();
+                        if (clickedTile.isWalkable)
+                        {
+                            playerCharacter.SetDestination(clickedTile);
+                        }
+                    }
                 }
-            }
+                break;
+
+            case HoverMode.GunShotHover:
+                Vector3 pivotScreenPoint = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position);
+                //print("Pivot : " + pivotScreenPoint);
+
+                Vector3 mouseOnScreen = Input.mousePosition;
+                //print("Mouse : " + mouseOnScreen);
+                break;
+        }
+
+    }
+
+    public void GunShotSkill()
+    {
+        if (hoverMode != HoverMode.GunShotHover)
+            hoverMode = HoverMode.GunShotHover;
+        else
+            hoverMode = HoverMode.MovePath;
+
+        playerCharacter.ShowSkillPreview(playerCharacter.skills[(int)Skills.GunShot]);
+
+        if (hoverMode == HoverMode.GunShotHover)
+        {
+            pointsOnScreen.screenPointUp = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.up.transform.position);
+            pointsOnScreen.screenPointRight = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.right.transform.position);
+            pointsOnScreen.screenPointDown = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.down.transform.position);
+            pointsOnScreen.screenPointLeft = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().neighbours.left.transform.position);
+
         }
     }
 }

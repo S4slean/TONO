@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,19 +28,16 @@ public class EnemieBehaviour : GamePawn
         actionPoints = enemyStats.action;
         StartCoroutine(Initialisation());
     }
-
     IEnumerator Initialisation()
     {
         yield return new WaitForEndOfFrame();
         _player = PlayerManager.instance.playerCharacter;
     }
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _isMyTurn = !_isMyTurn;
+            PlayTurn();
         }
 
         if (_isMyTurn == false) return;
@@ -51,20 +49,19 @@ public class EnemieBehaviour : GamePawn
     }
 
 
-
     public void PlayTurn()
     {
+        Debug.Log(transform.name + "'s Turn");
         _isMyTurn = true;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
     }
-
     public void EndTurn()
     {
+        Debug.Log("EndTurn");
         _isDoingSomething = false;
         _isMyTurn = false;
     }
-
     public virtual void DecideAction()
     {
         _isDoingSomething = true;
@@ -97,10 +94,14 @@ public class EnemieBehaviour : GamePawn
 
     }
 
-    public float GetDistanceFromPlayer()
+    public float GetFlyDistanceFromPlayer()
     {
         Vector3 dir = _player.transform.position - transform.position;
         return dir.magnitude / 2;
+    }
+    public float GetCaseDistanceFromPlayer()
+    {
+        return Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), _player.GetTile()).Count;
     }
 
     public bool IsInLineSight(int range)
@@ -119,7 +120,6 @@ public class EnemieBehaviour : GamePawn
             return true;
         }
     }
-
     public bool IsInMeleeRange()
     {
         Tile playerTile = _player.GetTile();
@@ -131,14 +131,14 @@ public class EnemieBehaviour : GamePawn
             return false;
 
     }
-
     public void GetClose(Tile tile)
     {
         List<Tile> adjacentTile = _player.GetTile().GetFreeNeighbours();
         if (adjacentTile.Count > 0)
         {
             Tile destination;
-            destination = adjacentTile[Random.Range(0, adjacentTile.Count)];
+            List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), tile);
+            destination = path[Mathf.Clamp(movementPoints, 0, path.Count -2)];
             SetDestination(destination);
         }
         else
@@ -146,7 +146,6 @@ public class EnemieBehaviour : GamePawn
             _isDoingSomething = false;
         }
     }
-
     public void GetInLineSight(Tile target)
     {
         Tile destinaton = GetTile();
@@ -171,24 +170,98 @@ public class EnemieBehaviour : GamePawn
             }
         }
 
-        SetDestination(destinaton);
+        SetRangedDestination(destinaton);
 
     }
+    public override void SetDestination(Tile destination, bool showHighlight = false)
+    {
+        //print("Destination : " + destination.transform.position);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
+
+
+        Sequence s = DOTween.Sequence();
+        foreach (Tile tile in path)
+        {
+            s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
+                    associatedTile.SetPawnOnTile(null);
+                    associatedTile = tile;
+                    associatedTile.SetPawnOnTile(this);
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
+                    associatedTile.highlighted = false;
+
+                    movementPoints--;
+                }));
+
+        }
+
+        s.OnComplete(() =>
+        {
+            _isDoingSomething = false;
+        });
+    }
+    public virtual void SetRangedDestination(Tile destination, bool showHighlight = false)
+    {
+        //print("Destination : " + destination.transform.position);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
+
+        Sequence s = DOTween.Sequence();
+        foreach (Tile tile in path)
+        {
+            s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
+                    associatedTile.SetPawnOnTile(null);
+                    associatedTile = tile;
+                    associatedTile.SetPawnOnTile(this);
+                    associatedTile.rend.material = associatedTile.defaultMaterial;
+                    associatedTile.highlighted = false;
+                    movementPoints--;
+
+                    if (IsInLineSight(rangedAttack.range))
+                    {
+                        s.Kill();
+                    }
+                }));
+        }
+
+        s.OnComplete(() =>
+        {
+            _isDoingSomething = false;
+  
+        });
+
+        s.OnKill(() =>
+        {
+            _isDoingSomething = false;
+        });
+    }
+
 
     public void DisplayMovementRange()
     {
 
     }
-
     public void DiplaySkillRange(Skill skill)
     {
         skill.Preview(this);
     }
-
     public bool DiceDecision(int threshold)
     {
         return Random.Range(0, 100) < threshold;
     }
+
+
+
+
+
+
+
+
+
 
 
 

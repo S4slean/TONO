@@ -20,7 +20,7 @@ public class Skill : ScriptableObject
         if(user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
-            enemy.actionPoints -= cost;
+            enemy.actionPoints -= cost; 
         }
         user.EndAction();
     }

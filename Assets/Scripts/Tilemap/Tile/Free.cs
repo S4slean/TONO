@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class Free : Tile
 {
-
-    protected bool hovered;
-    public Material materialBeforeHover;
-
     void OnMouseEnter()
     {
-        if(isWalkable)
+        switch (PlayerManager.instance.hoverMode)
         {
-            hovered = true;
-            materialBeforeHover = rend.material;
-            rend.material = Highlight_Manager.instance.previewMaterials[0];
+            case HoverMode.MovePath:
+                if (isWalkable && isClickable)
+                {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
+                    List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
+
+                    player.SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight));
+                }
+                break;
         }
     }
     void OnMouseExit()
     {
-        if (hovered && !highlighted)
+        switch (PlayerManager.instance.hoverMode)
         {
-            hovered = false;
-            rend.material = materialBeforeHover;
-            materialBeforeHover = null;
+            case HoverMode.MovePath:
+                if (highlighted)
+                {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
+                    Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID());
+                }
+                break;
         }
     }
-
 }
