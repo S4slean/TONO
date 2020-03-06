@@ -40,10 +40,6 @@ public class EnemieBehaviour : GamePawn
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PlayTurn();
-        }
 
         if (_isMyTurn == false) return;
 
@@ -79,6 +75,8 @@ public class EnemieBehaviour : GamePawn
             movementPoints += enemyStats.buff.movmentBuff;
             actionPoints += enemyStats.buff.actionBuff;
         }
+
+        EnemyManager.instance.PlayNextEnemyTurn();
         
     }
     public virtual void DecideAction()
