@@ -6,6 +6,8 @@ public class MapManager : MonoBehaviour
 {
     public static MapManager Instance;
 
+    public int combatsCompleted;
+
     private void Awake()
     {
         Instance = this;
@@ -13,6 +15,6 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        
+        DataManager.Instance.Load(true, SceneType.map);
     }
 }
