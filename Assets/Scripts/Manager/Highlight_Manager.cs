@@ -20,8 +20,6 @@ public class Highlight_Manager : MonoBehaviour
     public Material actionPreviewMat;
     public Material actionHighlightMat;
 
-    private int idKey = 0;
-
     //LOGIC
     Dictionary<int, List<Tile>> highlights = new Dictionary<int, List<Tile>>();
 
@@ -62,10 +60,7 @@ public class Highlight_Manager : MonoBehaviour
             tile.rend.material = highlightMat;
         }
 
-        idKey++;
-        highlights.Add(idKey, tilesToHighlight);
-
-        return idKey;
+        return GenerateNewID(tilesToHighlight);
     }
 
     public void HideHighlight(int id, Material materialAfterHiding = null)
@@ -79,5 +74,19 @@ public class Highlight_Manager : MonoBehaviour
                 tile.rend.material = tile.defaultMaterial;
         }
         //Suppr la liste de highlights
+        RemoveHighlight(id);
+    }
+
+    int GenerateNewID(List<Tile> tilesToHighlight)
+    {
+        int iDKey = highlights.Count;
+        highlights.Add(iDKey, tilesToHighlight);
+
+        return iDKey;
+    }
+
+    void RemoveHighlight(int id)
+    {
+        highlights.Remove(id);
     }
 }

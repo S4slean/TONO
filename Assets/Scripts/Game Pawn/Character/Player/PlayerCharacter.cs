@@ -26,11 +26,16 @@ public class PlayerCharacter : GamePawn
     public int currentLife;
     public bool isGunLoaded;
 
-    protected override void Start()
+
+    private void Awake()
     {
         rend = GetComponent<Renderer>();
-        base.Start();
+
         PlayerManager.instance.playerCharacter = this;
+    }
+    protected override void Start()
+    {
+        base.Start();
 
         InitializeAllSkillRange(associatedTile);
 
