@@ -36,10 +36,10 @@ public class UI_ActionButton : MonoBehaviour
     private float diff;
 
     public float unfoldPos = 300f;
-    public int actionCost;
+    [HideInInspector] public int actionCost;
 
-    public Sprite enabled;
-    public Sprite unenabled;
+    [HideInInspector] public Sprite enabled;
+    [HideInInspector] public Sprite unenabled;
 
 
 
@@ -54,12 +54,21 @@ public class UI_ActionButton : MonoBehaviour
             TooltipAnimation();
     }
 
-    public void CheckSkillCondition()
+
+
+    public void CheckAndRefreshActionUI(int currentPA)
+    {
+        CheckPlayerPA(currentPA);
+        CheckSkillCondition();
+    }
+
+
+    private void CheckSkillCondition()
     {
 
     }
 
-    public void CheckPlayerPA(int currentPACompared)
+    private void CheckPlayerPA(int currentPACompared)
     {
         if (currentPACompared < actionCost)
         {
@@ -81,6 +90,7 @@ public class UI_ActionButton : MonoBehaviour
             }
         }
     }
+
 
     private void TooltipAnimation()
     {
@@ -170,7 +180,7 @@ public class UI_ActionButton : MonoBehaviour
         }
     }
 
-    public void DebugAction()
+    public void GetSkillAction()
     {
         Debug.Log(gameObject.name);
     }

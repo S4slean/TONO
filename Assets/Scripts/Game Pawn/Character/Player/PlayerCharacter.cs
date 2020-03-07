@@ -24,7 +24,7 @@ public class PlayerCharacter : GamePawn
     public int currentPA;
     public int currentPM;
     public int currentLife;
-
+    public bool isGunLoaded;
 
     protected override void Start()
     {

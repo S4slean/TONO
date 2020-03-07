@@ -546,6 +546,8 @@ MonoBehaviour:
   isMoving: 0
   unfoldPos: 300
   actionCost: 3
+  enabled: {fileID: 0}
+  unenabled: {fileID: 0}
 --- !u!114 &-3059778520727575827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +596,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7899378797092564104}
-          m_MethodName: DebugAction
+          m_MethodName: GetSkillAction
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
