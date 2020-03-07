@@ -38,8 +38,8 @@ public class UI_ActionButton : MonoBehaviour
     public float unfoldPos = 300f;
     [HideInInspector] public int actionCost;
 
-    [HideInInspector] public Sprite enabled;
-    [HideInInspector] public Sprite unenabled;
+    [HideInInspector] public Sprite sprEnabled;
+    [HideInInspector] public Sprite sprUnenabled;
 
 
 
@@ -74,19 +74,19 @@ public class UI_ActionButton : MonoBehaviour
         {
             for (int i = 0; i < currentPACompared; i++)
             {
-                costPoints[i].sprite = enabled;
+                costPoints[i].sprite = sprEnabled;
             }
 
             for (int i = currentPACompared; i < actionCost; i++)
             {
-                costPoints[i].sprite = unenabled;
+                costPoints[i].sprite = sprUnenabled;
             }
         }
         else
         {
             for (int i = 0; i < costPoints.Count; i++)
             {
-                costPoints[i].sprite = enabled;
+                costPoints[i].sprite = sprEnabled;
             }
         }
     }

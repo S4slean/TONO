@@ -33,18 +33,8 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     bool isVisible = false;
 
-    /// <summary>
-    /// /////////GET PLAYER VALUES
-    /// </summary>
-    [Header("Debug")]
-    public int totalLife; //total player LIFE
-    public int currentLife; //current player LIFE etc...
-
-    public int totalPA;
-    public int currentPA;
-
-    public int totalPM;
-    public int currentPM;
+    [HideInInspector] public PlayerStats playerStats;
+    [HideInInspector] public PlayerCharacter playerCharacter;
 
 
     void Start()
@@ -112,7 +102,6 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     {
         lifeBar.sprite = UI_Manager.instance.uiPreset.lifeBarImage;
         portraitImage.sprite = UI_Manager.instance.uiPreset.playerPortait;
-        
 
         paImage.sprite = UI_Manager.instance.uiPreset.paImage;
         pmImage.sprite = UI_Manager.instance.uiPreset.pmImage;
@@ -120,7 +109,10 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         paPoints = new List<Image>();
         pmPoints = new List<Image>();
 
-        for (int i = 0; i < totalPA; i++)
+        playerStats = GameManager.Instance.overridingPlayerStatsConfig.playerStats;
+        playerCharacter = PlayerManager.instance.playerCharacter;
+
+        for (int i = 0; i < playerCharacter.currentPA; i++)
         {
             GameObject obj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -133,7 +125,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             paPoints.Add(image);
         }
 
-        for (int i = 0; i < totalPM; i++)
+        for (int i = 0; i < playerCharacter.currentPM; i++)
         {
             GameObject obj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -146,6 +138,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
             pmPoints.Add(image);
         }
+
 
         lifePreviewBar.fillAmount = 1f;
     }
@@ -186,16 +179,14 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentLife - cost;
-                amount = (float)newValue / (float)totalLife;
+                newValue = playerCharacter.currentLife - cost;
+                amount = (float)newValue / (float)playerStats.startingLP;
 
                 lifePreviewBar.fillAmount = amount;
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentPA - cost;
+                newValue = playerCharacter.currentPA - cost;
                 for (int i = 0; i < newValue; i++)
                 {
                     paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
@@ -208,8 +199,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentPM - cost;
+                newValue = playerCharacter.currentPM - cost;
                 for (int i = 0; i < newValue; i++)
                 {
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
@@ -228,72 +218,66 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                currentLife -= (int)cost;
-                ResetCharacterInfo(Stats.Life);
+                playerCharacter.currentLife -= (int)cost;
+                RefreshCharacterInfo(Stats.Life);
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                currentPA -= (int)cost;
-                ResetCharacterInfo(Stats.PA);
+                playerCharacter.currentPA -= (int)cost;
+                RefreshCharacterInfo(Stats.PA);
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                currentPM -= (int)cost;
-                ResetCharacterInfo(Stats.PM);
+                playerCharacter.currentPM -= (int)cost;
+                RefreshCharacterInfo(Stats.PM);
                 break;
         }
     }
 
     public void SetAllCharacterInfo(int life, int pa, int pm)
     {
-        currentLife = life;
-        currentPA = pa;
-        currentPM = pm;
+        playerCharacter.currentLife = life;
+        playerCharacter.currentPA = pa;
+        playerCharacter.currentPM = pm;
 
-        ResetAllCharacterInfo();
+        RefreshAllCharacterInfo();
     }
 
     /// <summary>
     /// Reset a chosen stats to its current value
     /// </summary>
     /// <param name="concernedStat"></param>
-    public void ResetCharacterInfo(Stats concernedStat)
+    public void RefreshCharacterInfo(Stats concernedStat)
     {
         float amount = 0;
 
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                amount = (float)currentLife / (float)totalLife;
+                amount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
                 lifePreviewBar.fillAmount = amount;
                 lifeBar.fillAmount = amount;
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                for (int i = 0; i < currentPA; i++)
+                for (int i = 0; i < playerCharacter.currentPA; i++)
                 {
                     paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
                 }
 
-                for (int i = currentPA; i < paPoints.Count; i++)
+                for (int i = playerCharacter.currentPA; i < paPoints.Count; i++)
                 {
                     paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
                 }
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                for (int i = 0; i < currentPM; i++)
+                for (int i = 0; i < playerCharacter.currentPM; i++)
                 {
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
-                for (int i = currentPM; i < pmPoints.Count; i++)
+                for (int i = playerCharacter.currentPM; i < pmPoints.Count; i++)
                 {
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
@@ -305,28 +289,28 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     /// <summary>
     /// Reset values to their current after previews
     /// </summary>
-    public void ResetAllCharacterInfo()
+    public void RefreshAllCharacterInfo()
     {
-        float lifeAmount = (float)currentLife / (float)totalLife;
+        float lifeAmount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
         lifePreviewBar.fillAmount = lifeAmount;
         lifeBar.fillAmount = lifeAmount;
 
-        for (int i = 0; i < currentPA; i++)
+        for (int i = 0; i < playerCharacter.currentPA; i++)
         {
             paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
         }
 
-        for (int i = currentPA; i < paPoints.Count; i++)
+        for (int i = playerCharacter.currentPA; i < paPoints.Count; i++)
         {
             paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
         }
 
-        for (int i = 0; i < currentPM; i++)
+        for (int i = 0; i < playerCharacter.currentPM; i++)
         {
             pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
         }
 
-        for (int i = currentPM; i < pmPoints.Count; i++)
+        for (int i = playerCharacter.currentPM; i < pmPoints.Count; i++)
         {
             pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
         }

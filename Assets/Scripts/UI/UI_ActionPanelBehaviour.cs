@@ -46,8 +46,8 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
         selectedAction.actionCost = skill.cost;
         selectedAction.tooltipName.text = skill.skillName;
         selectedAction.tooltipDescription.text = skill.description;
-        selectedAction.enabled = skill.enabledSprite;
-        selectedAction.unenabled = skill.unenabledSprite;
+        selectedAction.sprEnabled = skill.enabledSprite;
+        selectedAction.sprUnenabled = skill.unenabledSprite;
     }
 
 
