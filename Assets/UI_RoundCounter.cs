@@ -10,6 +10,7 @@ public class UI_RoundCounter : MonoBehaviour
     public List<TextMeshProUGUI> numbers;
     public Image indicatorImage;
     public Image wheelImage;
+    public Image endTurnImage;
     public RectTransform wheelRect;
 
     private int lastNumber = 0;
@@ -94,6 +95,16 @@ public class UI_RoundCounter : MonoBehaviour
     {
         indicatorImage.gameObject.SetActive(false);
         wheelRect.gameObject.SetActive(false);
+    }
+
+    public void ShowEndTurn()
+    {
+        endTurnImage.gameObject.SetActive(true);
+    }
+
+    public void HideEndTurn()
+    {
+        endTurnImage.gameObject.SetActive(false);
     }
 
     public void RotateCounter(float tilt)

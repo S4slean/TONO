@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UIMode
+public enum UIDisplayMode
 {
-    onSelection,
-    onTarget,
+    None,
+    PlayerTurn,
+    EnemyTurn,
+    Boat,
+    Pause,
+    End,
+    Start,
 }
-
 
 
 public class UI_Manager : MonoBehaviour
 {
+    [Header("UI Preset")]
     public UI_Presets uiPreset;
+    public UIDisplayMode currentDisplayMode;
+
+    [Header("UI Panel References")]
+    public UI_Gun gunPanel;
+    public UI_OrderPanel orderPanel;
+    public UI_BoatInfo boatPanel;
+    public UI_ActionPanelBehaviour actionPanel;
+    public UI_RoundCounter roundPanel;
+    public UI_SelectedCharacterInfo characterInfoPanel;
+
 
     /// <summary>
     /// Player Character actions
@@ -38,10 +53,6 @@ public class UI_Manager : MonoBehaviour
         instance = this;
     }
 
-    public void debug()
-    {
-        Debug.Log("DO IT");
-    }
 
     public void SetCursorIcon(CursorIconMode icon)
     {
@@ -65,9 +76,13 @@ public class UI_Manager : MonoBehaviour
         //}
     }
 
-
-    public void SetNextPhase()
+    public void SetUIDisplayModeOn(UIDisplayMode displayMode)
     {
+        switch (currentDisplayMode)
+        {
+            case UIDisplayMode.Boat:
 
+            break;
+        }
     }
 }
