@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     public bool overridesPlayerStats;
     public PlayerStatsConfig overridingPlayerStatsConfig;
+    public int combatsCompleted;
 
     private void Awake()
     {
@@ -39,8 +40,18 @@ public class GameManager : MonoBehaviour
         floorCenterPositions = Floor.centerPositions;
     }
 
+    
+    public void CompleteCombat()
+    {
+        if(LevelManager.currentLevel > combatsCompleted)
+        {
+            combatsCompleted = LevelManager.currentLevel;
+        }
+    }
+
     public void SaveAndQuit()
     {
-
+        DataManager.Instance.Save(SceneType.game);
+        LevelManager.GoToScene("Map");
     }
 }

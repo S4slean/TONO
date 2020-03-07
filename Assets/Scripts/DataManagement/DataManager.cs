@@ -167,10 +167,11 @@ public class DataManager : MonoBehaviour
         if (sceneType == SceneType.game)
         {
             GameManager.Instance.playerStats = data.playerStats;
+            GameManager.Instance.combatsCompleted = data.combatsCompleted;
         }
         else if(sceneType == SceneType.map)
         {
-
+            MapManager.Instance.combatsCompleted = data.combatsCompleted;
         }
         else
         {
