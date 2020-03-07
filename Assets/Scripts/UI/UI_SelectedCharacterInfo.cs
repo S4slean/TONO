@@ -39,7 +39,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     void Start()
     {
-        SetUpCharacterInfo();
+        //SetUpCharacterInfo();
     }
 
     void Update()
