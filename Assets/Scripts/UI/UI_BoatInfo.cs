@@ -48,15 +48,15 @@ public class UI_BoatInfo : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SetUpBoatUI();
-        }
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    SetUpBoatUI();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            RemoveBarrelUI();
-        }
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    RemoveBarrelUI();
+        //}
     }
 
     public void ShowBoatUI()

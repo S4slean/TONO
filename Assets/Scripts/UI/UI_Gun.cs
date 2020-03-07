@@ -18,7 +18,7 @@ public class UI_Gun : MonoBehaviour
 
     private void Start()
     {
-        SetUpBullet();
+        //SetUpBullet();
     }
 
     private void Update()
