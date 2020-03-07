@@ -21,7 +21,6 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
 
     [Header("Debug")]
-    public int numberOfActions;
     public int actionCost;
     //GetActionType
 
@@ -42,36 +41,46 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
 
 
 
-    public void SetUpTooltip(UI_ActionButton action)
+    public void SetUpTooltip(Skill skill)
     {
-        action.actionCost = 3;
-        action.tooltipDescription.text = "My Description is about .... ME!";
-        action.tooltipName.text = "My name is .... Edouard";
+        selectedAction.actionCost = skill.cost;
+        selectedAction.tooltipName.text = skill.skillName;
+        selectedAction.tooltipDescription.text = skill.description;
+        selectedAction.enabled = skill.enabledSprite;
+        selectedAction.unenabled = skill.unenabledSprite;
     }
+
 
     /// <summary>
     /// Set Up panel action corresponding to a Character
     /// </summary>
     private void SetUpPanel()
     {
+        if(PlayerManager.instance.playerCharacter == null)
+        {
+            Debug.LogError("NO PLAYER CHARACTER");
+            return;
+        }
+
+
         isDisplayed = true;
 
-        if (numberOfActions == 0)
+        if (PlayerManager.instance.playerCharacter.skills.Count == 0)
             return;
 
 
         actionGO = new List<GameObject>();
 
         //Set action panel
-        for (int i = 0; i < numberOfActions; i++)
+        for (int i = 0; i < PlayerManager.instance.playerCharacter.skills.Count; i++)
         {
             GameObject obj = Instantiate(actionButtonPrefab, Vector3.zero, Quaternion.identity, this.transform);
-            UI_ActionButton actionButton = obj.GetComponent<UI_ActionButton>();
-            actionButton.rect.anchoredPosition3D = new Vector3(0, spacing * i + actionHeight * i, 0);
+            selectedAction = obj.GetComponent<UI_ActionButton>();
+            selectedAction.rect.anchoredPosition3D = new Vector3(0, spacing * i + actionHeight * i, 0);
 
             //Set tooltip information 4 action
-            SetUpTooltip(actionButton);
-            actionButton.SetUpActionCost();
+            SetUpTooltip(PlayerManager.instance.playerCharacter.skills[i]);
+            selectedAction.SetUpActionCost();
 
             actionGO.Add(obj);
         }

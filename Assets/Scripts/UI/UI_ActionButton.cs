@@ -14,6 +14,7 @@ public class UI_ActionButton : MonoBehaviour
     [Header("IMAGE References")]
     public Image actionImage;
     public Image backgroundImage;
+    List<Image> costPoints;
 
     [Header("RECT References")]
     public RectTransform rect;
@@ -37,6 +38,8 @@ public class UI_ActionButton : MonoBehaviour
     public float unfoldPos = 300f;
     public int actionCost;
 
+    public Sprite enabled;
+    public Sprite unenabled;
 
 
 
@@ -49,6 +52,34 @@ public class UI_ActionButton : MonoBehaviour
     {
         if (isMoving)
             TooltipAnimation();
+    }
+
+    public void CheckSkillCondition()
+    {
+
+    }
+
+    public void CheckPlayerPA(int currentPACompared)
+    {
+        if (currentPACompared < actionCost)
+        {
+            for (int i = 0; i < currentPACompared; i++)
+            {
+                costPoints[i].sprite = enabled;
+            }
+
+            for (int i = currentPACompared; i < actionCost; i++)
+            {
+                costPoints[i].sprite = unenabled;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < costPoints.Count; i++)
+            {
+                costPoints[i].sprite = enabled;
+            }
+        }
     }
 
     private void TooltipAnimation()
@@ -94,7 +125,6 @@ public class UI_ActionButton : MonoBehaviour
         }
     }
 
-
     public void ShowTooltip()
     {
         if (!isUnfold)
@@ -126,13 +156,17 @@ public class UI_ActionButton : MonoBehaviour
     public void SetUpActionCost()
     {
         costParent.anchoredPosition3D = new Vector3(costParent.anchoredPosition3D.x, (costPrefabHeightSize * 0.5f) * -(actionCost - 1), costParent.anchoredPosition3D.z);
+        costPoints = new List<Image>();
 
         for (int i = 0; i < actionCost; i++)
         {
             GameObject costObj = Instantiate(paCostPrefab, Vector3.zero, Quaternion.identity, costParent.transform);
             RectTransform costRect = costObj.GetComponent<RectTransform>();
+            Image costImage = costObj.GetComponent<Image>();
+
 
             costRect.anchoredPosition3D = new Vector3(0, costPrefabHeightSize * i, 0);
+            costPoints.Add(costImage);
         }
     }
 

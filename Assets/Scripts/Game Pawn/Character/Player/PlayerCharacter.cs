@@ -20,6 +20,12 @@ public class PlayerCharacter : GamePawn
     public List<Tile> lineDown = new List<Tile>();
     public List<Tile> lineLeft = new List<Tile>();
 
+    //Stats
+    public int currentPA;
+    public int currentPM;
+    public int currentLife;
+
+
     protected override void Start()
     {
         rend = GetComponent<Renderer>();

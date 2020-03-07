@@ -14,6 +14,9 @@ public class Skill : ScriptableObject
     public RangeType rangeType;
     public int range;
 
+    //Skill sprites
+    public Sprite enabledSprite;
+    public Sprite unenabledSprite;
 
     public virtual void Activate(GamePawn user, Tile target)
     {

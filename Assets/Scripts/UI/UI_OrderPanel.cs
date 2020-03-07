@@ -9,7 +9,6 @@ public class UI_OrderPanel : MonoBehaviour
     public GameObject characterIconPrefab;
     public RectTransform panelRect;
     List<RectTransform> charactersIcons = new List<RectTransform>();
-
     //List<RectTransform> characterToRemove = new List<RectTransform>();
 
     public float currentY = 0;
@@ -151,7 +150,7 @@ public class UI_OrderPanel : MonoBehaviour
 
                     if (selectedIcon != charactersIcons.Count)
                     {
-                        Debug.Log("selectedIcon : " + selectedIcon);
+                        //Debug.Log("selectedIcon : " + selectedIcon);
                         charactersIcons[selectedIcon].anchoredPosition3D = new Vector3(charactersIcons[selectedIcon].anchoredPosition3D.x, currentY + ((diffY + selectedDisplacement) * percent), charactersIcons[selectedIcon].anchoredPosition3D.z);
                     }
                 }

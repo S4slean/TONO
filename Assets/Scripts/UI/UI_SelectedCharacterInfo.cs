@@ -54,57 +54,57 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PreviewCharacterInfo(Stats.Life, 6);
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    PreviewCharacterInfo(Stats.Life, 6);
+        //}
 
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            ResetCharacterInfo(Stats.Life);
-        }
+        //if (Input.GetKeyUp(KeyCode.A))
+        //{
+        //    ResetCharacterInfo(Stats.Life);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SetCharacterInfoWithCost(Stats.Life, 1);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            PreviewCharacterInfo(Stats.PA, 2);
-        }
-
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            ResetCharacterInfo(Stats.PA);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SetCharacterInfoWithCost(Stats.PA, 1);
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    SetCharacterInfoWithCost(Stats.Life, 1);
+        //}
 
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PreviewCharacterInfo(Stats.PM, 3);
-        }
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    PreviewCharacterInfo(Stats.PA, 2);
+        //}
 
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            ResetCharacterInfo(Stats.PM);
-        }
+        //if (Input.GetKeyUp(KeyCode.Z))
+        //{
+        //    ResetCharacterInfo(Stats.PA);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SetCharacterInfoWithCost(Stats.PM, 1);
-        }
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    SetCharacterInfoWithCost(Stats.PA, 1);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SetUpCharacterInfo();
-        }
+
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    PreviewCharacterInfo(Stats.PM, 3);
+        //}
+
+        //if (Input.GetKeyUp(KeyCode.E))
+        //{
+        //    ResetCharacterInfo(Stats.PM);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    SetCharacterInfoWithCost(Stats.PM, 1);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SetUpCharacterInfo();
+        //}
     }
 
 
@@ -141,7 +141,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * (i + 1), 0, 0);
 
             Image image = obj.GetComponent<Image>();
-            image.sprite = UI_Manager.instance.uiPreset.unusedPA;
+            image.sprite = UI_Manager.instance.uiPreset.unusedPM;
 
 
             pmPoints.Add(image);
@@ -198,12 +198,12 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
                 newValue = currentPA - cost;
                 for (int i = 0; i < newValue; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
                 }
 
                 for (int i = newValue; i < paPoints.Count; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
                 }
                 break;
 
@@ -212,12 +212,12 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
                 newValue = currentPM - cost;
                 for (int i = 0; i < newValue; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
                 for (int i = newValue; i < pmPoints.Count; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
                 break;
         }
@@ -277,12 +277,12 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
                 //if(cost > playerCharacterLIFE)
                 for (int i = 0; i < currentPA; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
                 }
 
                 for (int i = currentPA; i < paPoints.Count; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
                 }
                 break;
 
@@ -290,12 +290,12 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
                 //if(cost > playerCharacterLIFE)
                 for (int i = 0; i < currentPM; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
                 for (int i = currentPM; i < pmPoints.Count; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
                 break;
         }
@@ -313,22 +313,22 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
         for (int i = 0; i < currentPA; i++)
         {
-            paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
         }
 
         for (int i = currentPA; i < paPoints.Count; i++)
         {
-            paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
         }
 
         for (int i = 0; i < currentPM; i++)
         {
-            pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
         }
 
         for (int i = currentPM; i < pmPoints.Count; i++)
         {
-            pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
         }
     }
 }

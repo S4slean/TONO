@@ -9,6 +9,8 @@ public class UI_Gun : MonoBehaviour
     public Image bulletImage;
     public RectTransform bulletRect;
 
+    [Header("Animation")]
+
     [Header("Debug")]
     public bool isLoaded;
 
@@ -43,12 +45,14 @@ public class UI_Gun : MonoBehaviour
     {
         if (isLoaded)
         {
-            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            bulletImage.sprite = UI_Manager.instance.uiPreset.unusedBullet;
             bulletRect.anchoredPosition3D = new Vector3(0, 0, 0);
         }
         else
         {
-            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            bulletImage.sprite = UI_Manager.instance.uiPreset.usedBullet;
             bulletRect.anchoredPosition3D = new Vector3(0, -10, 0);
         }
     }
