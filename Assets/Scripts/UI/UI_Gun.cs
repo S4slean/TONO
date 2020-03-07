@@ -43,7 +43,7 @@ public class UI_Gun : MonoBehaviour
 
     public void RefreshUI()
     {
-        if (isLoaded)
+        if (PlayerManager.instance.playerCharacter.isGunLoaded)
         {
             //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
             bulletImage.sprite = UI_Manager.instance.uiPreset.unusedBullet;
@@ -53,7 +53,7 @@ public class UI_Gun : MonoBehaviour
         {
             //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
             bulletImage.sprite = UI_Manager.instance.uiPreset.usedBullet;
-            bulletRect.anchoredPosition3D = new Vector3(0, -10, 0);
+            bulletRect.anchoredPosition3D = new Vector3(0, -20, 0);
         }
     }
 
