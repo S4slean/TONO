@@ -6,4 +6,6 @@ public struct PlayerStats
 {
     public int startingAP;
     public int startingMP;
+    public int startingLP;
+    public bool isGunLoadedAtStart;
 }
