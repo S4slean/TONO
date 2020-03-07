@@ -8,6 +8,7 @@ public class MapManager : MonoBehaviour
 
     public int combatsCompleted;
 
+
     private void Awake()
     {
         Instance = this;
@@ -16,5 +17,26 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         DataManager.Instance.Load(true, SceneType.map);
+
+        BoatPath.Instance.DrawPath();
+
+        MapBoat.Instance.Place(LevelManager.currentLevel);
+        LevelPanel.Instance.HideImmediately();
+    }
+
+    private void Update()
+    {
+        print(LevelManager.currentLevel);
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            NextLevel();
+        }
+    }
+
+    public void NextLevel()
+    {
+        LevelManager.currentLevel++;
+        MapBoat.Instance.MoveToAnchor(LevelManager.currentLevel);
+
     }
 }
