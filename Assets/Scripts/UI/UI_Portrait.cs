@@ -7,7 +7,7 @@ public class UI_Portrait : MonoBehaviour
 {
     [Header("Portrait References")]
     public RectTransform portraitRect;
-    public UI_OrderPanel panelRef;
+    public UI_Timeline panelRef;
 
     public Image backgroundImage;
     public Image stickImage;

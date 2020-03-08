@@ -3,120 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_OrderPanel : MonoBehaviour
+public class UI_Timeline : Panel_Behaviour
 {
     [Header("Icons")]
     public GameObject characterIconPrefab;
-    public RectTransform panelRect;
     [HideInInspector] public List<UI_Portrait> charactersIcons = new List<UI_Portrait>();
-    List<float> iconPositions = new List<float>();
+    List<Vector3> iconPositions = new List<Vector3>();
     public float maxIconsSpacing;
 
-
-    [Header("Animations parameters")]
-    public AnimationCurve showAndHideIconsCurve;
-    public float showAndHideAnimTime;
-    float showAndHideCurrentTime;
-
-    public float hidePos;
-    public float showPos;
-
-
+    [Header("Icon Animations")]
     public AnimationCurve replaceIconsCurve;
     public float replaceMaxTime;
     float replaceCurrentTime;
 
-    float current = 0;
-    float diff = 0;
+    Vector3 currentIconPos;
+    Vector3 diffIconPos;
 
 
-    List<float> currents = new List<float>();
-    List<float> diffs = new List<float>();
+    List<Vector3> currents;
+    List<Vector3> diffs;
 
     bool isMoving = false;
-    bool isShown = false;
-
     bool isRearranging = false;
-    bool isEveryone = false;
 
     int selectedIcon = -1;
     int numberOfIcons = 0;
 
-    List<UI_Portrait> portaitToRemove = new List<UI_Portrait>();
 
 
-
-
-    private void Update()
+    void Update()
     {
+        if (isMoving)
+        {
+            MoveIcons();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetUpIcons();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            NextIconTurn();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ShowIconsOrder();
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            HideIconsOrder();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DebugRemove(2);
-        }
-
-        if (isMoving)
-        {
-            MoveIcons();
-        }
+        MovePanel();
     }
 
+
+    /// <summary>
+    /// Replace ALL icons to their corresponding IndexPostion
+    /// </summary>
     private void MoveIcons()
     {
-        if (isEveryone)
-        {
-            if (isShown)
-            {
-                if (showAndHideCurrentTime < showAndHideAnimTime)
-                {
-                    showAndHideCurrentTime += Time.deltaTime;
-                    float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
-
-                    panelRect.anchoredPosition3D = new Vector3(panelRect.anchoredPosition3D.x, current + (diff * percent), panelRect.anchoredPosition3D.z);
-                }
-                else
-                {
-                    isEveryone = false;
-                    isMoving = false;
-                }
-            }
-            else
-            {
-                if (showAndHideCurrentTime > 0)
-                {
-                    showAndHideCurrentTime -= Time.deltaTime;
-                    float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
-
-                    panelRect.anchoredPosition3D = new Vector3(panelRect.anchoredPosition3D.x, ((current + diff) - (diff * percent)), panelRect.anchoredPosition3D.z);
-                }
-                else
-                {
-                    isEveryone = false;
-                    isMoving = false;
-                }
-            }
-
-        }
-
         if (isRearranging)
         {
             if (replaceCurrentTime < replaceMaxTime)
@@ -127,11 +62,8 @@ public class UI_OrderPanel : MonoBehaviour
                 //Move icons to their correct position
                 for (int i = 1; i < charactersIcons.Count; i++)
                 {
-                    charactersIcons[i].portraitRect.anchoredPosition3D = new Vector3(currents[i] + (diffs[i] * percent), charactersIcons[i].portraitRect.anchoredPosition3D.y, charactersIcons[i].portraitRect.anchoredPosition3D.z);
+                    charactersIcons[i].portraitRect.anchoredPosition3D = new Vector3(currents[i].x + (diffs[i].x * percent), currents[i].y + (diffs[i].y * percent), charactersIcons[i].portraitRect.anchoredPosition3D.z);
                 }
-
-                //panelRect.anchoredPosition3D = new Vector3(current - (recenterValue * percent), panelRect.anchoredPosition3D.y, panelRect.anchoredPosition3D.z);
-
             }
             else
             {
@@ -142,21 +74,24 @@ public class UI_OrderPanel : MonoBehaviour
         }
     }
 
-
-
+    /// <summary>
+    /// Set Icons parameters according to their characters specifics (image, enemmy or ally, etc.)
+    /// </summary>
     public void SetUpIcons()
     {
         charactersIcons = new List<UI_Portrait>();
-        iconPositions = new List<float>();
+        iconPositions = new List<Vector3>();
+        //Get the number of characters (knowing that the first one is the BOAT and the last one is the PLAYER)
         numberOfIcons = 2 + EnemyManager.instance.enemyList.Count;
 
-        ////Get number of characters
+        //Get number of characters
         for (int i = 0; i < numberOfIcons; i++)
         {
             GameObject obj = Instantiate(characterIconPrefab, Vector3.zero, Quaternion.identity, this.transform);
             UI_Portrait values = obj.GetComponent<UI_Portrait>();
             values.panelRef = this;
             values.indexOrder = i;
+
             //Set Icon sprite
             if (i == (numberOfIcons - 1))
             {
@@ -170,9 +105,7 @@ public class UI_OrderPanel : MonoBehaviour
             }
             else
             {
-               
-
-                switch (EnemyManager.instance.enemyList[i].enemyStats.enemyType)
+                switch (EnemyManager.instance.enemyList[i - 1].enemyStats.enemyType)
                 {
                     case EnemyData.EnemyType.Moussaillon:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.moussaillonImage;
@@ -199,35 +132,29 @@ public class UI_OrderPanel : MonoBehaviour
             values.stickImage.sprite = UI_Manager.instance.uiPreset.stick;
             //Change stick color according to character type (Enemy, Player or Boat) ??????
             //values.stickImage.color = new Color32((byte)255, (byte)0, (byte)0, (byte)255);
-            
+
             //Set Icon Position
             Vector3 newPos;
             newPos = new Vector3(((values.portraitRect.sizeDelta.x * i) + (maxIconsSpacing * i)), 0, 0);
             values.portraitRect.anchoredPosition3D = newPos;
 
-
-            iconPositions.Add(newPos.x);
+            //Stock Index Position
+            iconPositions.Add(newPos);
             charactersIcons.Add(values);
         }
     }
 
-    private void DebugRemove(int index)
-    {
-        charactersIcons[index].RemoveIcon();
-    }
-
     /// <summary>
-    /// If the current character is removed during its turn or a previous one PLEASE update the selectedIcon
+    /// Refresh the current position of the Timeline
     /// </summary>
     public void RefreshSelectedIcon(int indexToRemove)
     {
-        Debug.Log("Refresh Selected");
-
         isRearranging = false;
         isMoving = false;
         replaceCurrentTime = 0;
 
-        if(selectedIcon < 0)
+        //Check if it's not the beginning of the game
+        if (selectedIcon < 0)
         {
             charactersIcons.RemoveAt(charactersIcons[indexToRemove].indexOrder);
 
@@ -236,6 +163,7 @@ public class UI_OrderPanel : MonoBehaviour
             return;
         }
 
+        //If the current is removed, go to the previous one
         if (indexToRemove == selectedIcon)
         {
             selectedIcon--;
@@ -246,10 +174,11 @@ public class UI_OrderPanel : MonoBehaviour
         RefreshIconsOrder();
     }
 
+    /// <summary>
+    /// Refresh the list by removing removed character
+    /// </summary>
     private void RefreshIconsOrder()
     {
-        Debug.Log("Refresh ORDER");
-
         for (int i = 1; i < charactersIcons.Count; i++)
         {
             charactersIcons[i].indexOrder = i;
@@ -260,27 +189,26 @@ public class UI_OrderPanel : MonoBehaviour
         RearrangeIcons();
     }
 
+    /// <summary>
+    /// Set up values to replace ALL icons according to their new index
+    /// </summary>
     private void RearrangeIcons()
     {
-        Debug.Log("Prepare to REARRANGE");
-
-
-        currents = new List<float>();
-        diffs = new List<float>();
+        currents = new List<Vector3>();
+        diffs = new List<Vector3>();
 
         for (int i = 0; i < charactersIcons.Count; i++)
         {
-            current = charactersIcons[i].portraitRect.anchoredPosition3D.x;
-            diff = iconPositions[i] - current;
+            currentIconPos = charactersIcons[i].portraitRect.anchoredPosition3D;
+            diffIconPos = new Vector3(iconPositions[i].x - currentIconPos.x, iconPositions[i].y - currentIconPos.y, 0);
 
-            currents.Add(current);
-            diffs.Add(diff);
+            currents.Add(currentIconPos);
+            diffs.Add(diffIconPos);
         }
 
         isRearranging = true;
         isMoving = true;
     }
-
 
     /// <summary>
     /// Next Turn set up (incrementing for the next icon to move)
@@ -303,42 +231,18 @@ public class UI_OrderPanel : MonoBehaviour
     }
 
 
-    public void ShowIconsOrder()
+    public override void HidePanel()
     {
-        if (!isShown)
-            return;
-
-        isEveryone = false;
-        isMoving = false;
-        isShown = false;
-        showAndHideCurrentTime = showAndHideAnimTime;
-
-        //Set up Icon Animation values
-        current = panelRect.anchoredPosition3D.y;
-        diff = showPos - current;
-
-
-        isEveryone = true;
-        isMoving = true;
+        base.HidePanel();
     }
 
-
-    public void HideIconsOrder()
+    public override void ShowPanel()
     {
-        if (isShown)
-            return;
+        base.ShowPanel();
+    }
 
-        isEveryone = false;
-        isMoving = false;
-        isShown = true;
-        showAndHideCurrentTime = 0;
-
-        //Set up Icon Animation values
-        current = panelRect.anchoredPosition3D.y;
-        diff = hidePos + current;
-
-
-        isEveryone = true;
-        isMoving = true;
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }
