@@ -51,10 +51,12 @@ public class GamePawn : MonoBehaviour
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
+        int highlightPathID = -1;
+
         if (showHighlight)
         {
-            Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
-            Highlight_Manager.instance.HideHighlight(skillPreviewID);
+            Highlight_Manager.instance.HideAllHighlight();
+            highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
         }
 
         Sequence s = DOTween.Sequence();
@@ -77,6 +79,8 @@ public class GamePawn : MonoBehaviour
 
         s.OnComplete(() =>
         {
+            if (highlightPathID > -1)
+                Highlight_Manager.instance.HideHighlight(highlightPathID);
             EndAction();
         });
     }
