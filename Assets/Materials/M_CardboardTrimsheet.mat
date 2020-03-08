@@ -32,6 +32,7 @@ Material:
     MotionVector: User
   disabledShaderPasses:
   - MOTIONVECTORS
+  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -41,6 +42,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture2D_6FCFC137:
         m_Texture: {fileID: 2800000, guid: 522b21482b2e66140b3e14ad84ea757a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CCC02C1F:
+        m_Texture: {fileID: 2800000, guid: f205abd9f47bf654eb0843ea846647e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D08AC8B2:
+        m_Texture: {fileID: 2800000, guid: 88d77fad944065342b210309cd2b0523, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -136,7 +145,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_294AF5EC: 0
     - Vector1_2AA6FF51: 1
+    - Vector1_844505D8: 1
+    - Vector1_FED4646F: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -215,6 +227,8 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _ReceivesSSR: 1
     - _RefractionModel: 0
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -229,10 +243,10 @@ Material:
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 32
+    - _StencilWriteMaskDepth: 48
     - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 3
-    - _StencilWriteMaskMV: 128
+    - _StencilWriteMaskGBuffer: 51
+    - _StencilWriteMaskMV: 176
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
@@ -251,12 +265,13 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 8
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_1F8CB02E: {r: 1, g: 1, b: 1, a: 1}
     - Color_E67C3FE5: {r: 0.2735849, g: 0.24454877, b: 0.21551263, a: 0}
     - Color_F51F0150: {r: 0.6509434, g: 0.60253423, b: 0.5311944, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

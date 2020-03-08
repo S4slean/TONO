@@ -18,16 +18,19 @@ public class RoundManager : MonoBehaviour
     {
         currentRound = -1;
         currentTurn = -1;
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
     }
 
     public void NextRound()
     {
         currentRound++;
+        UI_Manager.instance.roundPanel.TurnWheel();
     }
 
     public void NextTurn()
     {
         currentTurn++;
+        UI_Manager.instance.timelinePanel.NextIconTurn();
     }
 
 

@@ -7,6 +7,8 @@ public class UI_Presets : ScriptableObject
 {
     [Header("Character Infos")]
     public Sprite lifeBarImage = null;
+    public Sprite lifeBarBackgroundImage = null;
+    public Sprite lifeBarLimitImage = null;
 
     public Sprite paImage = null;
     public Sprite unusedPA = null;
@@ -27,10 +29,10 @@ public class UI_Presets : ScriptableObject
 
     public Sprite playerPortait = null;
     public Sprite boatPortait = null;
-    public Sprite ennemy_01 = null;
-    public Sprite ennemy_02 = null;
-    public Sprite ennemy_03 = null;
-    public Sprite ennemy_04 = null;
+    public Sprite moussaillonImage = null;
+    public Sprite captainImage = null;
+    public Sprite kamikazeImage = null;
+    public Sprite hookerImage = null;
 
     [Header("Bullet")]
     public Sprite usedBullet = null;
@@ -48,9 +50,22 @@ public class UI_Presets : ScriptableObject
     public Sprite jumpImage = null;
     public Sprite jumpImageDeactivated = null;
 
+    [Header("Pause image")]
+    public Sprite pauseImage = null;
+
+    [Header("Round Counter images")]
+    public Sprite wheelImage = null;
+    public Sprite indicatorImage = null;
+
+    [Header("End Turn images")]
+    public Sprite endTurnImage = null;
+
+
     public UI_Presets()
     {
         lifeBarImage = null;
+        lifeBarBackgroundImage = null;
+        lifeBarLimitImage = null;
 
         paImage = null;
         unusedPA = null;
@@ -69,10 +84,10 @@ public class UI_Presets : ScriptableObject
 
         playerPortait = null;
         boatPortait = null;
-        ennemy_01 = null;
-        ennemy_02 = null;
-        ennemy_03 = null;
-        ennemy_04 = null;
+        moussaillonImage = null;
+        captainImage = null;
+        kamikazeImage = null;
+        hookerImage = null;
 
         usedBullet = null;
         unusedBullet = null;
@@ -87,5 +102,12 @@ public class UI_Presets : ScriptableObject
         kickImageDeactivated = null;
         jumpImage = null;
         jumpImageDeactivated = null;
+
+        pauseImage = null;
+
+        wheelImage = null;
+        indicatorImage = null;
+
+        endTurnImage = null;
     }
 }

@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f2239bb28cd2843a9751ac403b1b31, type: 3}
   m_Name: PlayerStats_TEST
   m_EditorClassIdentifier: 
+  playerStats:
+    startingAP: 5
+    startingMP: 6
+    startingLP: 10
+    isGunLoadedAtStart: 1
+    upgradeChoicesMade: 
+    upgradesPossessed: 

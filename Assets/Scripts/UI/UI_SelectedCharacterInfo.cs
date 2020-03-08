@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
-public class UI_SelectedCharacterInfo : MonoBehaviour
+public class UI_SelectedCharacterInfo : Panel_Behaviour
 {
     public enum Stats
     {
@@ -18,23 +17,27 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     [Space]
     public Image lifeBar;
+    public Image lifeBarBackground;
+    public RectTransform lifeParentRect;
+    public GameObject lifeLimitPrefab;
     public Image lifePreviewBar;
+    float lifePart;
 
     [Space]
     public Image paImage;
     public RectTransform paParentRect;
     public GameObject paPointPrefab;
     List<Image> paPoints;
+
     [Space]
     public Image pmImage;
     public RectTransform pmParentRect;
     public GameObject pmPointPrefab;
     List<Image> pmPoints;
 
-    bool isVisible = false;
-
     [HideInInspector] public PlayerStats playerStats;
     [HideInInspector] public PlayerCharacter playerCharacter;
+
 
 
     void Start()
@@ -44,63 +47,17 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    PreviewCharacterInfo(Stats.Life, 6);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    ResetCharacterInfo(Stats.Life);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    SetCharacterInfoWithCost(Stats.Life, 1);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    PreviewCharacterInfo(Stats.PA, 2);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.Z))
-        //{
-        //    ResetCharacterInfo(Stats.PA);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PA, 1);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    PreviewCharacterInfo(Stats.PM, 3);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.E))
-        //{
-        //    ResetCharacterInfo(Stats.PM);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PM, 1);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetUpCharacterInfo();
-        //}
+        MovePanel();
     }
 
 
+    /// <summary>
+    /// Get player character's data (player stats)
+    /// </summary>
     public void SetUpCharacterInfo()
     {
         lifeBar.sprite = UI_Manager.instance.uiPreset.lifeBarImage;
+        lifeBarBackground.sprite = UI_Manager.instance.uiPreset.lifeBarBackgroundImage;
         portraitImage.sprite = UI_Manager.instance.uiPreset.playerPortait;
 
         paImage.sprite = UI_Manager.instance.uiPreset.paImage;
@@ -112,7 +69,8 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         playerStats = GameManager.Instance.overridingPlayerStatsConfig.playerStats;
         playerCharacter = PlayerManager.instance.playerCharacter;
 
-        for (int i = 0; i < playerCharacter.currentPA; i++)
+        //Set number of PA
+        for (int i = 0; i < playerStats.startingAP; i++)
         {
             GameObject obj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -125,7 +83,8 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             paPoints.Add(image);
         }
 
-        for (int i = 0; i < playerCharacter.currentPM; i++)
+        //Set number of PM
+        for (int i = 0; i < playerStats.startingMP; i++)
         {
             GameObject obj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -139,38 +98,32 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             pmPoints.Add(image);
         }
 
+        //Set number of life parts
+        RectTransform lifeBarRect = lifeBarBackground.gameObject.GetComponent<RectTransform>();
+        lifePart = (float)lifeBarRect.sizeDelta.x / (float)playerStats.startingLP;
+        float lifeSizeX = (lifeBarRect.sizeDelta.x * 0.5f) * -1f;
+
+        for (int i = 0; i < playerStats.startingLP; i++)
+        {
+            if (i == 0 || i == playerStats.startingLP)
+                continue;
+
+            GameObject obj = Instantiate(lifeLimitPrefab, Vector3.zero, Quaternion.identity, lifeParentRect.gameObject.transform);
+            RectTransform limitRect = obj.GetComponent<RectTransform>();
+            Image image = obj.GetComponent<Image>();
+
+            image.sprite = UI_Manager.instance.uiPreset.lifeBarLimitImage;
+            limitRect.anchoredPosition3D = new Vector3(lifeSizeX + lifePart * i, 0, 0);
+        }
 
         lifePreviewBar.fillAmount = 1f;
     }
 
-    public void ShowCharacterInfo()
-    {
-        if (isVisible)
-            return;
-
-        lifeBar.gameObject.SetActive(true);
-        lifePreviewBar.gameObject.SetActive(true);
-
-        pmParentRect.gameObject.SetActive(true);
-        paParentRect.gameObject.SetActive(true);
-
-        isVisible = true;
-    }
-
-    public void HideCharacterInfo()
-    {
-        if (!isVisible)
-            return;
-
-        lifeBar.gameObject.SetActive(false);
-        lifePreviewBar.gameObject.SetActive(false);
-
-        pmParentRect.gameObject.SetActive(false);
-        paParentRect.gameObject.SetActive(false);
-
-        isVisible = false;
-    }
-
+    /// <summary>
+    /// Preview a CHOSEN stat
+    /// </summary>
+    /// <param name="concernedStat">chosen stat</param>
+    /// <param name="cost">withdrawned value</param>
     public void PreviewCharacterInfo(Stats concernedStat, int cost)
     {
         float amount = 0;
@@ -213,41 +166,52 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set a CHOSEN stat
+    /// </summary>
+    /// <param name="concernedStat">chosen stat</param>
+    /// <param name="cost">withdrawned value</param>
     public void SetCharacterInfoWithCost(Stats concernedStat, int cost)
     {
         switch (concernedStat)
         {
             case Stats.Life:
                 playerCharacter.currentLife -= (int)cost;
-                RefreshCharacterInfo(Stats.Life);
+                ResetCharacterInfo(Stats.Life);
                 break;
 
             case Stats.PA:
                 playerCharacter.currentPA -= (int)cost;
-                RefreshCharacterInfo(Stats.PA);
+                ResetCharacterInfo(Stats.PA);
                 break;
 
             case Stats.PM:
                 playerCharacter.currentPM -= (int)cost;
-                RefreshCharacterInfo(Stats.PM);
+                ResetCharacterInfo(Stats.PM);
                 break;
         }
     }
 
+    /// <summary>
+    /// Set ALL character's info at once
+    /// </summary>
+    /// <param name="life"> New value of LIFE</param>
+    /// <param name="pa">New value of PA</param>
+    /// <param name="pm">New value of PM</param>
     public void SetAllCharacterInfo(int life, int pa, int pm)
     {
         playerCharacter.currentLife = life;
         playerCharacter.currentPA = pa;
         playerCharacter.currentPM = pm;
 
-        RefreshAllCharacterInfo();
+        ResetAllCharacterInfo();
     }
 
     /// <summary>
     /// Reset a chosen stats to its current value
     /// </summary>
-    /// <param name="concernedStat"></param>
-    public void RefreshCharacterInfo(Stats concernedStat)
+    /// <param name="concernedStat">concerned stat</param>
+    public void ResetCharacterInfo(Stats concernedStat)
     {
         float amount = 0;
 
@@ -289,7 +253,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     /// <summary>
     /// Reset values to their current after previews
     /// </summary>
-    public void RefreshAllCharacterInfo()
+    public void ResetAllCharacterInfo()
     {
         float lifeAmount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
         lifePreviewBar.fillAmount = lifeAmount;
@@ -314,5 +278,21 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         {
             pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
         }
+    }
+
+
+    public override void HidePanel()
+    {
+        base.HidePanel();
+    }
+
+    public override void ShowPanel()
+    {
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }
