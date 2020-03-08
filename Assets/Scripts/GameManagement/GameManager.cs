@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
 
         PauseManager.Instance.Initialize();
 
-        BrickManager.Instance.Init();
-
         if(overridesPlayerStats)
         {
             if(overridingPlayerStatsConfig != null)
@@ -47,6 +45,8 @@ public class GameManager : MonoBehaviour
         {
             combatsCompleted = LevelManager.currentLevel;
         }
+
+        SaveAndQuit();
     }
 
     public void SaveAndQuit()
