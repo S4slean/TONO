@@ -65,28 +65,64 @@ public class Highlight_Manager : MonoBehaviour
 
     public void HideHighlight(int id, Material materialAfterHiding = null)
     {
-        foreach(Tile tile in highlights[id])
+        List<Tile> value = new List<Tile>();
+        if (highlights.TryGetValue(id, out value))
         {
-            tile.highlighted = false;
-            if (materialAfterHiding != null)
-                tile.rend.material = materialAfterHiding;
-            else
-                tile.rend.material = tile.defaultMaterial;
+            foreach (Tile tile in highlights[id])
+            {
+                tile.highlighted = false;
+                if (materialAfterHiding != null)
+                    tile.rend.material = materialAfterHiding;
+                else
+                    tile.rend.material = tile.defaultMaterial;
+            }
+            //Suppr la liste de highlights
+            RemoveHighlight(id);
         }
-        //Suppr la liste de highlights
-        RemoveHighlight(id);
+
+    }
+
+    public void HideAllHighlight()
+    {
+        foreach(int id in highlights.Keys)
+        {
+            HideHighlight(id);
+        }
     }
 
     int GenerateNewID(List<Tile> tilesToHighlight)
     {
-        int iDKey = highlights.Count;
+        //DEBUG
+        /*foreach(int id in highlights.Keys)
+        {
+            print("ID : " + id);
+        }*/
+
+        int iDKey = 0;
+        List<Tile> value = new List<Tile>();
+        bool finding = true;
+        while(finding)
+        {
+            if(!highlights.TryGetValue(iDKey, out value))
+            {
+                finding = false;
+            }
+            else
+            {
+                iDKey++;
+            }
+        }
+
         highlights.Add(iDKey, tilesToHighlight);
 
+        //print("ID : " + iDKey);
         return iDKey;
     }
 
     void RemoveHighlight(int id)
     {
-        highlights.Remove(id);
+        List<Tile> value = new List<Tile>();
+        if(highlights.TryGetValue(id, out value))
+            highlights.Remove(id);
     }
 }
