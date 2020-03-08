@@ -106,14 +106,29 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+                wipe = true;
+                Save(currentType);
+            }
+        }
+    }
+
     void SerializeData()
     {
         string dataString = JsonUtility.ToJson(data, true);
         File.WriteAllText(path, dataString);
     }
 
+    SceneType currentType;
     public void Load(bool exploits, SceneType sceneType)
     {
+        currentType = sceneType;
+
         if (File.Exists(path))
         {
             DeserializeData();

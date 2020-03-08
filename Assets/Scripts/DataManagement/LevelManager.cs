@@ -15,7 +15,23 @@ public static class LevelManager
     public static string sceneToLoadName;
     public static int currentLevel;
 
+
+
     public static void GoToScene(string sceneName)
+    {
+        sceneToLoadName = sceneName;
+        if(LightSwitch.Instance)
+        {
+            LightSwitch.Instance.SwitchOffThenLoad(sceneName);
+        }
+        else
+        {
+            SceneManager.LoadScene("LoadingScreen");
+        }
+
+    }
+
+    public static void GoToSceneDirectly(string sceneName)
     {
         sceneToLoadName = sceneName;
         SceneManager.LoadScene("LoadingScreen");
