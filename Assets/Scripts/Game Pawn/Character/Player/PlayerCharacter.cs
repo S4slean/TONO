@@ -12,6 +12,7 @@ public class PlayerCharacter : GamePawn
     //LOGIC
     private bool hovered;
     public List<Skill> skills = new List<Skill>();
+    public Dictionary<string, Skill> pawnSkills = new Dictionary<string, Skill>();
     public Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
     public List<Tile> gunRange = new List<Tile>();
@@ -26,17 +27,24 @@ public class PlayerCharacter : GamePawn
     public int currentLife;
     public bool isGunLoaded;
 
+
+    private void Awake()
+    {
+    }
     protected override void Start()
     {
         rend = GetComponent<Renderer>();
-        base.Start();
+
         PlayerManager.instance.playerCharacter = this;
+
+        base.Start();
 
         InitializeAllSkillRange(associatedTile);
 
         foreach (Skill skill in skills)
         {
-            activatedSkill.Add(skill.name, false);
+            pawnSkills.Add(skill.skillName, skill);
+            activatedSkill.Add(skill.skillName, false);
         }
     }
 
@@ -63,7 +71,7 @@ public class PlayerCharacter : GamePawn
     public override void SetDestination(Tile destination, bool showHighlight = false)
     {
         base.SetDestination(destination, showHighlight);
-
+        HideMoveRange();
         InitializeAllSkillRange(destination);
     }
 
@@ -74,15 +82,15 @@ public class PlayerCharacter : GamePawn
 
     public void ShowSkillPreview(Skill skill)
     {
-        if (activatedSkill[skill.name])
+        if (activatedSkill[skill.skillName])
         {
             Highlight_Manager.instance.HideHighlight(skillPreviewID);
-            activatedSkill[skill.name] = false;
+            activatedSkill[skill.skillName] = false;
         }
         else
         {
             skill.Preview(this);
-            activatedSkill[skill.name] = true;
+            activatedSkill[skill.skillName] = true;
         }
     }
 
@@ -128,7 +136,10 @@ public class PlayerCharacter : GamePawn
         lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
         lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
 
-        gunRange = lineUp;
+        //DEBUG
+        //print(lineUp.Count);
+
+        gunRange.AddRange(lineUp);
         gunRange.AddRange(lineRight);
         gunRange.AddRange(lineDown);
         gunRange.AddRange(lineLeft);
