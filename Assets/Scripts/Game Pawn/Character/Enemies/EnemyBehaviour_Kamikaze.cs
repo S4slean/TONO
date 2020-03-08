@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class EnemyBehaviour_Kamikaze : EnemieBehaviour
 {
-    public virtual void DecideAction()
+    public override void DecideAction()
     {
         _isDoingSomething = true;
 

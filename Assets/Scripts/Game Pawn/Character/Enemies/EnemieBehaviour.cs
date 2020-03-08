@@ -11,7 +11,7 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     [HideInInspector] public int movementPoints = 0;
     [HideInInspector] public int actionPoints = 0;
-
+    
 
     protected int rageThreshold = 5;
     protected PlayerCharacter _player;

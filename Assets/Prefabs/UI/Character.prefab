@@ -234,6 +234,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd97b1f99256cc4c89d1c1f7f768a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portraitRect: {fileID: 245955802239919166}
   backgroundImage: {fileID: 7728292340343551149}
   stickImage: {fileID: 4399969176246950904}
   portraitImage: {fileID: 8378719683432340314}
+  indexOrder: 0
+  selectedIconCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  selectedDisplacement: 40
+  selectedMaxTime: 0.2
+  removeIconsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2
+      value: -0.3
+      inSlope: -0.05208411
+      outSlope: -0.05208411
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.05152328
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  removeDisplacement: 200
+  removeMaxTime: 0.2
+  isSelected: 0
+  isRemoved: 0
