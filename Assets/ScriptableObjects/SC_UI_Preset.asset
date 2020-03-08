@@ -26,10 +26,10 @@ MonoBehaviour:
   stick: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   playerPortait: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   boatPortait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_01: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_02: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_03: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_04: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  moussaillonImage: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
+  captainImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  kamikazeImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  hookerImage: {fileID: 21300000, guid: 119cd4ca2fa0015488a71097f62027ce, type: 3}
   usedBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedBullet: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3aac01e86520394f8f662d8f2021420, type: 3}
   m_Name: Upgrades Config
   m_EditorClassIdentifier: 
-  configs:
-  - level: 0
-    choices: 0000000001000000
-  - level: 1
-    choices: 0200000003000000
+  choices: []

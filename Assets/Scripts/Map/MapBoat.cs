@@ -18,7 +18,7 @@ public class MapBoat : MonoBehaviour
 
     public void Place(int index)
     {
-        currentPathIndex = index;
+        currentPathIndex = BoatPath.Instance.anchorIndexes[index];
         transform.position = BoatPath.Instance.AnchorPosition(index);
         targetPos = transform.position;
         FaceDirection();

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct UpgradeConfig
+public struct UpgradeChoice
 {
-    public int level;
+    public int parentChoiceIndex;
+    public int dependency;
     public int[] choices;
 }
