@@ -55,14 +55,6 @@ public class UI_Manager : MonoBehaviour
         instance = this;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
-        }
-    }
-
     public void SetCursorIcon(CursorIconMode icon)
     {
         //switch(icon)

@@ -115,7 +115,7 @@ public class UI_ActionButton : MonoBehaviour
         }
     }
 
-    public void GetSkillAction()
+    public void PreviewSkillAction()
     {
         //actionSkill.skillPreview
         Debug.Log(gameObject.name);

@@ -884,6 +884,13 @@ MonoBehaviour:
   pmParentRect: {fileID: 3601365063697067362}
   pmPointPrefab: {fileID: 1449981205819596992, guid: 966264fe4ec4434429a32708fa81ab17,
     type: 3}
+  playerStats:
+    startingAP: 0
+    startingMP: 0
+    startingLP: 0
+    isGunLoadedAtStart: 0
+    upgradeChoicesMade: 
+    upgradesPossessed: 
   playerCharacter: {fileID: 0}
 --- !u!1 &3919592757931975872
 GameObject:

@@ -17,47 +17,41 @@ public class Panel_Behaviour : MonoBehaviour
     Vector3 diff;
 
     bool isPanelMoving = false;
-    bool isHiding = false;
+    bool isHiding = true;
 
 
-
-
-    private void Update()
-    {
-        if (isPanelMoving)
-        {
-            MovePanel();
-        }
-    }
 
     public virtual void MovePanel()
     {
-        if (isHiding)
+        if (isPanelMoving)
         {
-            if (showAndHideCurrentTime < showAndHideAnimTime)
+            if (isHiding)
             {
-                showAndHideCurrentTime += Time.deltaTime;
-                float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
+                if (showAndHideCurrentTime < showAndHideAnimTime)
+                {
+                    showAndHideCurrentTime += Time.deltaTime;
+                    float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
 
-                panelRect.anchoredPosition3D = new Vector3(current.x + (diff.x * percent), current.y + (diff.y * percent), panelRect.anchoredPosition3D.z);
+                    panelRect.anchoredPosition3D = new Vector3(current.x + (diff.x * percent), current.y + (diff.y * percent), panelRect.anchoredPosition3D.z);
+                }
+                else
+                {
+                    isPanelMoving = false;
+                }
             }
             else
             {
-                isPanelMoving = false;
-            }
-        }
-        else
-        {
-            if (showAndHideCurrentTime > 0)
-            {
-                showAndHideCurrentTime -= Time.deltaTime;
-                float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
+                if (showAndHideCurrentTime > 0)
+                {
+                    showAndHideCurrentTime -= Time.deltaTime;
+                    float percent = showAndHideIconsCurve.Evaluate(showAndHideCurrentTime / showAndHideAnimTime);
 
-                panelRect.anchoredPosition3D = new Vector3(((current.x + diff.x) - (diff.x * percent)), ((current.y + diff.y) - (diff.y * percent)), panelRect.anchoredPosition3D.z);
-            }
-            else
-            {
-                isPanelMoving = false;
+                    panelRect.anchoredPosition3D = new Vector3(((current.x + diff.x) - (diff.x * percent)), ((current.y + diff.y) - (diff.y * percent)), panelRect.anchoredPosition3D.z);
+                }
+                else
+                {
+                    isPanelMoving = false;
+                }
             }
         }
     }

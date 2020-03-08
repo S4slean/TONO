@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd74717a22792c545b5abcd1867c226e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionSkill: {fileID: 0}
   paCostPrefab: {fileID: 251630624432395167, guid: 64eef43d81635e040b8547c31f0a3776,
     type: 3}
   actionImage: {fileID: 6622811533093614929}
@@ -542,12 +543,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   animTime: 0.25
-  isUnfold: 1
-  isMoving: 0
   unfoldPos: 300
-  actionCost: 3
-  enabled: {fileID: 0}
-  unenabled: {fileID: 0}
 --- !u!114 &-3059778520727575827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +592,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7899378797092564104}
-          m_MethodName: GetSkillAction
+          m_MethodName: PreviewSkillAction
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
