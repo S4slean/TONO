@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
                 playerStats = overridingPlayerStatsConfig.playerStats;
             }
         }
+
     }
 
     public Vector3[] floorCenterPositions;
