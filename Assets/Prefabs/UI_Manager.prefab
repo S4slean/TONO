@@ -841,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -700, y: -20}
+  m_AnchoredPosition: {x: -1115, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &3919592757931975742
@@ -859,36 +859,8 @@ MonoBehaviour:
   characterIconPrefab: {fileID: 7328830233534696410, guid: d39a3d08ecf943f4ca3ea0118a6ecdb8,
     type: 3}
   panelRect: {fileID: 3919592757931975743}
-  currentY: 0
-  newY: 0
-  diffY: 0
-  spaceBetweenPlayerAndEnnemies: 70
-  selectedIconCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  selectedDisplacement: 30
-  selectedMaxTime: 0.2
+  charactersIcons: []
+  maxIconsSpacing: 10
   showAndHideIconsCurve:
     serializedVersion: 2
     m_Curve:
@@ -902,14 +874,14 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.2
-      value: -0.5
-      inSlope: -0.037474547
-      outSlope: -0.037474547
+      time: 0.15
+      value: -0.3
+      inSlope: -0.03152358
+      outSlope: -0.03152358
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.05982789
+      outWeight: 0.06288341
     - serializedVersion: 3
       time: 1
       value: 1
@@ -922,33 +894,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  showAndHideDisplacement: 100
-  showAndHideMaxTime: 0.2
-  removeIconsCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  removeMaxTime: 0.2
+  showAndHideAnimTime: 0
+  hidePos: 220
+  showPos: -20
   replaceIconsCurve:
     serializedVersion: 2
     m_Curve:
@@ -973,10 +921,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  replaceMaxTime: 0.2
-  isHidden: 0
-  numberOfIcons: 6
-  removeIconAtIndex: 1
+  replaceMaxTime: 0.3
 --- !u!1 &3919592758027595532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1415,7 @@ GameObject:
   - component: {fileID: 3919592758686672343}
   - component: {fileID: 3919592758686672344}
   - component: {fileID: 3919592758686672345}
+  - component: {fileID: 867704807488733686}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -1551,7 +1497,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1576,6 +1522,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &867704807488733686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3919592758686672347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff8fc5e0ba4af54883447d75dd2f19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseInput: 27
+  canPause: 0
+  paused: 0
 --- !u!1 &3919592758950121329
 GameObject:
   m_ObjectHideFlags: 0
