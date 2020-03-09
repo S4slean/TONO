@@ -16,12 +16,17 @@ public enum HoverMode
 {
     NoHover,
     MovePath,
-    GunShotHover
+    GunShotHover,
+    ThrowElementHover,
 }
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
+
+    [Header("Inputs")]
+    public KeyCode throwElement = KeyCode.Alpha3;
+    public KeyCode gunShot = KeyCode.Alpha4;
 
     [Header("Preview")]
     public bool showMoveRangeWithPathHighlight;
@@ -55,9 +60,14 @@ public class PlayerManager : MonoBehaviour
     public void Update()
     {
         //GUN SKILL
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(gunShot))
         {
             GunShotSkill();
+        }
+
+        if (Input.GetKeyDown(throwElement))
+        {
+            ThrowElementSkill();
         }
 
         switch (hoverMode)
@@ -114,7 +124,7 @@ public class PlayerManager : MonoBehaviour
 
                 if(lineToHighlight != currentLineHighlighted)
                 {
-                    print("CHANGE");
+                    //print("CHANGE");
                     if (highlightLineID > -1)
                     {
                         //print(highlightLineID);
@@ -147,7 +157,17 @@ public class PlayerManager : MonoBehaviour
             print("Skill name : " + name);
         }*/
 
-        playerCharacter.ShowSkillPreview(playerCharacter.pawnSkills[Skills.GunShot.ToString()]);
+        Skill gunShot = null;
+        foreach(Skill skill in playerCharacter.skills)
+        {
+            if(skill.skillName == Skills.GunShot.ToString())
+            {
+                gunShot = skill;
+                break;
+            }
+        }
+        if(gunShot != null)
+            playerCharacter.ShowSkillPreview(gunShot);
 
         if (hoverMode == HoverMode.GunShotHover)
         {
@@ -157,5 +177,29 @@ public class PlayerManager : MonoBehaviour
             pointsOnScreen.left = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.left*2);
 
         }
+    }
+
+    public void ThrowElementSkill()
+    {
+        if (hoverMode != HoverMode.ThrowElementHover)
+        {
+            hoverMode = HoverMode.ThrowElementHover;
+            playerCharacter.HideMoveRange();
+        }
+        else
+            hoverMode = HoverMode.MovePath;
+
+        Skill throwElement = null;
+        foreach (Skill skill in playerCharacter.skills)
+        {
+            if (skill.skillName == Skills.ThrowElement.ToString())
+            {
+                throwElement = skill;
+                break;
+            }
+        }
+        if (throwElement != null)
+            playerCharacter.ShowSkillPreview(throwElement);
+
     }
 }

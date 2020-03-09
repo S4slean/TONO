@@ -60,9 +60,9 @@ public class GridManager : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.neighbours.up != null)
+                    if(currentTile.up != null)
                     {
-                        currentNeighbours = currentTile.neighbours.up;
+                        currentNeighbours = currentTile.up;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -91,9 +91,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Right:
-                    if(currentTile.neighbours.right != null)
+                    if(currentTile.right != null)
                     {
-                        currentNeighbours = currentTile.neighbours.right;
+                        currentNeighbours = currentTile.right;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -122,9 +122,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if(currentTile.neighbours.down != null)
+                    if(currentTile.down != null)
                     {
-                        currentNeighbours = currentTile.neighbours.down;
+                        currentNeighbours = currentTile.down;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -153,9 +153,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Left:
-                    if(currentTile.neighbours.left != null)
+                    if(currentTile.left != null)
                     {
-                        currentNeighbours = currentTile.neighbours.left;
+                        currentNeighbours = currentTile.left;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -183,12 +183,103 @@ public class GridManager : MonoBehaviour
                         searching = false;
                     }
                     break;
-                default:
-                    searching = false;
-                    break;
             }
+            //print(currentNeighbours);
             currentTile = currentNeighbours;
         }
+        //print(startingTile.transform.localPosition);
         return line;
     }
+
+    public List<Tile> GetRoundRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        return res;
+    }
+
+    public List<Tile> GetPlusRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        res.Add(startingTile);
+        Tile currentTile;
+
+        //UP
+        currentTile = startingTile.neighbours.up;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.up;
+        }
+
+        //RIGHT
+        currentTile = startingTile.neighbours.right;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.right;
+        }
+
+        //DOWN
+        currentTile = startingTile.neighbours.down;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.down;
+        }
+
+        //LEFT
+        currentTile = startingTile.neighbours.left;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.left;
+        }
+
+        return res;
+    }
+
+    public List<Tile> GetCrossRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        res.Add(startingTile);
+        Tile currentTile;
+
+        //UP-RIGHT
+        /*currentTile = startingTile.neighbours.right;
+        for(int i = 0; i< range; i++)
+        {
+            currentTile = currentTile;
+        }*/
+
+        return res;
+    }
+
 }

@@ -115,3 +115,7 @@ MonoBehaviour:
   MinCostToStart: 0
   Visited: 0
   previous: {fileID: 0}
+  up: {fileID: 0}
+  right: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}

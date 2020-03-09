@@ -7,9 +7,10 @@ public enum Skills
     Move,
     Jump,
     Kick,
-    Throw,
+    ThrowElement,
     GunShot,
     Reload,
+    Explosion,
 
     NumberOfSkills
 }

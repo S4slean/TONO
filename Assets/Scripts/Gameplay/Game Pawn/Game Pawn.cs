@@ -5,22 +5,31 @@ using UnityEngine;
 
 public class GamePawn : MonoBehaviour
 {
-    [HideInInspector][SerializeField]protected Tile associatedTile;
+    //GRAPHIC
+    protected Renderer rend;
+    protected Material oldMaterial;
     public LayerMask mask;
-    [HideInInspector] public List<Tile> moveRange = new List<Tile>();
 
-    protected int skillPreviewID;
+    [SerializeField]protected Tile associatedTile;
+    public List<Tile> moveRange = new List<Tile>();
+
+
+    //LOGIC
+    protected bool hovered;
+    public int skillPreviewID;
     protected bool _isMyTurn = false;
     protected bool _isDoingSomething = false;
+    public List<Skill> skills = new List<Skill>();
 
     protected virtual void Start()
-    {        
+    {
+        rend = GetComponent<Renderer>();
+
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print("Pawn tile : " + hit.transform.name);
+        //print(name +" tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
-
     }
 
     public virtual void OnMouseEnter() { }

@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class PlayerCharacter : GamePawn
 {
-    //GRAPHIC
-    private Renderer rend;
-    private Material oldMaterial;
 
     //LOGIC
-    private bool hovered;
-    public List<Skill> skills = new List<Skill>();
-    public Dictionary<string, Skill> pawnSkills = new Dictionary<string, Skill>();
     public Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
+    //[HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
+    //[HideInInspector] 
     public List<Tile> lineUp = new List<Tile>();
+    //[HideInInspector] 
     public List<Tile> lineRight = new List<Tile>();
+    //[HideInInspector] 
     public List<Tile> lineDown = new List<Tile>();
+    //[HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
 
     //Stats
+    [Header("Stats")]
     public int currentPA;
     public int currentPM;
     public int currentLife;
@@ -31,27 +31,31 @@ public class PlayerCharacter : GamePawn
     private void Awake()
     {
     }
+
     protected override void Start()
     {
-        rend = GetComponent<Renderer>();
-
         PlayerManager.instance.playerCharacter = this;
 
         base.Start();
-
-        InitializeAllSkillRange(associatedTile);
+        StartCoroutine(Init());
 
         foreach (Skill skill in skills)
         {
-            pawnSkills.Add(skill.skillName, skill);
             activatedSkill.Add(skill.skillName, false);
         }
+    }
+
+    IEnumerator Init()
+    {
+        yield return new WaitForEndOfFrame();
+        InitializeAllSkillRange(associatedTile);
     }
 
     public override void OnMouseEnter()
     {
         if(PlayerManager.instance.hoverMode == HoverMode.MovePath)
         {
+            //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
             oldMaterial = rend.material;
             rend.material = Highlight_Manager.instance.hoverMat;
@@ -116,14 +120,13 @@ public class PlayerCharacter : GamePawn
         {
             tile.isClickable = false;
         }
-        moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, 5, false);
+        moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, currentPM, false);
         foreach (Tile tile in moveRange)
         {
             tile.isClickable = true;
         }
 
         //Gun Range
-
         gunRange.Clear();
         lineUp.Clear();
         lineRight.Clear();
@@ -134,10 +137,9 @@ public class PlayerCharacter : GamePawn
         lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true);
         lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true);
         lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
-        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
 
         //DEBUG
-        //print(lineUp.Count);
+        //print(destination.neighbours.right);
 
         gunRange.AddRange(lineUp);
         gunRange.AddRange(lineRight);

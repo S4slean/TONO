@@ -8,7 +8,8 @@ public enum HighlightMode
     MoveHighlight,
     MoveRangePreview,
     ActionPreview,
-    ActionHighlight
+    ActionHighlight,
+    ExplosionPreview
 }
 public class Highlight_Manager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Highlight_Manager : MonoBehaviour
     public Material moveHighlightMat;
     public Material actionPreviewMat;
     public Material actionHighlightMat;
+    public Material explosionPreviewMat;
 
     //LOGIC
     Dictionary<int, List<Tile>> highlights = new Dictionary<int, List<Tile>>();
