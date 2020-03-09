@@ -11,6 +11,12 @@ public class BombardmentManager : MonoBehaviour
         Instance = this;
     }
 
+    public void Initialize()
+    {
+        barrelMarkersPool = new Queue<BarrelMarker>();
+        FillBarrelMarkerPool();
+    }
+
     public Transform barrelParent;
 
     public GameObject[] barrels;
@@ -37,6 +43,18 @@ public class BombardmentManager : MonoBehaviour
     public int knownBarrelsAmount;
     public bool knowsAllBarrels;
 
+    Queue<BarrelMarker> barrelMarkersPool;
+
+    void FillBarrelMarkerPool()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            BarrelMarker newMarker = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
+            newMarker.gameObject.SetActive(false);
+            barrelMarkersPool.Enqueue(newMarker);
+        }
+    }
+
     public void StartBombardment()
     {
         CalculateBarrelsToDrop();
@@ -62,7 +80,11 @@ public class BombardmentManager : MonoBehaviour
     public void PlaceBarrelMarker(Tile selectedTile)
     {
         waitingToPlace = false;
-        BarrelMarker toPlace = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
+        if(barrelMarkersPool.Count < 1)
+        {
+            FillBarrelMarkerPool();
+        }
+        BarrelMarker toPlace = barrelMarkersPool.Dequeue();
         toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
         placementIndex++;
 
@@ -106,5 +128,14 @@ public class BombardmentManager : MonoBehaviour
 
 
         return Instantiate(barrels[0], barrelParent);
+    }
+
+    public void DropBarrels()
+    {
+        for(int i = 0; i < activeMarkers.Count; i++)
+        {
+            GameObject toDrop = InstantiateBarrel(activeMarkers[0].rangeType);
+            
+        }
     }
 }
