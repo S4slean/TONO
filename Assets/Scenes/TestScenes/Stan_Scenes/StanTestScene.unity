@@ -4591,6 +4591,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -4712,6 +4713,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -4833,6 +4835,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -5048,6 +5051,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -5169,6 +5173,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -5478,6 +5483,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -5975,6 +5981,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6190,6 +6197,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6217,6 +6225,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6432,6 +6441,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6647,6 +6657,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6768,6 +6779,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -6983,6 +6995,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -7010,6 +7023,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -7507,6 +7521,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -7722,6 +7737,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -7843,6 +7859,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -7964,6 +7981,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -8273,6 +8291,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -8394,6 +8413,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -8609,6 +8629,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9012,6 +9033,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9227,6 +9249,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9254,6 +9277,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9375,6 +9399,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9496,6 +9521,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9711,6 +9737,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9738,6 +9765,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -9953,6 +9981,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -10262,6 +10291,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -10477,6 +10507,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -10692,6 +10723,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -10813,6 +10845,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -11122,6 +11155,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -11337,6 +11371,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -11458,6 +11493,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -11767,6 +11803,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -11888,6 +11925,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12009,6 +12047,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12130,6 +12169,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12251,6 +12291,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12372,6 +12413,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12587,6 +12629,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12708,6 +12751,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -12829,6 +12873,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -13326,6 +13371,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -13541,6 +13587,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -13850,6 +13897,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -14253,6 +14301,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -14562,6 +14611,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -14683,6 +14733,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -14710,6 +14761,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -14831,6 +14883,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15046,6 +15099,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15167,6 +15221,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15382,6 +15437,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15409,6 +15465,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15530,6 +15587,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -15839,6 +15897,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16054,6 +16113,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16269,6 +16329,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16296,6 +16357,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16511,6 +16573,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16632,6 +16695,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -16847,6 +16911,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17062,6 +17127,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17183,6 +17249,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17304,6 +17371,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17519,6 +17587,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17640,6 +17709,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -17949,6 +18019,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -18070,6 +18141,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -18097,6 +18169,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -18218,6 +18291,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -19091,6 +19165,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -19400,6 +19475,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -19521,6 +19597,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -19642,6 +19719,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -19763,6 +19841,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -20260,6 +20339,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -20475,6 +20555,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -20784,6 +20865,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -20905,6 +20987,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -21308,6 +21391,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -21523,6 +21607,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22245,6 +22330,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22272,6 +22358,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22299,6 +22386,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22326,6 +22414,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22353,6 +22442,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22380,6 +22470,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22407,6 +22498,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22434,6 +22526,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22461,6 +22554,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22488,6 +22582,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22515,6 +22610,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22542,6 +22638,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22569,6 +22666,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22596,6 +22694,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22623,6 +22722,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22650,6 +22750,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22677,6 +22778,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22704,6 +22806,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22731,6 +22834,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22758,6 +22862,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22785,6 +22890,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22812,6 +22918,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22839,6 +22946,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22866,6 +22974,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22893,6 +23002,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22920,6 +23030,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22947,6 +23058,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -22974,6 +23086,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23001,6 +23114,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23028,6 +23142,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23055,6 +23170,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23082,6 +23198,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23109,6 +23226,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23136,6 +23254,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23163,6 +23282,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23190,6 +23310,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23217,6 +23338,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23244,6 +23366,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23271,6 +23394,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23298,6 +23422,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23325,6 +23450,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23352,6 +23478,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23379,6 +23506,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23406,6 +23534,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23433,6 +23562,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23460,6 +23590,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23487,6 +23618,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23514,6 +23646,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23541,6 +23674,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23568,6 +23702,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23595,6 +23730,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23622,6 +23758,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23649,6 +23786,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23676,6 +23814,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23703,6 +23842,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23730,6 +23870,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23757,6 +23898,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23784,6 +23926,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23811,6 +23954,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23838,6 +23982,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23865,6 +24010,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23892,6 +24038,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23919,6 +24066,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23946,6 +24094,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -23973,6 +24122,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24000,6 +24150,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24027,6 +24178,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24054,6 +24206,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24081,6 +24234,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24108,6 +24262,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24135,6 +24290,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24162,6 +24318,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24189,6 +24346,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24216,6 +24374,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24243,6 +24402,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24270,6 +24430,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
@@ -24297,6 +24458,7 @@ MonoBehaviour:
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
