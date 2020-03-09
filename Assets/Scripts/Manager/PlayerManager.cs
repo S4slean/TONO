@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
 
         cam = Camera.main;
 
-        hoverMode = HoverMode.MovePath;
+        hoverMode = HoverMode.NoHover;
     }
 
     public void Start()
@@ -156,11 +156,12 @@ public class PlayerManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
-
+        hoverMode = HoverMode.MovePath;
     }
 
     public void EndPlayerTurn()
     {
+        hoverMode = HoverMode.NoHover;
         GameManager.Instance.CheckIfCompleted(true);
     }
 
