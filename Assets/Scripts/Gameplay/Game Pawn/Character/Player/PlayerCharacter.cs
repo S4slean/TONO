@@ -147,4 +147,44 @@ public class PlayerCharacter : GamePawn
         gunRange.AddRange(lineLeft);
     }
 
+    public override void ReceiveDamage(int dmg)
+    {
+        currentLife = Mathf.Clamp(currentLife - dmg, 0, currentLife);
+        if(currentLife <= 0)
+        {
+            Die();
+        }
+    }
+
+    public override void Die()
+    {
+        Debug.Log("Player Died");
+        Destroy(gameObject);
+    }
+
+    public override void OnKicked(GamePawn user, int dmg, Direction dir)
+    {
+        ReceiveDamage(dmg);
+        Tile newTile = GetTile().GetNeighbours(dir);
+
+        Sequence s = DOTween.Sequence();
+
+        //Play vertical Anim
+        s.Append(transform.DOMove(newTile.transform.position + new Vector3(0, newTile.transform.localScale.y, 0), 0.3f)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                GetTile().SetPawnOnTile(null);
+                SetTile(newTile);
+
+            }));
+
+
+        s.OnComplete(() =>
+        {
+            user.EndAction();
+
+        });
+    }
+
 }

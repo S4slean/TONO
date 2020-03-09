@@ -10,7 +10,7 @@ public class GamePawn : MonoBehaviour
     protected Material oldMaterial;
     public LayerMask mask;
 
-    [SerializeField]protected Tile associatedTile;
+    [SerializeField] protected Tile associatedTile;
     public List<Tile> moveRange = new List<Tile>();
 
 
@@ -40,6 +40,12 @@ public class GamePawn : MonoBehaviour
         return associatedTile;
     }
 
+    public void SetTile(Tile newTile)
+    {
+        associatedTile = newTile;
+        associatedTile.SetPawnOnTile(this);
+    }
+
     public int GetSkillPreviewID()
     {
         return skillPreviewID;
@@ -52,7 +58,7 @@ public class GamePawn : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public virtual void SetDestination(Tile destination, bool showHighlight = false)
@@ -60,7 +66,7 @@ public class GamePawn : MonoBehaviour
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
-        if(path.Count == 0)
+        if (path.Count == 0)
         {
             int highlightPathID = -1;
 
@@ -111,4 +117,21 @@ public class GamePawn : MonoBehaviour
     {
         return _isDoingSomething;
     }
+
+    public virtual void OnKicked(GamePawn user, int dmg, Direction dir)
+    {
+
+    }
+
+    public virtual void ReceiveDamage(int dmg)
+    {
+        
+    }
+
+    public virtual void Die()
+    {
+
+    }
+
+
 }
