@@ -66,19 +66,24 @@ public class GameManager : MonoBehaviour
 
     public void StartBombardmentTurn()
     {
-        UI_Manager.instance.roundPanel.TurnWheel();
+        turnType = TurnType.bombardment;
+        //UI_Manager.instance.roundPanel.TurnWheel();
         UI_Manager.instance.timelinePanel.NextIconTurn();
         BombardmentManager.Instance.StartBombardment();
     }
 
     public void StartEnnemyTurn()
     {
+        turnType = TurnType.enemy;
         EnemyManager.instance.PlayEnemyTurn();
     }
 
     public void StartPlayerTurn()
     {
+        turnType = TurnType.player;
         UI_Manager.instance.timelinePanel.NextIconTurn();
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
+        PlayerManager.instance.StartPlayerTurn();
     }
 
     public void NextTurn()
@@ -88,7 +93,7 @@ public class GameManager : MonoBehaviour
             case TurnType.bombardment:
                 StartEnnemyTurn();
                 break;
-            case TurnType.ennemy:
+            case TurnType.enemy:
                 StartPlayerTurn();
                 break;
             case TurnType.player:
@@ -118,6 +123,6 @@ public class GameManager : MonoBehaviour
 public enum TurnType
 {
     bombardment,
-    ennemy,
+    enemy,
     player
 }

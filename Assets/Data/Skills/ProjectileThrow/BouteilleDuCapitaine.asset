@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9843be2ae931c4da26694783cde5d3, type: 3}
-  m_Name: CaptainKick
+  m_Script: {fileID: 11500000, guid: 8853711b4ea7bed40a56d19c868c6188, type: 3}
+  m_Name: BouteilleDuCapitaine
   m_EditorClassIdentifier: 
-  skillName: Coup de Pied
+  skillName: 
   description: 
   cost: 3
   damage: 1
-  rangeType: 1
-  range: 1
+  rangeType: 0
+  range: 6
+  enabledSprite: {fileID: 0}
+  unenabledSprite: {fileID: 0}
+  projectilePrefab: {fileID: 0}

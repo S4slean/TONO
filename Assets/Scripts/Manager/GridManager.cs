@@ -34,13 +34,23 @@ public class GridManager : MonoBehaviour
         Tile[] temp = GameObject.FindObjectsOfType<Tile>();
         foreach (Tile t in temp)
         {
-            if (t is Water)
+            if (IsWater(t) || IsWall(t))
                 t.isWalkable = false;
             else
                 t.isWalkable = true;
 
             freeTiles.Add(t);
         }
+    }
+
+    public bool IsWall(Tile tile)
+    {
+        return tile is Wall;
+    }
+
+    public bool IsWater(Tile tile)
+    {
+        return tile is Water;
     }
 
     public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false)
@@ -60,10 +70,10 @@ public class GridManager : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.up != null)
+                    if(currentTile.neighbours.up != null && !IsWall(currentTile.neighbours.up))
                     {
-                        currentNeighbours = currentTile.up;
-                        if(currentNeighbours is Water)
+                        currentNeighbours = currentTile.neighbours.up;
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -91,10 +101,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Right:
-                    if(currentTile.right != null)
+                    if(currentTile.neighbours.right != null && !IsWall(currentTile.neighbours.right))
                     {
-                        currentNeighbours = currentTile.right;
-                        if(currentNeighbours is Water)
+                        currentNeighbours = currentTile.neighbours.right;
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -122,10 +132,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if(currentTile.down != null)
+                    if(currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
                     {
-                        currentNeighbours = currentTile.down;
-                        if(currentNeighbours is Water)
+                        currentNeighbours = currentTile.neighbours.down;
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -153,10 +163,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Left:
-                    if(currentTile.left != null)
+                    if(currentTile.neighbours.left != null && !IsWall(currentTile.neighbours.left))
                     {
-                        currentNeighbours = currentTile.left;
-                        if(currentNeighbours is Water)
+                        currentNeighbours = currentTile.neighbours.left;
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -193,8 +203,33 @@ public class GridManager : MonoBehaviour
 
     public List<Tile> GetRoundRange(GamePawn user, int range, bool usingCombo = false)
     {
-        Tile startingTile = user.GetTile();
         List<Tile> res = new List<Tile>();
+        Tile startingTile = user.GetTile();
+        res.Add(startingTile);
+
+        //UP
+        Tile currentTile = startingTile.neighbours.up;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.right;
+        CheckForCombo(res, currentTile);
+
+        //RIGHT
+        currentTile = startingTile.neighbours.right;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.down;
+        CheckForCombo(res, currentTile);
+
+        //DOWN
+        currentTile = startingTile.neighbours.down;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.left;
+        CheckForCombo(res, currentTile);
+
+        //LEFT
+        currentTile = startingTile.neighbours.left;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.up;
+        CheckForCombo(res, currentTile);
         return res;
     }
 
@@ -209,13 +244,16 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.up;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if(!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if(currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -229,13 +267,16 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.right;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -249,13 +290,16 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.down;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -269,13 +313,16 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.left;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -296,13 +343,46 @@ public class GridManager : MonoBehaviour
         Tile currentTile;
 
         //UP-RIGHT
-        /*currentTile = startingTile.neighbours.right;
-        for(int i = 0; i< range; i++)
-        {
-            currentTile = currentTile;
-        }*/
+        currentTile = startingTile.neighbours.up.neighbours.right;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.up.neighbours.right;
+        CheckForCombo(res, currentTile);
+
+        //RIGHT-DOWN
+        currentTile = startingTile.neighbours.right.neighbours.down;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.right.neighbours.down;
+        CheckForCombo(res, currentTile);
+
+        //DOWN-LEFT
+        currentTile = startingTile.neighbours.down.neighbours.left;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.down.neighbours.left;
+        CheckForCombo(res, currentTile);
+
+        //LEFT-UP
+        currentTile = startingTile.neighbours.left.neighbours.up;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.left.neighbours.up;
+        CheckForCombo(res, currentTile);
 
         return res;
+    }
+
+    public void CheckForCombo(List<Tile> comboTiles, Tile currentTile)
+    {
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            comboTiles.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    comboTiles.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+        }
     }
 
 }

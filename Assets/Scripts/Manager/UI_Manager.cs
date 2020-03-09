@@ -27,8 +27,8 @@ public class UI_Manager : MonoBehaviour
     public PauseManager pausePanel;
     public UI_BoatInfo boatPanel;
     public UI_ActionPanelBehaviour actionPanel;
-    public UI_RoundCounter roundPanel;
     public UI_SelectedCharacterInfo characterInfoPanel;
+    public UI_MessagePanel messagePanel;
 
 
     /// <summary>
@@ -89,38 +89,53 @@ public class UI_Manager : MonoBehaviour
                 endTurnPanel.HidePanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
-                roundPanel.HidePanel();
                 characterInfoPanel.HidePanel();
             break;
 
             case UIDisplayMode.Boat:
+                boatPanel.SetUpBoatUI();
+
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
                 boatPanel.ShowPanel();
                 actionPanel.HidePanel();
-                roundPanel.ShowPanel();
                 characterInfoPanel.HidePanel();
                 break;
 
             case UIDisplayMode.Start:
-            case UIDisplayMode.EnemyTurn:
+                timelinePanel.SetUpIcons();
+                messagePanel.SetUI();
+
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
-                roundPanel.ShowPanel();
+                characterInfoPanel.HidePanel();
+                break;
+
+            case UIDisplayMode.EnemyTurn:
+
+
+                gunPanel.HidePanel();
+                timelinePanel.ShowPanel();
+                endTurnPanel.HidePanel();
+                boatPanel.HidePanel();
+                actionPanel.HidePanel();
                 characterInfoPanel.HidePanel();
                 break;
 
             case UIDisplayMode.PlayerTurn:
+                actionPanel.SetUpPanel();
+                gunPanel.SetUpBullet();
+                characterInfoPanel.SetUpCharacterInfo();
+
                 gunPanel.ShowPanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.ShowPanel();
-                roundPanel.ShowPanel();
                 characterInfoPanel.ShowPanel();
                 break;
         }

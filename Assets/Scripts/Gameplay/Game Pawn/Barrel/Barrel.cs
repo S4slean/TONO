@@ -11,15 +11,6 @@ public class Barrel : GamePawn
     protected override void Start()
     {
         base.Start();
-
-        foreach(Skill skill in skills)
-        {
-            if(skill.skillName == "Explosion")
-            {
-                explosionSkill = skill;
-                break;
-            }
-        }
     }
 
     public override void OnMouseEnter()
@@ -40,6 +31,7 @@ public class Barrel : GamePawn
         {
             hovered = false;
             rend.material = oldMaterial;
+            ComboManager.instance.ClearAllComboList();
             Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
         }
     }

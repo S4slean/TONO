@@ -34,6 +34,11 @@ public class Skill : ScriptableObject
 
     }
 
+    public virtual bool HasAvailableTarget(GamePawn user)
+    {
+        return true;
+    }
+
     public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }
 }
 

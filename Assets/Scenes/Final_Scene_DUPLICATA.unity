@@ -3180,6 +3180,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1146304151}
     m_Modifications:
+    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.800049
+      objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10594,6 +10599,12 @@ MonoBehaviour:
   - {fileID: 4211647077250023432, guid: 65cc5ddc081fb984d81953348fbf52af, type: 3}
   barrelRangeTypes: 02000000
   barrelsToDrop: 
+  delayBeforeBarrelPlacement: 0
+  barrelMarker: {fileID: 0}
+  roundColor: {r: 0, g: 0, b: 0, a: 0}
+  plusColor: {r: 0, g: 0, b: 0, a: 0}
+  crossColor: {r: 0, g: 0, b: 0, a: 0}
+  barrelSpawningHeight: 0
   barrelAmount: 0
   knownBarrelsAmount: 0
   knowsAllBarrels: 0
@@ -11475,7 +11486,8 @@ MonoBehaviour:
   overridesPlayerStats: 0
   overridingPlayerStatsConfig: {fileID: 0}
   combatsCompleted: 0
-  floorCenterPositions: []
+  introductionDuration: 0
+  turnType: 0
 --- !u!4 &1548141090
 Transform:
   m_ObjectHideFlags: 0
