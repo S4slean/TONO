@@ -5,9 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Trow Element", menuName = "TONO/Skill/Throw Element")]
 public class ThrowElement : Skill
 {
+    public GameObject projectilePrefab;
+
     public override void Activate(GamePawn user, Tile target)
     {
-        base.Activate(user, target);
+        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
+        if (user is EnemieBehaviour)
+        {
+            EnemieBehaviour enemy = (EnemieBehaviour)user;
+            enemy.actionPoints -= cost;
+            SkillManager.instance.ThrowProjectile(user, target.GetPawnOnTile(), projectilePrefab, damage);
+        }
     }
 
     public override void Preview(GamePawn user)
