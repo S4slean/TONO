@@ -251,6 +251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0638b3aaab822f489862188e40ed92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats:
+    startingAP: 0
+    startingMP: 0
+    startingLP: 0
+    isGunLoadedAtStart: 0
+    upgradeChoicesMade: 
+    upgradesPossessed: 
   overridesPlayerStats: 0
   overridingPlayerStatsConfig: {fileID: 0}
   combatsCompleted: 0
@@ -280,6 +287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153908953461445509, guid: ea50b14ebbd19d141b5f90c48b05d79c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6153908953461445514, guid: ea50b14ebbd19d141b5f90c48b05d79c,
         type: 3}
@@ -999,6 +1011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419384087954039707, guid: 61f6f47ed505a0c45b65d193ab31aed7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419384087954039708, guid: 61f6f47ed505a0c45b65d193ab31aed7,
         type: 3}
