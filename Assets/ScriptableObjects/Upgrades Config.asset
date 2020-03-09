@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3aac01e86520394f8f662d8f2021420, type: 3}
   m_Name: Upgrades Config
   m_EditorClassIdentifier: 
-  configs:
-  - level: 0
+  upgradeChoices:
+  - minLevel: 0
+    parentChoiceIndex: -1
+    dependency: -1
     choices: 0000000001000000
-  - level: 1
+  - minLevel: 1
+    parentChoiceIndex: 0
+    dependency: 0
     choices: 0200000003000000
+  - minLevel: 1
+    parentChoiceIndex: 0
+    dependency: 1
+    choices: 0400000005000000
+  upgradeDatas:
+  - {fileID: 11400000, guid: ace57e8df0a905d4193f873a185d129b, type: 2}
+  - {fileID: 11400000, guid: 646889dd516eaad4a9f397ed768f10f5, type: 2}
+  - {fileID: 11400000, guid: 695e78b2c38c8e441ac1d592ad261bf4, type: 2}
+  - {fileID: 11400000, guid: 49ccd938b0c383746ac0592d819bec42, type: 2}
+  - {fileID: 11400000, guid: 806c67bfbc708ad40b3c85fa7f677015, type: 2}
+  - {fileID: 11400000, guid: 2061939b026a2c348a01050851ce3293, type: 2}

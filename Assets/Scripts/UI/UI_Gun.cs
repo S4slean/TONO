@@ -3,33 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Gun : MonoBehaviour
+public class UI_Gun : Panel_Behaviour
 {
     [Header("BULLETS")]
     public Image bulletImage;
     public RectTransform bulletRect;
 
-    [Header("Animation")]
-
-    [Header("Debug")]
-    public bool isLoaded;
 
 
-
-    private void Start()
+    void Start()
     {
         //SetUpBullet();
     }
 
-    private void Update()
+    void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    RefreshUI();
-        //}
+        MovePanel();
     }
-
-
 
 
     /// <summary>
@@ -57,13 +47,19 @@ public class UI_Gun : MonoBehaviour
         }
     }
 
-    public void ShowBulletUI()
+
+    public override void HidePanel()
     {
-        bulletImage.gameObject.SetActive(true);
+        base.HidePanel();
     }
 
-    public void HideBulletUI()
+    public override void ShowPanel()
     {
-        bulletImage.gameObject.SetActive(false);
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }

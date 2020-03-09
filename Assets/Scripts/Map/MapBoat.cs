@@ -18,10 +18,10 @@ public class MapBoat : MonoBehaviour
 
     public void Place(int index)
     {
-        currentPathIndex = index;
+        currentPathIndex = BoatPath.Instance.anchorIndexes[index];
         transform.position = BoatPath.Instance.AnchorPosition(index);
         targetPos = transform.position;
-        FaceDirection();
+
     }
 
     public void FaceDirection()
@@ -41,14 +41,18 @@ public class MapBoat : MonoBehaviour
     public float movementTurnTime;
     private void FixedUpdate()
     {
+        FaceDirection();
 
         //displace object
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref reference, movementSmoothTime);
 
         if(moving)
         {
-            FaceDirection();
             transform.DORotate(lookingTransform.eulerAngles, movementTurnTime);
+        }
+        else
+        {
+            transform.DORotate(lookingTransform.eulerAngles, 0);
         }
     }
 

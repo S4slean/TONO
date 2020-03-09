@@ -59,6 +59,6 @@ public class LevelPanel : MonoBehaviour
 
     public void PlayButtonClicked()
     {
-
+        MapManager.Instance.StartGame();
     }
 }
