@@ -35,9 +35,6 @@ public class BombardmentManager : MonoBehaviour
     public Color plusColor;
     public Color crossColor;
 
-    [Header("Spawning")]
-    public float barrelSpawningHeight;
-
     [Header("Stats")]
     public int barrelAmount;
     public int knownBarrelsAmount;
@@ -116,26 +113,14 @@ public class BombardmentManager : MonoBehaviour
         }
     }
 
-    public GameObject InstantiateBarrel(RangeType rangeType)
-    {
-        for(int i = 0; i < barrelRangeTypes.Length; i++)
-        {
-            if(barrelRangeTypes[i] == rangeType)
-            {
-                return Instantiate(barrels[i], barrelParent);
-            }
-        }
-
-
-        return Instantiate(barrels[0], barrelParent);
-    }
-
     public void DropBarrels()
     {
         for(int i = 0; i < activeMarkers.Count; i++)
         {
-            GameObject toDrop = InstantiateBarrel(activeMarkers[0].rangeType);
-            
+            GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
+            toDrop.transform.position = activeMarkers[0].transform.position;
+            toDrop.gameObject.SetActive(true);
+            activeMarkers.RemoveAt(0);
         }
     }
 }

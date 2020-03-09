@@ -8,18 +8,22 @@ public class Barrel : GamePawn
     public bool standing = true;
     [HideInInspector]public Skill explosionSkill;
 
+    public GameObject[] graphics;
+
     protected override void Start()
     {
         base.Start();
+    }
 
-        foreach(Skill skill in skills)
+    public void Initialize(BarrelType type)
+    {
+        explosionSkill = type.explosionSkill;
+        for(int i = 0; i < graphics.Length; i ++)
         {
-            if(skill.skillName == "Explosion")
-            {
-                explosionSkill = skill;
-                break;
-            }
+            graphics[i].SetActive(false);
         }
+
+        graphics[type.graphicsIndex].SetActive(true);
     }
 
     public override void OnMouseEnter()
