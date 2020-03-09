@@ -33,7 +33,7 @@ public class UI_ActionButton : MonoBehaviour
 
     bool isUnfold = false;
     bool isMoving = false;
-    bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
+    //bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
 
     private float current;
     private float diff;
