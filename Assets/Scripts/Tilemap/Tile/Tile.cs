@@ -111,6 +111,24 @@ public class Tile : MonoBehaviour
         return res;
     }
 
+    public Tile GetNeighbours(Direction dir)
+    {
+        switch (dir)
+        {
+
+            case Direction.Up:
+                return neighbours.up;
+            case Direction.Down:
+                return neighbours.down;
+            case Direction.Right:
+                return neighbours.right;
+            case Direction.Left:
+                return neighbours.left;
+        }
+
+        return null;
+    }
+
 
     public void Reset()
     {

@@ -98,172 +98,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6370869967274720670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d49649cf6456a846b630c462abd07ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 61d4fc5770d735846939f6b0a53afb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeTiles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  freeTiles: []
 --- !u!1 &6370869967459220239
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,10 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats:
-    startingAP: 0
-    startingMP: 0
-    startingLP: 0
-    isGunLoadedAtStart: 0
+    startingAP: 7
+    startingMP: 3
+    startingLP: 3
+    isGunLoadedAtStart: 1
     upgradeChoicesMade: 
     upgradesPossessed: 
   overridesPlayerStats: 0
@@ -410,6 +248,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8302d57d38f5d3f468336a8956f5f2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.175
+      outSlope: 4.175
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.028742515
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -4.1352324
+      outSlope: -4.1352324
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.033532977
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpHeight: 3
 --- !u!1 &6370869967934870422
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +330,7 @@ MonoBehaviour:
   moveHighlightMat: {fileID: 2100000, guid: da16ae655bf835745a63bb33706b80bc, type: 2}
   actionPreviewMat: {fileID: 2100000, guid: 050bf7520ace5d945b7d2f6a8b4cc635, type: 2}
   actionHighlightMat: {fileID: 2100000, guid: 71a444fcf039f364090a9b253709865f, type: 2}
-  explosionPreviewMat: {fileID: 0}
+  explosionPreviewMat: {fileID: 2100000, guid: 6b6a0b77093d8924687ec9307eb04782, type: 2}
 --- !u!1 &6370869968525780914
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +472,12 @@ MonoBehaviour:
   - {fileID: 4211647077250023432, guid: 65cc5ddc081fb984d81953348fbf52af, type: 3}
   barrelRangeTypes: 02000000
   barrelsToDrop: 
+  delayBeforeBarrelPlacement: 0
+  barrelMarker: {fileID: 0}
+  roundColor: {r: 0, g: 0, b: 0, a: 0}
+  plusColor: {r: 0, g: 0, b: 0, a: 0}
+  crossColor: {r: 0, g: 0, b: 0, a: 0}
+  barrelSpawningHeight: 0
   barrelAmount: 0
   knownBarrelsAmount: 0
   knowsAllBarrels: 0
@@ -741,6 +619,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6370869968600417347}
     m_Modifications:
+    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.800049
+      objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
