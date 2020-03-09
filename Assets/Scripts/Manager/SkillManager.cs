@@ -19,6 +19,21 @@ public enum Skills
 
 public class SkillManager : MonoBehaviour
 {
+
+    public static SkillManager instance;
+
+    private void Start()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Kick(GamePawn user, int dmg, GamePawn target, Direction dir)
     {
         //user.PlayAnim
@@ -52,11 +67,11 @@ public class SkillManager : MonoBehaviour
         });
     }
 
-    public void ThrowProjectile(GamePawn user, GamePawn target, GameObject projectile)
+    public void ThrowProjectile(GamePawn user, GamePawn target, GameObject projectile, int dmg)
     {
        
         GameObject instance = Instantiate(projectile, user.transform.position, Quaternion.identity);
-        instance.GetComponent<Projectiles>().Throw(target.transform, user);
+        instance.GetComponent<Projectiles>().Throw(target, user, dmg);
        
     }
     public void ReloadGun()
@@ -88,5 +103,10 @@ public class SkillManager : MonoBehaviour
             user.EndAction();
 
         });
+    }
+
+    public void CreateAlcoholPool(Tile affectedTile, bool canSpread)
+    {
+
     }
 }

@@ -40,6 +40,7 @@ public class Barrel : GamePawn
         {
             hovered = false;
             rend.material = oldMaterial;
+            ComboManager.instance.ClearAllComboList();
             Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
         }
     }

@@ -43,6 +43,16 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public bool TileIsWall(Tile tile)
+    {
+        return tile is Wall;
+    }
+
+    public bool TileIsWater(Tile tile)
+    {
+        return tile is Water;
+    }
+
     public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false)
     {
         List<Tile> line = new List<Tile>();
@@ -60,9 +70,9 @@ public class GridManager : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.up != null)
+                    if(currentTile.neighbours.up != null)
                     {
-                        currentNeighbours = currentTile.up;
+                        currentNeighbours = currentTile.neighbours.up;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -91,9 +101,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Right:
-                    if(currentTile.right != null)
+                    if(currentTile.neighbours.right != null)
                     {
-                        currentNeighbours = currentTile.right;
+                        currentNeighbours = currentTile.neighbours.right;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -122,9 +132,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if(currentTile.down != null)
+                    if(currentTile.neighbours.down != null)
                     {
-                        currentNeighbours = currentTile.down;
+                        currentNeighbours = currentTile.neighbours.down;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -153,9 +163,9 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Left:
-                    if(currentTile.left != null)
+                    if(currentTile.neighbours.left != null && currentTile.neighbours.left)
                     {
-                        currentNeighbours = currentTile.left;
+                        currentNeighbours = currentTile.neighbours.left;
                         if(currentNeighbours is Water)
                         {
                             if (throughWater)
@@ -193,8 +203,9 @@ public class GridManager : MonoBehaviour
 
     public List<Tile> GetRoundRange(GamePawn user, int range, bool usingCombo = false)
     {
-        Tile startingTile = user.GetTile();
         List<Tile> res = new List<Tile>();
+        Tile currentTile = user.GetTile();
+        res.Add(currentTile);
         return res;
     }
 
@@ -215,7 +226,10 @@ public class GridManager : MonoBehaviour
                 if(currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -235,7 +249,10 @@ public class GridManager : MonoBehaviour
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -255,7 +272,10 @@ public class GridManager : MonoBehaviour
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
@@ -275,7 +295,10 @@ public class GridManager : MonoBehaviour
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                    {
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    }
                 }
             }
             else
