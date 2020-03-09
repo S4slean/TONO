@@ -191,13 +191,13 @@ public class GridManager : MonoBehaviour
         return line;
     }
 
-    public List<Tile> GetRoundRange(Tile startingTile, int range, bool usingCombo = false)
+    public List<Tile> GetRoundRange(Tile startingTile, int range)
     {
         List<Tile> res = new List<Tile>();
         return res;
     }
 
-    public List<Tile> GetPlusRange(Tile startingTile, int range, bool usingCombo = false)
+    public List<Tile> GetPlusRange(Tile startingTile, int range)
     {
         List<Tile> res = new List<Tile>();
         res.Add(startingTile);
@@ -210,11 +210,6 @@ public class GridManager : MonoBehaviour
             if(!(currentTile is Water || currentTile == null))
             {
                 res.Add(currentTile);
-                if(currentTile.GetPawnOnTile() is Barrel)
-                {
-                    Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    //barrel.explosionSkill.Preview();
-                }
             }
             else
             {
@@ -271,7 +266,7 @@ public class GridManager : MonoBehaviour
         return res;
     }
 
-    public List<Tile> GetCrossRange(Tile startingTile, int range, bool usingCombo = false)
+    public List<Tile> GetCrossRange(Tile startingTile, int range)
     {
         List<Tile> res = new List<Tile>();
         res.Add(startingTile);

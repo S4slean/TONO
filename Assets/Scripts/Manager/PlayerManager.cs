@@ -141,6 +141,16 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void StartPlayerTurn()
+    {
+
+    }
+
+    public void EndPlayerTurn()
+    {
+
+    }
+
     public void GunShotSkill()
     {
         if (hoverMode != HoverMode.GunShotHover)

@@ -51,6 +51,9 @@ public class Highlight_Manager : MonoBehaviour
             case HighlightMode.ActionHighlight:
                 highlightMat = actionHighlightMat;
                 break;
+            case HighlightMode.ExplosionPreview:
+                highlightMat = explosionPreviewMat;
+                break;
             default:
                 highlightMat = hoverMat;
                 break;
