@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Kick", menuName = "TONO/Skill/Kick")]
 public class Kick : Skill
 {
     public override void Activate(GamePawn user, Tile target)

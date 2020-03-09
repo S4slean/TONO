@@ -32,9 +32,9 @@ public class UI_MessagePanel : MonoBehaviour
 
 
 
-    private void Awake()
+    private void Start()
     {
-        SetUI();
+        //SetUI();
     }
 
     private void Update()
