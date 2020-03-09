@@ -209,124 +209,27 @@ public class GridManager : MonoBehaviour
 
         //UP
         Tile currentTile = startingTile.neighbours.up;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.right;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
 
         //RIGHT
         currentTile = startingTile.neighbours.right;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.down;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
 
         //DOWN
         currentTile = startingTile.neighbours.down;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.left;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
 
         //LEFT
         currentTile = startingTile.neighbours.left;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
+        CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.up;
-        if (!IsWall(currentTile) && !IsWater(currentTile))
-        {
-            res.Add(currentTile);
-            if (currentTile.GetPawnOnTile() is Barrel)
-            {
-                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
-                {
-                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
-                }
-            }
-
-        }
-
+        CheckForCombo(res, currentTile);
         return res;
     }
 
@@ -440,13 +343,46 @@ public class GridManager : MonoBehaviour
         Tile currentTile;
 
         //UP-RIGHT
-        /*currentTile = startingTile.neighbours.right;
-        for(int i = 0; i< range; i++)
-        {
-            currentTile = currentTile;
-        }*/
+        currentTile = startingTile.neighbours.up.neighbours.right;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.up.neighbours.right;
+        CheckForCombo(res, currentTile);
+
+        //RIGHT-DOWN
+        currentTile = startingTile.neighbours.right.neighbours.down;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.right.neighbours.down;
+        CheckForCombo(res, currentTile);
+
+        //DOWN-LEFT
+        currentTile = startingTile.neighbours.down.neighbours.left;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.down.neighbours.left;
+        CheckForCombo(res, currentTile);
+
+        //LEFT-UP
+        currentTile = startingTile.neighbours.left.neighbours.up;
+        CheckForCombo(res, currentTile);
+        currentTile = currentTile.neighbours.left.neighbours.up;
+        CheckForCombo(res, currentTile);
 
         return res;
+    }
+
+    public void CheckForCombo(List<Tile> comboTiles, Tile currentTile)
+    {
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            comboTiles.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    comboTiles.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+        }
     }
 
 }
