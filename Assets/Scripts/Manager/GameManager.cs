@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     public void StartBombardmentTurn()
     {
         turnType = TurnType.bombardment;
-        UI_Manager.instance.roundPanel.TurnWheel();
+        //UI_Manager.instance.roundPanel.TurnWheel();
         UI_Manager.instance.timelinePanel.NextIconTurn();
         BombardmentManager.Instance.StartBombardment();
     }
