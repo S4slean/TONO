@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8923263347291669602}
-  - component: {fileID: 4210794080499223863}
+  - component: {fileID: 3075887623376706926}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4210794080499223863
+--- !u!114 &3075887623376706926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 0
   associatedTile: {fileID: 0}
   moveRange: []
   skillPreviewID: 0

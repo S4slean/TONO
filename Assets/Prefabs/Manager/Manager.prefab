@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6370869967274720671}
-  - component: {fileID: 6370869967274720664}
+  - component: {fileID: 6131050931372089564}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -89,7 +89,7 @@ Transform:
   m_Father: {fileID: 6370869968600417347}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6370869967274720664
+--- !u!114 &6131050931372089564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6370869967274720670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d4fc5770d735846939f6b0a53afb61, type: 3}
+  m_Script: {fileID: 11500000, guid: 163737564737f216e696d6164796f6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   freeTiles: []
@@ -469,17 +469,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrelParent: {fileID: 6370869968719764692}
-  barrels:
-  - {fileID: 4211647077250023432, guid: 65cc5ddc081fb984d81953348fbf52af, type: 3}
-  barrelRangeTypes: 02000000
+  barrelRangeTypes: 020000000300000004000000
   barrelsToDrop: 
   delayBeforeBarrelPlacement: 1
   barrelMarker: {fileID: 7632130075971194301, guid: 9e4c031ec8fe6664abef02552b40190e,
     type: 3}
+  activeMarkers: []
   roundColor: {r: 0, g: 0, b: 0, a: 0}
   plusColor: {r: 0, g: 0, b: 0, a: 0}
   crossColor: {r: 0, g: 0, b: 0, a: 0}
-  barrelSpawningHeight: 0
   barrelAmount: 3
   knownBarrelsAmount: 0
   knowsAllBarrels: 0

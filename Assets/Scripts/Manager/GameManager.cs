@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void StartBombardmentTurn()
     {
+        BombardmentManager.Instance.DropBarrels();
         turnType = TurnType.bombardment;
         //UI_Manager.instance.roundPanel.TurnWheel();
         UI_Manager.instance.timelinePanel.NextIconTurn();
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void StartEnnemyTurn()
     {
-        BombardmentManager.Instance.DropBarrels();
+
         turnType = TurnType.enemy;
         EnemyManager.instance.PlayEnemyTurn();
     }

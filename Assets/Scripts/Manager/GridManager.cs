@@ -70,10 +70,10 @@ public class GridManager : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.neighbours.up != null && !IsWall(currentTile.neighbours.up))
+                    if (currentTile.neighbours.up != null && !IsWall(currentTile.neighbours.up))
                     {
                         currentNeighbours = currentTile.neighbours.up;
-                        if(IsWater(currentNeighbours))
+                        if (IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -85,7 +85,7 @@ public class GridManager : MonoBehaviour
                                 break;
                             }
                         }
-                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -101,10 +101,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Right:
-                    if(currentTile.neighbours.right != null && !IsWall(currentTile.neighbours.right))
+                    if (currentTile.neighbours.right != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.right;
-                        if(IsWater(currentNeighbours))
+                        if (IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -116,7 +116,7 @@ public class GridManager : MonoBehaviour
                                 break;
                             }
                         }
-                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -132,10 +132,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if(currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
+                    if (currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.down;
-                        if(IsWater(currentNeighbours))
+                        if (IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -147,7 +147,7 @@ public class GridManager : MonoBehaviour
                                 break;
                             }
                         }
-                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -163,10 +163,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Left:
-                    if(currentTile.neighbours.left != null && !IsWall(currentTile.neighbours.left))
+                    if (currentTile.neighbours.left != null && !IsWall(currentTile.neighbours.left))
                     {
                         currentNeighbours = currentTile.neighbours.left;
-                        if(IsWater(currentNeighbours))
+                        if (IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -178,7 +178,7 @@ public class GridManager : MonoBehaviour
                                 break;
                             }
                         }
-                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -244,10 +244,10 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.up;
         for (int i = 0; i < range; i++)
         {
-            if(!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
-                if(currentTile.GetPawnOnTile() is Barrel)
+                if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                     if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))

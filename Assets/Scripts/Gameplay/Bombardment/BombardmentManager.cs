@@ -19,7 +19,6 @@ public class BombardmentManager : MonoBehaviour
 
     public Transform barrelParent;
 
-    public GameObject[] barrels;
     public RangeType[] barrelRangeTypes;
 
     public RangeType[] barrelsToDrop;
@@ -30,7 +29,7 @@ public class BombardmentManager : MonoBehaviour
 
     [Header("Placement")]
     public GameObject barrelMarker;
-    List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
+    public List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
     public Color roundColor;
     public Color plusColor;
     public Color crossColor;
@@ -76,6 +75,7 @@ public class BombardmentManager : MonoBehaviour
     bool waitingToPlace;
     public void PlaceBarrelMarker(Tile selectedTile)
     {
+        print("Placing Marker");
         waitingToPlace = false;
         if(barrelMarkersPool.Count < 1)
         {
@@ -83,6 +83,8 @@ public class BombardmentManager : MonoBehaviour
         }
         BarrelMarker toPlace = barrelMarkersPool.Dequeue();
         toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
+        toPlace.gameObject.SetActive(true);
+        activeMarkers.Add(toPlace);
         placementIndex++;
 
         if(placementIndex >= barrelAmount)
@@ -120,6 +122,8 @@ public class BombardmentManager : MonoBehaviour
             GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
             toDrop.transform.position = activeMarkers[0].transform.position;
             toDrop.gameObject.SetActive(true);
+            activeMarkers[0].gameObject.SetActive(false);
+            barrelMarkersPool.Enqueue(activeMarkers[0]);
             activeMarkers.RemoveAt(0);
         }
     }
