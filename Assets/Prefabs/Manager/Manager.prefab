@@ -472,13 +472,14 @@ MonoBehaviour:
   - {fileID: 4211647077250023432, guid: 65cc5ddc081fb984d81953348fbf52af, type: 3}
   barrelRangeTypes: 02000000
   barrelsToDrop: 
-  delayBeforeBarrelPlacement: 0
-  barrelMarker: {fileID: 0}
+  delayBeforeBarrelPlacement: 1
+  barrelMarker: {fileID: 7632130075971194301, guid: 9e4c031ec8fe6664abef02552b40190e,
+    type: 3}
   roundColor: {r: 0, g: 0, b: 0, a: 0}
   plusColor: {r: 0, g: 0, b: 0, a: 0}
   crossColor: {r: 0, g: 0, b: 0, a: 0}
   barrelSpawningHeight: 0
-  barrelAmount: 0
+  barrelAmount: 3
   knownBarrelsAmount: 0
   knowsAllBarrels: 0
 --- !u!1 &6370869968836799643
