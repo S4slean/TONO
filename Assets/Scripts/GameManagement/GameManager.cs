@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DataManager.Instance.Load(true, SceneType.game);
-
+        
+        if(PauseManager.Instance)
         PauseManager.Instance.Initialize();
 
         if(overridesPlayerStats)
