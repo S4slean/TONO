@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public PlayerStatsConfig overridingPlayerStatsConfig;
     public int combatsCompleted;
 
+    public float introductionDuration;
+
+    public TurnType turnType;
+
     private void Awake()
     {
         Instance = this;
@@ -31,13 +35,66 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
+
+        StartCoroutine("IntroThenStart");
     }
 
-    public Vector3[] floorCenterPositions;
-
-    private void Update()
+    IEnumerator IntroThenStart()
     {
-        floorCenterPositions = Floor.centerPositions;
+        yield return new WaitForSeconds(introductionDuration);
+
+        StartBombardmentTurn();
+    }
+
+    public void CheckIfCompleted(bool goesToNext)
+    {
+
+        if(EnemyManager.instance.NoEnemiesLeft())
+        {
+            CompleteCombat();
+        }
+        else
+        {
+            if(goesToNext)
+            {
+                NextTurn();
+            }
+
+        }
+    }
+
+    public void StartBombardmentTurn()
+    {
+        UI_Manager.instance.roundPanel.TurnWheel();
+        UI_Manager.instance.timelinePanel.NextIconTurn();
+        BombardmentManager.Instance.StartBombardment();
+    }
+
+    public void StartEnnemyTurn()
+    {
+        EnemyManager.instance.PlayEnemyTurn();
+    }
+
+    public void StartPlayerTurn()
+    {
+        UI_Manager.instance.timelinePanel.NextIconTurn();
+    }
+
+    public void NextTurn()
+    {
+        switch(turnType)
+        {
+            case TurnType.bombardment:
+                StartEnnemyTurn();
+                break;
+            case TurnType.ennemy:
+                StartPlayerTurn();
+                break;
+            case TurnType.player:
+                StartBombardmentTurn();
+                break;
+        }
     }
 
     
@@ -56,4 +113,11 @@ public class GameManager : MonoBehaviour
         DataManager.Instance.Save(SceneType.game);
         LevelManager.GoToScene("Map");
     }
+}
+
+public enum TurnType
+{
+    bombardment,
+    ennemy,
+    player
 }
