@@ -6,7 +6,7 @@ public class Barrel : GamePawn
 {
 
     public bool standing = true;
-    private Skill explosionSkill;
+    [HideInInspector]public Skill explosionSkill;
 
     protected override void Start()
     {
