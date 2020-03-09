@@ -10,10 +10,15 @@ public class UI_EndTurn : Panel_Behaviour
 
 
 
-
     private void Update()
     {
         MovePanel();
+    }
+
+
+    public void EndTurn()
+    {
+        GameManager.Instance.NextTurn();
     }
 
 
