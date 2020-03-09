@@ -13,6 +13,18 @@ public class Barrel : GamePawn
         base.Start();
     }
 
+    public GameObject[] graphics;
+
+    public void Initialize(BarrelType type)
+    {
+        for(int i =0; i < graphics.Length; i++)
+        {
+            graphics[i].SetActive(false);
+        }
+        graphics[type.graphicsIndex].SetActive(true);
+        explosionSkill = type.explosionSkill;
+    }
+
     public override void OnMouseEnter()
     {
         //print("SHOW PREVIEW BARREL : " + PlayerManager.instance.hoverMode);

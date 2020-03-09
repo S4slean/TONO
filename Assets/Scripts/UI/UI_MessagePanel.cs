@@ -32,11 +32,6 @@ public class UI_MessagePanel : MonoBehaviour
 
 
 
-    private void Start()
-    {
-        //SetUI();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -44,12 +39,12 @@ public class UI_MessagePanel : MonoBehaviour
             ShowMessage(Messages.Victory);
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             ShowMessage(Messages.PlayerTurn);
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             ShowMessage(Messages.Defeat);
         }
@@ -86,7 +81,7 @@ public class UI_MessagePanel : MonoBehaviour
         }
     }
 
-    private void SetUI()
+    public void SetUI()
     {
         panelImage.sprite = UI_Manager.instance.uiPreset.messagePanelImage;
         leftStringImage.sprite = UI_Manager.instance.uiPreset.leftStringImage;

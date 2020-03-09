@@ -908,8 +908,8 @@ MonoBehaviour:
   pausePanel: {fileID: 867704807488733686}
   boatPanel: {fileID: 3390996085855522415}
   actionPanel: {fileID: 3919592757685081212}
-  roundPanel: {fileID: 0}
   characterInfoPanel: {fileID: 3919592757899748362}
+  messagePanel: {fileID: 6485488786581970299}
 --- !u!1 &3919592758296082036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,11 +1300,11 @@ RectTransform:
   m_Father: {fileID: 3919592758139470773}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 600}
   m_SizeDelta: {x: 1000, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3230064861705896151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1326,26 +1326,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelAnimator: {fileID: 2893848999658975275}
-  panelImage: {fileID: 0}
+  panelImage: {fileID: 3659915845886911178}
+  leftStringImage: {fileID: 5333613294882328826}
+  rightStringImage: {fileID: 924750402061176020}
   messageText: {fileID: 3086248381061163696}
-  defeatMessage: 'Defeat
-
-    "Never happened"'
-  victoryMessage: 'Victory
-
-    "A great, however unfair battle"'
-  roundMessage: 'Next Round
-
-    "Because it''s a tactical"'
-  enemyMessage: 'Enemy
-
-    "Those drunk bastards"'
-  playerMessage: 'Player
-
-    "I"'
-  boatMessage: 'Boat
-
-    "My great pride"'
+  defeatMessage: Defeat
+  victoryMessage: Victory
+  enemyMessage: Enemy
+  playerMessage: Player
+  boatMessage: Boat
 --- !u!95 &2893848999658975275
 Animator:
   serializedVersion: 3

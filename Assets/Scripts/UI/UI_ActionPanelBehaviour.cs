@@ -31,7 +31,7 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     /// <summary>
     /// Set Up panel action corresponding to a Character
     /// </summary>
-    private void SetUpPanel()
+    public void SetUpPanel()
     {
         if(PlayerManager.instance.playerCharacter == null)
         {
