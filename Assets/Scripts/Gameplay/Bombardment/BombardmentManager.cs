@@ -40,6 +40,7 @@ public class BombardmentManager : MonoBehaviour
     public void StartBombardment()
     {
         CalculateBarrelsToDrop();
+        StartCoroutine(WaitThenStartPlacingBarrels());
     }
 
     IEnumerator WaitThenStartPlacingBarrels()
@@ -54,7 +55,7 @@ public class BombardmentManager : MonoBehaviour
     {
         placementIndex++;
         waitingToPlace = true;
-        //PlayerManager.instance.hoverMode = HoverMode.Bombardment;
+        PlayerManager.instance.hoverMode = HoverMode.Bombardment;
     }
 
     bool waitingToPlace;
@@ -63,6 +64,12 @@ public class BombardmentManager : MonoBehaviour
         waitingToPlace = false;
         BarrelMarker toPlace = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
         toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
+        placementIndex++;
+
+        if(placementIndex >= barrelAmount)
+        {
+            StopBombardment();
+        }
     }
 
     public void StopBombardment()

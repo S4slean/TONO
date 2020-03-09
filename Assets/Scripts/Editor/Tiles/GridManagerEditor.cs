@@ -25,6 +25,5 @@ public class GridManagerEditor : Editor
 
         serializedObject.ApplyModifiedProperties();
 
-        EditorUtility.SetDirty(target);
     }
 }
