@@ -19,7 +19,6 @@ public class BombardmentManager : MonoBehaviour
 
     public Transform barrelParent;
 
-    public GameObject[] barrels;
     public RangeType[] barrelRangeTypes;
 
     public RangeType[] barrelsToDrop;
@@ -30,13 +29,10 @@ public class BombardmentManager : MonoBehaviour
 
     [Header("Placement")]
     public GameObject barrelMarker;
-    List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
+    public List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
     public Color roundColor;
     public Color plusColor;
     public Color crossColor;
-
-    [Header("Spawning")]
-    public float barrelSpawningHeight;
 
     [Header("Stats")]
     public int barrelAmount;
@@ -79,6 +75,7 @@ public class BombardmentManager : MonoBehaviour
     bool waitingToPlace;
     public void PlaceBarrelMarker(Tile selectedTile)
     {
+        print("Placing Marker");
         waitingToPlace = false;
         if(barrelMarkersPool.Count < 1)
         {
@@ -86,6 +83,8 @@ public class BombardmentManager : MonoBehaviour
         }
         BarrelMarker toPlace = barrelMarkersPool.Dequeue();
         toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
+        toPlace.gameObject.SetActive(true);
+        activeMarkers.Add(toPlace);
         placementIndex++;
 
         if(placementIndex >= barrelAmount)
@@ -116,26 +115,16 @@ public class BombardmentManager : MonoBehaviour
         }
     }
 
-    public GameObject InstantiateBarrel(RangeType rangeType)
-    {
-        for(int i = 0; i < barrelRangeTypes.Length; i++)
-        {
-            if(barrelRangeTypes[i] == rangeType)
-            {
-                return Instantiate(barrels[i], barrelParent);
-            }
-        }
-
-
-        return Instantiate(barrels[0], barrelParent);
-    }
-
     public void DropBarrels()
     {
         for(int i = 0; i < activeMarkers.Count; i++)
         {
-            GameObject toDrop = InstantiateBarrel(activeMarkers[0].rangeType);
-            
+            GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
+            toDrop.transform.position = activeMarkers[0].transform.position;
+            toDrop.gameObject.SetActive(true);
+            activeMarkers[0].gameObject.SetActive(false);
+            barrelMarkersPool.Enqueue(activeMarkers[0]);
+            activeMarkers.RemoveAt(0);
         }
     }
 }

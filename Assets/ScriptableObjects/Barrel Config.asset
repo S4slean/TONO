@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095d782e69467394896d94a23ad627b5, type: 3}
+  m_Name: Barrel Config
+  m_EditorClassIdentifier: 
+  barrelTypes:
+  - rangeType: 3
+    explosionSkill: {fileID: 11400000, guid: 2d5d1e0948c494e4086cc72e7371a338, type: 2}
+    graphicsIndex: 0
+  - rangeType: 2
+    explosionSkill: {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
+    graphicsIndex: 1
+  - rangeType: 4
+    explosionSkill: {fileID: 11400000, guid: ea636cdc8de20774bbef8da9cc0cf6ed, type: 2}
+    graphicsIndex: 2
