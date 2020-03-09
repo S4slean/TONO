@@ -34,7 +34,7 @@ public class GridManager : MonoBehaviour
         Tile[] temp = GameObject.FindObjectsOfType<Tile>();
         foreach (Tile t in temp)
         {
-            if (t is Water)
+            if (IsWater(t) || IsWall(t))
                 t.isWalkable = false;
             else
                 t.isWalkable = true;
@@ -43,12 +43,12 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public bool TileIsWall(Tile tile)
+    public bool IsWall(Tile tile)
     {
         return tile is Wall;
     }
 
-    public bool TileIsWater(Tile tile)
+    public bool IsWater(Tile tile)
     {
         return tile is Water;
     }
@@ -70,10 +70,10 @@ public class GridManager : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.neighbours.up != null)
+                    if(currentTile.neighbours.up != null && !IsWall(currentTile.neighbours.up))
                     {
                         currentNeighbours = currentTile.neighbours.up;
-                        if(currentNeighbours is Water)
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -101,10 +101,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Right:
-                    if(currentTile.neighbours.right != null)
+                    if(currentTile.neighbours.right != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.right;
-                        if(currentNeighbours is Water)
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -132,10 +132,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if(currentTile.neighbours.down != null)
+                    if(currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.down;
-                        if(currentNeighbours is Water)
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -163,10 +163,10 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Left:
-                    if(currentTile.neighbours.left != null && currentTile.neighbours.left)
+                    if(currentTile.neighbours.left != null && !IsWall(currentTile.neighbours.left))
                     {
                         currentNeighbours = currentTile.neighbours.left;
-                        if(currentNeighbours is Water)
+                        if(IsWater(currentNeighbours))
                         {
                             if (throughWater)
                             {
@@ -204,8 +204,129 @@ public class GridManager : MonoBehaviour
     public List<Tile> GetRoundRange(GamePawn user, int range, bool usingCombo = false)
     {
         List<Tile> res = new List<Tile>();
-        Tile currentTile = user.GetTile();
-        res.Add(currentTile);
+        Tile startingTile = user.GetTile();
+        res.Add(startingTile);
+
+        //UP
+        Tile currentTile = startingTile.neighbours.up;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+        currentTile = currentTile.neighbours.right;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+
+        //RIGHT
+        currentTile = startingTile.neighbours.right;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+        currentTile = currentTile.neighbours.down;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+
+        //DOWN
+        currentTile = startingTile.neighbours.down;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+        currentTile = currentTile.neighbours.left;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+
+        //LEFT
+        currentTile = startingTile.neighbours.left;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+        currentTile = currentTile.neighbours.up;
+        if (!IsWall(currentTile) && !IsWater(currentTile))
+        {
+            res.Add(currentTile);
+            if (currentTile.GetPawnOnTile() is Barrel)
+            {
+                Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
+                if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
+                {
+                    res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                }
+            }
+
+        }
+
         return res;
     }
 
@@ -220,7 +341,7 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.up;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if(!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if(currentTile.GetPawnOnTile() is Barrel)
@@ -243,7 +364,7 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.right;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
@@ -266,7 +387,7 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.down;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
@@ -289,7 +410,7 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.left;
         for (int i = 0; i < range; i++)
         {
-            if(!(currentTile is Water || currentTile == null))
+            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
             {
                 res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
