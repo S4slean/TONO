@@ -33,6 +33,8 @@ public class Skill : ScriptableObject
     {
 
     }
+
+    public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }
 }
 
-public enum RangeType { Default, Line, Plus, Round, X }
+public enum RangeType { Default, Line, Plus, Round, Cross }

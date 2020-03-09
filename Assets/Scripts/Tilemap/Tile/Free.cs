@@ -23,7 +23,9 @@ public class Free : Tile
                 }
                 break;
             case HoverMode.Bombardment:
-
+                hovered = true;
+                oldMaterial = rend.material;
+                rend.material = Highlight_Manager.instance.hoverMat;
                 break;
         }
     }
@@ -40,6 +42,13 @@ public class Free : Tile
                         player.HideMoveRange();
                     }
                     Highlight_Manager.instance.HideHighlight(previewID);
+                }
+                break;
+            case HoverMode.Bombardment:
+                if (hovered)
+                {
+                    hovered = false;
+                    rend.material = oldMaterial;
                 }
                 break;
         }

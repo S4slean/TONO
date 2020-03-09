@@ -11,6 +11,7 @@ public class Pathfinder_AStar : MonoBehaviour
     private Tile Start, End;
     public int TileVisited = 0;
     private List<Tile> ShortestPath;
+    private bool pathFound = false;
 
     private void Awake()
     {
@@ -33,9 +34,12 @@ public class Pathfinder_AStar : MonoBehaviour
 
         AstarSearch();
         List<Tile> ShortestPath = new List<Tile>();
-        ShortestPath.Add(end);
-        BuildShortestPath(ShortestPath, end);
-        ShortestPath.Reverse();
+        if (pathFound)
+        {
+            ShortestPath.Add(end);
+            BuildShortestPath(ShortestPath, end);
+            ShortestPath.Reverse();
+        }
         //print(ShortestPath.Count);
 
         ResetTile();
@@ -69,7 +73,10 @@ public class Pathfinder_AStar : MonoBehaviour
             }
             currentTile.Visited = true;
             if (currentTile == End)
+            {
+                pathFound = true;
                 return;
+            }
         } while (Queue.Any());
     }
 
