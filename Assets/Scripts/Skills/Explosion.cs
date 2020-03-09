@@ -12,7 +12,7 @@ public class Explosion : Skill
 
     public override void Preview(GamePawn user)
     {
-        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(GetRange(user), HighlightMode.ExplosionPreview));
+        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(ComboManager.instance.AddBarrelToComboPreview((Barrel)user), HighlightMode.ExplosionPreview));
     }
 
     public override List<Tile> GetRange(GamePawn user)
