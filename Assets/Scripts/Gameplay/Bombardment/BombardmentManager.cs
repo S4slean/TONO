@@ -18,6 +18,10 @@ public class BombardmentManager : MonoBehaviour
 
     public RangeType[] barrelsToDrop;
 
+    [Header("Pacing")]
+    public float delayBeforeBarrelPlacement;
+    int placementIndex;
+
     [Header("Stats")]
     public int barrelAmount;
     public int knownBarrelsAmount;
@@ -26,12 +30,27 @@ public class BombardmentManager : MonoBehaviour
     public void StartBombardment()
     {
         CalculateBarrelsToDrop();
-
     }
 
+    IEnumerator WaitThenStartPlacingBarrels()
+    {
+        placementIndex = -1;
+        yield return new WaitForSeconds(delayBeforeBarrelPlacement);
+        StartPlacingNextBarrel();
+    }
+
+
+    public void StartPlacingNextBarrel()
+    {
+        placementIndex++;
+        waitingToPlace = true;
+        //PlayerManager.instance.hoverMode = HoverMode.Bombardment;
+    }
+
+    bool waitingToPlace;
     public void PlaceBarrel(Tile selectedTile)
     {
-
+        
     }
 
     public void StopBombardment()
