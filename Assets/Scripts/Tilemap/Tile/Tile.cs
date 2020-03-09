@@ -17,13 +17,15 @@ public class Tile : MonoBehaviour
     //public Color hoverColor;
 
     //GRAPHIC
-    public Renderer rend;
-    public Material defaultMaterial;
+    [HideInInspector] public Renderer rend;
+    [HideInInspector] public Material oldMaterial;
+    [HideInInspector] public Material defaultMaterial;
     public bool highlighted;
 
     //LOGIC
     public bool isWalkable;
     public bool isClickable;
+    public bool hovered;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
