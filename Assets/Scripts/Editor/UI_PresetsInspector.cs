@@ -9,7 +9,7 @@ public class UI_PresetsInspector : Editor
 {
     private void OnEnable()
     {
-        
+
     }
 
     public override void OnInspectorGUI()

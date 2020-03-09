@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UI_RoundCounter : MonoBehaviour
+public class UI_RoundCounter : Panel_Behaviour
 {
     [Header("Wheel parameters")]
     public List<TextMeshProUGUI> numbers;
     public Image indicatorImage;
     public Image wheelImage;
-    public Image endTurnImage;
     public RectTransform wheelRect;
 
     private int lastNumber = 0;
@@ -18,9 +17,9 @@ public class UI_RoundCounter : MonoBehaviour
     private int startDelay = 4;
 
 
-    [Header("Animation")]
+    [Header("Rotation Animation")]
     public AnimationCurve rotationAnimCurve;
-    private float current;
+    private float currentTime;
     public float animTime;
     private float percent;
     bool isRotating;
@@ -31,25 +30,37 @@ public class UI_RoundCounter : MonoBehaviour
 
 
 
+    private void Start()
+    {
+        SetUpNumbersWheel();
+    }
 
     private void Update()
+    {
+        RotateCounter();
+
+        MovePanel();
+    }
+
+
+    private void RotateCounter()
     {
         if (isRotating)
         {
             RotateCounter(oneRotationOf);
 
-            if (current < animTime)
+            if (currentTime < animTime)
             {
-                current += Time.deltaTime;
+                currentTime += Time.deltaTime;
 
-                percent = rotationAnimCurve.Evaluate(current / animTime);
+                percent = rotationAnimCurve.Evaluate(currentTime / animTime);
             }
             else
             {
                 isRotating = false;
                 isTargetSet = false;
 
-                current = 0;
+                currentTime = 0;
                 percent = 0;
 
 
@@ -72,39 +83,6 @@ public class UI_RoundCounter : MonoBehaviour
                 }
             }
         }
-
-
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    SetUpNumbersWheel();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    TurnWheel();
-        //}
-    }
-
-    public void ShowRoundUI()
-    {
-        indicatorImage.gameObject.SetActive(true);
-        wheelRect.gameObject.SetActive(true);
-    }
-
-    public void HideRoundUI()
-    {
-        indicatorImage.gameObject.SetActive(false);
-        wheelRect.gameObject.SetActive(false);
-    }
-
-    public void ShowEndTurn()
-    {
-        endTurnImage.gameObject.SetActive(true);
-    }
-
-    public void HideEndTurn()
-    {
-        endTurnImage.gameObject.SetActive(false);
     }
 
     public void RotateCounter(float tilt)
@@ -125,6 +103,9 @@ public class UI_RoundCounter : MonoBehaviour
 
     public void SetUpNumbersWheel()
     {
+        indicatorImage.sprite = UI_Manager.instance.uiPreset.indicatorImage;
+        wheelImage.sprite = UI_Manager.instance.uiPreset.wheelImage;
+
         lastNumber = numbers.Count;
 
         for (int i = 0; i < numbers.Count; i++)
@@ -142,4 +123,19 @@ public class UI_RoundCounter : MonoBehaviour
         isRotating = true;
     }
 
+
+    public override void HidePanel()
+    {
+        base.HidePanel();
+    }
+
+    public override void ShowPanel()
+    {
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
+    }
 }

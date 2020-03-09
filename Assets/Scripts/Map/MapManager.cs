@@ -33,33 +33,50 @@ public class MapManager : MonoBehaviour
 
         LevelPanel.Instance.HideImmediately();
 
-        CheckCompletion();
-    }
 
-    private void Update()
-    {
-        print(LevelManager.currentLevel);
-        if(Input.GetKeyUp(KeyCode.Space))
+
+        if(LightSwitch.Instance)
         {
-            NextLevel();
+            StartCoroutine(WaitThenCheckCompletion());
         }
+        else
+        {
+            CheckCompletion();
+        }
+
+
+    }
+    
+    
+    IEnumerator WaitThenCheckCompletion()
+    {
+        yield return new WaitForSeconds(LightSwitch.Instance.startingDelay);
+        CheckCompletion();
     }
 
     public void NextLevel()
     {
-
-
         LevelManager.currentLevel++;
         MapBoat.Instance.MoveToAnchor(LevelManager.currentLevel);
 
     }
 
+    bool willGoToNextLevel;
     public void CheckCompletion()
     {
         if(combatsCompleted >= LevelManager.currentLevel)
         {
             LevelManager.currentLevel = combatsCompleted;
-            NextLevel();
+            willGoToNextLevel = true;
+            if (LevelManager.currentLevel > 0)
+            {
+                UpgradesManager.Instance.CheckUpgrades();
+            }
+            else
+            {
+                NextLevelIfSet();
+            }
+
         }
         else
         {
@@ -67,8 +84,22 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public void NextLevelIfSet()
+    {
+        if(willGoToNextLevel)
+        {
+            willGoToNextLevel = false;
+            NextLevel();
+        }
+    }
+
     public void StartGame()
     {
         LevelManager.GoToScene("CombatCompletion");
+    }
+
+    public void BackToMenu()
+    {
+        LevelManager.GoToScene("Menu");
     }
 }

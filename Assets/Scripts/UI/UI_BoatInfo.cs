@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_BoatInfo : MonoBehaviour
+public class UI_BoatInfo : Panel_Behaviour
 {
     [Header("Boat & Barrels")]
     public Image boatImage;
@@ -13,7 +13,7 @@ public class UI_BoatInfo : MonoBehaviour
     List<RectTransform> barrels;
     RectTransform selectedBarrel;
 
-    [Header("Animation")]
+    [Header("Remove Animation")]
     public AnimationCurve removeCurve;
     public float removeAnimTime;
     private float removeCurrentTime;
@@ -21,16 +21,30 @@ public class UI_BoatInfo : MonoBehaviour
 
     bool isRemoving = false;
 
-    [Header("Animation")]
+    [Header("Debug")]
     public int numberOfDisplayedBarrels;
     public int currentBarrel;
 
 
-    private void Update()
+
+    void Awake()
+    {
+        //SetUpBoatUI();
+    }
+
+    void Update()
+    {
+        MovePanel();
+
+        RemoveAnimation();
+    }
+
+
+    private void RemoveAnimation()
     {
         if (isRemoving)
         {
-            if(removeCurrentTime < removeAnimTime)
+            if (removeCurrentTime < removeAnimTime)
             {
                 removeCurrentTime += Time.deltaTime;
 
@@ -46,31 +60,11 @@ public class UI_BoatInfo : MonoBehaviour
                 currentBarrel--;
             }
         }
-
-
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    SetUpBoatUI();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.N))
-        //{
-        //    RemoveBarrelUI();
-        //}
     }
 
-    public void ShowBoatUI()
-    {
-        barrelsParent.gameObject.SetActive(true);
-        boatImage.gameObject.SetActive(true);
-    }
-
-    public void HideBoatUI()
-    {
-        barrelsParent.gameObject.SetActive(false);
-        boatImage.gameObject.SetActive(false);
-    }
-
+    /// <summary>
+    /// Set up boat values (boat's and barrels' images) according to the player character abilities/upgrades
+    /// </summary>
     public void SetUpBoatUI()
     {
         boatImage.sprite = UI_Manager.instance.uiPreset.boatPortait;
@@ -96,6 +90,9 @@ public class UI_BoatInfo : MonoBehaviour
         currentBarrel = numberOfDisplayedBarrels - 1;
     }
 
+    /// <summary>
+    /// Set up values to remove a barrel with animation
+    /// </summary>
     public void RemoveBarrelUI()
     {
         if (currentBarrel < 0)
@@ -107,5 +104,21 @@ public class UI_BoatInfo : MonoBehaviour
         selectedBarrel = barrels[currentBarrel];
 
         isRemoving = true;
+    }
+
+
+    public override void HidePanel()
+    {
+        base.HidePanel();
+    }
+
+    public override void ShowPanel()
+    {
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }
