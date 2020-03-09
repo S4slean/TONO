@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour
     public void PlayEnemyTurn()
     {
 
-        if(_enemyIndex < enemyList.Count - 1)
+        if(_enemyIndex < enemyList.Count )
         {
             UI_Manager.instance.timelinePanel.NextIconTurn();
             enemyList[_enemyIndex].PlayTurn();

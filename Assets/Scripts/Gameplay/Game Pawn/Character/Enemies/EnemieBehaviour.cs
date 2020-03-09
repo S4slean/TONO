@@ -105,10 +105,12 @@ public class EnemieBehaviour : GamePawn
             else if ( !IsInLineSight(30) && DiceDecision(50))
             {
                 GetInLineSight(_player.GetTile());
+                movementPoints = 0;
             }
-            else 
+            else
             {
                 GetClose(_player.GetTile());
+                movementPoints = 0;
             }
         }
         else
@@ -145,6 +147,7 @@ public class EnemieBehaviour : GamePawn
 
     public bool IsInLineSight(int range)
     {
+        Debug.Log("ISInLineSight");
         if (_player.GetTile().transform.position.x != GetTile().transform.position.x && _player.GetTile().transform.position.z != GetTile().transform.position.z)
             return false;
 
@@ -161,6 +164,7 @@ public class EnemieBehaviour : GamePawn
     }
     public bool IsInMeleeRange()
     {
+        Debug.Log("IsInMeleeRange");
         Tile playerTile = _player.GetTile();
         if (GetTile().neighbours.up == playerTile || GetTile().neighbours.down == playerTile || GetTile().neighbours.left == playerTile || GetTile().neighbours.right == playerTile)
         {
@@ -255,6 +259,7 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
+            Debug.Log("Arrived at destination");
         });
     }
     public virtual void SetRangedDestination(Tile destination, bool showHighlight = false)
@@ -286,20 +291,17 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
+            Debug.Log("arrived at destination");
 
         });
 
         s.OnKill(() =>
         {
             _isDoingSomething = false;
+            Debug.Log("stopped by spotting th player");
         });
     }
 
-
-    public void DisplayMovementRange()
-    {
-
-    }
     public void DiplaySkillRange(Skill skill)
     {
         skill.Preview(this);
