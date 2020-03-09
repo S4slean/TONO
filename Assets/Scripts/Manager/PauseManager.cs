@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class PauseManager : Panel_Behaviour
+public class PauseManager : MonoBehaviour
 {
     [Header("Pause parameters")]
     public KeyCode pauseInput;
-    public Image pauseImage;
-    public Action OnGamePause;
 
     public bool canPause;
     public bool paused;
@@ -28,17 +26,12 @@ public class PauseManager : Panel_Behaviour
         {
             TogglePause();
         }
-
-        MovePanel();
     }
 
 
     public void Initialize()
     {
-        pauseImage.sprite = UI_Manager.instance.uiPreset.pauseImage;
-
         PauseMenu.Instance.pauseMenuUI.SetActive(false);
-
         canPause = true;
     }
 
@@ -73,19 +66,4 @@ public class PauseManager : Panel_Behaviour
         }
     }
 
-
-    public override void HidePanel()
-    {
-        base.HidePanel();
-    }
-
-    public override void ShowPanel()
-    {
-        base.ShowPanel();
-    }
-
-    public override void MovePanel()
-    {
-        base.MovePanel();
-    }
 }
