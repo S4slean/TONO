@@ -263,7 +263,7 @@ Material:
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
-    - _Tiling: 3
+    - _Tiling: 7000
     - _Tint: 0.514
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
