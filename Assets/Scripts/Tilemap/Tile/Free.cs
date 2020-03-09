@@ -22,9 +22,6 @@ public class Free : Tile
                     previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
                 }
                 break;
-            case HoverMode.Bombardment:
-
-                break;
         }
     }
     void OnMouseExit()
