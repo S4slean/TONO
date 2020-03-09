@@ -50,8 +50,7 @@ MonoBehaviour:
   wheelImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   indicatorImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   endTurnImage: {fileID: 21300000, guid: 42e5310b1253da0408a8f8516c0a0eec, type: 3}
-  messagePanelImage: {fileID: -423698120914468242, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
+  messagePanelImage: {fileID: 21300000, guid: 073e101e32f8ce94ca186fb44bbde966, type: 3}
   leftStringImage: {fileID: -5911500553746913090, guid: e40d5442edc65e343ad1706b85c2c5f5,
     type: 3}
   rightStringImage: {fileID: -4884594231894804990, guid: e40d5442edc65e343ad1706b85c2c5f5,
