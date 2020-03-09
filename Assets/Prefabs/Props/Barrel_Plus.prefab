@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5423540957586535593}
   - component: {fileID: 1763371113132443728}
   - component: {fileID: 8252029062757572977}
+  - component: {fileID: 1471932809586099943}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -97,9 +98,24 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  skillPreviewID: 0
   skills:
   - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
   standing: 1
+--- !u!136 &1471932809586099943
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19165191793278092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9244283
+  m_Height: 1.8890992
+  m_Direction: 1
+  m_Center: {x: 0.036570814, y: 0.91246897, z: 0.018182961}
 --- !u!1 &4211647077250023432
 GameObject:
   m_ObjectHideFlags: 0
