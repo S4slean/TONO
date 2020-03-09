@@ -77,7 +77,6 @@ public class PlayerManager : MonoBehaviour
         switch (hoverMode)
         {
             case HoverMode.MovePath:
-
                 if (Input.GetMouseButtonDown(0))
                 {
                     //Debug.Log(hit.transform.tag);

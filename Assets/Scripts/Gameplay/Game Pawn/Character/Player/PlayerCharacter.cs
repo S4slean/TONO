@@ -74,6 +74,7 @@ public class PlayerCharacter : GamePawn
 
     public override void SetDestination(Tile destination, bool showHighlight = false)
     {
+        print(destination);
         base.SetDestination(destination, showHighlight);
         HideMoveRange();
         InitializeAllSkillRange(destination);

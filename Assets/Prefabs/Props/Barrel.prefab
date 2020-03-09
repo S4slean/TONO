@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8923263347291669602}
   - component: {fileID: 3075887623376706926}
+  - component: {fileID: 6812347936192759464}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Untagged
@@ -58,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4211647077250023432}
   m_LocalRotation: {x: -5.8316366e-17, y: 0.9989165, z: 5.8316366e-17, w: -0.046537947}
-  m_LocalPosition: {x: 5, y: 1, z: 13}
+  m_LocalPosition: {x: 5, y: 1.1, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5459562697972154321}
@@ -79,17 +80,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
   skillPreviewID: 0
-  skills: []
+  skills:
+  - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
+  - {fileID: 11400000, guid: ea636cdc8de20774bbef8da9cc0cf6ed, type: 2}
+  - {fileID: 11400000, guid: 2d5d1e0948c494e4086cc72e7371a338, type: 2}
   standing: 1
   explosionSkill: {fileID: 0}
   graphics:
   - {fileID: 1297307245487854520}
   - {fileID: 7650013952906094851}
   - {fileID: 5911683938793348255}
+--- !u!136 &6812347936192759464
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211647077250023432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8252026
+  m_Height: 1.9318724
+  m_Direction: 1
+  m_Center: {x: -3.116051e-24, y: 0.92696714, z: -2.3883567e-23}
 --- !u!1001 &1650274549482385026
 PrefabInstance:
   m_ObjectHideFlags: 0
