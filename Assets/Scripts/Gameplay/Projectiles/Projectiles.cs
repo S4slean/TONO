@@ -16,6 +16,7 @@ public class Projectiles : MonoBehaviour
     private float _throwTimeTracker = 0;
     private Vector3 _target;
     private Vector3 _origin;
+    private GamePawn _thrower;
 
 
     void Update()
@@ -31,17 +32,20 @@ public class Projectiles : MonoBehaviour
             {
                 _thrown = false;
                 _throwTimeTracker = 0;
+                _thrower.EndAction();
+                Destroy(gameObject);
             }
         }
     }
 
-    public void Throw(Transform target, Transform origin)
+    public void Throw(Transform target, GamePawn origin)
     {
         self.parent = null;
         _thrown = true;
 
         _throwTimeTracker = 0;
         _target = target.position;
-        _origin = origin.position;
+        _origin = origin.transform.position;
+        _thrower = origin;
     }
 }

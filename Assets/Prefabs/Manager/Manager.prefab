@@ -32,6 +32,7 @@ Transform:
   - {fileID: 2042992006137318528}
   - {fileID: 2042992006968231187}
   - {fileID: 5523879184699251188}
+  - {fileID: 3483527557263991645}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,6 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a48691f99e0674cbe8509e835ac627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwElement: 51
+  gunShot: 52
   showMoveRangeWithPathHighlight: 0
   playerCharacter: {fileID: 0}
   cam: {fileID: 0}
@@ -125,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2042992006137318531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286970dec22c63c4b92aa841f322da95, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d49649cf6456a846b630c462abd07ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   freeTiles: []
@@ -235,6 +238,63 @@ MonoBehaviour:
   moveHighlightMat: {fileID: 0}
   actionPreviewMat: {fileID: 0}
   actionHighlightMat: {fileID: 0}
+  explosionPreviewMat: {fileID: 0}
+--- !u!1 &6333424540992952283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3483527557263991645}
+  - component: {fileID: 7808187343596341207}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3483527557263991645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333424540992952283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042992005489319772}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7808187343596341207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333424540992952283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0638b3aaab822f489862188e40ed92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    startingAP: 0
+    startingMP: 0
+    startingLP: 0
+    isGunLoadedAtStart: 0
+    upgradeChoicesMade: 
+    upgradesPossessed: 
+  overridesPlayerStats: 0
+  overridingPlayerStatsConfig: {fileID: 11400000, guid: 7c337270eb241e448aac0d6eb7af2eef,
+    type: 2}
+  combatsCompleted: 0
+  introductionDuration: 0
+  turnType: 0
 --- !u!1001 &8848994936330426945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,6 +302,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2042992005489319772}
     m_Modifications:
+    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.800049
+      objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,6 +461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730335218321704039, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_Name
+      value: HighlightUpcomingBarrels
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1eccf7665dab75429f4a977edaef1c8, type: 3}

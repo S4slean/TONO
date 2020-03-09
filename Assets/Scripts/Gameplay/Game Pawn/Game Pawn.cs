@@ -40,6 +40,12 @@ public class GamePawn : MonoBehaviour
         return associatedTile;
     }
 
+    public void SetTile(Tile newTile)
+    {
+        associatedTile = newTile;
+        associatedTile.SetPawnOnTile(this);
+    }
+
     public int GetSkillPreviewID()
     {
         return skillPreviewID;
@@ -107,5 +113,10 @@ public class GamePawn : MonoBehaviour
     public bool IsDoingSomething()
     {
         return _isDoingSomething;
+    }
+
+    public virtual void OnKicked(GamePawn user, int dmg, Direction dir)
+    {
+
     }
 }
