@@ -17,14 +17,20 @@ public class ComboManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public bool BarrelAlreadyInCombo(Barrel barrel)
+    {
+        return barrelsInComboPreview.Contains(barrel);
+    }
+
     public List<Tile> AddBarrelToComboPreview(Barrel barrel)
     {
         List<Tile> res = new List<Tile>();
-        if (!barrelsInCombo.Contains(barrel))
+        if (!BarrelAlreadyInCombo(barrel))
         {
+            barrelsInComboPreview.Add(barrel);
             res.AddRange(barrel.explosionSkill.GetRange(barrel));
-            barrelsInCombo.Add(barrel);
         }
+        //print(res.Count);
         return res;
     }
 

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6370869967274720670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d4fc5770d735846939f6b0a53afb61, type: 3}
+  m_Script: {fileID: 11500000, guid: 286970dec22c63c4b92aa841f322da95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   freeTiles: []
@@ -421,6 +421,7 @@ Transform:
   - {fileID: 6370869967459220233}
   - {fileID: 6370869968719764692}
   - {fileID: 1715230733768366698}
+  - {fileID: 8496321900349506606}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -537,6 +538,49 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
   sfxVolume: 0
+--- !u!1 &7393382916321214790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8496321900349506606}
+  - component: {fileID: 3048122862441338034}
+  m_Layer: 0
+  m_Name: ComboManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8496321900349506606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393382916321214790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6370869968600417347}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3048122862441338034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393382916321214790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfa5fbf299c27449ac0eb9eea5f7480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6370869967601374203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -622,7 +666,12 @@ PrefabInstance:
     - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.800049
+      value: -8.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.399414
       objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
