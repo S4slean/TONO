@@ -255,7 +255,7 @@ public class GridManager : MonoBehaviour
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
-                    barrel.explosionSkill.Preview(barrel);
+                    ComboManager.instance.AddBarrelToComboPreview(barrel);
                 }
             }
             else
