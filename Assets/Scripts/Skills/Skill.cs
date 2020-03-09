@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Skill", menuName = "TONO/Skill/DefaultSkill")]
 public class Skill : ScriptableObject
 {
-    public enum RangeType {Default ,Line, Plus, Round, X }
+
 
     public string skillName;
     public string description;
@@ -33,4 +33,8 @@ public class Skill : ScriptableObject
     {
 
     }
+
+    public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }
 }
+
+public enum RangeType { Default, Line, Plus, Round, Cross }

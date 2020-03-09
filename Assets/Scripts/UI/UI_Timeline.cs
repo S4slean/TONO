@@ -215,6 +215,9 @@ public class UI_Timeline : Panel_Behaviour
     /// </summary>
     public void NextIconTurn()
     {
+        if (charactersIcons.Count == 0)
+            return;
+
         int newIndex = 0;
 
         newIndex = selectedIcon + 1;

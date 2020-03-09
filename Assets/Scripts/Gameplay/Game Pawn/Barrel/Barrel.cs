@@ -6,7 +6,7 @@ public class Barrel : GamePawn
 {
 
     public bool standing = true;
-    private Skill explosionSkill;
+    [HideInInspector]public Skill explosionSkill;
 
     protected override void Start()
     {
@@ -24,12 +24,12 @@ public class Barrel : GamePawn
 
     public override void OnMouseEnter()
     {
+        //print("SHOW PREVIEW BARREL : " + PlayerManager.instance.hoverMode);
         if (PlayerManager.instance.hoverMode != HoverMode.GunShotHover)
         {
-            print("SHOW PREVIEW BARREL : " + PlayerManager.instance.hoverMode);
             hovered = true;
             oldMaterial = rend.material;
-            rend.material = Highlight_Manager.instance.hoverMat;
+            //rend.material = Highlight_Manager.instance.hoverMat;
             explosionSkill.Preview(this);
         }
     }

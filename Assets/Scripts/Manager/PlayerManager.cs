@@ -18,6 +18,7 @@ public enum HoverMode
     MovePath,
     GunShotHover,
     ThrowElementHover,
+    Bombardment
 }
 
 public class PlayerManager : MonoBehaviour
@@ -70,11 +71,12 @@ public class PlayerManager : MonoBehaviour
             ThrowElementSkill();
         }
 
+        RaycastHit hit;
+        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
+
         switch (hoverMode)
         {
             case HoverMode.MovePath:
-                RaycastHit hit;
-                Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -137,8 +139,29 @@ public class PlayerManager : MonoBehaviour
                 }
                 //print(playerCharacter.lineUp.Count);
                 break;
+            case HoverMode.Bombardment:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (hit.transform != null && hit.transform.tag == "FreeTile")
+                    {
+                        Tile clickedTile = hit.transform.GetComponent<Free>();
+                        BombardmentManager.Instance.PlaceBarrelMarker(clickedTile);
+                    }
+                }
+
+                    break;
         }
 
+    }
+
+    public void StartPlayerTurn()
+    {
+
+    }
+
+    public void EndPlayerTurn()
+    {
+        GameManager.Instance.CheckIfCompleted(true);
     }
 
     public void GunShotSkill()
