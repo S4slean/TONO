@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Gun : MonoBehaviour
+public class UI_Gun : Panel_Behaviour
 {
     [Header("BULLETS")]
     public Image bulletImage;
     public RectTransform bulletRect;
 
-    [Header("Debug")]
-    public bool isLoaded;
 
 
-
-    private void Start()
+    void Start()
     {
         SetUpBullet();
     }
 
-    private void Update()
+    void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    RefreshUI();
-        //}
+        MovePanel();
     }
-
-
 
 
     /// <summary>
@@ -41,25 +33,33 @@ public class UI_Gun : MonoBehaviour
 
     public void RefreshUI()
     {
-        if (isLoaded)
+        if (PlayerManager.instance.playerCharacter.isGunLoaded)
         {
-            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            bulletImage.sprite = UI_Manager.instance.uiPreset.unusedBullet;
             bulletRect.anchoredPosition3D = new Vector3(0, 0, 0);
         }
         else
         {
-            bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
-            bulletRect.anchoredPosition3D = new Vector3(0, -10, 0);
+            //bulletImage.color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            bulletImage.sprite = UI_Manager.instance.uiPreset.usedBullet;
+            bulletRect.anchoredPosition3D = new Vector3(0, -20, 0);
         }
     }
 
-    public void ShowBulletUI()
+
+    public override void HidePanel()
     {
-        bulletImage.gameObject.SetActive(true);
+        base.HidePanel();
     }
 
-    public void HideBulletUI()
+    public override void ShowPanel()
     {
-        bulletImage.gameObject.SetActive(false);
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }

@@ -48,6 +48,7 @@ public class DataManager : MonoBehaviour
 
     public void Save(SceneType sceneType)
     {
+
         if(SavingIcon.Instance)
         {
             SavingIcon.Instance.PlaySaveAnimation();
@@ -90,15 +91,30 @@ public class DataManager : MonoBehaviour
 
         if (sceneType == SceneType.game)
         {
+            Debug.Log("Setting Data Game");
             data.playerStats = GameManager.Instance.playerStats;
+            data.combatsCompleted = GameManager.Instance.combatsCompleted;
         }
         else if(sceneType == SceneType.map)
         {
-
+            Debug.Log("Setting Data Map");
+            data.playerStats = UpgradesManager.Instance.playerStats;
         }
         else
         {
-            
+            Debug.Log("Setting Data Menu");
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+                wipe = true;
+                Save(currentType);
+            }
         }
     }
 
@@ -108,8 +124,11 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path, dataString);
     }
 
+    SceneType currentType;
     public void Load(bool exploits, SceneType sceneType)
     {
+        currentType = sceneType;
+
         if (File.Exists(path))
         {
             DeserializeData();
@@ -166,14 +185,19 @@ public class DataManager : MonoBehaviour
         //specific behaviors
         if (sceneType == SceneType.game)
         {
+            Debug.Log("Exploiting Data Game");
             GameManager.Instance.playerStats = data.playerStats;
+            GameManager.Instance.combatsCompleted = data.combatsCompleted;
         }
         else if(sceneType == SceneType.map)
         {
-
+            Debug.Log("Exploiting Data Map");
+            MapManager.Instance.combatsCompleted = data.combatsCompleted;
+            UpgradesManager.Instance.playerStats = data.playerStats;
         }
         else
         {
+            Debug.Log("Exploiting Data Menu");
             MenuManager.Instance.combatsCompleted = data.combatsCompleted;
         }
     }

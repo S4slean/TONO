@@ -1,0 +1,2554 @@
+fileFormatVersion: 2
+guid: e40d5442edc65e343ad1706b85c2c5f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3153310871931799247
+    second: AoflgE-Panorama_0
+  - first:
+      213: -1174142084730417989
+    second: AoflgE-Panorama_1
+  - first:
+      213: -5439515970381511145
+    second: AoflgE-Panorama_2
+  - first:
+      213: -5134380415518228545
+    second: AoflgE-Panorama_3
+  - first:
+      213: 1389479402293454133
+    second: AoflgE-Panorama_4
+  - first:
+      213: 2513392079388622926
+    second: AoflgE-Panorama_5
+  - first:
+      213: -150717376861100149
+    second: AoflgE-Panorama_6
+  - first:
+      213: -6656515096827408611
+    second: AoflgE-Panorama_7
+  - first:
+      213: -3724337341963908660
+    second: AoflgE-Panorama_8
+  - first:
+      213: 8985329250653888416
+    second: AoflgE-Panorama_9
+  - first:
+      213: 5456902573731890030
+    second: AoflgE-Panorama_10
+  - first:
+      213: 792545937390903140
+    second: AoflgE-Panorama_11
+  - first:
+      213: -8732997260615264221
+    second: AoflgE-Panorama_12
+  - first:
+      213: 7266275137341015053
+    second: AoflgE-Panorama_13
+  - first:
+      213: -6698789401159455151
+    second: AoflgE-Panorama_14
+  - first:
+      213: -783906436326767438
+    second: AoflgE-Panorama_15
+  - first:
+      213: -3683803761385408460
+    second: AoflgE-Panorama_16
+  - first:
+      213: 2211817870854430246
+    second: AoflgE-Panorama_17
+  - first:
+      213: 351886859171948006
+    second: AoflgE-Panorama_18
+  - first:
+      213: -423698120914468242
+    second: AoflgE-Panorama_19
+  - first:
+      213: -5911500553746913090
+    second: AoflgE-Panorama_20
+  - first:
+      213: -6317825017859778240
+    second: AoflgE-Panorama_21
+  - first:
+      213: -5880893289398021646
+    second: AoflgE-Panorama_22
+  - first:
+      213: 5699434110616884762
+    second: AoflgE-Panorama_23
+  - first:
+      213: 5342782007129968624
+    second: AoflgE-Panorama_24
+  - first:
+      213: 6468806041161082511
+    second: AoflgE-Panorama_25
+  - first:
+      213: -980415410010599658
+    second: AoflgE-Panorama_26
+  - first:
+      213: 5539871833208448322
+    second: AoflgE-Panorama_27
+  - first:
+      213: 2879838874169369069
+    second: AoflgE-Panorama_28
+  - first:
+      213: -4474854561319775188
+    second: AoflgE-Panorama_29
+  - first:
+      213: -4884594231894804990
+    second: AoflgE-Panorama_30
+  - first:
+      213: -8287371598291344314
+    second: AoflgE-Panorama_31
+  - first:
+      213: -3194286675893322389
+    second: AoflgE-Panorama_32
+  - first:
+      213: 3328427505238770914
+    second: AoflgE-Panorama_33
+  - first:
+      213: -6721632811584649607
+    second: AoflgE-Panorama_34
+  - first:
+      213: -3668486884368156549
+    second: AoflgE-Panorama_35
+  - first:
+      213: -87611388531115795
+    second: AoflgE-Panorama_36
+  - first:
+      213: 8104337626755885548
+    second: AoflgE-Panorama_37
+  - first:
+      213: 3978226386589990223
+    second: AoflgE-Panorama_38
+  - first:
+      213: 6587695745615824728
+    second: AoflgE-Panorama_39
+  - first:
+      213: -5840036100680017186
+    second: AoflgE-Panorama_40
+  - first:
+      213: -4009500221595118872
+    second: AoflgE-Panorama_41
+  - first:
+      213: 8274431794733331103
+    second: AoflgE-Panorama_42
+  - first:
+      213: -8648540775345335509
+    second: AoflgE-Panorama_43
+  - first:
+      213: -8162900314560282977
+    second: AoflgE-Panorama_44
+  - first:
+      213: -6853309677499333829
+    second: AoflgE-Panorama_45
+  - first:
+      213: -5677636798388712627
+    second: AoflgE-Panorama_46
+  - first:
+      213: -4262986109599333058
+    second: AoflgE-Panorama_47
+  - first:
+      213: 2656692695643654079
+    second: AoflgE-Panorama_48
+  - first:
+      213: -6486235120662096435
+    second: AoflgE-Panorama_49
+  - first:
+      213: -796743301480035731
+    second: AoflgE-Panorama_50
+  - first:
+      213: -4321813585594055733
+    second: AoflgE-Panorama_51
+  - first:
+      213: 911655308016332878
+    second: AoflgE-Panorama_52
+  - first:
+      213: -3873687958973385878
+    second: AoflgE-Panorama_53
+  - first:
+      213: -3805323425745516337
+    second: AoflgE-Panorama_54
+  - first:
+      213: 9093731811347977388
+    second: AoflgE-Panorama_55
+  - first:
+      213: -4106587264857560133
+    second: AoflgE-Panorama_56
+  - first:
+      213: -3492214757099938607
+    second: AoflgE-Panorama_57
+  - first:
+      213: -204410938493526031
+    second: AoflgE-Panorama_58
+  - first:
+      213: -18690055499652963
+    second: AoflgE-Panorama_59
+  - first:
+      213: -4602946397243301118
+    second: AoflgE-Panorama_60
+  - first:
+      213: -2191430089991988300
+    second: AoflgE-Panorama_61
+  - first:
+      213: -6497845092950240159
+    second: AoflgE-Panorama_62
+  - first:
+      213: 7708024298915928374
+    second: AoflgE-Panorama_63
+  - first:
+      213: 3317930216097152397
+    second: AoflgE-Panorama_64
+  - first:
+      213: 7998934735301960939
+    second: AoflgE-Panorama_65
+  - first:
+      213: 1310089430286512762
+    second: AoflgE-Panorama_66
+  - first:
+      213: -8746591189065564705
+    second: AoflgE-Panorama_67
+  - first:
+      213: -6291319404217215907
+    second: AoflgE-Panorama_68
+  - first:
+      213: 8218337427587094546
+    second: AoflgE-Panorama_69
+  - first:
+      213: -7355338267770428024
+    second: AoflgE-Panorama_70
+  - first:
+      213: 2198095511570726672
+    second: AoflgE-Panorama_71
+  - first:
+      213: -4759317690410133619
+    second: AoflgE-Panorama_72
+  - first:
+      213: 7423454203694177721
+    second: AoflgE-Panorama_73
+  - first:
+      213: -4858631851087145005
+    second: AoflgE-Panorama_74
+  - first:
+      213: 2312168505448381279
+    second: AoflgE-Panorama_75
+  - first:
+      213: 2517982544674491939
+    second: AoflgE-Panorama_76
+  - first:
+      213: 1942127655612993464
+    second: AoflgE-Panorama_77
+  - first:
+      213: -624107362891751851
+    second: AoflgE-Panorama_78
+  - first:
+      213: 8715214228351601681
+    second: AoflgE-Panorama_79
+  - first:
+      213: -9017967576230120511
+    second: AoflgE-Panorama_80
+  - first:
+      213: 6988354271935216160
+    second: AoflgE-Panorama_81
+  - first:
+      213: 35168548221773408
+    second: AoflgE-Panorama_82
+  - first:
+      213: 5790658054750036582
+    second: AoflgE-Panorama_83
+  - first:
+      213: 2696591190191864549
+    second: AoflgE-Panorama_84
+  - first:
+      213: -5777595206803962447
+    second: AoflgE-Panorama_85
+  - first:
+      213: -842255898470708409
+    second: AoflgE-Panorama_86
+  - first:
+      213: 3763486582876487808
+    second: AoflgE-Panorama_87
+  - first:
+      213: -7668279372785793107
+    second: AoflgE-Panorama_88
+  - first:
+      213: 6182368893059493911
+    second: AoflgE-Panorama_89
+  - first:
+      213: 872315561407117726
+    second: AoflgE-Panorama_90
+  - first:
+      213: -2717944214663618390
+    second: AoflgE-Panorama_91
+  - first:
+      213: -3953143911818062181
+    second: AoflgE-Panorama_92
+  - first:
+      213: -6699564609096331760
+    second: AoflgE-Panorama_93
+  - first:
+      213: 1337105101691533534
+    second: AoflgE-Panorama_94
+  - first:
+      213: -3593459030569245039
+    second: AoflgE-Panorama_95
+  - first:
+      213: -4855620629231305405
+    second: AoflgE-Panorama_96
+  - first:
+      213: 2183648606655953228
+    second: AoflgE-Panorama_97
+  - first:
+      213: 474823823995642226
+    second: AoflgE-Panorama_98
+  - first:
+      213: 2179512128372697670
+    second: AoflgE-Panorama_99
+  - first:
+      213: -1994520176178061077
+    second: AoflgE-Panorama_100
+  - first:
+      213: -3715811831569859975
+    second: AoflgE-Panorama_101
+  - first:
+      213: -8573979295113612237
+    second: AoflgE-Panorama_102
+  - first:
+      213: 7805669490973907412
+    second: AoflgE-Panorama_103
+  - first:
+      213: -4653947827339747974
+    second: AoflgE-Panorama_104
+  - first:
+      213: 1789074592470971892
+    second: AoflgE-Panorama_105
+  - first:
+      213: -3875483353184132431
+    second: AoflgE-Panorama_106
+  - first:
+      213: -6003432733738710066
+    second: AoflgE-Panorama_107
+  - first:
+      213: -4132839703818433560
+    second: AoflgE-Panorama_108
+  - first:
+      213: 8740921113973529412
+    second: AoflgE-Panorama_109
+  - first:
+      213: -2821218696661907873
+    second: AoflgE-Panorama_110
+  - first:
+      213: 3261169275242461330
+    second: AoflgE-Panorama_111
+  - first:
+      213: -1322764964151968824
+    second: AoflgE-Panorama_112
+  - first:
+      213: -5430787655597414787
+    second: AoflgE-Panorama_113
+  - first:
+      213: -1292578449843096655
+    second: AoflgE-Panorama_114
+  - first:
+      213: -4581344708687973945
+    second: AoflgE-Panorama_115
+  - first:
+      213: 2417926881604397072
+    second: AoflgE-Panorama_116
+  - first:
+      213: -5392733165373425725
+    second: AoflgE-Panorama_117
+  - first:
+      213: -3965334870507341440
+    second: AoflgE-Panorama_118
+  - first:
+      213: 8867218996810225385
+    second: AoflgE-Panorama_119
+  - first:
+      213: -5714808719381294004
+    second: AoflgE-Panorama_120
+  - first:
+      213: -5767564488465807566
+    second: AoflgE-Panorama_121
+  - first:
+      213: 3359772641450112278
+    second: AoflgE-Panorama_122
+  - first:
+      213: -796319324226690863
+    second: AoflgE-Panorama_123
+  - first:
+      213: -2828751925834534722
+    second: AoflgE-Panorama_124
+  - first:
+      213: 4262427526748650922
+    second: AoflgE-Panorama_125
+  - first:
+      213: 42802450743973771
+    second: AoflgE-Panorama_126
+  - first:
+      213: 808272988272275718
+    second: AoflgE-Panorama_127
+  - first:
+      213: -8796179667700473069
+    second: AoflgE-Panorama_128
+  - first:
+      213: -430945313444435979
+    second: AoflgE-Panorama_129
+  - first:
+      213: -2429137375043908134
+    second: AoflgE-Panorama_130
+  - first:
+      213: 5850610380459226106
+    second: AoflgE-Panorama_131
+  - first:
+      213: 305563550392688073
+    second: AoflgE-Panorama_132
+  - first:
+      213: -5181681985790189939
+    second: AoflgE-Panorama_133
+  - first:
+      213: -1693396475198528539
+    second: AoflgE-Panorama_134
+  - first:
+      213: 5092284223946037069
+    second: AoflgE-Panorama_135
+  - first:
+      213: -295573530201744929
+    second: AoflgE-Panorama_136
+  - first:
+      213: -2620211943391357054
+    second: AoflgE-Panorama_137
+  - first:
+      213: -8534022196998202828
+    second: AoflgE-Panorama_138
+  - first:
+      213: -8198923235873479958
+    second: AoflgE-Panorama_139
+  - first:
+      213: -5733544012318049715
+    second: AoflgE-Panorama_140
+  - first:
+      213: -3607280358491301465
+    second: AoflgE-Panorama_141
+  - first:
+      213: -7538119841382835887
+    second: AoflgE-Panorama_142
+  - first:
+      213: -3214235628862871423
+    second: AoflgE-Panorama_143
+  - first:
+      213: -8092800022910515818
+    second: AoflgE-Panorama_144
+  - first:
+      213: -675029124370412500
+    second: AoflgE-Panorama_145
+  - first:
+      213: 4236212391726537633
+    second: AoflgE-Panorama_146
+  - first:
+      213: 3700698786156296832
+    second: AoflgE-Panorama_147
+  - first:
+      213: 6058247385651971066
+    second: AoflgE-Panorama_148
+  - first:
+      213: -2614994121726089698
+    second: AoflgE-Panorama_149
+  - first:
+      213: -6092501226599185929
+    second: AoflgE-Panorama_150
+  - first:
+      213: -4346231030177460165
+    second: AoflgE-Panorama_151
+  - first:
+      213: 8594285956127612173
+    second: AoflgE-Panorama_152
+  - first:
+      213: 5943162655415263
+    second: AoflgE-Panorama_153
+  - first:
+      213: -7821436926754980360
+    second: AoflgE-Panorama_154
+  - first:
+      213: 3208401732535865668
+    second: AoflgE-Panorama_155
+  - first:
+      213: 9023765732914196769
+    second: AoflgE-Panorama_156
+  - first:
+      213: 3856130833620051884
+    second: AoflgE-Panorama_157
+  - first:
+      213: -6554568919491796241
+    second: AoflgE-Panorama_158
+  - first:
+      213: 8921071049623810929
+    second: AoflgE-Panorama_159
+  - first:
+      213: -4063442746603366030
+    second: AoflgE-Panorama_160
+  - first:
+      213: -6789490548412358263
+    second: AoflgE-Panorama_161
+  - first:
+      213: -5776811864323210657
+    second: AoflgE-Panorama_162
+  - first:
+      213: 8364698593896067883
+    second: AoflgE-Panorama_163
+  - first:
+      213: -3997726284057954688
+    second: AoflgE-Panorama_164
+  - first:
+      213: -8291584058874204972
+    second: AoflgE-Panorama_165
+  - first:
+      213: -2955264485815049761
+    second: AoflgE-Panorama_166
+  - first:
+      213: -6153165589014374892
+    second: AoflgE-Panorama_167
+  - first:
+      213: 6954749375440492865
+    second: AoflgE-Panorama_168
+  - first:
+      213: -6519821581173340014
+    second: AoflgE-Panorama_169
+  - first:
+      213: 7812007246000909127
+    second: AoflgE-Panorama_170
+  - first:
+      213: -1826763047405003373
+    second: AoflgE-Panorama_171
+  - first:
+      213: -1788609215799661493
+    second: AoflgE-Panorama_172
+  - first:
+      213: 3520485689209957054
+    second: AoflgE-Panorama_173
+  - first:
+      213: -2192461538777257009
+    second: AoflgE-Panorama_174
+  - first:
+      213: 5440754513671963335
+    second: AoflgE-Panorama_175
+  - first:
+      213: 8287348859961641221
+    second: AoflgE-Panorama_176
+  - first:
+      213: 4031859142504710309
+    second: AoflgE-Panorama_177
+  - first:
+      213: 8513814387330829645
+    second: AoflgE-Panorama_178
+  - first:
+      213: -8652269599316599580
+    second: AoflgE-Panorama_179
+  - first:
+      213: -4466181141726809845
+    second: AoflgE-Panorama_180
+  - first:
+      213: 6450358702200642858
+    second: AoflgE-Panorama_181
+  - first:
+      213: 7686007405974994629
+    second: AoflgE-Panorama_182
+  - first:
+      213: 2319748258742735369
+    second: AoflgE-Panorama_183
+  - first:
+      213: 2428924422289324891
+    second: AoflgE-Panorama_184
+  - first:
+      213: -8410759238558076973
+    second: AoflgE-Panorama_185
+  - first:
+      213: -8931570467022875770
+    second: AoflgE-Panorama_186
+  - first:
+      213: -8780856896956138930
+    second: AoflgE-Panorama_187
+  - first:
+      213: 6327597175435313782
+    second: AoflgE-Panorama_188
+  - first:
+      213: 4217358166745518906
+    second: AoflgE-Panorama_189
+  - first:
+      213: -3790496222322465591
+    second: AoflgE-Panorama_190
+  - first:
+      213: 8610528356360748158
+    second: AoflgE-Panorama_191
+  - first:
+      213: 7842940577006838462
+    second: AoflgE-Panorama_192
+  - first:
+      213: 93569404730064408
+    second: AoflgE-Panorama_193
+  - first:
+      213: -6718950410541268803
+    second: AoflgE-Panorama_194
+  - first:
+      213: -8586183957857850398
+    second: AoflgE-Panorama_195
+  - first:
+      213: -622082487703641508
+    second: AoflgE-Panorama_196
+  - first:
+      213: 6590142228154174113
+    second: AoflgE-Panorama_197
+  - first:
+      213: -7385098754333031543
+    second: AoflgE-Panorama_198
+  - first:
+      213: 2248464334126993422
+    second: AoflgE-Panorama_199
+  - first:
+      213: 1082248789895554974
+    second: AoflgE-Panorama_200
+  - first:
+      213: -129116377909634805
+    second: AoflgE-Panorama_201
+  - first:
+      213: -6128793725197322412
+    second: AoflgE-Panorama_202
+  - first:
+      213: 3179994370943568422
+    second: AoflgE-Panorama_203
+  - first:
+      213: -1828646598906147774
+    second: AoflgE-Panorama_204
+  - first:
+      213: -2272422941806224838
+    second: AoflgE-Panorama_205
+  - first:
+      213: -1436706749139466984
+    second: AoflgE-Panorama_206
+  - first:
+      213: 4456182002521930049
+    second: AoflgE-Panorama_207
+  - first:
+      213: -4826892889153724798
+    second: AoflgE-Panorama_208
+  - first:
+      213: 8234932626830378293
+    second: AoflgE-Panorama_209
+  - first:
+      213: 2839011284735625921
+    second: AoflgE-Panorama_210
+  - first:
+      213: -5108999546637718249
+    second: AoflgE-Panorama_211
+  - first:
+      213: -8017016494885646044
+    second: AoflgE-Panorama_212
+  - first:
+      213: 3920542176164289455
+    second: AoflgE-Panorama_213
+  - first:
+      213: 5003277283167674570
+    second: AoflgE-Panorama_214
+  - first:
+      213: -1990010864591870831
+    second: AoflgE-Panorama_215
+  - first:
+      213: 901706326760323344
+    second: AoflgE-Panorama_216
+  - first:
+      213: -7137236195761870288
+    second: AoflgE-Panorama_217
+  - first:
+      213: -8871910595772049571
+    second: AoflgE-Panorama_218
+  - first:
+      213: -7973588159687603052
+    second: AoflgE-Panorama_219
+  - first:
+      213: -7534688811390064257
+    second: AoflgE-Panorama_220
+  - first:
+      213: -6464864174499686718
+    second: AoflgE-Panorama_221
+  - first:
+      213: -8099475620187160088
+    second: AoflgE-Panorama_222
+  - first:
+      213: 2377190713100927009
+    second: AoflgE-Panorama_223
+  - first:
+      213: -427367620217603281
+    second: AoflgE-Panorama_224
+  - first:
+      213: -1270796758722934281
+    second: AoflgE-Panorama_225
+  - first:
+      213: -7952338250051269016
+    second: AoflgE-Panorama_226
+  - first:
+      213: -1844842688930116674
+    second: AoflgE-Panorama_227
+  - first:
+      213: -2200594635743973425
+    second: AoflgE-Panorama_228
+  - first:
+      213: -9081114979601386902
+    second: AoflgE-Panorama_229
+  - first:
+      213: -6049871359664296606
+    second: AoflgE-Panorama_230
+  - first:
+      213: 2283225350329244493
+    second: AoflgE-Panorama_231
+  - first:
+      213: -6825333110439274368
+    second: AoflgE-Panorama_232
+  - first:
+      213: -2661287951366084983
+    second: AoflgE-Panorama_233
+  - first:
+      213: -3980899059767701650
+    second: AoflgE-Panorama_234
+  - first:
+      213: -2664150497829547009
+    second: AoflgE-Panorama_235
+  - first:
+      213: 8930609415868251805
+    second: AoflgE-Panorama_236
+  - first:
+      213: 1900998285197538909
+    second: AoflgE-Panorama_237
+  - first:
+      213: -2635492830630092480
+    second: AoflgE-Panorama_238
+  - first:
+      213: -3934153095780551913
+    second: AoflgE-Panorama_239
+  - first:
+      213: 8526373178071127661
+    second: AoflgE-Panorama_240
+  - first:
+      213: -7417784278248233168
+    second: AoflgE-Panorama_241
+  - first:
+      213: -3202830678245390146
+    second: AoflgE-Panorama_242
+  - first:
+      213: 2695139927455921567
+    second: AoflgE-Panorama_243
+  - first:
+      213: 4643228619695943989
+    second: AoflgE-Panorama_244
+  - first:
+      213: 5195348303544874089
+    second: AoflgE-Panorama_245
+  - first:
+      213: -6293905012088748721
+    second: AoflgE-Panorama_246
+  - first:
+      213: 3681218267052423384
+    second: AoflgE-Panorama_247
+  - first:
+      213: -7537362926361797548
+    second: AoflgE-Panorama_248
+  - first:
+      213: -2984073383575714512
+    second: AoflgE-Panorama_249
+  - first:
+      213: 6473488703012961634
+    second: AoflgE-Panorama_250
+  - first:
+      213: -6502719093056687179
+    second: AoflgE-Panorama_251
+  - first:
+      213: -2281405159896114692
+    second: AoflgE-Panorama_252
+  - first:
+      213: 5404902633382052281
+    second: AoflgE-Panorama_253
+  - first:
+      213: -4408205023404469129
+    second: AoflgE-Panorama_254
+  - first:
+      213: -3439150233442292525
+    second: AoflgE-Panorama_255
+  - first:
+      213: -3882574765186346378
+    second: AoflgE-Panorama_256
+  - first:
+      213: -6100569591397514918
+    second: AoflgE-Panorama_257
+  - first:
+      213: 7721635767925645093
+    second: AoflgE-Panorama_258
+  - first:
+      213: 4034085557955520959
+    second: AoflgE-Panorama_259
+  - first:
+      213: -418027134066177557
+    second: AoflgE-Panorama_260
+  - first:
+      213: 7868067140385975137
+    second: AoflgE-Panorama_261
+  - first:
+      213: 6644742898586760244
+    second: AoflgE-Panorama_262
+  - first:
+      213: -5592548371372747664
+    second: AoflgE-Panorama_263
+  - first:
+      213: 6941258061526780960
+    second: AoflgE-Panorama_264
+  - first:
+      213: 8705672300272699119
+    second: AoflgE-Panorama_265
+  - first:
+      213: -507264458427210900
+    second: AoflgE-Panorama_266
+  - first:
+      213: 869253053579377988
+    second: AoflgE-Panorama_267
+  - first:
+      213: -5859637425556203316
+    second: AoflgE-Panorama_268
+  - first:
+      213: -8311556221274161096
+    second: AoflgE-Panorama_269
+  - first:
+      213: 2993331624538365058
+    second: AoflgE-Panorama_270
+  - first:
+      213: 462903884673123405
+    second: AoflgE-Panorama_271
+  - first:
+      213: 1773489998700870786
+    second: AoflgE-Panorama_272
+  - first:
+      213: 2333495805500171103
+    second: AoflgE-Panorama_273
+  - first:
+      213: 4119096751817367658
+    second: AoflgE-Panorama_274
+  - first:
+      213: 2655164378972255527
+    second: AoflgE-Panorama_275
+  - first:
+      213: -6743323070859258059
+    second: AoflgE-Panorama_276
+  - first:
+      213: -1470910387108686553
+    second: AoflgE-Panorama_277
+  - first:
+      213: -8084851933679111427
+    second: AoflgE-Panorama_278
+  - first:
+      213: -7006164886545877400
+    second: AoflgE-Panorama_279
+  - first:
+      213: 3843087196918944354
+    second: AoflgE-Panorama_280
+  - first:
+      213: -4191487933416479596
+    second: AoflgE-Panorama_281
+  - first:
+      213: -870594441890047403
+    second: AoflgE-Panorama_282
+  - first:
+      213: 3601958553453908558
+    second: AoflgE-Panorama_283
+  - first:
+      213: -8514170897059252814
+    second: AoflgE-Panorama_284
+  - first:
+      213: 1204682959126532014
+    second: AoflgE-Panorama_285
+  - first:
+      213: 1588845596575369207
+    second: AoflgE-Panorama_286
+  - first:
+      213: -4220719715159708881
+    second: AoflgE-Panorama_287
+  - first:
+      213: -200986135547170918
+    second: AoflgE-Panorama_288
+  - first:
+      213: 7620384669818518509
+    second: AoflgE-Panorama_289
+  - first:
+      213: 4130019036045424110
+    second: AoflgE-Panorama_290
+  - first:
+      213: 3027606795161499073
+    second: AoflgE-Panorama_291
+  - first:
+      213: 4818168769031501567
+    second: AoflgE-Panorama_292
+  - first:
+      213: 2805914593449166021
+    second: AoflgE-Panorama_293
+  - first:
+      213: -3676909626301950784
+    second: AoflgE-Panorama_294
+  - first:
+      213: 2043666071457662456
+    second: AoflgE-Panorama_295
+  - first:
+      213: -7503065793823295346
+    second: AoflgE-Panorama_296
+  - first:
+      213: -2400591448640374081
+    second: AoflgE-Panorama_297
+  - first:
+      213: -5778310603403545528
+    second: AoflgE-Panorama_298
+  - first:
+      213: -6151125509169405324
+    second: AoflgE-Panorama_299
+  - first:
+      213: -3154433367271410295
+    second: AoflgE-Panorama_300
+  - first:
+      213: 4502436247876092418
+    second: AoflgE-Panorama_301
+  - first:
+      213: 3342876304607946208
+    second: AoflgE-Panorama_302
+  - first:
+      213: 7689168577402052532
+    second: AoflgE-Panorama_303
+  - first:
+      213: 5724437525131350448
+    second: AoflgE-Panorama_304
+  - first:
+      213: -1287032552657369606
+    second: AoflgE-Panorama_305
+  - first:
+      213: 6862988282273017361
+    second: AoflgE-Panorama_306
+  - first:
+      213: 1008035797333077735
+    second: AoflgE-Panorama_307
+  - first:
+      213: 3914820003299609340
+    second: AoflgE-Panorama_308
+  - first:
+      213: -6881805587625147293
+    second: AoflgE-Panorama_309
+  - first:
+      213: -547399186881725787
+    second: AoflgE-Panorama_310
+  - first:
+      213: -6089790656708599787
+    second: AoflgE-Panorama_311
+  - first:
+      213: 3057125471515800702
+    second: AoflgE-Panorama_312
+  - first:
+      213: 6126267123716614257
+    second: AoflgE-Panorama_313
+  - first:
+      213: 5865510735863257164
+    second: AoflgE-Panorama_314
+  - first:
+      213: 6440898685183143200
+    second: AoflgE-Panorama_315
+  - first:
+      213: 2654720441772276111
+    second: AoflgE-Panorama_316
+  - first:
+      213: 1571911585974951637
+    second: AoflgE-Panorama_317
+  - first:
+      213: -9011423900987820653
+    second: AoflgE-Panorama_318
+  - first:
+      213: 4319299012492946077
+    second: AoflgE-Panorama_319
+  - first:
+      213: 4662145463348416732
+    second: AoflgE-Panorama_320
+  - first:
+      213: -837046825185955001
+    second: AoflgE-Panorama_321
+  - first:
+      213: 2803878925775055245
+    second: AoflgE-Panorama_322
+  - first:
+      213: -8418938487058540073
+    second: AoflgE-Panorama_323
+  - first:
+      213: 4708902657210585266
+    second: AoflgE-Panorama_324
+  - first:
+      213: 5063837744396781459
+    second: AoflgE-Panorama_325
+  - first:
+      213: -750506563491787581
+    second: AoflgE-Panorama_326
+  - first:
+      213: -4869345853634857449
+    second: AoflgE-Panorama_327
+  - first:
+      213: -5571311083692535896
+    second: AoflgE-Panorama_328
+  - first:
+      213: -1825067680011031470
+    second: AoflgE-Panorama_329
+  - first:
+      213: -808354213142697245
+    second: AoflgE-Panorama_330
+  - first:
+      213: -7539612339776787164
+    second: AoflgE-Panorama_331
+  - first:
+      213: 9215810320635070402
+    second: AoflgE-Panorama_332
+  - first:
+      213: -6315699846730813247
+    second: AoflgE-Panorama_333
+  - first:
+      213: 2120849208983802447
+    second: AoflgE-Panorama_334
+  - first:
+      213: 7307791217078611989
+    second: AoflgE-Panorama_335
+  - first:
+      213: -2725473182858638423
+    second: AoflgE-Panorama_336
+  - first:
+      213: -4590428159447805949
+    second: AoflgE-Panorama_337
+  - first:
+      213: 937954509565214737
+    second: AoflgE-Panorama_338
+  - first:
+      213: -8358648427934468733
+    second: AoflgE-Panorama_339
+  - first:
+      213: -4156378427881377844
+    second: AoflgE-Panorama_340
+  - first:
+      213: 4087186484938449938
+    second: AoflgE-Panorama_341
+  - first:
+      213: -581043693572860789
+    second: AoflgE-Panorama_342
+  - first:
+      213: -4667855722813199954
+    second: AoflgE-Panorama_343
+  - first:
+      213: -1487513681292992379
+    second: AoflgE-Panorama_344
+  - first:
+      213: 2149374109024220101
+    second: AoflgE-Panorama_345
+  - first:
+      213: -2525460356554075056
+    second: AoflgE-Panorama_346
+  - first:
+      213: -4174962310785528531
+    second: AoflgE-Panorama_347
+  - first:
+      213: -2410325421550318780
+    second: AoflgE-Panorama_348
+  - first:
+      213: -4756690504414128736
+    second: AoflgE-Panorama_349
+  - first:
+      213: 9030227394090298802
+    second: AoflgE-Panorama_350
+  - first:
+      213: 3512567076728363043
+    second: AoflgE-Panorama_351
+  - first:
+      213: -2806270013190548057
+    second: AoflgE-Panorama_352
+  - first:
+      213: -2061165777159983237
+    second: AoflgE-Panorama_353
+  - first:
+      213: -1786189845240384637
+    second: AoflgE-Panorama_354
+  - first:
+      213: 5875814748949197445
+    second: AoflgE-Panorama_355
+  - first:
+      213: -5323397337166753625
+    second: AoflgE-Panorama_356
+  - first:
+      213: -6466694762464033805
+    second: AoflgE-Panorama_357
+  - first:
+      213: -8116425547256441884
+    second: AoflgE-Panorama_358
+  - first:
+      213: 3944422821273127965
+    second: AoflgE-Panorama_359
+  - first:
+      213: -717063784118216810
+    second: AoflgE-Panorama_360
+  - first:
+      213: -1852707977105883977
+    second: AoflgE-Panorama_361
+  - first:
+      213: -1408954224008833612
+    second: AoflgE-Panorama_362
+  - first:
+      213: -3863068993983615388
+    second: AoflgE-Panorama_363
+  - first:
+      213: 8527176409749554765
+    second: AoflgE-Panorama_364
+  - first:
+      213: 1255714355463038737
+    second: AoflgE-Panorama_365
+  - first:
+      213: 6079604767314538500
+    second: AoflgE-Panorama_366
+  - first:
+      213: 5560429426738073680
+    second: AoflgE-Panorama_367
+  - first:
+      213: -5111194940088300628
+    second: AoflgE-Panorama_368
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AoflgE-Panorama_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc64fd3f78fc2cb20800000000000000
+      internalID: 3153310871931799247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc8ecbaefb94bfe0800000000000000
+      internalID: -1174142084730417989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71688537b05f284b0800000000000000
+      internalID: -5439515970381511145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf305717340fb8b0800000000000000
+      internalID: -5134380415518228545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5356c64972c684310800000000000000
+      internalID: 1389479402293454133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e404d3997cc51e220800000000000000
+      internalID: 2513392079388622926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8727b2285b88edf0800000000000000
+      internalID: -150717376861100149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fc39389ce4f93a0800000000000000
+      internalID: -6656515096827408611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9c48c7bee705cc0800000000000000
+      internalID: -3724337341963908660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afd62fd85d42bc70800000000000000
+      internalID: 8985329250653888416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6344399affcabb40800000000000000
+      internalID: 5456902573731890030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f1d5ab450bffa00800000000000000
+      internalID: 792545937390903140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3285198c2492ec680800000000000000
+      internalID: -8732997260615264221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04c6713dbef6d460800000000000000
+      internalID: 7266275137341015053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e2db6088e1903a0800000000000000
+      internalID: -6698789401159455151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4c99ddf310f15f0800000000000000
+      internalID: -783906436326767438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438ff542fff70ecc0800000000000000
+      internalID: -3683803761385408460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e932482a4f1be10800000000000000
+      internalID: 2211817870854430246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5621aeb3722e400800000000000000
+      internalID: 351886859171948006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6284eacdc8be1af0800000000000000
+      internalID: -423698120914468242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb8e36c119126fda0800000000000000
+      internalID: -5911500553746913090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04954699e939258a0800000000000000
+      internalID: -6317825017859778240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1d37b26bed26ea0800000000000000
+      internalID: -5880893289398021646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_23
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1650107025781f40800000000000000
+      internalID: 5699434110616884762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff845f9def552a40800000000000000
+      internalID: 5342782007129968624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86ae4c32d0d5c950800000000000000
+      internalID: 6468806041161082511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fcff9016dd462f0800000000000000
+      internalID: -980415410010599658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245e49fa41491ec40800000000000000
+      internalID: 5539871833208448322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1e931b23e37f720800000000000000
+      internalID: 2879838874169369069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c249ffa3c7f16e1c0800000000000000
+      internalID: -4474854561319775188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206fcfffc6f663cb0800000000000000
+      internalID: -4884594231894804990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644ee2290775dfc80800000000000000
+      internalID: -8287371598291344314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d7d9c313d9ba3d0800000000000000
+      internalID: -3194286675893322389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e485666e23f03e20800000000000000
+      internalID: 3328427505238770914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97603e21296f7b2a0800000000000000
+      internalID: -6721632811584649607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b787e0a7d9ae61dc0800000000000000
+      internalID: -3668486884368156549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8f25408edb8cef0800000000000000
+      internalID: -87611388531115795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9ed960224687070800000000000000
+      internalID: 8104337626755885548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d38c032df753730800000000000000
+      internalID: 3978226386589990223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85788c5a0623c6b50800000000000000
+      internalID: 6587695745615824728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda9287bb1604fea0800000000000000
+      internalID: -5840036100680017186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e219fcaac46b58c0800000000000000
+      internalID: -4009500221595118872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_42
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f923743a0efa4d270800000000000000
+      internalID: 8274431794733331103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b235f0c9cf53af780800000000000000
+      internalID: -8648540775345335509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9eb5bda96d87be80800000000000000
+      internalID: -8162900314560282977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33c7e0a82724e0a0800000000000000
+      internalID: -6853309677499333829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4bca5cc96bf431b0800000000000000
+      internalID: -5677636798388712627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3548e638b4d6d4c0800000000000000
+      internalID: -4262986109599333058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb707315ee77ed420800000000000000
+      internalID: 2656692695643654079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5d547f5834cf5a0800000000000000
+      internalID: -6486235120662096435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a4c1a403661f4f0800000000000000
+      internalID: -796743301480035731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_51
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3853d1175d504c0800000000000000
+      internalID: -4321813585594055733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_52
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40b9e72ca9d6ac00800000000000000
+      internalID: 911655308016332878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_53
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63fea23355ed3ac0800000000000000
+      internalID: -3873687958973385878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_54
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc847f87186c03bc0800000000000000
+      internalID: -3805323425745516337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_55
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4d01ad6ec633e70800000000000000
+      internalID: 9093731811347977388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbba507e3a87207c0800000000000000
+      internalID: -4106587264857560133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_57
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc5ea35e29298fc0800000000000000
+      internalID: -3492214757099938607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff93ee9559c92df0800000000000000
+      internalID: -204410938493526031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_59
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d906c195e799dbff0800000000000000
+      internalID: -18690055499652963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_60
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2032620a3ac0f10c0800000000000000
+      internalID: -4602946397243301118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_61
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbdcef91f97691e0800000000000000
+      internalID: -2191430089991988300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1649f25a05403d5a0800000000000000
+      internalID: -6497845092950240159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AoflgE-Panorama_63
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63996f0d24768fa60800000000000000
+      internalID: 7708024298915928374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1a2f2f432311a284e8c6339b9681847a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

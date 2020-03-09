@@ -1,17 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class UI_ActionPanelBehaviour : MonoBehaviour
+public class UI_ActionPanelBehaviour : Panel_Behaviour
 {
-    [Header("Panel References")]
+    [Header("Skills/Actions References")]
     public GameObject actionButtonPrefab;
     public RectTransform uiRect;
-    List<GameObject> actionGO = new List<GameObject>();
-
+    List<UI_ActionButton> actions = new List<UI_ActionButton>();
 
     float actionHeight = 0;
     public float spacing = 100;
@@ -20,59 +16,16 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
     public UI_ActionButton selectedAction;
 
 
-    [Header("Debug")]
-    public int numberOfActions;
-    //GetActionType
 
-
-    private void Awake()
+    void Awake()
     {
         actionHeight = actionButtonPrefab.GetComponent<RectTransform>().sizeDelta.y;
     }
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CleanPanel();
-            SetUpPanel();
-        }
+        MovePanel();
     }
-
-
-
-    public void SetUpTooltip(UI_ActionButton action)
-    {
-
-    }
-
-
-    #region DEBUG
-    public void Move()
-    {
-        Debug.Log("MOVE");
-    }
-
-    public void JUMP()
-    {
-        Debug.Log("JUMP");
-    }
-
-    public void SHOOT()
-    {
-        Debug.Log("SHOOT");
-    }
-
-    public void RELOAD()
-    {
-        Debug.Log("RELOAD");
-    }
-
-    public void SMOKE()
-    {
-        Debug.Log("SMOKE");
-    }
-    #endregion
 
 
     /// <summary>
@@ -80,63 +33,90 @@ public class UI_ActionPanelBehaviour : MonoBehaviour
     /// </summary>
     private void SetUpPanel()
     {
+        if(PlayerManager.instance.playerCharacter == null)
+        {
+            Debug.LogError("NO PLAYER CHARACTER");
+            return;
+        }
+
+
         isDisplayed = true;
 
-        if (numberOfActions == 0)
+        if (PlayerManager.instance.playerCharacter.skills.Count == 0)
             return;
 
 
-        actionGO = new List<GameObject>();
+        actions = new List<UI_ActionButton>();
 
         //Set action panel
-        for (int i = 0; i < numberOfActions; i++)
+        for (int i = 0; i < PlayerManager.instance.playerCharacter.skills.Count; i++)
         {
             GameObject obj = Instantiate(actionButtonPrefab, Vector3.zero, Quaternion.identity, this.transform);
-            UI_ActionButton actionButton = obj.GetComponent<UI_ActionButton>();
-            actionButton.rect.anchoredPosition3D = new Vector3(0, spacing * i + actionHeight * i, 0);
+            selectedAction = obj.GetComponent<UI_ActionButton>();
+            selectedAction.rect.anchoredPosition3D = new Vector3(0, spacing * i + actionHeight * i, 0);
 
             //Set tooltip information 4 action
-            SetUpTooltip(actionButton);
+            selectedAction.actionSkill = PlayerManager.instance.playerCharacter.skills[i];
+            selectedAction.SetUpTooltip();
+            selectedAction.SetUpActionPointsDisplay();
 
-            actionGO.Add(obj);
+            actions.Add(selectedAction);
         }
     }
 
     /// <summary>
     /// Clear panel
     /// </summary>
-    private void CleanPanel()
+    public void ClearPanelAction()
     {
-        if (actionGO.Count == 0)
+        if (actions.Count == 0)
         {
             isDisplayed = false;
             return;
         }
 
-        for (int i = 0; i < actionGO.Count; i++)
+        for (int i = 0; i < actions.Count; i++)
         {
-            Destroy(actionGO[i]);
+            Destroy(actions[i].gameObject);
         }
     }
 
     /// <summary>
     /// Clear then call the setUp function
     /// </summary>
-    public void ShowPanelAction()
+    public void ResetPanelAction()
     {
         /////Get list of Actions/////
-
         if (isDisplayed)
-            CleanPanel();
+            ClearPanelAction();
 
         SetUpPanel();
     }
 
     /// <summary>
-    /// Call clear function
+    /// Refresh action ICON according to the player character's current PA
     /// </summary>
-    public void HidePanelAction()
+    public void RefreshActions()
     {
-        CleanPanel();
+        for (int i = 0; i < actions.Count; i++)
+        {
+            actions[i].CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);
+        }
+    }
+
+
+    public override void HidePanel()
+    {
+        base.HidePanel();
+    }
+
+    public override void ShowPanel()
+    {
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }

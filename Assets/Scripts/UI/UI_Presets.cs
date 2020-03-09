@@ -7,12 +7,16 @@ public class UI_Presets : ScriptableObject
 {
     [Header("Character Infos")]
     public Sprite lifeBarImage = null;
+    public Sprite lifeBarBackgroundImage = null;
+    public Sprite lifeBarLimitImage = null;
 
     public Sprite paImage = null;
     public Sprite unusedPA = null;
+    public Sprite usedPA = null;
 
     public Sprite pmImage = null;
     public Sprite unusedPM = null;
+    public Sprite usedPM = null;
 
     [Header("Boat Infos")]
     public Sprite barrel_01 = null;
@@ -25,10 +29,10 @@ public class UI_Presets : ScriptableObject
 
     public Sprite playerPortait = null;
     public Sprite boatPortait = null;
-    public Sprite ennemy_01 = null;
-    public Sprite ennemy_02 = null;
-    public Sprite ennemy_03 = null;
-    public Sprite ennemy_04 = null;
+    public Sprite moussaillonImage = null;
+    public Sprite captainImage = null;
+    public Sprite kamikazeImage = null;
+    public Sprite hookerImage = null;
 
     [Header("Bullet")]
     public Sprite usedBullet = null;
@@ -36,20 +40,40 @@ public class UI_Presets : ScriptableObject
 
     [Header("Skills images")]
     public Sprite moveImage = null;
+    public Sprite moveImageDeactivated = null;
     public Sprite shootImage = null;
+    public Sprite shootImageDeactivated = null;
     public Sprite reloadImage = null;
+    public Sprite reloadImageDeactivated = null;
     public Sprite kickImage = null;
+    public Sprite kickImageDeactivated = null;
     public Sprite jumpImage = null;
+    public Sprite jumpImageDeactivated = null;
+
+    [Header("Pause image")]
+    public Sprite pauseImage = null;
+
+    [Header("Round Counter images")]
+    public Sprite wheelImage = null;
+    public Sprite indicatorImage = null;
+
+    [Header("End Turn images")]
+    public Sprite endTurnImage = null;
+
 
     public UI_Presets()
     {
         lifeBarImage = null;
+        lifeBarBackgroundImage = null;
+        lifeBarLimitImage = null;
 
         paImage = null;
         unusedPA = null;
+        usedPA = null;
 
         pmImage = null;
         unusedPM = null;
+        usedPM = null;
 
         barrel_01 = null;
         barrel_02 = null;
@@ -60,18 +84,30 @@ public class UI_Presets : ScriptableObject
 
         playerPortait = null;
         boatPortait = null;
-        ennemy_01 = null;
-        ennemy_02 = null;
-        ennemy_03 = null;
-        ennemy_04 = null;
+        moussaillonImage = null;
+        captainImage = null;
+        kamikazeImage = null;
+        hookerImage = null;
 
         usedBullet = null;
         unusedBullet = null;
 
         moveImage = null;
+        moveImageDeactivated = null;
         shootImage = null;
+        shootImageDeactivated = null;
         reloadImage = null;
+        reloadImageDeactivated = null;
         kickImage = null;
+        kickImageDeactivated = null;
         jumpImage = null;
+        jumpImageDeactivated = null;
+
+        pauseImage = null;
+
+        wheelImage = null;
+        indicatorImage = null;
+
+        endTurnImage = null;
     }
 }

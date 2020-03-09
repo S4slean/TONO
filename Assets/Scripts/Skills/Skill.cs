@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Skill", menuName = "TONO/Skill/DefaultSkill")]
 public class Skill : ScriptableObject
 {
-    public enum RangeType {Default ,Line, Cross, Square, X }
+    public enum RangeType {Default ,Line, Plus, Round, X }
 
     public string skillName;
     public string description;
@@ -14,6 +14,9 @@ public class Skill : ScriptableObject
     public RangeType rangeType;
     public int range;
 
+    //Skill sprites
+    public Sprite enabledSprite;
+    public Sprite unenabledSprite;
 
     public virtual void Activate(GamePawn user, Tile target)
     {

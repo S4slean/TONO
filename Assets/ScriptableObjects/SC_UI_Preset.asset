@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: SC_UI_Preset
   m_EditorClassIdentifier: 
   lifeBarImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  lifeBarBackgroundImage: {fileID: 10905, guid: 0000000000000000f000000000000000,
+    type: 0}
+  lifeBarLimitImage: {fileID: 21300000, guid: 095047000b6147e43b29c4032bfa55ec, type: 3}
   paImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedPA: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  usedPA: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   pmImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedPM: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  usedPM: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_01: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_02: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   barrel_03: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
@@ -24,14 +29,24 @@ MonoBehaviour:
   stick: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   playerPortait: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   boatPortait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_01: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_02: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_03: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  ennemy_04: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  moussaillonImage: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
+  captainImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  kamikazeImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  hookerImage: {fileID: 21300000, guid: 119cd4ca2fa0015488a71097f62027ce, type: 3}
   usedBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedBullet: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  moveImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   shootImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  shootImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   reloadImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  reloadImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000,
+    type: 0}
   kickImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  kickImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   jumpImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  jumpImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  pauseImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  wheelImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  indicatorImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  endTurnImage: {fileID: 21300000, guid: 42e5310b1253da0408a8f8516c0a0eec, type: 3}

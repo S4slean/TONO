@@ -46,148 +46,240 @@ public class GridManager : MonoBehaviour
     public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false)
     {
         List<Tile> line = new List<Tile>();
-        bool finding = true;
+        bool searching = true;
         Tile currentTile = startingTile;
+        Tile currentNeighbours = null;
 
         /*print("Up : " + currentTile.neighbours.up);
         print("Right : " + currentTile.neighbours.right);
         print("Down : " + currentTile.neighbours.down);
         print("Left : " + currentTile.neighbours.left);*/
 
-        while (finding)
+        while (searching)
         {
             switch (dir)
             {
                 case Direction.Up:
-                    if(currentTile.neighbours.up != null)
+                    if(currentTile.up != null)
                     {
-                        if(currentTile.neighbours.up is Water)
+                        currentNeighbours = currentTile.up;
+                        if(currentNeighbours is Water)
                         {
                             if (throughWater)
                             {
-                                currentTile = currentTile.neighbours.up;
-                                continue;
+                                break;
                             }
                             else
                             {
-                                finding = false;
+                                searching = false;
+                                break;
                             }
                         }
-                        else if(currentTile.neighbours.up.GetPawnOnTile() == null || currentTile.neighbours.up.GetPawnOnTile() is EnemieBehaviour)
+                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
-                            line.Add(currentTile);
-                            currentTile = currentTile.neighbours.up;
-                            continue;
+                            line.Add(currentNeighbours);
+                            break;
                         }
                         else
                         {
-                            finding = false;
+                            searching = false;
                         }
                     }
                     else
                     {
-                        finding = false;
+                        searching = false;
                     }
                     break;
-
                 case Direction.Right:
-                    if(currentTile.neighbours.right != null)
+                    if(currentTile.right != null)
                     {
-                        if(currentTile.neighbours.right is Water)
+                        currentNeighbours = currentTile.right;
+                        if(currentNeighbours is Water)
                         {
                             if (throughWater)
                             {
-                                currentTile = currentTile.neighbours.right;
-                                continue;
+                                break;
                             }
                             else
                             {
-                                finding = false;
+                                searching = false;
+                                break;
                             }
                         }
-                        else if(currentTile.neighbours.right.GetPawnOnTile() == null || currentTile.neighbours.right.GetPawnOnTile() is EnemieBehaviour)
+                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
-                            line.Add(currentTile);
-                            currentTile = currentTile.neighbours.right;
-                            continue;
+                            line.Add(currentNeighbours);
+                            break;
                         }
                         else
                         {
-                            finding = false;
+                            searching = false;
                         }
                     }
                     else
                     {
-                        finding = false;
+                        searching = false;
                     }
                     break;
-
                 case Direction.Down:
-                    if(currentTile.neighbours.down != null)
+                    if(currentTile.down != null)
                     {
-                        if(currentTile.neighbours.down is Water)
+                        currentNeighbours = currentTile.down;
+                        if(currentNeighbours is Water)
                         {
                             if (throughWater)
                             {
-                                currentTile = currentTile.neighbours.down;
-                                continue;
+                                break;
                             }
                             else
                             {
-                                finding = false;
+                                searching = false;
+                                break;
                             }
                         }
-                        else if(currentTile.neighbours.down.GetPawnOnTile() == null || currentTile.neighbours.down.GetPawnOnTile() is EnemieBehaviour)
+                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
-                            line.Add(currentTile);
-                            currentTile = currentTile.neighbours.down;
-                            continue;
+                            line.Add(currentNeighbours);
+                            break;
                         }
                         else
                         {
-                            finding = false;
+                            searching = false;
                         }
                     }
                     else
                     {
-                        finding = false;
+                        searching = false;
                     }
                     break;
-
                 case Direction.Left:
-                    if(currentTile.neighbours.left != null)
+                    if(currentTile.left != null)
                     {
-                        if(currentTile.neighbours.left is Water)
+                        currentNeighbours = currentTile.left;
+                        if(currentNeighbours is Water)
                         {
                             if (throughWater)
                             {
-                                currentTile = currentTile.neighbours.left;
-                                continue;
+                                break;
                             }
                             else
                             {
-                                finding = false;
+                                searching = false;
+                                break;
                             }
                         }
-                        else if(currentTile.neighbours.left.GetPawnOnTile() == null || currentTile.neighbours.left.GetPawnOnTile() is EnemieBehaviour)
+                        else if(currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
-                            line.Add(currentTile);
-                            currentTile = currentTile.neighbours.left;
-                            continue;
+                            line.Add(currentNeighbours);
+                            break;
                         }
                         else
                         {
-                            finding = false;
+                            searching = false;
                         }
                     }
                     else
                     {
-                        finding = false;
+                        searching = false;
                     }
                     break;
-
             }
+            //print(currentNeighbours);
+            currentTile = currentNeighbours;
         }
+        //print(startingTile.transform.localPosition);
         return line;
     }
+
+    public List<Tile> GetRoundRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        return res;
+    }
+
+    public List<Tile> GetPlusRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        res.Add(startingTile);
+        Tile currentTile;
+
+        //UP
+        currentTile = startingTile.neighbours.up;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.up;
+        }
+
+        //RIGHT
+        currentTile = startingTile.neighbours.right;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.right;
+        }
+
+        //DOWN
+        currentTile = startingTile.neighbours.down;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.down;
+        }
+
+        //LEFT
+        currentTile = startingTile.neighbours.left;
+        for (int i = 0; i < range; i++)
+        {
+            if(!(currentTile is Water || currentTile == null))
+            {
+                res.Add(currentTile);
+            }
+            else
+            {
+                break;
+            }
+            currentTile = currentTile.neighbours.left;
+        }
+
+        return res;
+    }
+
+    public List<Tile> GetCrossRange(Tile startingTile, int range)
+    {
+        List<Tile> res = new List<Tile>();
+        res.Add(startingTile);
+        Tile currentTile;
+
+        //UP-RIGHT
+        /*currentTile = startingTile.neighbours.right;
+        for(int i = 0; i< range; i++)
+        {
+            currentTile = currentTile;
+        }*/
+
+        return res;
+    }
+
 }

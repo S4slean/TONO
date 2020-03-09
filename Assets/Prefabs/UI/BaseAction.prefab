@@ -73,6 +73,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2543012264949050792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7467980782831847680}
+  m_Layer: 5
+  m_Name: Cost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7467980782831847680
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543012264949050792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7185284910787579803}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 145, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4376942782994724042
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +452,7 @@ RectTransform:
   - {fileID: 91254081846866478}
   - {fileID: 8268921670145712306}
   - {fileID: 2664914992047779862}
+  - {fileID: 7467980782831847680}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -473,9 +509,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd74717a22792c545b5abcd1867c226e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionSkill: {fileID: 0}
+  paCostPrefab: {fileID: 251630624432395167, guid: 64eef43d81635e040b8547c31f0a3776,
+    type: 3}
   actionImage: {fileID: 6622811533093614929}
   backgroundImage: {fileID: 387623399095613583}
   rect: {fileID: 7185284910787579803}
+  costParent: {fileID: 7467980782831847680}
   tooltipDescription: {fileID: 6021775775598502157}
   tooltipName: {fileID: 827933356412227053}
   tooltipCurve:
@@ -503,8 +543,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   animTime: 0.25
-  isUnfold: 1
-  isMoving: 0
   unfoldPos: 300
 --- !u!114 &-3059778520727575827
 MonoBehaviour:
@@ -554,7 +592,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7899378797092564104}
-          m_MethodName: DebugAction
+          m_MethodName: PreviewSkillAction
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

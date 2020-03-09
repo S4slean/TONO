@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
-public class UI_SelectedCharacterInfo : MonoBehaviour
+public class UI_SelectedCharacterInfo : Panel_Behaviour
 {
     public enum Stats
     {
@@ -18,101 +17,48 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
 
     [Space]
     public Image lifeBar;
+    public Image lifeBarBackground;
+    public RectTransform lifeParentRect;
+    public GameObject lifeLimitPrefab;
     public Image lifePreviewBar;
+    float lifePart;
 
     [Space]
     public Image paImage;
     public RectTransform paParentRect;
     public GameObject paPointPrefab;
     List<Image> paPoints;
+
     [Space]
     public Image pmImage;
     public RectTransform pmParentRect;
     public GameObject pmPointPrefab;
     List<Image> pmPoints;
 
-    bool isVisible = false;
+    [HideInInspector] public PlayerStats playerStats;
+    [HideInInspector] public PlayerCharacter playerCharacter;
 
-    /// <summary>
-    /// /////////GET PLAYER VALUES
-    /// </summary>
-    [Header("Debug")]
-    public int totalLife; //total player LIFE
-    public int currentLife; //current player LIFE etc...
-
-    public int totalPA;
-    public int currentPA;
-
-    public int totalPM;
-    public int currentPM;
 
 
     void Start()
     {
-        SetUpCharacterInfo();
+        //SetUpCharacterInfo();
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    PreviewCharacterInfo(Stats.Life, 6);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    ResetCharacterInfo(Stats.Life);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    SetCharacterInfoWithCost(Stats.Life, 1);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    PreviewCharacterInfo(Stats.PA, 2);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.Z))
-        //{
-        //    ResetCharacterInfo(Stats.PA);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PA, 1);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    PreviewCharacterInfo(Stats.PM, 3);
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.E))
-        //{
-        //    ResetCharacterInfo(Stats.PM);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    SetCharacterInfoWithCost(Stats.PM, 1);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetUpCharacterInfo();
-        //}
+        MovePanel();
     }
 
 
+    /// <summary>
+    /// Get player character's data (player stats)
+    /// </summary>
     public void SetUpCharacterInfo()
     {
         lifeBar.sprite = UI_Manager.instance.uiPreset.lifeBarImage;
+        lifeBarBackground.sprite = UI_Manager.instance.uiPreset.lifeBarBackgroundImage;
         portraitImage.sprite = UI_Manager.instance.uiPreset.playerPortait;
-        
 
         paImage.sprite = UI_Manager.instance.uiPreset.paImage;
         pmImage.sprite = UI_Manager.instance.uiPreset.pmImage;
@@ -120,7 +66,11 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         paPoints = new List<Image>();
         pmPoints = new List<Image>();
 
-        for (int i = 0; i < totalPA; i++)
+        playerStats = GameManager.Instance.overridingPlayerStatsConfig.playerStats;
+        playerCharacter = PlayerManager.instance.playerCharacter;
+
+        //Set number of PA
+        for (int i = 0; i < playerStats.startingAP; i++)
         {
             GameObject obj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -133,7 +83,8 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             paPoints.Add(image);
         }
 
-        for (int i = 0; i < totalPM; i++)
+        //Set number of PM
+        for (int i = 0; i < playerStats.startingMP; i++)
         {
             GameObject obj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -141,43 +92,38 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
             rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * (i + 1), 0, 0);
 
             Image image = obj.GetComponent<Image>();
-            image.sprite = UI_Manager.instance.uiPreset.unusedPA;
+            image.sprite = UI_Manager.instance.uiPreset.unusedPM;
 
 
             pmPoints.Add(image);
         }
 
+        //Set number of life parts
+        RectTransform lifeBarRect = lifeBarBackground.gameObject.GetComponent<RectTransform>();
+        lifePart = (float)lifeBarRect.sizeDelta.x / (float)playerStats.startingLP;
+        float lifeSizeX = (lifeBarRect.sizeDelta.x * 0.5f) * -1f;
+
+        for (int i = 0; i < playerStats.startingLP; i++)
+        {
+            if (i == 0 || i == playerStats.startingLP)
+                continue;
+
+            GameObject obj = Instantiate(lifeLimitPrefab, Vector3.zero, Quaternion.identity, lifeParentRect.gameObject.transform);
+            RectTransform limitRect = obj.GetComponent<RectTransform>();
+            Image image = obj.GetComponent<Image>();
+
+            image.sprite = UI_Manager.instance.uiPreset.lifeBarLimitImage;
+            limitRect.anchoredPosition3D = new Vector3(lifeSizeX + lifePart * i, 0, 0);
+        }
+
         lifePreviewBar.fillAmount = 1f;
     }
 
-    public void ShowCharacterInfo()
-    {
-        if (isVisible)
-            return;
-
-        lifeBar.gameObject.SetActive(true);
-        lifePreviewBar.gameObject.SetActive(true);
-
-        pmParentRect.gameObject.SetActive(true);
-        paParentRect.gameObject.SetActive(true);
-
-        isVisible = true;
-    }
-
-    public void HideCharacterInfo()
-    {
-        if (!isVisible)
-            return;
-
-        lifeBar.gameObject.SetActive(false);
-        lifePreviewBar.gameObject.SetActive(false);
-
-        pmParentRect.gameObject.SetActive(false);
-        paParentRect.gameObject.SetActive(false);
-
-        isVisible = false;
-    }
-
+    /// <summary>
+    /// Preview a CHOSEN stat
+    /// </summary>
+    /// <param name="concernedStat">chosen stat</param>
+    /// <param name="cost">withdrawned value</param>
     public void PreviewCharacterInfo(Stats concernedStat, int cost)
     {
         float amount = 0;
@@ -186,74 +132,77 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentLife - cost;
-                amount = (float)newValue / (float)totalLife;
+                newValue = playerCharacter.currentLife - cost;
+                amount = (float)newValue / (float)playerStats.startingLP;
 
                 lifePreviewBar.fillAmount = amount;
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentPA - cost;
+                newValue = playerCharacter.currentPA - cost;
                 for (int i = 0; i < newValue; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
                 }
 
                 for (int i = newValue; i < paPoints.Count; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
                 }
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                newValue = currentPM - cost;
+                newValue = playerCharacter.currentPM - cost;
                 for (int i = 0; i < newValue; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
                 for (int i = newValue; i < pmPoints.Count; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
                 break;
         }
     }
 
+    /// <summary>
+    /// Set a CHOSEN stat
+    /// </summary>
+    /// <param name="concernedStat">chosen stat</param>
+    /// <param name="cost">withdrawned value</param>
     public void SetCharacterInfoWithCost(Stats concernedStat, int cost)
     {
-        float amount = 0;
-
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                currentLife -= (int)cost;
+                playerCharacter.currentLife -= (int)cost;
                 ResetCharacterInfo(Stats.Life);
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                currentPA -= (int)cost;
+                playerCharacter.currentPA -= (int)cost;
                 ResetCharacterInfo(Stats.PA);
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                currentPM -= (int)cost;
+                playerCharacter.currentPM -= (int)cost;
                 ResetCharacterInfo(Stats.PM);
                 break;
         }
     }
 
+    /// <summary>
+    /// Set ALL character's info at once
+    /// </summary>
+    /// <param name="life"> New value of LIFE</param>
+    /// <param name="pa">New value of PA</param>
+    /// <param name="pm">New value of PM</param>
     public void SetAllCharacterInfo(int life, int pa, int pm)
     {
-        currentLife = life;
-        currentPA = pa;
-        currentPM = pm;
+        playerCharacter.currentLife = life;
+        playerCharacter.currentPA = pa;
+        playerCharacter.currentPM = pm;
 
         ResetAllCharacterInfo();
     }
@@ -261,7 +210,7 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     /// <summary>
     /// Reset a chosen stats to its current value
     /// </summary>
-    /// <param name="concernedStat"></param>
+    /// <param name="concernedStat">concerned stat</param>
     public void ResetCharacterInfo(Stats concernedStat)
     {
         float amount = 0;
@@ -269,35 +218,32 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
         switch (concernedStat)
         {
             case Stats.Life:
-                //if(cost > playerCharacterLIFE)
-                amount = (float)currentLife / (float)totalLife;
+                amount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
                 lifePreviewBar.fillAmount = amount;
                 lifeBar.fillAmount = amount;
                 break;
 
             case Stats.PA:
-                //if(cost > playerCharacterLIFE)
-                for (int i = 0; i < currentPA; i++)
+                for (int i = 0; i < playerCharacter.currentPA; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
                 }
 
-                for (int i = currentPA; i < paPoints.Count; i++)
+                for (int i = playerCharacter.currentPA; i < paPoints.Count; i++)
                 {
-                    paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
                 }
                 break;
 
             case Stats.PM:
-                //if(cost > playerCharacterLIFE)
-                for (int i = 0; i < currentPM; i++)
+                for (int i = 0; i < playerCharacter.currentPM; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
-                for (int i = currentPM; i < pmPoints.Count; i++)
+                for (int i = playerCharacter.currentPM; i < pmPoints.Count; i++)
                 {
-                    pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+                    pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
                 break;
         }
@@ -309,28 +255,44 @@ public class UI_SelectedCharacterInfo : MonoBehaviour
     /// </summary>
     public void ResetAllCharacterInfo()
     {
-        float lifeAmount = (float)currentLife / (float)totalLife;
+        float lifeAmount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
         lifePreviewBar.fillAmount = lifeAmount;
         lifeBar.fillAmount = lifeAmount;
 
-        for (int i = 0; i < currentPA; i++)
+        for (int i = 0; i < playerCharacter.currentPA; i++)
         {
-            paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            paPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPA;
         }
 
-        for (int i = currentPA; i < paPoints.Count; i++)
+        for (int i = playerCharacter.currentPA; i < paPoints.Count; i++)
         {
-            paPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            paPoints[i].sprite = UI_Manager.instance.uiPreset.usedPA;
         }
 
-        for (int i = 0; i < currentPM; i++)
+        for (int i = 0; i < playerCharacter.currentPM; i++)
         {
-            pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
+            pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
         }
 
-        for (int i = currentPM; i < pmPoints.Count; i++)
+        for (int i = playerCharacter.currentPM; i < pmPoints.Count; i++)
         {
-            pmPoints[i].color = new Color32((byte)255, (byte)255, (byte)255, (byte)100);
+            pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
         }
+    }
+
+
+    public override void HidePanel()
+    {
+        base.HidePanel();
+    }
+
+    public override void ShowPanel()
+    {
+        base.ShowPanel();
+    }
+
+    public override void MovePanel()
+    {
+        base.MovePanel();
     }
 }

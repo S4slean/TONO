@@ -8,7 +8,8 @@ public enum HighlightMode
     MoveHighlight,
     MoveRangePreview,
     ActionPreview,
-    ActionHighlight
+    ActionHighlight,
+    ExplosionPreview
 }
 public class Highlight_Manager : MonoBehaviour
 {
@@ -19,8 +20,7 @@ public class Highlight_Manager : MonoBehaviour
     public Material moveHighlightMat;
     public Material actionPreviewMat;
     public Material actionHighlightMat;
-
-    private int idKey = 0;
+    public Material explosionPreviewMat;
 
     //LOGIC
     Dictionary<int, List<Tile>> highlights = new Dictionary<int, List<Tile>>();
@@ -62,22 +62,69 @@ public class Highlight_Manager : MonoBehaviour
             tile.rend.material = highlightMat;
         }
 
-        idKey++;
-        highlights.Add(idKey, tilesToHighlight);
-
-        return idKey;
+        return GenerateNewID(tilesToHighlight);
     }
 
     public void HideHighlight(int id, Material materialAfterHiding = null)
     {
-        foreach(Tile tile in highlights[id])
+        List<Tile> value = new List<Tile>();
+        if (highlights.TryGetValue(id, out value))
         {
-            tile.highlighted = false;
-            if (materialAfterHiding != null)
-                tile.rend.material = materialAfterHiding;
-            else
-                tile.rend.material = tile.defaultMaterial;
+            foreach (Tile tile in highlights[id])
+            {
+                tile.highlighted = false;
+                if (materialAfterHiding != null)
+                    tile.rend.material = materialAfterHiding;
+                else
+                    tile.rend.material = tile.defaultMaterial;
+            }
+            //Suppr la liste de highlights
+            RemoveHighlight(id);
         }
-        //Suppr la liste de highlights
+
+    }
+
+    public void HideAllHighlight()
+    {
+        foreach(int id in highlights.Keys)
+        {
+            HideHighlight(id);
+        }
+    }
+
+    int GenerateNewID(List<Tile> tilesToHighlight)
+    {
+        //DEBUG
+        /*foreach(int id in highlights.Keys)
+        {
+            print("ID : " + id);
+        }*/
+
+        int iDKey = 0;
+        List<Tile> value = new List<Tile>();
+        bool finding = true;
+        while(finding)
+        {
+            if(!highlights.TryGetValue(iDKey, out value))
+            {
+                finding = false;
+            }
+            else
+            {
+                iDKey++;
+            }
+        }
+
+        highlights.Add(iDKey, tilesToHighlight);
+
+        //print("ID : " + iDKey);
+        return iDKey;
+    }
+
+    void RemoveHighlight(int id)
+    {
+        List<Tile> value = new List<Tile>();
+        if(highlights.TryGetValue(id, out value))
+            highlights.Remove(id);
     }
 }

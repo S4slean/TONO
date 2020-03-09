@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     public bool overridesPlayerStats;
     public PlayerStatsConfig overridingPlayerStatsConfig;
+    public int combatsCompleted;
 
     private void Awake()
     {
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
 
         PauseManager.Instance.Initialize();
 
-        BrickManager.Instance.Init();
-
         if(overridesPlayerStats)
         {
             if(overridingPlayerStatsConfig != null)
@@ -30,6 +29,7 @@ public class GameManager : MonoBehaviour
                 playerStats = overridingPlayerStatsConfig.playerStats;
             }
         }
+
     }
 
     public Vector3[] floorCenterPositions;
@@ -39,8 +39,20 @@ public class GameManager : MonoBehaviour
         floorCenterPositions = Floor.centerPositions;
     }
 
+    
+    public void CompleteCombat()
+    {
+        if(LevelManager.currentLevel > combatsCompleted)
+        {
+            combatsCompleted = LevelManager.currentLevel;
+        }
+
+        SaveAndQuit();
+    }
+
     public void SaveAndQuit()
     {
-
+        DataManager.Instance.Save(SceneType.game);
+        LevelManager.GoToScene("Map");
     }
 }

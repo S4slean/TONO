@@ -2,17 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UIMode
+public enum UIDisplayMode
 {
-    onSelection,
-    onTarget,
+    None,
+    PlayerTurn,
+    EnemyTurn,
+    Boat,
+    Pause,
+    End,
+    Start,
 }
-
 
 
 public class UI_Manager : MonoBehaviour
 {
+    [Header("UI Preset")]
     public UI_Presets uiPreset;
+    public UIDisplayMode currentDisplayMode;
+
+    [Header("UI Panel References")]
+    public UI_Gun gunPanel;
+    public UI_Timeline timelinePanel;
+    public UI_EndTurn endTurnPanel;
+    public PauseManager pausePanel;
+    public UI_BoatInfo boatPanel;
+    public UI_ActionPanelBehaviour actionPanel;
+    public UI_RoundCounter roundPanel;
+    public UI_SelectedCharacterInfo characterInfoPanel;
+
 
     /// <summary>
     /// Player Character actions
@@ -33,14 +50,9 @@ public class UI_Manager : MonoBehaviour
 
 
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
-    }
-
-    public void debug()
-    {
-        Debug.Log("DO IT");
     }
 
     public void SetCursorIcon(CursorIconMode icon)
@@ -65,9 +77,58 @@ public class UI_Manager : MonoBehaviour
         //}
     }
 
-
-    public void SetNextPhase()
+    public void SetUIDisplayModeOn(UIDisplayMode displayMode)
     {
+        switch (displayMode)
+        {
+            case UIDisplayMode.Pause:
+            case UIDisplayMode.End:
+            case UIDisplayMode.None:
+                gunPanel.HidePanel();
+                timelinePanel.HidePanel();
+                endTurnPanel.HidePanel();
+                pausePanel.HidePanel();
+                boatPanel.HidePanel();
+                actionPanel.HidePanel();
+                roundPanel.HidePanel();
+                characterInfoPanel.HidePanel();
+            break;
 
+            case UIDisplayMode.Boat:
+                gunPanel.HidePanel();
+                timelinePanel.ShowPanel();
+                endTurnPanel.HidePanel();
+                pausePanel.ShowPanel();
+                boatPanel.ShowPanel();
+                actionPanel.HidePanel();
+                roundPanel.ShowPanel();
+                characterInfoPanel.HidePanel();
+                break;
+
+            case UIDisplayMode.Start:
+            case UIDisplayMode.EnemyTurn:
+                gunPanel.HidePanel();
+                timelinePanel.ShowPanel();
+                endTurnPanel.HidePanel();
+                pausePanel.ShowPanel();
+                boatPanel.HidePanel();
+                actionPanel.HidePanel();
+                roundPanel.ShowPanel();
+                characterInfoPanel.HidePanel();
+                break;
+
+            case UIDisplayMode.PlayerTurn:
+                gunPanel.ShowPanel();
+                timelinePanel.ShowPanel();
+                endTurnPanel.ShowPanel();
+                pausePanel.ShowPanel();
+                boatPanel.HidePanel();
+                actionPanel.ShowPanel();
+                roundPanel.ShowPanel();
+                characterInfoPanel.ShowPanel();
+                break;
+        }
+
+        currentDisplayMode = displayMode;
     }
 }

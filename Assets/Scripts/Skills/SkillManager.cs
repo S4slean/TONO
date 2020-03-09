@@ -4,7 +4,15 @@ using UnityEngine;
 
 public enum Skills
 {
-    GunShot
+    Move,
+    Jump,
+    Kick,
+    ThrowElement,
+    GunShot,
+    Reload,
+    Explosion,
+
+    NumberOfSkills
 }
 
 public class SkillManager : MonoBehaviour
