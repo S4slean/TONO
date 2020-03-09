@@ -66,38 +66,41 @@ public class GamePawn : MonoBehaviour
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
-        int highlightPathID = -1;
-
-        if (showHighlight)
+        if(path.Count == 0)
         {
-            Highlight_Manager.instance.HideAllHighlight();
-            highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
-        }
+            int highlightPathID = -1;
 
-        Sequence s = DOTween.Sequence();
-        foreach (Tile tile in path)
-        {
-            s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    associatedTile.SetPawnOnTile(null);
-                    associatedTile = tile;
-                    associatedTile.SetPawnOnTile(this);
-                    if (tile.highlighted)
+            if (showHighlight)
+            {
+                Highlight_Manager.instance.HideAllHighlight();
+                highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+            }
+
+            Sequence s = DOTween.Sequence();
+            foreach (Tile tile in path)
+            {
+                s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
+                    .SetEase(Ease.Linear)
+                    .OnComplete(() =>
                     {
-                        associatedTile.rend.material = associatedTile.defaultMaterial;
-                        associatedTile.highlighted = false;
-                    }
-                }));            
-        }
+                        associatedTile.SetPawnOnTile(null);
+                        associatedTile = tile;
+                        associatedTile.SetPawnOnTile(this);
+                        if (tile.highlighted)
+                        {
+                            associatedTile.rend.material = associatedTile.defaultMaterial;
+                            associatedTile.highlighted = false;
+                        }
+                    }));
+            }
 
-        s.OnComplete(() =>
-        {
-            if (highlightPathID > -1)
-                Highlight_Manager.instance.HideHighlight(highlightPathID);
-            EndAction();
-        });
+            s.OnComplete(() =>
+            {
+                if (highlightPathID > -1)
+                    Highlight_Manager.instance.HideHighlight(highlightPathID);
+                EndAction();
+            });
+        }
     }
 
     public void EndAction()

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Character.meta
 guid: 8629b5d0f2d7039429b79dd941d0b594
+=======
+guid: 7947a61d7d7ad0949b095093ede343eb
+>>>>>>> 78eb17dda7be0d95e01fab55a273d7df425b670d:Assets/Animations/Camera.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -18,6 +18,20 @@ public class BombardmentManager : MonoBehaviour
 
     public RangeType[] barrelsToDrop;
 
+    [Header("Pacing")]
+    public float delayBeforeBarrelPlacement;
+    int placementIndex;
+
+    [Header("Placement")]
+    public GameObject barrelMarker;
+    List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
+    public Color roundColor;
+    public Color plusColor;
+    public Color crossColor;
+
+    [Header("Spawning")]
+    public float barrelSpawningHeight;
+
     [Header("Stats")]
     public int barrelAmount;
     public int knownBarrelsAmount;
@@ -26,7 +40,29 @@ public class BombardmentManager : MonoBehaviour
     public void StartBombardment()
     {
         CalculateBarrelsToDrop();
+    }
 
+    IEnumerator WaitThenStartPlacingBarrels()
+    {
+        placementIndex = -1;
+        yield return new WaitForSeconds(delayBeforeBarrelPlacement);
+        StartPlacingNextBarrelMarker();
+    }
+
+
+    public void StartPlacingNextBarrelMarker()
+    {
+        placementIndex++;
+        waitingToPlace = true;
+        //PlayerManager.instance.hoverMode = HoverMode.Bombardment;
+    }
+
+    bool waitingToPlace;
+    public void PlaceBarrelMarker(Tile selectedTile)
+    {
+        waitingToPlace = false;
+        BarrelMarker toPlace = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
+        toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
     }
 
     public void StopBombardment()
