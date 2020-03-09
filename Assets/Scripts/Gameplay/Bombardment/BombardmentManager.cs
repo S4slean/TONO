@@ -61,6 +61,8 @@ public class BombardmentManager : MonoBehaviour
     {
         placementIndex = -1;
         yield return new WaitForSeconds(delayBeforeBarrelPlacement);
+
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Boat);
         StartPlacingNextBarrelMarker();
     }
 
@@ -86,6 +88,7 @@ public class BombardmentManager : MonoBehaviour
         toPlace.gameObject.SetActive(true);
         activeMarkers.Add(toPlace);
         placementIndex++;
+        UI_Manager.instance.boatPanel.RemoveBarrelUI();
 
         if(placementIndex >= barrelAmount)
         {

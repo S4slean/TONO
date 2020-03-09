@@ -153,7 +153,8 @@ MonoBehaviour:
     upgradeChoicesMade: 
     upgradesPossessed: 
   overridesPlayerStats: 0
-  overridingPlayerStatsConfig: {fileID: 0}
+  overridingPlayerStatsConfig: {fileID: 11400000, guid: 7c337270eb241e448aac0d6eb7af2eef,
+    type: 2}
   combatsCompleted: 0
   introductionDuration: 0
   turnType: 0
@@ -662,16 +663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6370869968600417347}
     m_Modifications:
-    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -8.799805
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -8.399414
-      objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
