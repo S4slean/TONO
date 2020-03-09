@@ -13,7 +13,7 @@ public class UI_Gun : Panel_Behaviour
 
     void Start()
     {
-        SetUpBullet();
+        //SetUpBullet();
     }
 
     void Update()

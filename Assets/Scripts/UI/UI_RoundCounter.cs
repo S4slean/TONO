@@ -32,7 +32,7 @@ public class UI_RoundCounter : Panel_Behaviour
 
     private void Start()
     {
-        SetUpNumbersWheel();
+        //SetUpNumbersWheel();
     }
 
     private void Update()
