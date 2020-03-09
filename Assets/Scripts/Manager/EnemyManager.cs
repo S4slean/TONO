@@ -23,6 +23,16 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+
+    public bool NoEnemiesLeft()
+    {
+        if(enemyList.Count < 1)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void GetAllenemies()
     {
         enemyList = new List<EnemieBehaviour>();
@@ -44,16 +54,24 @@ public class EnemyManager : MonoBehaviour
     public void PlayEnemyTurn()
     {
 
-        if(_enemyIndex < enemyList.Count - 1)
+        if(_enemyIndex < enemyList.Count )
         {
+            UI_Manager.instance.timelinePanel.NextIconTurn();
             enemyList[_enemyIndex].PlayTurn();
         }
         else
         {
             _enemyIndex = 0;
-            //RoundManager.instance.PlayEnemyTurn
+            EndEnemyTurn();
         }
     }
+
+    public void EndEnemyTurn()
+    {
+        GameManager.Instance.CheckIfCompleted(true);
+    }
+
+    
     
     public void PlayNextEnemyTurn()
     {

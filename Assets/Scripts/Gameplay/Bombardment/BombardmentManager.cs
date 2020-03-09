@@ -29,6 +29,16 @@ public class BombardmentManager : MonoBehaviour
 
     }
 
+    public void PlaceBarrel(Tile selectedTile)
+    {
+
+    }
+
+    public void StopBombardment()
+    {
+        GameManager.Instance.CheckIfCompleted(true);
+    }
+
     public void CalculateBarrelsToDrop()
     {
         barrelsToDrop = new RangeType[barrelAmount];
