@@ -432,10 +432,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 280792878007016998, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+    - target: {fileID: 444596706067147471, guid: 0d2fff71dfacd82479d19eccb8798d0b,
         type: 3}
-      propertyPath: m_Name
-      value: HighlightUpcomingBarrels
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444596706067147471, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444596706067147471, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444596706067147471, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444596706067147471, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556955771807601940, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556955771807601940, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556955771807601940, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556955771807601940, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556955771807601940, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183389613213718631, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183389613213718631, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183389613213718631, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183389613213718631, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183389613213718631, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042992005489319772, guid: 0d2fff71dfacd82479d19eccb8798d0b,
         type: 3}
@@ -497,15 +567,165 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 5523879184655335038, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+    - target: {fileID: 2319911430475244023, guid: 0d2fff71dfacd82479d19eccb8798d0b,
         type: 3}
-      propertyPath: m_LocalPosition.x
+      propertyPath: m_textInfo.characterCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5523879184655335038, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+    - target: {fileID: 2319911430475244023, guid: 0d2fff71dfacd82479d19eccb8798d0b,
         type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_textInfo.spaceCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319911430475244023, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319911430475244023, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319911430475244023, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614737578856490997, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614737578856490997, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614737578856490997, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614737578856490997, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614737578856490997, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370869968600417347, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424034585450467245, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424034585450467245, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424034585450467245, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424034585450467245, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424034585450467245, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436620516707175953, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436620516707175953, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436620516707175953, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436620516707175953, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436620516707175953, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626394841320639326, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626394841320639326, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626394841320639326, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626394841320639326, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626394841320639326, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053315263407935716, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053315263407935716, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053315263407935716, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053315263407935716, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053315263407935716, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331373133529330756, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.399902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d2fff71dfacd82479d19eccb8798d0b, type: 3}
@@ -4366,10 +4586,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -4485,10 +4708,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -4604,10 +4830,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -4817,10 +5046,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -4936,10 +5168,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -5243,10 +5478,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -5738,10 +5976,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -5951,10 +6192,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -5976,10 +6220,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -6189,10 +6436,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -6402,10 +6652,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -6521,10 +6774,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -6734,10 +6990,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -6759,10 +7018,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -7254,10 +7516,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -7467,10 +7732,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -7586,10 +7854,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -7705,10 +7976,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8012,10 +8286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8131,10 +8408,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8344,10 +8624,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8745,10 +9028,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8958,10 +9244,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -8983,10 +9272,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9102,10 +9394,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9221,10 +9516,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9434,10 +9732,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9459,10 +9760,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9672,10 +9976,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -9979,10 +10286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -10192,10 +10502,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -10405,10 +10718,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -10524,10 +10840,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -10831,10 +11150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11044,10 +11366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11163,10 +11488,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11470,10 +11798,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11589,10 +11920,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11708,10 +12042,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11827,10 +12164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -11946,10 +12286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -12065,10 +12408,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -12278,10 +12624,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -12397,10 +12746,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -12516,10 +12868,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -13011,10 +13366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -13224,10 +13582,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -13531,10 +13892,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -13932,10 +14296,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14239,10 +14606,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14358,10 +14728,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14383,10 +14756,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14502,10 +14878,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14715,10 +15094,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -14834,10 +15216,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15047,10 +15432,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15072,10 +15460,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15191,10 +15582,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15498,10 +15892,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15711,10 +16108,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15924,10 +16324,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -15949,10 +16352,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16162,10 +16568,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16281,10 +16690,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16494,10 +16906,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16707,10 +17122,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16826,10 +17244,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -16945,10 +17366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17158,10 +17582,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17277,10 +17704,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17584,10 +18014,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17703,10 +18136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17728,10 +18164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -17847,10 +18286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -18718,10 +19160,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -19025,10 +19470,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -19144,10 +19592,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -19263,10 +19714,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -19382,10 +19836,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -19877,10 +20334,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -20090,10 +20550,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -20397,10 +20860,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -20516,10 +20982,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -20917,10 +21386,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21130,10 +21602,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
-  isWalkable: 0
+  isWalkable: 1
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21850,10 +22325,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21875,10 +22353,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21900,10 +22381,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21925,10 +22409,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21950,10 +22437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -21975,10 +22465,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22000,10 +22493,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22025,10 +22521,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22050,10 +22549,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22075,10 +22577,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22100,10 +22605,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22125,10 +22633,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22150,10 +22661,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22175,10 +22689,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22200,10 +22717,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22225,10 +22745,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22250,10 +22773,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22275,10 +22801,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22300,10 +22829,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22325,10 +22857,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22350,10 +22885,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22375,10 +22913,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22400,10 +22941,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22425,10 +22969,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22450,10 +22997,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22475,10 +23025,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22500,10 +23053,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22525,10 +23081,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22550,10 +23109,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22575,10 +23137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22600,10 +23165,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22625,10 +23193,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22650,10 +23221,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22675,10 +23249,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22700,10 +23277,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22725,10 +23305,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22750,10 +23333,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22775,10 +23361,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22800,10 +23389,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22825,10 +23417,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22850,10 +23445,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22875,10 +23473,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22900,10 +23501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22925,10 +23529,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22950,10 +23557,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -22975,10 +23585,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23000,10 +23613,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23025,10 +23641,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23050,10 +23669,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23075,10 +23697,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23100,10 +23725,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23125,10 +23753,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23150,10 +23781,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23175,10 +23809,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23200,10 +23837,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23225,10 +23865,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23250,10 +23893,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23275,10 +23921,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23300,10 +23949,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23325,10 +23977,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23350,10 +24005,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23375,10 +24033,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23400,10 +24061,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23425,10 +24089,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23450,10 +24117,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23475,10 +24145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23500,10 +24173,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23525,10 +24201,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23550,10 +24229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23575,10 +24257,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23600,10 +24285,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23625,10 +24313,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23650,10 +24341,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23675,10 +24369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23700,10 +24397,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23725,10 +24425,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
@@ -23750,10 +24453,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0

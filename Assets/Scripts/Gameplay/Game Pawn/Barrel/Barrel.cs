@@ -11,15 +11,18 @@ public class Barrel : GamePawn
     protected override void Start()
     {
         base.Start();
+    }
 
-        foreach(Skill skill in skills)
+    public GameObject[] graphics;
+
+    public void Initialize(BarrelType type)
+    {
+        for(int i =0; i < graphics.Length; i++)
         {
-            if(skill.skillName == "Explosion")
-            {
-                explosionSkill = skill;
-                break;
-            }
+            graphics[i].SetActive(false);
         }
+        graphics[type.graphicsIndex].SetActive(true);
+        explosionSkill = type.explosionSkill;
     }
 
     public override void OnMouseEnter()
@@ -40,6 +43,7 @@ public class Barrel : GamePawn
         {
             hovered = false;
             rend.material = oldMaterial;
+            ComboManager.instance.ClearAllComboList();
             Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
         }
     }

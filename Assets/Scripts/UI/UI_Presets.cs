@@ -60,6 +60,10 @@ public class UI_Presets : ScriptableObject
     [Header("End Turn images")]
     public Sprite endTurnImage = null;
 
+    [Header("Message images")]
+    public Sprite messagePanelImage = null;
+    public Sprite leftStringImage = null;
+    public Sprite rightStringImage = null;
 
     public UI_Presets()
     {
@@ -109,5 +113,9 @@ public class UI_Presets : ScriptableObject
         indicatorImage = null;
 
         endTurnImage = null;
+
+        messagePanelImage = null;
+        leftStringImage = null;
+        rightStringImage = null;
     }
 }

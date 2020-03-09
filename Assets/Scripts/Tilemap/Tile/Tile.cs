@@ -25,17 +25,18 @@ public class Tile : MonoBehaviour
     //LOGIC
     public bool isWalkable;
     public bool isClickable;
+    public bool hasAlcohol = false;
     public bool hovered;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;
     public bool Visited = false;
     public Tile previous;
 
-    [Header("DEBUG")]
+    /*[Header("DEBUG")]
     public Tile up;
     public Tile right;
     public Tile down;
-    public Tile left;
+    public Tile left;*/
 
     public object Connections { get; internal set; }
 
@@ -56,25 +57,21 @@ public class Tile : MonoBehaviour
         if(hit.transform != null)
         {
             neighbours.up = hit.transform.GetComponent<Tile>();
-            up = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.right, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
         {
             neighbours.right = hit.transform.GetComponent<Tile>();
-            right = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.back, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
         {
             neighbours.down = hit.transform.GetComponent<Tile>();
-            down = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.left, out hit, 2f, 1 << 9 | 1 << 10);
         if(hit.transform != null)
         {
             neighbours.left = hit.transform.GetComponent<Tile>();
-            left = hit.transform.GetComponent<Tile>();
         }
     }
 
@@ -109,6 +106,24 @@ public class Tile : MonoBehaviour
         }
 
         return res;
+    }
+
+    public Tile GetNeighbours(Direction dir)
+    {
+        switch (dir)
+        {
+
+            case Direction.Up:
+                return neighbours.up;
+            case Direction.Down:
+                return neighbours.down;
+            case Direction.Right:
+                return neighbours.right;
+            case Direction.Left:
+                return neighbours.left;
+        }
+
+        return null;
     }
 
 

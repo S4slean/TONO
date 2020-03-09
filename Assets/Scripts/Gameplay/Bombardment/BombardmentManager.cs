@@ -11,9 +11,14 @@ public class BombardmentManager : MonoBehaviour
         Instance = this;
     }
 
+    public void Initialize()
+    {
+        barrelMarkersPool = new Queue<BarrelMarker>();
+        FillBarrelMarkerPool();
+    }
+
     public Transform barrelParent;
 
-    public GameObject[] barrels;
     public RangeType[] barrelRangeTypes;
 
     public RangeType[] barrelsToDrop;
@@ -24,22 +29,32 @@ public class BombardmentManager : MonoBehaviour
 
     [Header("Placement")]
     public GameObject barrelMarker;
-    List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
+    public List<BarrelMarker> activeMarkers = new List<BarrelMarker>();
     public Color roundColor;
     public Color plusColor;
     public Color crossColor;
-
-    [Header("Spawning")]
-    public float barrelSpawningHeight;
 
     [Header("Stats")]
     public int barrelAmount;
     public int knownBarrelsAmount;
     public bool knowsAllBarrels;
 
+    Queue<BarrelMarker> barrelMarkersPool;
+
+    void FillBarrelMarkerPool()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            BarrelMarker newMarker = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
+            newMarker.gameObject.SetActive(false);
+            barrelMarkersPool.Enqueue(newMarker);
+        }
+    }
+
     public void StartBombardment()
     {
         CalculateBarrelsToDrop();
+        StartCoroutine(WaitThenStartPlacingBarrels());
     }
 
     IEnumerator WaitThenStartPlacingBarrels()
@@ -54,15 +69,28 @@ public class BombardmentManager : MonoBehaviour
     {
         placementIndex++;
         waitingToPlace = true;
-        //PlayerManager.instance.hoverMode = HoverMode.Bombardment;
+        PlayerManager.instance.hoverMode = HoverMode.Bombardment;
     }
 
     bool waitingToPlace;
     public void PlaceBarrelMarker(Tile selectedTile)
     {
+        print("Placing Marker");
         waitingToPlace = false;
-        BarrelMarker toPlace = Instantiate(barrelMarker, transform).GetComponent<BarrelMarker>();
+        if(barrelMarkersPool.Count < 1)
+        {
+            FillBarrelMarkerPool();
+        }
+        BarrelMarker toPlace = barrelMarkersPool.Dequeue();
         toPlace.Initialize(selectedTile, barrelsToDrop[placementIndex]);
+        toPlace.gameObject.SetActive(true);
+        activeMarkers.Add(toPlace);
+        placementIndex++;
+
+        if(placementIndex >= barrelAmount)
+        {
+            StopBombardment();
+        }
     }
 
     public void StopBombardment()
@@ -87,17 +115,16 @@ public class BombardmentManager : MonoBehaviour
         }
     }
 
-    public GameObject InstantiateBarrel(RangeType rangeType)
+    public void DropBarrels()
     {
-        for(int i = 0; i < barrelRangeTypes.Length; i++)
+        for(int i = 0; i < activeMarkers.Count; i++)
         {
-            if(barrelRangeTypes[i] == rangeType)
-            {
-                return Instantiate(barrels[i], barrelParent);
-            }
+            GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
+            toDrop.transform.position = activeMarkers[0].transform.position;
+            toDrop.gameObject.SetActive(true);
+            activeMarkers[0].gameObject.SetActive(false);
+            barrelMarkersPool.Enqueue(activeMarkers[0]);
+            activeMarkers.RemoveAt(0);
         }
-
-
-        return Instantiate(barrels[0], barrelParent);
     }
 }
