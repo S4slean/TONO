@@ -148,7 +148,7 @@ public class PlayerManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
-
+        GameManager.Instance.CheckIfCompleted(true);
     }
 
     public void GunShotSkill()
