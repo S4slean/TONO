@@ -12,13 +12,26 @@ public class Explosion : Skill
 
     public override void Preview(GamePawn user)
     {
+        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(GetRange(user), HighlightMode.ExplosionPreview));
+    }
+
+    public override List<Tile> GetRange(GamePawn user)
+    {
+        List<Tile> res = new List<Tile>();
         switch (rangeType)
         {
             case RangeType.Plus:
-                user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(GridManager.instance.GetPlusRange(user.GetTile(), range, true), HighlightMode.ExplosionPreview));
+                res = GridManager.instance.GetPlusRange(user, range, true);
+                break;
+            case RangeType.Round:
+                res = GridManager.instance.GetRoundRange(user, range, true);
+                break;
+            case RangeType.Cross:
+                res = GridManager.instance.GetCrossRange(user, range, true);
                 break;
             default:
                 break;
         }
+        return res;
     }
 }
