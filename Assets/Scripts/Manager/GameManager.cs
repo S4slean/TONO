@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
     {
         turnType = TurnType.player;
         UI_Manager.instance.timelinePanel.NextIconTurn();
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
+        PlayerManager.instance.StartPlayerTurn();
     }
 
     public void NextTurn()
