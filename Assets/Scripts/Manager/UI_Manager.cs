@@ -87,7 +87,6 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.HidePanel();
                 endTurnPanel.HidePanel();
-                pausePanel.HidePanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
                 roundPanel.HidePanel();
@@ -98,7 +97,6 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
-                pausePanel.ShowPanel();
                 boatPanel.ShowPanel();
                 actionPanel.HidePanel();
                 roundPanel.ShowPanel();
@@ -110,7 +108,6 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
-                pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
                 roundPanel.ShowPanel();
@@ -121,7 +118,6 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.ShowPanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.ShowPanel();
-                pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.ShowPanel();
                 roundPanel.ShowPanel();

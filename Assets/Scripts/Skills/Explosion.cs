@@ -15,7 +15,7 @@ public class Explosion : Skill
         switch (rangeType)
         {
             case RangeType.Plus:
-                user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(GridManager.instance.GetPlusRange(user.GetTile(), range), HighlightMode.ExplosionPreview));
+                user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(GridManager.instance.GetPlusRange(user.GetTile(), range, true), HighlightMode.ExplosionPreview));
                 break;
             default:
                 break;
