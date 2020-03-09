@@ -24,7 +24,7 @@ public class UI_Manager : MonoBehaviour
     public UI_Gun gunPanel;
     public UI_Timeline timelinePanel;
     public UI_EndTurn endTurnPanel;
-    public PauseManager pausePanel;
+    public PauseButton pausePanel;
     public UI_BoatInfo boatPanel;
     public UI_ActionPanelBehaviour actionPanel;
     public UI_SelectedCharacterInfo characterInfoPanel;
@@ -53,6 +53,19 @@ public class UI_Manager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SetUIDisplayModeOn(UIDisplayMode.EnemyTurn);
+        }
     }
 
     public void SetCursorIcon(CursorIconMode icon)
@@ -87,6 +100,7 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.HidePanel();
                 endTurnPanel.HidePanel();
+                pausePanel.HidePanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
                 characterInfoPanel.HidePanel();
@@ -98,18 +112,17 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
+                pausePanel.ShowPanel();
                 boatPanel.ShowPanel();
                 actionPanel.HidePanel();
                 characterInfoPanel.HidePanel();
                 break;
 
             case UIDisplayMode.Start:
-                timelinePanel.SetUpIcons();
-                messagePanel.SetUI();
-
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
+                pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
                 characterInfoPanel.HidePanel();
@@ -121,19 +134,22 @@ public class UI_Manager : MonoBehaviour
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
+                pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
                 characterInfoPanel.HidePanel();
                 break;
 
             case UIDisplayMode.PlayerTurn:
-                actionPanel.SetUpPanel();
+                actionPanel.ResetPanelAction();
                 gunPanel.SetUpBullet();
                 characterInfoPanel.SetUpCharacterInfo();
+                endTurnPanel.SetUI();
 
                 gunPanel.ShowPanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.ShowPanel();
+                pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.ShowPanel();
                 characterInfoPanel.ShowPanel();

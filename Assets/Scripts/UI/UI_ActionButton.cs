@@ -117,7 +117,7 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
-        //actionSkill.skillPreview
+        actionSkill.Preview(PlayerManager.instance.playerCharacter);
         Debug.Log(gameObject.name);
     }
 

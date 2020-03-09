@@ -38,11 +38,6 @@ public class UI_Timeline : Panel_Behaviour
             MoveIcons();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SetUpIcons();
-        }
-
         MovePanel();
     }
 

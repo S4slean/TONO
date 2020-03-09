@@ -19,9 +19,10 @@ public class UI_Presets : ScriptableObject
     public Sprite usedPM = null;
 
     [Header("Boat Infos")]
-    public Sprite barrel_01 = null;
-    public Sprite barrel_02 = null;
-    public Sprite barrel_03 = null;
+    public Sprite barrel_Round = null;
+    public Sprite barrel_Default = null;
+    public Sprite barrel_Plus = null;
+    public Sprite barrel_Cross = null;
     public Sprite barrel_Mystery = null;
 
     [Header("Portaits")]
@@ -79,9 +80,10 @@ public class UI_Presets : ScriptableObject
         unusedPM = null;
         usedPM = null;
 
-        barrel_01 = null;
-        barrel_02 = null;
-        barrel_03 = null;
+        barrel_Round = null;
+        barrel_Default = null;
+        barrel_Plus = null;
+        barrel_Cross = null;
         barrel_Mystery = null;
 
         stick = null;

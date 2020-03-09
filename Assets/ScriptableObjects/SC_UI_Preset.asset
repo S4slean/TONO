@@ -22,9 +22,14 @@ MonoBehaviour:
   pmImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   unusedPM: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   usedPM: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  barrel_01: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  barrel_02: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  barrel_03: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  barrel_Round: {fileID: -6698789401159455151, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
+  barrel_Default: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
+  barrel_Plus: {fileID: -6317825017859778240, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
+  barrel_Cross: {fileID: -6317825017859778240, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
   barrel_Mystery: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   stick: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   playerPortait: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
