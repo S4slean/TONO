@@ -55,6 +55,7 @@ public class PlayerCharacter : GamePawn
     {
         if(PlayerManager.instance.hoverMode == HoverMode.MovePath)
         {
+            base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
             oldMaterial = rend.material;
@@ -66,6 +67,7 @@ public class PlayerCharacter : GamePawn
     {
         if (hovered)
         {
+            base.OnMouseExit();
             hovered = false;
             rend.material = oldMaterial;
             HideMoveRange();
@@ -101,12 +103,12 @@ public class PlayerCharacter : GamePawn
 
     public void ShowMoveRange()
     {
-        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview));
+        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview, true));
     }
 
     public void HideMoveRange()
     {
-        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
+        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID(), null, false);
     }
 
     public void ActivateSkill(Skill skill, Tile target)
