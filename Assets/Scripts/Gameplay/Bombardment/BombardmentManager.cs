@@ -126,6 +126,7 @@ public class BombardmentManager : MonoBehaviour
             GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
             toDrop.transform.position = new Vector3(activeMarkers[0].transform.position.x, 1.1f, activeMarkers[0].transform.position.z);
             toDrop.gameObject.SetActive(true);
+            activeMarkers[0].tile.hasBarrelMarker = false;
             activeMarkers[0].gameObject.SetActive(false);
             barrelMarkersPool.Enqueue(activeMarkers[0]);
             activeMarkers.RemoveAt(0);
