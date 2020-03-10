@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Caisse
+  m_Name: M_Bloqueur
   m_Shader: {fileID: -6465566751694194690, guid: 2672d7150460acd499117c0f7015ef7b,
     type: 3}
   m_ShaderKeywords: 
@@ -27,11 +27,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_CCC02C1F:
-        m_Texture: {fileID: 2800000, guid: c45571b04b252874a84f4bb46dea8f27, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6ed4c49ea5e0b3a46afcda242014cc26, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D08AC8B2:
-        m_Texture: {fileID: 2800000, guid: 2a1a84d9fc0e3db45b91f5472e5080d9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11c8f17e8a60a1943b6d1ee2ba8e465e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -120,10 +120,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_294AF5EC: 1.27
-    - Vector1_5CF97A61: 1
-    - Vector1_735BFE91: 1.21
-    - Vector1_844505D8: 0.48
-    - Vector1_AE7E7348: 0
+    - Vector1_5CF97A61: 1.24
+    - Vector1_735BFE91: 0.99
+    - Vector1_844505D8: 0.34
+    - Vector1_AE7E7348: 0.034
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
