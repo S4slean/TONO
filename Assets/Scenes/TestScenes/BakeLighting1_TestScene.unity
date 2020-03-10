@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a2c903f50d1f60843be7fe8d14ef2eb8,
+  m_LightingDataAsset: {fileID: 112000000, guid: ab39260450c43974d9b7779683408c8f,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -184,10 +184,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: d2d227d5be253d84289612021a42eaab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 909a19bf1fc139a4e92de21addad046c, type: 2}
     - target: {fileID: -927199367670048503, guid: d2d227d5be253d84289612021a42eaab,
         type: 3}
       propertyPath: m_Name
       value: SM_grilleBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d2d227d5be253d84289612021a42eaab,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d227d5be253d84289612021a42eaab, type: 3}
