@@ -21,6 +21,7 @@ public class SkillManager : MonoBehaviour
 {
 
     public static SkillManager instance;
+    public Skill currentActiveSkill;
 
     private void Start()
     {

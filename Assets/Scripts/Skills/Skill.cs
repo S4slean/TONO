@@ -31,7 +31,7 @@ public class Skill : ScriptableObject
 
     public virtual void Preview(GamePawn user)
     {
-
+        SkillManager.instance.currentActiveSkill = this;
     }
 
     public virtual List<Tile> HasAvailableTarget(GamePawn user)

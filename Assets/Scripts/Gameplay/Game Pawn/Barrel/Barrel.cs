@@ -8,7 +8,7 @@ public class Barrel : GamePawn
 
     public bool standing = true;
     [HideInInspector]public Skill explosionSkill;
-    private GamePawn kicker;
+    private GamePawn _kicker;
 
     protected override void Start()
     {
@@ -51,19 +51,11 @@ public class Barrel : GamePawn
         }
     }
 
-    public virtual void Break()
-    {
-
-    }
-
-    public virtual void Drink()
-    {
-
-    }
 
     public virtual void Kick(Direction dir, GamePawn kicker)
     {
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
+        _kicker = kicker;
         SetDestination(path[path.Count - 1]);
     }
 
@@ -106,19 +98,21 @@ public class Barrel : GamePawn
                     Highlight_Manager.instance.HideHighlight(highlightPathID);
 
 
-                kicker.EndAction();
+                _kicker.EndAction();
+                _kicker = null;
                 EndAction();
             });
         }
     }
 
-    public virtual void Throw(Vector3 direction, float distance)
-    {
-
-    }
 
     public virtual void Explode()
     {
         explosionSkill.Activate(this, GetTile());
+    }
+
+    public override void ReceiveDamage(int dmg)
+    {
+        Explode();
     }
 }

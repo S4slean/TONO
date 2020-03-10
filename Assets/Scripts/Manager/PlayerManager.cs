@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Inputs")]
     public KeyCode throwElement = KeyCode.Alpha3;
     public KeyCode gunShot = KeyCode.Alpha4;
+    public KeyCode kick = KeyCode.Alpha2;
 
     [Header("Preview")]
     public bool showMoveRangeWithPathHighlight;
