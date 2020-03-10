@@ -23,9 +23,17 @@ public class Free : Tile
                 }
                 break;
             case HoverMode.Bombardment:
+                if (!hasBarrelMarker && tag == "FreeTile")
+                {
+                    hovered = true;
+                    oldMaterial = rend.material;
+                    rend.material = Highlight_Manager.instance.hoverMat;
+                }
+                break;
+            case HoverMode.ThrowElementHover:
                 hovered = true;
                 oldMaterial = rend.material;
-                rend.material = Highlight_Manager.instance.hoverMat;
+                rend.material = Highlight_Manager.instance.actionHighlightMat;
                 break;
         }
     }

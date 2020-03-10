@@ -144,11 +144,17 @@ public class PlayerManager : MonoBehaviour
                     if (hit.transform != null && hit.transform.tag == "FreeTile")
                     {
                         Tile clickedTile = hit.transform.GetComponent<Free>();
-                        BombardmentManager.Instance.PlaceBarrelMarker(clickedTile);
+                        if(!clickedTile.hasBarrelMarker)
+                            BombardmentManager.Instance.PlaceBarrelMarker(clickedTile);
                     }
                 }
+                break;
+            case HoverMode.ThrowElementHover:
+                if (Input.GetMouseButtonDown(0))
+                {
 
-                    break;
+                }
+                break;
         }
 
     }
@@ -156,6 +162,7 @@ public class PlayerManager : MonoBehaviour
     public void StartPlayerTurn()
     {
         hoverMode = HoverMode.MovePath;
+        playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
     }
 
     public void EndPlayerTurn()
