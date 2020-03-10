@@ -12,5 +12,6 @@ public class BarrelMarker : MonoBehaviour
         tile = _tile;
         tile.hasBarrelMarker = true;
         transform.position = tile.transform.position;
+        rangeType = _rangeType;
     }
 }

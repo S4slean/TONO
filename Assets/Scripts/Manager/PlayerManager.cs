@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -66,6 +67,7 @@ public class PlayerManager : MonoBehaviour
             GunShotSkill();
         }
 
+        //THROW ELEMENT
         if (Input.GetKeyDown(throwElement))
         {
             ThrowElementSkill();

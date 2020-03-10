@@ -22,6 +22,7 @@ public class Barrel : GamePawn
             graphics[i].SetActive(false);
         }
         graphics[type.graphicsIndex].SetActive(true);
+
         explosionSkill = type.explosionSkill;
     }
 
