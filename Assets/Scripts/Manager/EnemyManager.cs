@@ -58,6 +58,7 @@ public class EnemyManager : MonoBehaviour
         {
             //UI_Manager.instance.timelinePanel.NextIconTurn();
             enemyList[_enemyIndex].PlayTurn();
+            UI_Manager.instance.timelinePanel.NextIconTurn();
         }
         else
         {
