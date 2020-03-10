@@ -10,6 +10,7 @@ public class BarrelMarker : MonoBehaviour
     public void Initialize(Tile _tile, RangeType _rangeType)
     {
         tile = _tile;
+        tile.hasBarrelMarker = true;
         transform.position = tile.transform.position;
     }
 }

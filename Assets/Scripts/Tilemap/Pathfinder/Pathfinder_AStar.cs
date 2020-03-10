@@ -36,6 +36,7 @@ public class Pathfinder_AStar : MonoBehaviour
         List<Tile> ShortestPath = new List<Tile>();
         if (pathFound)
         {
+            Debug.Log("PATH FOUND");
             ShortestPath.Add(end);
             BuildShortestPath(ShortestPath, end);
             ShortestPath.Reverse();

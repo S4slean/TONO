@@ -182,6 +182,13 @@ public class EnemieBehaviour : GamePawn
         {
             Tile destination;
             List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), tile);
+            Debug.Log(path.Count);
+            if(path.Count == 0)
+            {
+                _isDoingSomething = false;
+                Debug.Log(transform.name + " path was Empty. Destination was " + tile.transform.position);
+                return;
+            }
             destination = path[Mathf.Clamp(movementPoints - 1, 0, Mathf.Clamp(path.Count - 2, 0, path.Count - 2))];
             SetDestination(destination);
         }
@@ -227,8 +234,16 @@ public class EnemieBehaviour : GamePawn
             }
         }
 
+
+
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), destination);
         destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
+        if (!destination.isWalkable || destination.GetPawnOnTile() != null)
+        {
+            Debug.Log(transform.name + " destination was not walkable");
+            GetClose(_player.GetTile());
+            return;
+        }
         SetRangedDestination(destination);
 
     }
@@ -236,6 +251,12 @@ public class EnemieBehaviour : GamePawn
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
+        if (path.Count == 0)
+        {
+            _isDoingSomething = false;
+            Debug.Log(transform.name + " path was Empty. Destination was " + destination.transform.position);
+            return;
+        }
 
 
         Sequence s = DOTween.Sequence();

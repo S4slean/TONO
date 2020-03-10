@@ -18,9 +18,12 @@ public class MapManager : MonoBehaviour
     {
         DataManager.Instance.Load(true, SceneType.map);
 
-        BoatPath.Instance.DrawPath();
 
-        print(LevelManager.currentLevel);
+        BoatPath.Instance.DrawPath();
+        UpgradesDisplay.Instance.Initialize();
+
+
+        print("Current Level = " + LevelManager.currentLevel);
 
         if (LevelManager.currentLevel == combatsCompleted + 1)
         {
