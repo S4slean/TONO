@@ -87,7 +87,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     //Debug.Log(hit.transform.tag);
 
-                    if (currentHoveredTile.isWalkable && playerCharacter.moveRange.Contains(currentHoveredTile))
+                    if (currentHoveredTile != null && currentHoveredTile.isWalkable && playerCharacter.moveRange.Contains(currentHoveredTile))
                     {
                         playerCharacter.BeginAction();
                         playerCharacter.SetDestination(currentHoveredTile);
