@@ -332,4 +332,9 @@ public class EnemieBehaviour : GamePawn
         return Random.Range(0, 100) < threshold;
     }
 
+    public override void Die()
+    {
+        base.Die();
+
+    }
 }
