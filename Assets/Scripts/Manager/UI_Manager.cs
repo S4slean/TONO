@@ -107,8 +107,6 @@ public class UI_Manager : MonoBehaviour
             break;
 
             case UIDisplayMode.Boat:
-                boatPanel.SetUpBoatUI();
-
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
@@ -129,8 +127,6 @@ public class UI_Manager : MonoBehaviour
                 break;
 
             case UIDisplayMode.EnemyTurn:
-
-
                 gunPanel.HidePanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.HidePanel();
@@ -141,11 +137,6 @@ public class UI_Manager : MonoBehaviour
                 break;
 
             case UIDisplayMode.PlayerTurn:
-                actionPanel.ResetPanelAction();
-                gunPanel.SetUpBullet();
-                characterInfoPanel.SetUpCharacterInfo();
-                endTurnPanel.SetUI();
-
                 gunPanel.ShowPanel();
                 timelinePanel.ShowPanel();
                 endTurnPanel.ShowPanel();

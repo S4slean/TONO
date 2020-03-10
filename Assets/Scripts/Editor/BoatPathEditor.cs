@@ -152,7 +152,7 @@ public class BoatPathEditor : Editor
         Handles.color = Color.green;
         for(int i = 0; i < boatPath.anchorPointsIndexes.Length; i++)
         {
-            Handles.DrawSphere(0, boatPath.bezierPath[boatPath.anchorPointsIndexes[i]], Quaternion.identity, 0.4f);
+            Handles.DrawWireDisc(boatPath.bezierPath[boatPath.anchorPointsIndexes[i]], Vector3.up, 0.15f);
         }
     }
 }
