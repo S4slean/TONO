@@ -118,7 +118,6 @@ public class UI_ActionButton : MonoBehaviour
     public void PreviewSkillAction()
     {
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
-        Debug.Log(gameObject.name);
     }
 
     private void CheckSkillCondition()
@@ -126,11 +125,11 @@ public class UI_ActionButton : MonoBehaviour
         /*
         if()
         {
-        canUnfold = true;
+        is skill possible
         }
         else
         {
-        canUnfold = false;
+        is skill possible
         }
         */
     }
@@ -168,8 +167,6 @@ public class UI_ActionButton : MonoBehaviour
         {
             if (isUnfold)
             {
-                Debug.Log("FOLD");
-
                 if (currentTime > 0)
                 {
                     currentTime -= Time.deltaTime;
