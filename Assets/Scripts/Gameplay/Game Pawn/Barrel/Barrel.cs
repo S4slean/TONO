@@ -29,7 +29,7 @@ public class Barrel : GamePawn
     {
         if (PlayerManager.instance.hoverMode != HoverMode.GunShotHover)
         {
-            print("SHOW PREVIEW BARREL " + explosionSkill.rangeType + " : " + PlayerManager.instance.hoverMode);
+            //print("SHOW PREVIEW BARREL " + explosionSkill.rangeType + " : " + PlayerManager.instance.hoverMode);
             hovered = true;
             //oldMaterial = rend.material;
             //rend.material = Highlight_Manager.instance.hoverMat;
