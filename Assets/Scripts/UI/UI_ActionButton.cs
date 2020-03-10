@@ -60,6 +60,7 @@ public class UI_ActionButton : MonoBehaviour
     /// <param name="skill">Button skill</param>
     public void SetUpTooltip()
     {
+        backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
         tooltipName.text = actionSkill.skillName;
         tooltipDescription.text = actionSkill.description;
     }
@@ -117,21 +118,22 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
+        if (actionSkill is GunShot)
+        {
+            if (PlayerManager.instance.playerCharacter.isGunLoaded)
+                actionSkill.Preview(PlayerManager.instance.playerCharacter);
+            else
+                SkillManager.instance.ReloadGun();
+
+            return;
+        }
+
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
 
     private void CheckSkillCondition()
     {
-        /*
-        if()
-        {
-        is skill possible
-        }
-        else
-        {
-        is skill possible
-        }
-        */
+        
     }
 
     private void CheckPlayerPA(int currentPACompared)
@@ -183,8 +185,6 @@ public class UI_ActionButton : MonoBehaviour
             }
             else
             {
-                Debug.Log("unFOLD");
-
                 if (currentTime < animTime)
                 {
                     currentTime += Time.deltaTime;

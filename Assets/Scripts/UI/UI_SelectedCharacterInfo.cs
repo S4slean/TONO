@@ -13,6 +13,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
     }
 
     [Header("Stats References")]
+    public Image portraitBackgroundImage;
     public Image portraitImage;
 
     [Space]
@@ -47,6 +48,16 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PreviewCharacterInfo(Stats.Life, 3);
+        }
+
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            ResetCharacterInfo(Stats.Life);
+        }
+
         MovePanel();
     }
 

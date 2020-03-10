@@ -11,7 +11,7 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     [HideInInspector] public int movementPoints = 0;
     [HideInInspector] public int actionPoints = 0;
-    
+
 
     protected int rageThreshold = 5;
     protected PlayerCharacter _player;
@@ -20,7 +20,7 @@ public class EnemieBehaviour : GamePawn
     protected bool _buffed = false;
     protected int _buffRoundTracker = 0;
     protected bool _buffedThisTurn = false;
-    
+
 
     protected override void Start()
     {
@@ -63,12 +63,12 @@ public class EnemieBehaviour : GamePawn
         _isMyTurn = false;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
-        _buffedThisTurn = false; 
+        _buffedThisTurn = false;
 
         if (_buffed)
         {
             _buffRoundTracker--;
-            if(_buffRoundTracker <= 0)
+            if (_buffRoundTracker <= 0)
             {
                 _buffed = false;
             }
@@ -77,7 +77,7 @@ public class EnemieBehaviour : GamePawn
         }
 
         EnemyManager.instance.PlayNextEnemyTurn();
-        
+
     }
     public virtual void DecideAction()
     {
@@ -91,7 +91,7 @@ public class EnemieBehaviour : GamePawn
         {
             enemyStats.rangedAttack.Activate(this, _player.GetTile());
         }
-        else if(enemyStats.buff != null && !_buffedThisTurn && actionPoints >= enemyStats.buff.cost && !_buffed)
+        else if (enemyStats.buff != null && !_buffedThisTurn && actionPoints >= enemyStats.buff.cost && !_buffed)
         {
             enemyStats.buff.Activate(this, GetTile());
         }
@@ -102,7 +102,7 @@ public class EnemieBehaviour : GamePawn
                 _isDoingSomething = false;
                 EndTurn();
             }
-            else if ( !IsInLineSight(30) && DiceDecision(50))
+            else if (!IsInLineSight(30) && DiceDecision(50))
             {
                 GetInLineSight(_player.GetTile());
                 movementPoints = 0;
@@ -129,7 +129,7 @@ public class EnemieBehaviour : GamePawn
         _buffRoundTracker = enemyStats.buff.buffDuration;
         _buffedThisTurn = true;
 
-        if(_currentRage >= rageThreshold)
+        if (_currentRage >= rageThreshold)
         {
             _buffed = true;
         }
@@ -181,7 +181,7 @@ public class EnemieBehaviour : GamePawn
             Tile destination;
             List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), tile);
             Debug.Log(path.Count);
-            if(path.Count == 0)
+            if (path.Count == 0)
             {
                 _isDoingSomething = false;
                 Debug.Log(transform.name + " path was Empty. Destination was " + tile.transform.position);
@@ -205,7 +205,7 @@ public class EnemieBehaviour : GamePawn
             {
                 if (destination.transform.position.z - target.transform.position.z > 0)
                 {
-                    if(destination.neighbours.down != null)
+                    if (destination.neighbours.down != null)
                         destination = destination.neighbours.down;
                 }
                 else if ((destination.transform.position.z - target.transform.position.z < 0))
@@ -238,9 +238,47 @@ public class EnemieBehaviour : GamePawn
         destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
         if (!destination.isWalkable || destination.GetPawnOnTile() != null)
         {
-            Debug.Log(transform.name + " destination was not walkable");
-            GetClose(_player.GetTile());
-            return;
+
+
+            if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) < Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
+            {
+                while (destination.transform.position.z != target.transform.position.z)
+                {
+                    if (destination.transform.position.z - target.transform.position.z > 0)
+                    {
+                        if (destination.neighbours.down != null)
+                            destination = destination.neighbours.down;
+                    }
+                    else if ((destination.transform.position.z - target.transform.position.z < 0))
+                    {
+                        if (destination.neighbours.up != null)
+                            destination = destination.neighbours.up;
+                    }
+                }
+            }
+            else if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
+            {
+                while (destination.transform.position.x != target.transform.position.x)
+                {
+                    if (destination.transform.position.x - target.transform.position.x > 0)
+                    {
+                        if (destination.neighbours.left != null)
+                            destination = destination.neighbours.left;
+                    }
+                    else if ((destination.transform.position.x - target.transform.position.x < 0))
+                    {
+                        if (destination.neighbours.right != null)
+                            destination = destination.neighbours.right;
+                    }
+                }
+            }
+
+            if (!destination.isWalkable || destination.GetPawnOnTile() != null)
+            {
+                Debug.Log(transform.name + " destination was not walkable");
+                GetClose(_player.GetTile());
+                return;
+            }
         }
         SetRangedDestination(destination);
 

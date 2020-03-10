@@ -147,6 +147,7 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: 2552d749b04465c419e54ef33697731e, type: 2}
   - {fileID: 11400000, guid: c311c121ae5aea741aa84a05cc3ba4d4, type: 2}
+  - {fileID: 11400000, guid: a44ba79b2bd70364dade0fa511ee2cea, type: 2}
   gunRange: []
   lineUp: []
   lineRight: []
