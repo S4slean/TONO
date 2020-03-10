@@ -26,6 +26,7 @@ public class Tile : MonoBehaviour
     public bool isWalkable;
     public bool isClickable;
     public bool hasAlcohol = false;
+    public bool hasBarrelMarker = false;
     public bool hovered;
     public Neighbours neighbours;
     public float StraightLineDistanceToEnd, MinCostToStart;

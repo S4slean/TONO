@@ -147,7 +147,11 @@ public class PlayerManager : MonoBehaviour
                         BombardmentManager.Instance.PlaceBarrelMarker(clickedTile);
                     }
                 }
+            case HoverMode.ThrowElementHover:
+                if (Input.GetMouseButtonDown(0))
+                {
 
+                }
                     break;
         }
 
@@ -156,6 +160,7 @@ public class PlayerManager : MonoBehaviour
     public void StartPlayerTurn()
     {
         hoverMode = HoverMode.MovePath;
+        playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
     }
 
     public void EndPlayerTurn()
