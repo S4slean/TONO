@@ -36,8 +36,8 @@ public class Hook : Skill
 
     }
 
-    public override bool HasAvailableTarget(GamePawn user)
+    public override List<Tile> HasAvailableTarget(GamePawn user)
     {
-        return true;
+        return null;
     }
 }
