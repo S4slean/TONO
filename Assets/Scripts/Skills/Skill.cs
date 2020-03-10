@@ -31,12 +31,12 @@ public class Skill : ScriptableObject
 
     public virtual void Preview(GamePawn user)
     {
-
+        SkillManager.instance.currentActiveSkill = this;
     }
 
-    public virtual bool HasAvailableTarget(GamePawn user)
+    public virtual List<Tile> HasAvailableTarget(GamePawn user)
     {
-        return true;
+        return null;
     }
 
     public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }

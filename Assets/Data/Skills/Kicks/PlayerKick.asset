@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f23723c5d933d4f9016179ad653ab1, type: 3}
   m_Name: PlayerKick
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Kick
   description: 
   cost: 3
   damage: 0

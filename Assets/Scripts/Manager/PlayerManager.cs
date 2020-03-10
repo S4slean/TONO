@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,7 +19,8 @@ public enum HoverMode
     MovePath,
     GunShotHover,
     ThrowElementHover,
-    Bombardment
+    Bombardment,
+    KickHover
 }
 
 public class PlayerManager : MonoBehaviour
@@ -28,9 +30,12 @@ public class PlayerManager : MonoBehaviour
     [Header("Inputs")]
     public KeyCode throwElement = KeyCode.Alpha3;
     public KeyCode gunShot = KeyCode.Alpha4;
+    public KeyCode kick = KeyCode.Alpha2;
 
     [Header("Preview")]
     public bool showMoveRangeWithPathHighlight;
+    //[HideInInspector]
+    public Tile currentHoveredTile;
 
     [HideInInspector]public PlayerCharacter playerCharacter;
     [HideInInspector]public Camera cam;
@@ -66,13 +71,14 @@ public class PlayerManager : MonoBehaviour
             GunShotSkill();
         }
 
+        //THROW ELEMENT
         if (Input.GetKeyDown(throwElement))
         {
             ThrowElementSkill();
         }
 
-        RaycastHit hit;
-        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);
+        /*RaycastHit hit;
+        Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);*/
 
         switch (hoverMode)
         {
@@ -81,14 +87,10 @@ public class PlayerManager : MonoBehaviour
                 {
                     //Debug.Log(hit.transform.tag);
 
-                    if (hit.transform != null && hit.transform.tag == "FreeTile")
+                    if (currentHoveredTile.isWalkable && playerCharacter.moveRange.Contains(currentHoveredTile))
                     {
-                        Tile clickedTile = hit.transform.GetComponent<Free>();
-                        if (clickedTile.isWalkable && playerCharacter.moveRange.Contains(clickedTile))
-                        {
-                            playerCharacter.BeginAction();
-                            playerCharacter.SetDestination(clickedTile);
-                        }
+                        playerCharacter.BeginAction();
+                        playerCharacter.SetDestination(currentHoveredTile);
                     }
                 }
                 break;
@@ -141,12 +143,8 @@ public class PlayerManager : MonoBehaviour
             case HoverMode.Bombardment:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.transform != null && hit.transform.tag == "FreeTile")
-                    {
-                        Tile clickedTile = hit.transform.GetComponent<Free>();
-                        if(!clickedTile.hasBarrelMarker)
-                            BombardmentManager.Instance.PlaceBarrelMarker(clickedTile);
-                    }
+                    if(!currentHoveredTile.hasBarrelMarker)
+                        BombardmentManager.Instance.PlaceBarrelMarker(currentHoveredTile);
                 }
                 break;
             case HoverMode.ThrowElementHover:
@@ -173,6 +171,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GunShotSkill()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         if (hoverMode != HoverMode.GunShotHover)
         {
             hoverMode = HoverMode.GunShotHover;
@@ -211,6 +210,7 @@ public class PlayerManager : MonoBehaviour
 
     public void ThrowElementSkill()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         if (hoverMode != HoverMode.ThrowElementHover)
         {
             hoverMode = HoverMode.ThrowElementHover;
