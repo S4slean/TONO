@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a81c48a52bc2d4f9ff992a71adbb4c, type: 3}
   m_Name: SC_UI_Preset
   m_EditorClassIdentifier: 
-  lifeBarImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  lifeBarBackgroundImage: {fileID: 10905, guid: 0000000000000000f000000000000000,
-    type: 0}
-  lifeBarLimitImage: {fileID: 21300000, guid: 095047000b6147e43b29c4032bfa55ec, type: 3}
-  paImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  unusedPA: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  usedPA: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  pmImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  unusedPM: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  usedPM: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  lifeBarImage: {fileID: 21300000, guid: 4cfe15112d3ef7749a0ccdcba16b2957, type: 3}
+  lifeBarBackgroundImage: {fileID: 21300000, guid: dffb9a58ae7b6e347b718972992457dc,
+    type: 3}
+  lifeBarLimitImage: {fileID: 21300000, guid: 8e77038a4d983954a8a7d96f462fa115, type: 3}
+  paImage: {fileID: 21300000, guid: 173b5144c616cdb4a8ca9146eb7e8882, type: 3}
+  unusedPA: {fileID: 21300000, guid: e03b98bb471f80642aaeb901936efab3, type: 3}
+  usedPA: {fileID: 21300000, guid: a003583c914bdc545bf2b2e6a9cca4c4, type: 3}
+  pmImage: {fileID: 21300000, guid: 00a0b7cfc88f4db48bef4191133818ec, type: 3}
+  unusedPM: {fileID: 21300000, guid: ec5a6b8146074e7448a416ded3dfcf25, type: 3}
+  usedPM: {fileID: 21300000, guid: a003583c914bdc545bf2b2e6a9cca4c4, type: 3}
   barrel_Round: {fileID: -6698789401159455151, guid: e40d5442edc65e343ad1706b85c2c5f5,
     type: 3}
   barrel_Default: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
@@ -39,7 +39,7 @@ MonoBehaviour:
   kamikazeImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   hookerImage: {fileID: 21300000, guid: 119cd4ca2fa0015488a71097f62027ce, type: 3}
   usedBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  unusedBullet: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  unusedBullet: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   moveImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   shootImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -51,12 +51,12 @@ MonoBehaviour:
   kickImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   jumpImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   jumpImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  pauseImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  skillBackgroundImage: {fileID: 21300000, guid: 13c19a0b478d5ee4baa49df2fcc576ff,
+    type: 3}
+  pauseImage: {fileID: 21300000, guid: c3e9ee0b1d64cd3429b3b720a2a109d8, type: 3}
   wheelImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   indicatorImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   endTurnImage: {fileID: 21300000, guid: 42e5310b1253da0408a8f8516c0a0eec, type: 3}
   messagePanelImage: {fileID: 21300000, guid: 073e101e32f8ce94ca186fb44bbde966, type: 3}
-  leftStringImage: {fileID: -5911500553746913090, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
-  rightStringImage: {fileID: -4884594231894804990, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
+  leftStringImage: {fileID: 21300000, guid: 47edac5b3fce6424a9f464374e3df730, type: 3}
+  rightStringImage: {fileID: 21300000, guid: 47edac5b3fce6424a9f464374e3df730, type: 3}

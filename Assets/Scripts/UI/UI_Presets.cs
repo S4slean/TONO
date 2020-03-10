@@ -51,6 +51,8 @@ public class UI_Presets : ScriptableObject
     public Sprite jumpImage = null;
     public Sprite jumpImageDeactivated = null;
 
+    public Sprite skillBackgroundImage = null;
+
     [Header("Pause image")]
     public Sprite pauseImage = null;
 
@@ -108,6 +110,8 @@ public class UI_Presets : ScriptableObject
         kickImageDeactivated = null;
         jumpImage = null;
         jumpImageDeactivated = null;
+
+        skillBackgroundImage = null;
 
         pauseImage = null;
 

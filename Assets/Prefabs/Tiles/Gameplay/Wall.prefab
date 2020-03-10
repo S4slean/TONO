@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 753082989961343669}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5, y: -0.0743, z: 0}
-  m_LocalScale: {x: 2, y: 4, z: 2}
+  m_LocalScale: {x: 2, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,8 +113,13 @@ MonoBehaviour:
   isWalkable: 1
   isClickable: 0
   hasAlcohol: 0
+  hasBarrelMarker: 0
   hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
   previous: {fileID: 0}
+  up: {fileID: 0}
+  right: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}
