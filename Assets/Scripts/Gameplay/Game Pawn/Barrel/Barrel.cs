@@ -30,8 +30,9 @@ public class Barrel : GamePawn
 
     public override void OnMouseEnter()
     {
-        if (PlayerManager.instance.hoverMode != HoverMode.GunShotHover)
+        if (PlayerManager.instance.hoverMode == HoverMode.MovePath || GameManager.Instance.turnType == TurnType.bombardment)
         {
+            base.OnMouseEnter();
             //print("SHOW PREVIEW BARREL " + explosionSkill.rangeType + " : " + PlayerManager.instance.hoverMode);
             hovered = true;
             //oldMaterial = rend.material;
@@ -44,6 +45,7 @@ public class Barrel : GamePawn
     {
         if (hovered)
         {
+            base.OnMouseExit();
             hovered = false;
             //rend.material = oldMaterial;
             ComboManager.instance.ClearAllComboList();
