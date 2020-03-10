@@ -536,7 +536,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 515.84, y: 220.9}
+  m_SizeDelta: {x: 510, y: 222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8070140629141724020
 CanvasRenderer:
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionSkill: {fileID: 0}
-  paCostPrefab: {fileID: 251630624432395167, guid: 64eef43d81635e040b8547c31f0a3776,
+  paCostPrefab: {fileID: 251630624432395167, guid: 3ccc6c53b41357d4ba43821489d76ff3,
     type: 3}
   actionImage: {fileID: 6622811533093614929}
   backgroundImage: {fileID: 387623399095613583}
