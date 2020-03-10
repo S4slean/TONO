@@ -55,6 +55,7 @@ public class PlayerCharacter : GamePawn
     {
         if(PlayerManager.instance.hoverMode == HoverMode.MovePath)
         {
+            base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
             oldMaterial = rend.material;
@@ -66,6 +67,7 @@ public class PlayerCharacter : GamePawn
     {
         if (hovered)
         {
+            base.OnMouseExit();
             hovered = false;
             rend.material = oldMaterial;
             HideMoveRange();

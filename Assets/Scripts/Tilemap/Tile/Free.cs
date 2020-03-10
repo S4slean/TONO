@@ -5,13 +5,14 @@ using UnityEngine;
 public class Free : Tile
 {
     int previewID;
-    void OnMouseEnter()
+    public override void OnMouseEnter()
     {
         switch (PlayerManager.instance.hoverMode)
         {
             case HoverMode.MovePath:
                 if (isWalkable && isClickable && !PlayerManager.instance.playerCharacter.IsDoingSomething())
                 {
+                    PlayerManager.instance.currentHoveredTile = this;
                     PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     if (PlayerManager.instance.showMoveRangeWithPathHighlight)
                     {
@@ -25,7 +26,7 @@ public class Free : Tile
             case HoverMode.Bombardment:
                 if (!hasBarrelMarker && tag == "FreeTile")
                 {
-                    hovered = true;
+                    PlayerManager.instance.currentHoveredTile = this;
                     oldMaterial = rend.material;
                     rend.material = Highlight_Manager.instance.hoverMat;
                 }
@@ -33,14 +34,14 @@ public class Free : Tile
             case HoverMode.ThrowElementHover:
                 if (isClickable)
                 {
-                    hovered = true;
+                    PlayerManager.instance.currentHoveredTile = this;
                     oldMaterial = rend.material;
                     rend.material = Highlight_Manager.instance.actionHighlightMat;
                 }
                 break;
         }
     }
-    void OnMouseExit()
+    public override void OnMouseExit()
     {
         switch (PlayerManager.instance.hoverMode)
         {
@@ -53,19 +54,20 @@ public class Free : Tile
                         player.HideMoveRange();
                     }
                     Highlight_Manager.instance.HideHighlight(previewID, null, false);
+                    PlayerManager.instance.currentHoveredTile = null;
                 }
                 break;
             case HoverMode.Bombardment:
-                if (hovered)
+                if (PlayerManager.instance.currentHoveredTile == this)
                 {
-                    hovered = false;
+                    PlayerManager.instance.currentHoveredTile = null;
                     rend.material = oldMaterial;
                 }
                 break;
             case HoverMode.ThrowElementHover:
-                if (hovered)
+                if (PlayerManager.instance.currentHoveredTile == this)
                 {
-                    hovered = false;
+                    PlayerManager.instance.currentHoveredTile = null;
                     rend.material = oldMaterial;
                 }
                 break;

@@ -401,4 +401,11 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void AllTilesBecameNotClickable()
+    {
+        foreach(Tile tile in freeTiles)
+        {
+            tile.isClickable = false;
+        }
+    }
 }

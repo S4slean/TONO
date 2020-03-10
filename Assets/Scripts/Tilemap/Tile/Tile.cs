@@ -51,6 +51,9 @@ public class Tile : MonoBehaviour
         defaultMaterial = rend.material;
     }
 
+    public virtual void OnMouseEnter() { }
+    public virtual void OnMouseExit() { }
+
     public void ScanNeighbours()
     {
         RaycastHit hit;

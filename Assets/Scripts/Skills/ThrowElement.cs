@@ -20,9 +20,17 @@ public class ThrowElement : Skill
 
     public override void Preview(GamePawn user)
     {
+        List<Tile> tilesToHighlight = HasAvailableTarget(user);
+
+        if(tilesToHighlight.Count > 0)
+            user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
+    }
+
+    public override List<Tile> HasAvailableTarget(GamePawn user)
+    {
         List<Tile> tilesToHighlight = new List<Tile>();
         Tile currentTile = user.GetTile().neighbours.up;
-        if(currentTile != null)
+        if (currentTile != null)
         {
             if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
             {
@@ -31,7 +39,7 @@ public class ThrowElement : Skill
         }
 
         currentTile = user.GetTile().neighbours.right;
-        if(currentTile != null)
+        if (currentTile != null)
         {
             if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
             {
@@ -40,7 +48,7 @@ public class ThrowElement : Skill
         }
 
         currentTile = user.GetTile().neighbours.down;
-        if(currentTile != null)
+        if (currentTile != null)
         {
             if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
             {
@@ -49,7 +57,7 @@ public class ThrowElement : Skill
         }
 
         currentTile = user.GetTile().neighbours.left;
-        if(currentTile != null)
+        if (currentTile != null)
         {
             if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
             {
@@ -57,6 +65,7 @@ public class ThrowElement : Skill
             }
         }
 
-        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
+        return tilesToHighlight;
     }
+
 }
