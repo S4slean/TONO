@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Kick", menuName = "TONO/Skill/Kick")]
-public class Kick : Skill
+public class Hook : Skill
 {
     public override void Activate(GamePawn user, Tile target)
     {
@@ -18,13 +17,18 @@ public class Kick : Skill
         else if (user.transform.position.z - target.transform.position.z < .1f)
             dir = Direction.Up;
 
-        SkillManager.instance.Kick(user, damage, target.GetPawnOnTile(), dir);
+        SkillManager.instance.Hook(user, target.GetPawnOnTile(), dir);
         if (user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
         }
-        
+        else if (user is PlayerCharacter)
+        {
+            PlayerCharacter player = (PlayerCharacter)user;
+            
+        }
+        user.EndAction();
     }
 
     public override void Preview(GamePawn user)
