@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958112117586732653}
   - component: {fileID: 4958112117586732642}
+  - component: {fileID: 722393058827924222}
   m_Layer: 0
   m_Name: UpgradeDisplayer
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 4958112117727843545}
   upgradeData: {fileID: 0}
+--- !u!135 &722393058827924222
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958112117586732652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4958112117727843547
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +153,6 @@ GameObject:
   - component: {fileID: 4958112118728109779}
   - component: {fileID: 4958112118728109782}
   - component: {fileID: 4958112118728109777}
-  - component: {fileID: 4958112118728109776}
   m_Layer: 0
   m_Name: UpgradeDisplayerMesh
   m_TagString: Untagged
@@ -208,17 +221,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4958112118728109776
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958112118728109778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
