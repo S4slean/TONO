@@ -23,13 +23,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DataManager.Instance.Load(true, SceneType.game);
-        
-        if(PauseManager.Instance)
-        PauseManager.Instance.Initialize();
 
-        if(overridesPlayerStats)
+        if (PauseManager.Instance)
+            PauseManager.Instance.Initialize();
+
+        if (overridesPlayerStats)
         {
-            if(overridingPlayerStatsConfig != null)
+            if (overridingPlayerStatsConfig != null)
             {
                 playerStats = overridingPlayerStatsConfig.playerStats;
             }
@@ -59,13 +59,13 @@ public class GameManager : MonoBehaviour
     public void CheckIfCompleted(bool goesToNext)
     {
 
-        if(EnemyManager.instance.NoEnemiesLeft())
+        if (EnemyManager.instance.NoEnemiesLeft())
         {
             CompleteCombat();
         }
         else
         {
-            if(goesToNext)
+            if (goesToNext)
             {
                 NextTurn();
             }
@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
     {
         BombardmentManager.Instance.DropBarrels();
         turnType = TurnType.bombardment;
+
+        UI_Manager.instance.boatPanel.SetUpBoatUI();
+
         UI_Manager.instance.timelinePanel.NextIconTurn();
         BombardmentManager.Instance.StartBombardment();
     }
@@ -93,13 +96,20 @@ public class GameManager : MonoBehaviour
     {
         turnType = TurnType.player;
         UI_Manager.instance.timelinePanel.NextIconTurn();
+
+        UI_Manager.instance.actionPanel.ResetPanelAction();
+        UI_Manager.instance.gunPanel.SetUpBullet();
+        UI_Manager.instance.characterInfoPanel.SetUpCharacterInfo();
+        UI_Manager.instance.endTurnPanel.SetUI();
+
         UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
+
         PlayerManager.instance.StartPlayerTurn();
     }
 
     public void NextTurn()
     {
-        switch(turnType)
+        switch (turnType)
         {
             case TurnType.bombardment:
                 StartEnnemyTurn();
@@ -113,10 +123,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
     public void CompleteCombat()
     {
-        if(LevelManager.currentLevel > combatsCompleted)
+        if (LevelManager.currentLevel > combatsCompleted)
         {
             combatsCompleted = LevelManager.currentLevel;
         }
