@@ -24,7 +24,7 @@ public class Kick : Skill
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
         }
-        user.EndAction();
+        
     }
 
     public override void Preview(GamePawn user)
@@ -32,8 +32,9 @@ public class Kick : Skill
 
     }
 
-    public override bool HasAvailableTarget(GamePawn user)
+    public override List<Tile> HasAvailableTarget(GamePawn user)
     {
-        return true;
+        return null;
     }
+
 }

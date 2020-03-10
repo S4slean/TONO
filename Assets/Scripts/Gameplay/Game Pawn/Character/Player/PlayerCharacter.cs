@@ -101,12 +101,12 @@ public class PlayerCharacter : GamePawn
 
     public void ShowMoveRange()
     {
-        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview));
+        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview, true));
     }
 
     public void HideMoveRange()
     {
-        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
+        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID(), null, false);
     }
 
     public void ActivateSkill(Skill skill, Tile target)

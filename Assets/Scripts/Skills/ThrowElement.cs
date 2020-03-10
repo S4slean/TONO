@@ -57,6 +57,6 @@ public class ThrowElement : Skill
             }
         }
 
-        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview));
+        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
     }
 }

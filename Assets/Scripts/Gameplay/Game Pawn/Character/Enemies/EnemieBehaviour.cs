@@ -147,7 +147,6 @@ public class EnemieBehaviour : GamePawn
 
     public bool IsInLineSight(int range)
     {
-        Debug.Log("ISInLineSight");
         if (_player.GetTile().transform.position.x != GetTile().transform.position.x && _player.GetTile().transform.position.z != GetTile().transform.position.z)
             return false;
 
@@ -164,7 +163,6 @@ public class EnemieBehaviour : GamePawn
     }
     public bool IsInMeleeRange()
     {
-        Debug.Log("IsInMeleeRange");
         Tile playerTile = _player.GetTile();
         if (GetTile().neighbours.up == playerTile || GetTile().neighbours.down == playerTile || GetTile().neighbours.left == playerTile || GetTile().neighbours.right == playerTile)
         {
@@ -177,7 +175,7 @@ public class EnemieBehaviour : GamePawn
     public void GetClose(Tile tile)
     {
         Debug.Log("Get Close");
-        List<Tile> adjacentTile = _player.GetTile().GetFreeNeighbours();
+        List<Tile> adjacentTile = tile.GetFreeNeighbours();
         if (adjacentTile.Count > 0)
         {
             Tile destination;
@@ -312,14 +310,12 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
-            Debug.Log("arrived at destination");
 
         });
 
         s.OnKill(() =>
         {
             _isDoingSomething = false;
-            Debug.Log("stopped by spotting th player");
         });
     }
 
