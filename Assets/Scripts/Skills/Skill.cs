@@ -26,12 +26,18 @@ public class Skill : ScriptableObject
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost; 
         }
+
+        UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PA, cost);
+
         user.EndAction();
     }
 
     public virtual void Preview(GamePawn user)
     {
         SkillManager.instance.currentActiveSkill = this;
+
+        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+        UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PA, cost);
     }
 
     public virtual List<Tile> HasAvailableTarget(GamePawn user)

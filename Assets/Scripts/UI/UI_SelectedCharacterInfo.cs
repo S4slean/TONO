@@ -24,6 +24,8 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
     public Image lifePreviewBar;
     float lifePart;
 
+    public float pointsSpacing;
+
     [Space]
     public Image paImage;
     public RectTransform paParentRect;
@@ -40,11 +42,6 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
     [HideInInspector] public PlayerCharacter playerCharacter;
 
 
-
-    void Start()
-    {
-        //SetUpCharacterInfo();
-    }
 
     void Update()
     {
@@ -83,12 +80,12 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
         //Set number of PA
         for (int i = 0; i < playerCharacter.currentPA; i++)
         {
-            GameObject obj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
-            RectTransform rect = obj.GetComponent<RectTransform>();
+            GameObject paObj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
+            RectTransform rect = paObj.GetComponent<RectTransform>();
 
-            rect.anchoredPosition3D = new Vector3(paParentRect.sizeDelta.x * (i + 1), 0, 0);
+            rect.anchoredPosition3D = new Vector3(paParentRect.sizeDelta.x * (i + 1) + pointsSpacing * (i + 1), 0, 0);
 
-            Image image = obj.GetComponent<Image>();
+            Image image = paObj.GetComponent<Image>();
             image.sprite = UI_Manager.instance.uiPreset.unusedPA;
 
             paPoints.Add(image);
@@ -97,12 +94,12 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
         //Set number of PM
         for (int i = 0; i < playerCharacter.currentPM; i++)
         {
-            GameObject obj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
-            RectTransform rect = obj.GetComponent<RectTransform>();
+            GameObject pmObj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
+            RectTransform rect = pmObj.GetComponent<RectTransform>();
 
-            rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * (i + 1), 0, 0);
+            rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * (i + 1) + pointsSpacing * (i + 1), 0, 0);
 
-            Image image = obj.GetComponent<Image>();
+            Image image = pmObj.GetComponent<Image>();
             image.sprite = UI_Manager.instance.uiPreset.unusedPM;
 
 

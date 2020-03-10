@@ -133,7 +133,17 @@ public class UI_ActionButton : MonoBehaviour
 
     private void CheckSkillCondition()
     {
-        
+        if (actionSkill is GunShot)
+        {
+            if (!PlayerManager.instance.playerCharacter.isGunLoaded)
+            {
+                actionImage.sprite = UI_Manager.instance.uiPreset.reloadImage;
+                tooltipName.text = actionSkill.skillName;
+                tooltipDescription.text = actionSkill.description;
+            }
+
+            return;
+        }
     }
 
     private void CheckPlayerPA(int currentPACompared)
