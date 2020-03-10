@@ -139,6 +139,11 @@ public class UI_Timeline : Panel_Behaviour
         }
     }
 
+    public void RemoveCharacterAtIndex(int characterIndex)
+    {
+        charactersIcons[characterIndex].RemoveIcon();
+    }
+
     /// <summary>
     /// Refresh the current position of the Timeline
     /// </summary>

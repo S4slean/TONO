@@ -22,6 +22,7 @@ public class UI_EndTurn : Panel_Behaviour
     {
         Debug.Log("Click");
         GameManager.Instance.CheckIfCompleted(true);
+        Debug.Log("End AFTER");
         endTurnButton.interactable = false;
     }
 

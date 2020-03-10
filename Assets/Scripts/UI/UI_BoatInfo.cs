@@ -10,19 +10,9 @@ public class UI_BoatInfo : Panel_Behaviour
     public Transform barrelsParent;
     public GameObject barrelPrefab;
     public float barrelSpacing;
-    List<RectTransform> barrels;
-    RectTransform selectedBarrel;
+    List<UI_Barrel> barrels;
+    UI_Barrel selectedBarrel;
 
-    [Header("Remove Animation")]
-    public AnimationCurve removeCurve;
-    public float removeAnimTime;
-    private float removeCurrentTime;
-    public float removeDisplacement;
-
-    bool isRemoving = false;
-
-    [Header("Debug")]
-    public int numberOfDisplayedBarrels;
     public int currentBarrel;
 
 
@@ -30,31 +20,8 @@ public class UI_BoatInfo : Panel_Behaviour
     void Update()
     {
         MovePanel();
-
-        RemoveAnimation();
     }
 
-
-    private void RemoveAnimation()
-    {
-        if (isRemoving)
-        {
-            if (removeCurrentTime < removeAnimTime)
-            {
-                removeCurrentTime += Time.deltaTime;
-
-                float percent = removeCurve.Evaluate(removeCurrentTime / removeAnimTime);
-
-                selectedBarrel.anchoredPosition3D = new Vector3(selectedBarrel.anchoredPosition3D.x, 0 - (removeDisplacement * percent), 0);
-            }
-            else
-            {
-                isRemoving = false;
-                removeCurrentTime = 0;
-                barrels.Remove(selectedBarrel);
-            }
-        }
-    }
 
     /// <summary>
     /// Set up boat values (boat's and barrels' images) according to the player character abilities/upgrades
@@ -62,48 +29,76 @@ public class UI_BoatInfo : Panel_Behaviour
     public void SetUpBoatUI()
     {
         boatImage.sprite = UI_Manager.instance.uiPreset.boatPortait;
-        barrels = new List<RectTransform>();
+        barrels = new List<UI_Barrel>();
 
-        //////////////////////////////////////         BombardmentManager.Instance.knownBarrelsAmount
         for (int i = 0; i < BombardmentManager.Instance.barrelAmount; i++)
         {
-            GameObject barrel = Instantiate(barrelPrefab, Vector3.zero, Quaternion.identity, barrelsParent);
-            RectTransform barrelRect = barrel.GetComponent<RectTransform>();
-            Image barrelImage = barrel.GetComponent<Image>();
+            GameObject barrelObj = Instantiate(barrelPrefab, Vector3.zero, Quaternion.identity, barrelsParent);
+            UI_Barrel barrel = barrelObj.GetComponent<UI_Barrel>();
 
             if(BombardmentManager.Instance.knowsAllBarrels)
             {
                 switch(BombardmentManager.Instance.barrelsToDrop[i])
                 {
                     case RangeType.Default:
-                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Default;
+                        barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Default;
                         break;
 
                     case RangeType.Cross:
-                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Cross;
+                        barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Cross;
                         break;
 
                     case RangeType.Plus:
-                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Plus;
+                        barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Plus;
                         break;
 
                     case RangeType.Round:
-                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Round;
+                        barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Round;
                         break;
                 }
             }
             else
             {
-                barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Mystery;
+                for (int y = 0; y < BombardmentManager.Instance.knownBarrelsAmount; y++)
+                {
+                    switch (BombardmentManager.Instance.barrelsToDrop[i])
+                    {
+                        case RangeType.Default:
+                            barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Default;
+                            break;
+
+                        case RangeType.Cross:
+                            barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Cross;
+                            break;
+
+                        case RangeType.Plus:
+                            barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Plus;
+                            break;
+
+                        case RangeType.Round:
+                            barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Round;
+                            break;
+                    }
+                }
+
+                for (int y = BombardmentManager.Instance.knownBarrelsAmount; y < BombardmentManager.Instance.barrelAmount; y++)
+                {
+                    barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Mystery;
+                }
             }
 
-            barrelRect.anchoredPosition3D = new Vector3(barrelRect.sizeDelta.x * i + barrelSpacing * i,0,0);
+            barrel.barrelRect.anchoredPosition3D = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i,0,0);
 
-            barrels.Add(barrelRect);
+            barrel.selectedPlacement = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i, barrel.selectedPlacement.y, 0);
+            barrel.removedPlacement = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i, barrel.removedPlacement.y, 0);
+
+            barrels.Add(barrel);
         }
 
-        //////////////////////////////////////         BombardmentManager.Instance.knownBarrelsAmount
         currentBarrel = BombardmentManager.Instance.barrelAmount - 1;
+
+        selectedBarrel = barrels[currentBarrel];
+        selectedBarrel.MoveSelectedBarrel();
     }
 
     /// <summary>
@@ -117,10 +112,15 @@ public class UI_BoatInfo : Panel_Behaviour
             return;
         }
 
-        selectedBarrel = barrels[currentBarrel];
-        currentBarrel--;
+        selectedBarrel.RemoveBarrel();
+        barrels.Remove(selectedBarrel);
 
-        isRemoving = true;
+        currentBarrel--;
+        if (currentBarrel >= 0)
+        {
+            selectedBarrel = barrels[currentBarrel];
+            selectedBarrel.MoveSelectedBarrel();
+        }
     }
 
 

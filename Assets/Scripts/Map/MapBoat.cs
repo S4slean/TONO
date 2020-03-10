@@ -52,7 +52,7 @@ public class MapBoat : MonoBehaviour
         }
         else
         {
-            transform.DORotate(lookingTransform.eulerAngles, 0);
+            transform.DORotate(lookingTransform.eulerAngles, movementTurnTime);
         }
     }
 

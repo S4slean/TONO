@@ -209,27 +209,35 @@ public class GridManager : MonoBehaviour
 
         //UP
         Tile currentTile = startingTile.neighbours.up;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.right;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //RIGHT
         currentTile = startingTile.neighbours.right;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.down;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //DOWN
         currentTile = startingTile.neighbours.down;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.left;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //LEFT
         currentTile = startingTile.neighbours.left;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.up;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         return res;
     }
 
@@ -344,34 +352,42 @@ public class GridManager : MonoBehaviour
 
         //UP-RIGHT
         currentTile = startingTile.neighbours.up.neighbours.right;
-        CheckForCombo(res, currentTile);
+        if(usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.up.neighbours.right;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //RIGHT-DOWN
         currentTile = startingTile.neighbours.right.neighbours.down;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.right.neighbours.down;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //DOWN-LEFT
         currentTile = startingTile.neighbours.down.neighbours.left;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.down.neighbours.left;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         //LEFT-UP
         currentTile = startingTile.neighbours.left.neighbours.up;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.left.neighbours.up;
-        CheckForCombo(res, currentTile);
+        if (usingCombo)
+            CheckForCombo(res, currentTile);
 
         return res;
     }
 
     public void CheckForCombo(List<Tile> comboTiles, Tile currentTile)
     {
-        if (!IsWall(currentTile) && !IsWater(currentTile))
+        if (currentTile != null && !IsWall(currentTile) && !IsWater(currentTile))
         {
             comboTiles.Add(currentTile);
             if (currentTile.GetPawnOnTile() is Barrel)

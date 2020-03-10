@@ -62,6 +62,7 @@ public class UpgradesManager : MonoBehaviour
 
         upgradesIntroAnimator.SetBool("shown", false);
         MapManager.Instance.NextLevelIfSet();
+        UpgradesDisplay.Instance.AddDisplay(config.upgradeDatas[clickedUI.upgradeIndex]);
     }
 
     public void CheckUpgrades()

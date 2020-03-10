@@ -19,7 +19,7 @@ public class Free : Tile
                     }
                     List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
 
-                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true);
                 }
                 break;
             case HoverMode.Bombardment:
@@ -31,9 +31,12 @@ public class Free : Tile
                 }
                 break;
             case HoverMode.ThrowElementHover:
-                hovered = true;
-                oldMaterial = rend.material;
-                rend.material = Highlight_Manager.instance.actionHighlightMat;
+                if (isClickable)
+                {
+                    hovered = true;
+                    oldMaterial = rend.material;
+                    rend.material = Highlight_Manager.instance.actionHighlightMat;
+                }
                 break;
         }
     }
@@ -49,10 +52,17 @@ public class Free : Tile
                     {
                         player.HideMoveRange();
                     }
-                    Highlight_Manager.instance.HideHighlight(previewID);
+                    Highlight_Manager.instance.HideHighlight(previewID, null, false);
                 }
                 break;
             case HoverMode.Bombardment:
+                if (hovered)
+                {
+                    hovered = false;
+                    rend.material = oldMaterial;
+                }
+                break;
+            case HoverMode.ThrowElementHover:
                 if (hovered)
                 {
                     hovered = false;
