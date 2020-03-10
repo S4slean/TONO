@@ -47,6 +47,12 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(introductionDuration);
 
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
+
+        UI_Manager.instance.timelinePanel.SetUpIcons();
+        UI_Manager.instance.messagePanel.SetUI();
+        UI_Manager.instance.pausePanel.SetUI();
+
         StartBombardmentTurn();
     }
 
@@ -71,7 +77,6 @@ public class GameManager : MonoBehaviour
     {
         BombardmentManager.Instance.DropBarrels();
         turnType = TurnType.bombardment;
-        //UI_Manager.instance.roundPanel.TurnWheel();
         UI_Manager.instance.timelinePanel.NextIconTurn();
         BombardmentManager.Instance.StartBombardment();
     }
@@ -81,6 +86,7 @@ public class GameManager : MonoBehaviour
 
         turnType = TurnType.enemy;
         EnemyManager.instance.PlayEnemyTurn();
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.EnemyTurn);
     }
 
     public void StartPlayerTurn()

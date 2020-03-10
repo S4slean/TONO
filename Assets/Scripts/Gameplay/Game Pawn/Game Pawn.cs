@@ -66,7 +66,7 @@ public class GamePawn : MonoBehaviour
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
-        if (path.Count == 0)
+        if (path.Count != 0)
         {
             int highlightPathID = -1;
 

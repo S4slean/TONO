@@ -46,7 +46,6 @@ public class UI_Portrait : MonoBehaviour
     {
         if (isSelected)
         {
-            Debug.Log("SELECTED");
             if (selectedCurrentTime < selectedMaxTime)
             {
                 selectedCurrentTime += Time.deltaTime;
@@ -62,7 +61,6 @@ public class UI_Portrait : MonoBehaviour
         }
         else
         {
-            Debug.Log("NOT");
             if (selectedCurrentTime < selectedMaxTime)
             {
                 selectedCurrentTime += Time.deltaTime;

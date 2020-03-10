@@ -61,6 +61,8 @@ public class BombardmentManager : MonoBehaviour
     {
         placementIndex = -1;
         yield return new WaitForSeconds(delayBeforeBarrelPlacement);
+
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Boat);
         StartPlacingNextBarrelMarker();
     }
 
@@ -86,6 +88,7 @@ public class BombardmentManager : MonoBehaviour
         toPlace.gameObject.SetActive(true);
         activeMarkers.Add(toPlace);
         placementIndex++;
+        UI_Manager.instance.boatPanel.RemoveBarrelUI();
 
         if(placementIndex >= barrelAmount)
         {
@@ -120,7 +123,7 @@ public class BombardmentManager : MonoBehaviour
         for(int i = 0; i < activeMarkers.Count; i++)
         {
             GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
-            toDrop.transform.position = activeMarkers[0].transform.position;
+            toDrop.transform.position = new Vector3(activeMarkers[0].transform.position.x, 1.1f, activeMarkers[0].transform.position.z);
             toDrop.gameObject.SetActive(true);
             activeMarkers[0].gameObject.SetActive(false);
             barrelMarkersPool.Enqueue(activeMarkers[0]);

@@ -27,11 +27,6 @@ public class UI_BoatInfo : Panel_Behaviour
 
 
 
-    void Awake()
-    {
-        //SetUpBoatUI();
-    }
-
     void Update()
     {
         MovePanel();
@@ -57,7 +52,6 @@ public class UI_BoatInfo : Panel_Behaviour
                 isRemoving = false;
                 removeCurrentTime = 0;
                 barrels.Remove(selectedBarrel);
-                currentBarrel--;
             }
         }
     }
@@ -70,24 +64,46 @@ public class UI_BoatInfo : Panel_Behaviour
         boatImage.sprite = UI_Manager.instance.uiPreset.boatPortait;
         barrels = new List<RectTransform>();
 
-        //Get player's ability to display a certain number of barrels
-        numberOfDisplayedBarrels = 3;
-
-        for (int i = 0; i < numberOfDisplayedBarrels; i++)
+        //////////////////////////////////////         BombardmentManager.Instance.knownBarrelsAmount
+        for (int i = 0; i < BombardmentManager.Instance.barrelAmount; i++)
         {
             GameObject barrel = Instantiate(barrelPrefab, Vector3.zero, Quaternion.identity, barrelsParent);
             RectTransform barrelRect = barrel.GetComponent<RectTransform>();
             Image barrelImage = barrel.GetComponent<Image>();
 
-            //Get specific sprite according to player's ability and thus barrel type
-            barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Mystery;
+            if(BombardmentManager.Instance.knowsAllBarrels)
+            {
+                switch(BombardmentManager.Instance.barrelsToDrop[i])
+                {
+                    case RangeType.Default:
+                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Default;
+                        break;
+
+                    case RangeType.Cross:
+                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Cross;
+                        break;
+
+                    case RangeType.Plus:
+                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Plus;
+                        break;
+
+                    case RangeType.Round:
+                        barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Round;
+                        break;
+                }
+            }
+            else
+            {
+                barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Mystery;
+            }
 
             barrelRect.anchoredPosition3D = new Vector3(barrelRect.sizeDelta.x * i + barrelSpacing * i,0,0);
 
             barrels.Add(barrelRect);
         }
 
-        currentBarrel = numberOfDisplayedBarrels - 1;
+        //////////////////////////////////////         BombardmentManager.Instance.knownBarrelsAmount
+        currentBarrel = BombardmentManager.Instance.barrelAmount - 1;
     }
 
     /// <summary>
@@ -102,6 +118,7 @@ public class UI_BoatInfo : Panel_Behaviour
         }
 
         selectedBarrel = barrels[currentBarrel];
+        currentBarrel--;
 
         isRemoving = true;
     }
