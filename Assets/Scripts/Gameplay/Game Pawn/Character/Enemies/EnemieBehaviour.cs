@@ -287,7 +287,7 @@ public class EnemieBehaviour : GamePawn
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
-        if (path.Count == 0)
+        if (path.Count == 0 || (path.Count == 1 && path[0] == _player.GetTile()))
         {
             _isDoingSomething = false;
             Debug.Log(transform.name + " path was Empty. Destination was " + destination.transform.position);
