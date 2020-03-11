@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     //[HideInInspector]
     public Tile currentHoveredTile;
 
-    [HideInInspector]public PlayerCharacter playerCharacter;
+    public PlayerCharacter playerCharacter;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
     //[HideInInspector]
@@ -46,6 +46,10 @@ public class PlayerManager : MonoBehaviour
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
+
+    public PlayerStatsConfig playerStats;
+
+
 
     public void Awake()
     {
@@ -61,7 +65,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Start()
     {
-
+        
     }
 
     public void Update()
@@ -158,6 +162,14 @@ public class PlayerManager : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void AssignPlayerStatsToCharacter()
+    {
+        playerCharacter.currentLife = playerStats.playerStats.startingLP;
+        playerCharacter.currentPA = playerStats.playerStats.startingAP;
+        playerCharacter.currentPM = playerStats.playerStats.startingMP;
+        playerCharacter.isGunLoaded = playerStats.playerStats.isGunLoadedAtStart;
     }
 
     public void StartPlayerTurn()

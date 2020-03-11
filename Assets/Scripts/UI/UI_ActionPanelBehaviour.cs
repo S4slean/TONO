@@ -57,8 +57,9 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
 
             //Set tooltip information 4 action
             selectedAction.actionSkill = PlayerManager.instance.playerCharacter.skills[i];
-            selectedAction.SetUpTooltip();
+            selectedAction.backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
             selectedAction.SetUpActionPointsDisplay();
+            selectedAction.CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);
 
             actions.Add(selectedAction);
         }

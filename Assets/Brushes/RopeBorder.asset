@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ec8ad26f2f027d4f947ffed4891e1e8, type: 3}
-  m_Name: DecorBorder
+  m_Name: RopeBorder
   m_EditorClassIdentifier: 
   m_Prefabs:
   - {fileID: 42270057347825510, guid: 5bcb240bf23fbb74c91c0472f804fd5c, type: 3}

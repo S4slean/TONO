@@ -44,6 +44,8 @@ public class PlayerCharacter : GamePawn
     {
         PlayerManager.instance.playerCharacter = this;
 
+        PlayerManager.instance.AssignPlayerStatsToCharacter();
+
         base.Start();
         StartCoroutine(Init());
 
