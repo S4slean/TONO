@@ -9,26 +9,36 @@ public class ThrowElement : Skill
 
     public override void Activate(GamePawn user, Tile target)
     {
-        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
-        if (user is EnemieBehaviour)
-        {
-            EnemieBehaviour enemy = (EnemieBehaviour)user;
-            enemy.actionPoints -= cost;
-            SkillManager.instance.ThrowProjectile(user, target.GetPawnOnTile(), projectilePrefab, damage);
-        }else if(user is PlayerCharacter)
-        {
-            PlayerCharacter player = (PlayerCharacter)user;
-            SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
-        }
+
+        PlayerCharacter player = (PlayerCharacter)user;
+        SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
+
     }
 
     public override void Preview(GamePawn user)
     {
-        base.Preview(user);
-        List<Tile> tilesToHighlight = HasAvailableTarget(user);
+        if (HasAvailableTarget(user).Count > 0)
+        {
+            PlayerManager playerManager = PlayerManager.instance;
+            PlayerCharacter player = playerManager.playerCharacter;
 
-        if(tilesToHighlight.Count > 0)
-            user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
+            if (SkillManager.instance.currentActiveSkill != this)
+            {
+                base.Preview(user);
+                player.HideMoveRange();
+                List<Tile> tilesToHighlight = HasAvailableTarget(user);
+
+                if (tilesToHighlight.Count > 0)
+                    user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
+                playerManager.hoverMode = HoverMode.MeleeHover;
+            }
+            else
+            {
+                SkillManager.instance.currentActiveSkill = null;
+                playerManager.hoverMode = HoverMode.MovePath;
+                Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+            }
+        }
     }
 
     public override List<Tile> HasAvailableTarget(GamePawn user)

@@ -23,6 +23,7 @@ public class UpgradesDisplay : MonoBehaviour
 
         List<int> toDisplay = new List<int>();
 
+        
         for(int i = 0; i < UpgradesManager.Instance.playerStats.upgradeChoicesMade.Length; i++)
         {
             if(UpgradesManager.Instance.playerStats.upgradeChoicesMade[i])

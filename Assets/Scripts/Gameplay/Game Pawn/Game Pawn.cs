@@ -25,11 +25,21 @@ public class GamePawn : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
+        DetectTile();
+    }
+
+    private void DetectTile()
+    {
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, mask);
         //print(name +" tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
+    }
+
+    public virtual void OnEnable()
+    {
+        DetectTile();
     }
 
     public virtual void OnMouseEnter()
@@ -84,9 +94,10 @@ public class GamePawn : MonoBehaviour
                 if(this is PlayerCharacter)
                 {
                     PlayerManager.instance.playerCharacter.currentPM -= path.Count;
+                    print(PlayerManager.instance.playerCharacter.currentPM);
 
                     UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
-                    UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+                    //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
                 }
             }
 
