@@ -350,6 +350,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpHeight: 3
+  anchor: {fileID: 3990111356901117202, guid: 0f947d6f22093644c9add8db4d60c8b1, type: 3}
 --- !u!1 &6370869967934870422
 GameObject:
   m_ObjectHideFlags: 0
