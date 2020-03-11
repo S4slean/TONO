@@ -32,7 +32,7 @@ MonoBehaviour:
     type: 3}
   barrel_Mystery: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   stick: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  playerPortait: {fileID: 21300000, guid: f4909bb8f2393d843818965b4b8982a5, type: 3}
+  playerPortait: {fileID: 21300000, guid: 3ba94c0f1c2151a479b019b62fc38360, type: 3}
   boatPortait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   moussaillonImage: {fileID: 21300000, guid: 79632f862b2903f438f6445d5347a65d, type: 3}
   captainImage: {fileID: 21300000, guid: 5a0d326da15d4cd4aa1c1087daf76754, type: 3}
