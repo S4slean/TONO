@@ -20,6 +20,9 @@ public class Free : Tile
                     }
                     List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
 
+                    UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+                    UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+
                     previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true);
                 }
                 break;
