@@ -18,5 +18,5 @@ MonoBehaviour:
   damage: 0
   rangeType: 0
   range: 0
-  enabledSprite: {fileID: 0}
-  unenabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
+  unenabledSprite: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}

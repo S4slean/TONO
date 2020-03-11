@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   skillName: Jump
-  description: 
+  description: Jump because you CAN
   cost: 1
   damage: 0
   rangeType: 0
   range: 0
-  enabledSprite: {fileID: 0}
-  unenabledSprite: {fileID: 0}
+  enabledSprite: {fileID: -6317825017859778240, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
+  unenabledSprite: {fileID: -2191430089991988300, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}

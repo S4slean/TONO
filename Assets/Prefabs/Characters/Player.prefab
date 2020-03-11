@@ -188,7 +188,7 @@ MonoBehaviour:
   throwElementSkill: {fileID: 11400000, guid: c311c121ae5aea741aa84a05cc3ba4d4, type: 2}
   jumpSkill: {fileID: 11400000, guid: 2c84130f2c725f14c962df9f735bef65, type: 2}
   gunShotSkill: {fileID: 11400000, guid: 2552d749b04465c419e54ef33697731e, type: 2}
-  reloadSkill: {fileID: 0}
+  reloadSkill: {fileID: 11400000, guid: 6cdbe49fa56a64a48a874dd7d50187da, type: 2}
   currentPA: 5
   currentPM: 5
   currentLife: 5

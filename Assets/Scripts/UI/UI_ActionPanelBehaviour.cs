@@ -33,7 +33,7 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     /// </summary>
     private void SetUpPanel()
     {
-        if(PlayerManager.instance.playerCharacter == null)
+        if (PlayerManager.instance.playerCharacter == null)
         {
             Debug.LogError("NO PLAYER CHARACTER");
             return;
@@ -59,7 +59,9 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
             selectedAction.actionSkill = PlayerManager.instance.playerCharacter.skills[i];
             selectedAction.backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
             selectedAction.SetUpActionPointsDisplay();
-            selectedAction.CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);
+
+            if (PlayerManager.instance.playerCharacter != null)
+                selectedAction.CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);
 
             actions.Add(selectedAction);
         }
