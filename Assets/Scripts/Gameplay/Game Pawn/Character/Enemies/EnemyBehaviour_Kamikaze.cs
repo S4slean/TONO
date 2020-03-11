@@ -56,6 +56,7 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
         if (_currentRage >= rageThreshold)
         {
             _buffed = true;
+            SwapVisual();
         }
     }
 

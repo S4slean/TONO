@@ -59,12 +59,15 @@ public class UI_Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            characterInfoPanel.CreateAndSetAllCharacterInfo();
+            actionPanel.ResetPanelAction();
             SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            SetUIDisplayModeOn(UIDisplayMode.EnemyTurn);
+            boatPanel.SetUpBoatUI();
+            SetUIDisplayModeOn(UIDisplayMode.Boat);
         }
     }
 
@@ -95,7 +98,7 @@ public class UI_Manager : MonoBehaviour
         switch (displayMode)
         {
             case UIDisplayMode.Pause:
-            case UIDisplayMode.End:
+            
             case UIDisplayMode.None:
                 gunPanel.HidePanel();
                 timelinePanel.HidePanel();
