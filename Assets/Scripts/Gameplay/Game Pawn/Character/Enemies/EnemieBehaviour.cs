@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EnemieBehaviour : GamePawn
 {
     public EnemyData enemyStats;
+    public Animator anim;
 
 
     public int health = 1;
@@ -26,7 +27,7 @@ public class EnemieBehaviour : GamePawn
     {
         base.Start();
 
-
+        
         health = enemyStats.health;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
@@ -287,7 +288,7 @@ public class EnemieBehaviour : GamePawn
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
-        if (path.Count == 0)
+        if (path.Count == 0 || (path.Count == 1 && path[0] == _player.GetTile()))
         {
             _isDoingSomething = false;
             Debug.Log(transform.name + " path was Empty. Destination was " + destination.transform.position);

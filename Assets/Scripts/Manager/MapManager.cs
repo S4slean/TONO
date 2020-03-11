@@ -22,6 +22,9 @@ public class MapManager : MonoBehaviour
         BoatPath.Instance.DrawPath();
         UpgradesDisplay.Instance.Initialize();
 
+        if (FXPlayer.Instance)
+            FXPlayer.Instance.Initialize();
+
 
         print("Current Level = " + LevelManager.currentLevel);
 

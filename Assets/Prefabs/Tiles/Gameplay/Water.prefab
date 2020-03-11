@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5642725319652559031}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -107,11 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  oldMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   highlighted: 0
   isWalkable: 0
   isClickable: 0
+  hasAlcohol: 0
+  hasBarrelMarker: 0
+  hovered: 0
   StraightLineDistanceToEnd: 0
   MinCostToStart: 0
   Visited: 0
   previous: {fileID: 0}
+  up: {fileID: 0}
+  right: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}
