@@ -19,6 +19,7 @@ public class ThrowElement : Skill
     {
         if (HasAvailableTarget(user).Count > 0)
         {
+            GridManager.instance.AllTilesBecameNotClickable();
             PlayerManager playerManager = PlayerManager.instance;
             PlayerCharacter player = playerManager.playerCharacter;
 
@@ -37,6 +38,7 @@ public class ThrowElement : Skill
                 SkillManager.instance.currentActiveSkill = null;
                 playerManager.hoverMode = HoverMode.MovePath;
                 Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+                player.ShowMoveRange();
             }
         }
     }
@@ -85,11 +87,13 @@ public class ThrowElement : Skill
 
     public void ThrowPreview(GamePawn user, GamePawn liftedPawn)
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         List<Tile> tilesToHighlight = new List<Tile>();
         Tile playerTile = user.GetTile();
 
         if (liftedPawn is EnemieBehaviour)
         {
+            Debug.Log("Lift Enemy");
             //UP
             if(IsAvailableTile(playerTile.neighbours.up))
                 tilesToHighlight.Add(playerTile.neighbours.up);
@@ -105,11 +109,12 @@ public class ThrowElement : Skill
         }
         else if(liftedPawn is Barrel || liftedPawn is Box)
         {
-            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2 * Vector3.up, ((range - 1) * Vector3.forward) + ((range - 1) * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
+            Debug.Log("Lift Barrel");
+            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2 * Vector3.up, (5 * Vector3.forward + 5 * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
             foreach(RaycastHit hit in hits)
             {
                 Tile tile = hit.transform.GetComponent<Tile>();
-                if (IsAvailableTile(tile))
+                if (IsAvailableTile(tile) || tile.GetPawnOnTile() == liftedPawn)
                 {
                     tilesToHighlight.Add(tile);
                 }

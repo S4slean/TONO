@@ -78,10 +78,14 @@ public class SkillManager : MonoBehaviour
 
     public void LiftPawn(PlayerCharacter user, GamePawn target)
     {
+        target.GetTile().SetPawnOnTile(null);
         target.SetTile(null);
         user.liftedPawn = target;
+
+        user.BeginAction();
+
         Sequence s = DOTween.Sequence();
-        s.Append(target.transform.DOMove(user.LiftPawnSocket.position, 0.3f))
+        s.Append(target.transform.DOMove(user.LiftPawnSocket.position + new Vector3(0f, 1.1f, 0f), 0.3f))
          .SetEase(Ease.OutCubic);
         user.throwElementSkill.ThrowPreview(user, target);
     }
@@ -132,18 +136,28 @@ public class SkillManager : MonoBehaviour
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
     {
         user.liftedPawn = null;
+        pawnToThrow.SetTile(target);
+        user.InitializeAllSkillRange(user.GetTile());
+
+        currentActiveSkill = null;
+        user.EndAction();
+        PlayerManager.instance.hoverMode = HoverMode.NoHover;
+
+        Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID(), null, false);
+        user.ShowMoveRange();
+
         Sequence s = DOTween.Sequence();
 
         s.Append(pawnToThrow.transform.DOMove(target.transform.position, 1f))
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
-             pawnToThrow.SetTile(target);
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
-             });
+         });
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)
     {
 
     }
+
 }

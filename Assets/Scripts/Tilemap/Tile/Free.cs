@@ -44,6 +44,7 @@ public class Free : Tile
                     rend.material = Highlight_Manager.instance.hoverMat;
                 }
                 break;
+            case HoverMode.ThrowHover:
             case HoverMode.MeleeHover:
                 if (isClickable)
                 {
