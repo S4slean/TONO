@@ -154,7 +154,4 @@ public class Tile : MonoBehaviour
     {
         return pawnOnTile;
     }
-
-
-
 }
