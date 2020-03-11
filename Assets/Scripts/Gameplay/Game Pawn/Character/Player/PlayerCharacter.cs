@@ -79,6 +79,7 @@ public class PlayerCharacter : GamePawn
     {
         //print(destination);
         base.SetDestination(destination, showHighlight);
+
         HideMoveRange();
         InitializeAllSkillRange(destination);
     }
@@ -124,6 +125,7 @@ public class PlayerCharacter : GamePawn
         {
             tile.isClickable = false;
         }
+        print(currentPM);
         moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, currentPM, false);
         foreach (Tile tile in moveRange)
         {
