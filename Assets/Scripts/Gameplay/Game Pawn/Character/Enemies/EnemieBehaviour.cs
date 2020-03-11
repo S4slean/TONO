@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EnemieBehaviour : GamePawn
 {
     public EnemyData enemyStats;
+    public Animator anim;
 
 
     public int health = 1;
@@ -26,7 +27,7 @@ public class EnemieBehaviour : GamePawn
     {
         base.Start();
 
-
+        
         health = enemyStats.health;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;

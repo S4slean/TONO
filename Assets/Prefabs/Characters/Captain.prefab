@@ -52,6 +52,7 @@ MonoBehaviour:
   skillPreviewID: 0
   skills: []
   enemyStats: {fileID: 11400000, guid: 7b0ddd487700526499be646911e151c2, type: 2}
+  anim: {fileID: 8292670441766132546}
   health: 1
   movementPoints: 0
   actionPoints: 0
@@ -226,6 +227,12 @@ PrefabInstance:
 --- !u!4 &8292670441766132573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
+    type: 3}
+  m_PrefabInstance: {fileID: 6517374861459476849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8292670441766132546 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2983395280746990131, guid: 17db6ef6e6106ab4cbb671607f6ce576,
     type: 3}
   m_PrefabInstance: {fileID: 6517374861459476849}
   m_PrefabAsset: {fileID: 0}
