@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ec8ad26f2f027d4f947ffed4891e1e8, type: 3}
-  m_Name: DecorCase
+  m_Name: RopeCase
   m_EditorClassIdentifier: 
   m_Prefabs:
   - {fileID: 500978121331437151, guid: b159c599f912b5a4ca970d12c4fbe1d4, type: 3}

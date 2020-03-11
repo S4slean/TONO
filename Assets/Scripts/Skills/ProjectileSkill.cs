@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : Skill
+[CreateAssetMenu(fileName = "projectile" ,menuName = "TONO/Skill/projectile")]
+public class ProjectileSkill : Skill
 {
     public GameObject projectilePrefab;
 
