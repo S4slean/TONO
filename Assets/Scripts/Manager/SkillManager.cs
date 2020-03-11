@@ -23,11 +23,6 @@ public class SkillManager : MonoBehaviour
     public static SkillManager instance;
     public Skill currentActiveSkill;
 
-    [Header("Skills")]
-    public Skill kickPlayer;
-    public Skill kickEnemies;
-    public Skill throwElement;
-
     private void Start()
     {
         if(instance == null)
@@ -117,6 +112,16 @@ public class SkillManager : MonoBehaviour
             user.EndAction();
 
         });
+    }
+
+    public void GunShot()
+    {
+
+    }
+
+    public void ThrowElement()
+    {
+
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)

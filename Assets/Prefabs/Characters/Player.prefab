@@ -175,16 +175,17 @@ MonoBehaviour:
   associatedTile: {fileID: 0}
   moveRange: []
   skillPreviewID: 0
-  skills:
-  - {fileID: 11400000, guid: 2552d749b04465c419e54ef33697731e, type: 2}
-  - {fileID: 11400000, guid: c311c121ae5aea741aa84a05cc3ba4d4, type: 2}
-  - {fileID: 11400000, guid: a44ba79b2bd70364dade0fa511ee2cea, type: 2}
+  skills: []
   LiftPawnSocket: {fileID: 7447926989378040533}
   gunRange: []
   lineUp: []
   lineRight: []
   lineDown: []
   lineLeft: []
+  kickSkill: {fileID: 11400000, guid: a44ba79b2bd70364dade0fa511ee2cea, type: 2}
+  throwElementSkill: {fileID: 11400000, guid: c311c121ae5aea741aa84a05cc3ba4d4, type: 2}
+  jumpSkill: {fileID: 11400000, guid: 2c84130f2c725f14c962df9f735bef65, type: 2}
+  gunShotSkill: {fileID: 11400000, guid: 2552d749b04465c419e54ef33697731e, type: 2}
   currentPA: 5
   currentPM: 5
   currentLife: 5

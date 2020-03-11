@@ -40,7 +40,8 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]public PlayerCharacter playerCharacter;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
-    [HideInInspector]public HoverMode hoverMode;
+    //[HideInInspector]
+    public HoverMode hoverMode;
 
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
@@ -68,13 +69,13 @@ public class PlayerManager : MonoBehaviour
         //GUN SKILL
         if (Input.GetKeyDown(gunShot))
         {
-            GunShotSkill();
+            playerCharacter.gunShotSkill.Preview(playerCharacter);
         }
 
         //THROW ELEMENT
         if (Input.GetKeyDown(throwElement))
         {
-            ThrowElementSkill();
+            playerCharacter.throwElementSkill.Preview(playerCharacter);
         }
 
         /*RaycastHit hit;
@@ -96,6 +97,7 @@ public class PlayerManager : MonoBehaviour
                 break;
 
             case HoverMode.GunShotHover:
+                //print("GUNSHOTHOVER");
                 Vector3 pivotScreenPoint = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position);
                 //print("Pivot : " + pivotScreenPoint);
 
@@ -168,72 +170,5 @@ public class PlayerManager : MonoBehaviour
     {
         hoverMode = HoverMode.NoHover;
         GameManager.Instance.CheckIfCompleted(true);
-    }
-
-    public void GunShotSkill()
-    {
-        GridManager.instance.AllTilesBecameNotClickable();
-        if (hoverMode != HoverMode.GunShotHover)
-        {
-            hoverMode = HoverMode.GunShotHover;
-            playerCharacter.HideMoveRange();
-        }
-        else
-            hoverMode = HoverMode.MovePath;
-
-        //DEBUG
-        /*foreach(string name in playerCharacter.pawnSkills.Keys)
-        {
-            print("Skill name : " + name);
-        }*/
-
-        Skill gunShot = null;
-        foreach(Skill skill in playerCharacter.skills)
-        {
-            if(skill.skillName == Skills.GunShot.ToString())
-            {
-                gunShot = skill;
-                break;
-            }
-        }
-        if(gunShot != null)
-            playerCharacter.ShowSkillPreview(gunShot);
-
-        if (hoverMode == HoverMode.GunShotHover)
-        {
-            pointsOnScreen.up = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.forward*2);
-            pointsOnScreen.right = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.right*2);
-            pointsOnScreen.down = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.back*2);
-            pointsOnScreen.left = Camera.main.WorldToScreenPoint(playerCharacter.GetTile().transform.position + Vector3.left*2);
-
-        }
-    }
-
-    public void ThrowElementSkill()
-    {
-        GridManager.instance.AllTilesBecameNotClickable();
-        if (SkillManager.instance.currentActiveSkill is ThrowElement)
-        {
-            hoverMode = HoverMode.MovePath;
-            SkillManager.instance.currentActiveSkill = null;
-        }
-        else
-        {
-            hoverMode = HoverMode.MeleeHover;
-            playerCharacter.HideMoveRange();
-        }
-
-        Skill throwElement = null;
-        foreach (Skill skill in playerCharacter.skills)
-        {
-            if (skill.skillName == Skills.ThrowElement.ToString())
-            {
-                throwElement = skill;
-                break;
-            }
-        }
-        if (throwElement != null)
-            playerCharacter.ShowSkillPreview(throwElement);
-
     }
 }
