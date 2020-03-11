@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();
 
+        if(FXPlayer.Instance)
+        FXPlayer.Instance.Initialize();
+
         if (overridesPlayerStats)
         {
             if (overridingPlayerStatsConfig != null)
