@@ -59,7 +59,8 @@ public class GamePawn : MonoBehaviour
     public void SetTile(Tile newTile)
     {
         associatedTile = newTile;
-        associatedTile.SetPawnOnTile(this);
+        if(newTile != null)
+            associatedTile.SetPawnOnTile(this);
     }
 
     public int GetSkillPreviewID()
@@ -158,5 +159,5 @@ public class GamePawn : MonoBehaviour
 
     }
 
-
+    
 }

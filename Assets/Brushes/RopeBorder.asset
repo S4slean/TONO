@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec8ad26f2f027d4f947ffed4891e1e8, type: 3}
+  m_Name: RopeBorder
+  m_EditorClassIdentifier: 
+  m_Prefabs:
+  - {fileID: 42270057347825510, guid: 5bcb240bf23fbb74c91c0472f804fd5c, type: 3}
+  - {fileID: 83060802912536474, guid: 3bb373846612c2a49921b3236bfb9f9e, type: 3}
+  - {fileID: 8092610987342911715, guid: 2bfe24ca16b67334897fc046aad46165, type: 3}
+  - {fileID: 8880912739214571456, guid: 656da07c6b7e1a948886e3ced21cdbb8, type: 3}
+  - {fileID: 6065377066588228234, guid: 442ebc85e459861479e36b573b190d45, type: 3}
+  - {fileID: 8792421927043314797, guid: e09de4333f7ba514894b256baa8b72c5, type: 3}
+  - {fileID: 7519601894582756037, guid: 4b2749d76a844c8419d22c087b428ee1, type: 3}
+  - {fileID: 919487089871837453, guid: 817fc66424dc94d4db3dea3c62b48aec, type: 3}
+  - {fileID: 4395163380970076827, guid: 7a0783c430f363b48bc4c4a4b11a0739, type: 3}
+  - {fileID: 1977401633401554441, guid: cd7672d7158a0844a8579776343acadf, type: 3}
+  m_PerlinScale: 0.5
+  m_Z: 0
+  m_index: 0
