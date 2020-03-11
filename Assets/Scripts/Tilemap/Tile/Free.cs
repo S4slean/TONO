@@ -20,6 +20,9 @@ public class Free : Tile
                     }
                     List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(player.GetTile(), this);
 
+                    UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+                    UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+
                     previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true);
                 }
                 break;
@@ -31,7 +34,7 @@ public class Free : Tile
                     rend.material = Highlight_Manager.instance.hoverMat;
                 }
                 break;
-            case HoverMode.ThrowElementHover:
+            case HoverMode.MeleeHover:
                 if (isClickable)
                 {
                     PlayerManager.instance.currentHoveredTile = this;
@@ -54,6 +57,7 @@ public class Free : Tile
                         player.HideMoveRange();
                     }
                     Highlight_Manager.instance.HideHighlight(previewID, null, false);
+                    UI_Manager.instance.characterInfoPanel.ResetCharacterInfo(UI_SelectedCharacterInfo.Stats.PM);
                     PlayerManager.instance.currentHoveredTile = null;
                 }
                 break;
@@ -64,7 +68,7 @@ public class Free : Tile
                     rend.material = oldMaterial;
                 }
                 break;
-            case HoverMode.ThrowElementHover:
+            case HoverMode.MeleeHover:
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;

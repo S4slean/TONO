@@ -8,14 +8,37 @@ public class GunShot : Skill
     public override void Activate(GamePawn user, Tile target)
     {
         base.Activate(user, target);
+        SkillManager.instance.GunShot();
     }
 
     public override void Preview(GamePawn user)
     {
         if(user is PlayerCharacter)
         {
-            PlayerCharacter player = user as PlayerCharacter;
-            user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(player.gunRange, HighlightMode.ActionPreview, true));
+            PlayerManager playerManager = PlayerManager.instance;
+            PlayerCharacter player = playerManager.playerCharacter;
+
+            if (SkillManager.instance.currentActiveSkill != this)
+            {
+                base.Preview(user);
+                player.HideMoveRange();
+                player.SetPreviewID(Highlight_Manager.instance.ShowHighlight(player.gunRange, HighlightMode.ActionPreview, true));
+                playerManager.hoverMode = HoverMode.GunShotHover;
+
+                playerManager.pointsOnScreen.up = Camera.main.WorldToScreenPoint(player.GetTile().transform.position + Vector3.forward * 2);
+                playerManager.pointsOnScreen.right = Camera.main.WorldToScreenPoint(player.GetTile().transform.position + Vector3.right * 2);
+                playerManager.pointsOnScreen.down = Camera.main.WorldToScreenPoint(player.GetTile().transform.position + Vector3.back * 2);
+                playerManager.pointsOnScreen.left = Camera.main.WorldToScreenPoint(player.GetTile().transform.position + Vector3.left * 2);
+            }
+            else
+            {
+                Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+                SkillManager.instance.currentActiveSkill = null;
+                playerManager.hoverMode = HoverMode.MovePath;
+
+
+            }
+
         }
     }
 }

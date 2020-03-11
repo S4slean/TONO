@@ -204,7 +204,7 @@ public class GridManager : MonoBehaviour
     public List<Tile> GetRoundRange(GamePawn user, int range, bool usingCombo = false)
     {
         List<Tile> res = new List<Tile>();
-        Tile startingTile = user.GetTile();
+        /*Tile startingTile = user.GetTile();
         res.Add(startingTile);
 
         //UP
@@ -237,7 +237,20 @@ public class GridManager : MonoBehaviour
             CheckForCombo(res, currentTile);
         currentTile = currentTile.neighbours.up;
         if (usingCombo)
-            CheckForCombo(res, currentTile);
+            CheckForCombo(res, currentTile);*/
+
+        //BOXCAST
+        RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + (2 * Vector3.up), (Vector3.forward + Vector3.right) * 2 * range, Vector3.down, Quaternion.identity, 2f, LayerMask.GetMask("FreeTile"));
+
+        foreach(RaycastHit hit in hits)
+        {
+            Tile tile = hit.transform.GetComponent<Free>();
+            if (tile != null && !IsWater(tile))
+            {
+                CheckForCombo(res, tile);
+            }
+        }
+
         return res;
     }
 
@@ -252,9 +265,10 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.up;
         for (int i = 0; i < range; i++)
         {
-            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
+            if (currentTile != null && !IsWall(currentTile))
             {
-                res.Add(currentTile);
+                if (!IsWater(currentTile))
+                    res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
@@ -275,9 +289,10 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.right;
         for (int i = 0; i < range; i++)
         {
-            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
+            if (currentTile != null && !IsWall(currentTile))
             {
-                res.Add(currentTile);
+                if (!IsWater(currentTile))
+                    res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
@@ -298,9 +313,10 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.down;
         for (int i = 0; i < range; i++)
         {
-            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
+            if (currentTile != null && !IsWall(currentTile))
             {
-                res.Add(currentTile);
+                if (!IsWater(currentTile))
+                    res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
@@ -321,9 +337,10 @@ public class GridManager : MonoBehaviour
         currentTile = startingTile.neighbours.left;
         for (int i = 0; i < range; i++)
         {
-            if (!(IsWall(currentTile) || currentTile == null || IsWall(currentTile)))
+            if (currentTile != null && !IsWall(currentTile))
             {
-                res.Add(currentTile);
+                if(!IsWater(currentTile))
+                    res.Add(currentTile);
                 if (currentTile.GetPawnOnTile() is Barrel)
                 {
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
@@ -348,45 +365,194 @@ public class GridManager : MonoBehaviour
         Tile startingTile = user.GetTile();
         List<Tile> res = new List<Tile>();
         res.Add(startingTile);
-        Tile currentTile;
+        Tile currentUp;
+        Tile currentRight;
+        Tile currentDown;
+        Tile currentLeft;
 
         //UP-RIGHT
-        currentTile = startingTile.neighbours.up.neighbours.right;
-        if(usingCombo)
-            CheckForCombo(res, currentTile);
-        currentTile = currentTile.neighbours.up.neighbours.right;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
+        currentUp = startingTile.neighbours.up;
+        currentRight = startingTile.neighbours.right;
+        for (int i = 0; i < range; i++)
+        {
+            if(currentUp != null || currentRight != null)
+            {
+                if(!IsWall(currentUp) || !IsWall(currentRight))
+                {
+                    Tile checkTile = null;
+                    if (currentUp == null || IsWall(currentUp))
+                    {
+                        checkTile = currentRight.neighbours.up;
+                    }
+                    else if(currentRight == null || IsWall(currentRight))
+                    {
+                        checkTile = currentUp.neighbours.right;
+                    }
+                    else
+                    {
+                        checkTile = currentUp.neighbours.right;
+                    }
+                    CheckForCombo(res, checkTile);
+                    if(checkTile != null && !IsWall(checkTile))
+                    {
+                        currentUp = checkTile.neighbours.up;
+                        currentRight = checkTile.neighbours.right;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+
+        }
 
         //RIGHT-DOWN
-        currentTile = startingTile.neighbours.right.neighbours.down;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
-        currentTile = currentTile.neighbours.right.neighbours.down;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
+        currentRight = startingTile.neighbours.right;
+        currentDown = startingTile.neighbours.down;
+        for (int i = 0; i < range; i++)
+        {
+            if (currentRight != null || currentDown != null)
+            {
+                if (!IsWall(currentRight) || !IsWall(currentDown))
+                {
+                    Tile checkTile = null;
+                    if (currentRight == null || IsWall(currentRight))
+                    {
+                        checkTile = currentDown.neighbours.right;
+                    }
+                    else if (currentDown == null || IsWall(currentDown))
+                    {
+                        checkTile = currentRight.neighbours.down;
+                    }
+                    else
+                    {
+                        checkTile = currentRight.neighbours.down;
+                    }
+                    CheckForCombo(res, checkTile);
+                    if (checkTile != null && !IsWall(checkTile))
+                    {
+                        currentRight = checkTile.neighbours.right;
+                        currentDown = checkTile.neighbours.down;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
 
         //DOWN-LEFT
-        currentTile = startingTile.neighbours.down.neighbours.left;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
-        currentTile = currentTile.neighbours.down.neighbours.left;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
+        currentDown = startingTile.neighbours.down;
+        currentLeft = startingTile.neighbours.left;
+        for (int i = 0; i < range; i++)
+        {
+            if (currentDown != null || currentLeft != null)
+            {
+                if (!IsWall(currentDown) || !IsWall(currentLeft))
+                {
+                    Tile checkTile = null;
+                    if (currentDown == null || IsWall(currentDown))
+                    {
+                        checkTile = currentLeft.neighbours.down;
+                    }
+                    else if (currentLeft == null || IsWall(currentLeft))
+                    {
+                        checkTile = currentDown.neighbours.left;
+                    }
+                    else
+                    {
+                        checkTile = currentDown.neighbours.left;
+                    }
+                    CheckForCombo(res, checkTile);
+                    if (checkTile != null && !IsWall(checkTile))
+                    {
+                        currentDown = checkTile.neighbours.down;
+                        currentLeft = checkTile.neighbours.left;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
 
         //LEFT-UP
-        currentTile = startingTile.neighbours.left.neighbours.up;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
-        currentTile = currentTile.neighbours.left.neighbours.up;
-        if (usingCombo)
-            CheckForCombo(res, currentTile);
-
+        currentLeft = startingTile.neighbours.left;
+        currentUp = startingTile.neighbours.up;
+        for (int i = 0; i < range; i++)
+        {
+            if (currentLeft != null || currentUp != null)
+            {
+                if (!IsWall(currentLeft) || !IsWall(currentUp))
+                {
+                    Tile checkTile = null;
+                    if (currentLeft == null || IsWall(currentLeft))
+                    {
+                        checkTile = currentUp.neighbours.left;
+                    }
+                    else if (currentUp == null || IsWall(currentUp))
+                    {
+                        checkTile = currentLeft.neighbours.up;
+                    }
+                    else
+                    {
+                        checkTile = currentLeft.neighbours.up;
+                    }
+                    CheckForCombo(res, checkTile);
+                    if (checkTile != null && !IsWall(checkTile))
+                    {
+                        currentLeft = checkTile.neighbours.left;
+                        currentUp = checkTile.neighbours.up;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+        //print("Cross Range : " + res.Count);
         return res;
     }
 
     public void CheckForCombo(List<Tile> comboTiles, Tile currentTile)
     {
+        //print("CHECK FOR COMBO : " + currentTile);
         if (currentTile != null && !IsWall(currentTile) && !IsWater(currentTile))
         {
             comboTiles.Add(currentTile);

@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EnemieBehaviour : GamePawn
 {
     public EnemyData enemyStats;
+    public Animator anim;
 
 
     public int health = 1;
@@ -26,7 +27,7 @@ public class EnemieBehaviour : GamePawn
     {
         base.Start();
 
-
+        
         health = enemyStats.health;
         movementPoints = enemyStats.movement;
         actionPoints = enemyStats.action;
@@ -287,7 +288,7 @@ public class EnemieBehaviour : GamePawn
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
-        if (path.Count == 0)
+        if (path.Count == 0 || (path.Count == 1 && path[0] == _player.GetTile()))
         {
             _isDoingSomething = false;
             Debug.Log(transform.name + " path was Empty. Destination was " + destination.transform.position);
@@ -295,6 +296,7 @@ public class EnemieBehaviour : GamePawn
         }
 
 
+        anim.SetBool("Moving", true);
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
         {
@@ -316,7 +318,7 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
-            Debug.Log("Arrived at destination");
+            anim.SetBool("Moving", false);
         });
     }
     public virtual void SetRangedDestination(Tile destination, bool showHighlight = false)
@@ -324,6 +326,7 @@ public class EnemieBehaviour : GamePawn
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
 
+        anim.SetBool("Moving", true);
         Sequence s = DOTween.Sequence();
         foreach (Tile tile in path)
         {
@@ -348,12 +351,14 @@ public class EnemieBehaviour : GamePawn
         s.OnComplete(() =>
         {
             _isDoingSomething = false;
+            anim.SetBool("Moving", false);
 
         });
 
         s.OnKill(() =>
         {
             _isDoingSomething = false;
+            anim.SetBool("Moving", false);
         });
     }
 
@@ -366,8 +371,14 @@ public class EnemieBehaviour : GamePawn
         return Random.Range(0, 100) < threshold;
     }
 
+    public override void ReceiveDamage(int dmg)
+    {
+        Die();
+    }
+
     public override void Die()
     {
+        anim.SetTrigger("Death");
         base.Die();
 
     }

@@ -60,6 +60,7 @@ public class UI_ActionButton : MonoBehaviour
     /// <param name="skill">Button skill</param>
     public void SetUpTooltip()
     {
+        this.gameObject.name = actionSkill.skillName;
         backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
         tooltipName.text = actionSkill.skillName;
         tooltipDescription.text = actionSkill.description;
@@ -67,8 +68,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void CheckAndRefreshActionUI(int currentPA)
     {
+        CheckGunShotException();
         CheckPlayerPA(currentPA);
-        CheckSkillCondition();
     }
 
     public void ShowTooltip()
@@ -101,7 +102,10 @@ public class UI_ActionButton : MonoBehaviour
 
     public void SetUpActionPointsDisplay()
     {
-        costParent.anchoredPosition3D = new Vector3(costParent.anchoredPosition3D.x, (costPrefabHeightSize * 0.5f) * -(actionSkill.cost - 1), costParent.anchoredPosition3D.z);
+
+        float newPos = (((costPrefabHeightSize * 0.5f) * (actionSkill.cost - 1)) * -1);
+        Debug.Log("newPos : " + newPos);
+
         costPoints = new List<Image>();
 
         for (int i = 0; i < actionSkill.cost; i++)
@@ -114,6 +118,9 @@ public class UI_ActionButton : MonoBehaviour
             costRect.anchoredPosition3D = new Vector3(0, costPrefabHeightSize * i, 0);
             costPoints.Add(costImage);
         }
+
+        if ((actionSkill.cost - 1) > -1)
+            costParent.anchoredPosition3D = new Vector3(costParent.anchoredPosition3D.x, newPos, costParent.anchoredPosition3D.z);
     }
 
     public void PreviewSkillAction()
@@ -133,6 +140,14 @@ public class UI_ActionButton : MonoBehaviour
 
     private void CheckSkillCondition()
     {
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        {
+            actionImage.sprite = actionSkill.unenabledSprite;
+        }
+    }
+
+    public void CheckGunShotException()
+    {
         if (actionSkill is GunShot)
         {
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
@@ -141,8 +156,12 @@ public class UI_ActionButton : MonoBehaviour
                 tooltipName.text = actionSkill.skillName;
                 tooltipDescription.text = actionSkill.description;
             }
-
-            return;
+            else
+            {
+                actionImage.sprite = UI_Manager.instance.uiPreset.shootImage;
+                tooltipName.text = actionSkill.skillName;
+                tooltipDescription.text = actionSkill.description;
+            }
         }
     }
 
@@ -170,6 +189,7 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.enabledSprite;
+            CheckSkillCondition();
         }
     }
 

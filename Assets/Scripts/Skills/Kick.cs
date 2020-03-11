@@ -23,12 +23,14 @@ public class Kick : Skill
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
+            enemy.anim.SetTrigger("Kick");
         }
         
     }
 
     public override void Preview(GamePawn user)
     {
+        base.Preview(user);
         List<Tile> tilesToHighlight = HasAvailableTarget(user);
 
         if (tilesToHighlight.Count > 0)

@@ -203,9 +203,9 @@ Material:
     - _TransparentSortPriority: 0
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _XAxisTiling: 1
-    - _YAxisTiling: 1
-    - _ZAxisTiling: 1
+    - _XAxisTiling: 8.82
+    - _YAxisTiling: 34.59
+    - _ZAxisTiling: 39.51
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4

@@ -17,7 +17,7 @@ public class Tile : MonoBehaviour
     //public Color hoverColor;
 
     //GRAPHIC
-    [HideInInspector] public Renderer rend;
+     public Renderer rend;
     [HideInInspector] public Material oldMaterial;
     [HideInInspector] public Material defaultMaterial;
     public bool highlighted;
@@ -33,6 +33,7 @@ public class Tile : MonoBehaviour
     public bool Visited = false;
     public Tile previous;
 
+
     [Header("DEBUG")]
     public Tile up;
     public Tile right;
@@ -47,7 +48,8 @@ public class Tile : MonoBehaviour
     {
         ScanNeighbours();
 
-        rend = GetComponent<Renderer>();
+        if (rend == null)
+            rend = GetComponent<Renderer>();
         defaultMaterial = rend.material;
     }
 
@@ -58,25 +60,25 @@ public class Tile : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.forward, out hit, 2f, 1 << 9 | 1 << 10);
-        if(hit.transform != null)
+        if (hit.transform != null)
         {
             neighbours.up = hit.transform.GetComponent<Tile>();
             up = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.right, out hit, 2f, 1 << 9 | 1 << 10);
-        if(hit.transform != null)
+        if (hit.transform != null)
         {
             neighbours.right = hit.transform.GetComponent<Tile>();
             right = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.back, out hit, 2f, 1 << 9 | 1 << 10);
-        if(hit.transform != null)
+        if (hit.transform != null)
         {
             neighbours.down = hit.transform.GetComponent<Tile>();
             down = hit.transform.GetComponent<Tile>();
         }
         Physics.Raycast(transform.position, Vector3.left, out hit, 2f, 1 << 9 | 1 << 10);
-        if(hit.transform != null)
+        if (hit.transform != null)
         {
             neighbours.left = hit.transform.GetComponent<Tile>();
             left = hit.transform.GetComponent<Tile>();
@@ -93,22 +95,22 @@ public class Tile : MonoBehaviour
     {
         List<Tile> res = new List<Tile>();
 
-        if(neighbours.up != null && neighbours.up.isWalkable && (neighbours.up.GetPawnOnTile() == null || neighbours.up.GetPawnOnTile() is PlayerCharacter))
+        if (neighbours.up != null && neighbours.up.isWalkable && (neighbours.up.GetPawnOnTile() == null || neighbours.up.GetPawnOnTile() is PlayerCharacter))
         {
             res.Add(neighbours.up);
         }
 
-        if(neighbours.right != null && neighbours.right.isWalkable && (neighbours.right.GetPawnOnTile() == null || neighbours.right.GetPawnOnTile() is PlayerCharacter))
+        if (neighbours.right != null && neighbours.right.isWalkable && (neighbours.right.GetPawnOnTile() == null || neighbours.right.GetPawnOnTile() is PlayerCharacter))
         {
             res.Add(neighbours.right);
         }
 
-        if(neighbours.down != null && neighbours.down.isWalkable && (neighbours.down.GetPawnOnTile() == null || neighbours.down.GetPawnOnTile() is PlayerCharacter))
+        if (neighbours.down != null && neighbours.down.isWalkable && (neighbours.down.GetPawnOnTile() == null || neighbours.down.GetPawnOnTile() is PlayerCharacter))
         {
             res.Add(neighbours.down);
         }
 
-        if(neighbours.left != null && neighbours.left.isWalkable && (neighbours.left.GetPawnOnTile() == null || neighbours.left.GetPawnOnTile() is PlayerCharacter))
+        if (neighbours.left != null && neighbours.left.isWalkable && (neighbours.left.GetPawnOnTile() == null || neighbours.left.GetPawnOnTile() is PlayerCharacter))
         {
             res.Add(neighbours.left);
         }
@@ -152,7 +154,4 @@ public class Tile : MonoBehaviour
     {
         return pawnOnTile;
     }
-
-
-
 }
