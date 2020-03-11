@@ -25,11 +25,21 @@ public class GamePawn : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
+        DetectTile();
+    }
+
+    private void DetectTile()
+    {
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, mask);
         //print(name +" tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
+    }
+
+    public virtual void OnEnable()
+    {
+        DetectTile();
     }
 
     public virtual void OnMouseEnter()
