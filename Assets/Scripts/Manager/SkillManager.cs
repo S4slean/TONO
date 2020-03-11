@@ -71,7 +71,7 @@ public class SkillManager : MonoBehaviour
     public void ThrowProjectile(GamePawn user, GamePawn target, GameObject projectile, int dmg)
     {
        
-        GameObject instance = Instantiate(projectile, user.transform.position, Quaternion.identity);
+        GameObject instance = Instantiate(projectile, user.transform.position + Vector3.up, Quaternion.identity);
         instance.GetComponent<Projectiles>().Throw(target, user, dmg);
        
     }
@@ -93,14 +93,21 @@ public class SkillManager : MonoBehaviour
         PlayerManager.instance.playerCharacter.EndAction();
     }
 
+    public GameObject anchor;
+
     public void Hook(GamePawn user, GamePawn target, Direction dir)
     {
-        Tile hookTile = target.GetTile().GetNeighbours(dir);
 
+        Tile hookTile = target.GetTile().GetNeighbours(dir);
         Sequence s = DOTween.Sequence();
 
+        GameObject.Instantiate(anchor, user.transform.position + Vector3.up, Quaternion.identity);
+
+        s.Append(anchor.transform.DOMove(target.transform.position + Vector3.up, .3f))
+            .SetEase(Ease.Linear);
+
         //Play vertical Anim
-        s.Append(transform.DOMove(hookTile.transform.position + new Vector3(0, hookTile.transform.localScale.y, 0), 0.3f)
+        s.Append(target.transform.DOMove(hookTile.transform.position + new Vector3(0, hookTile.transform.localScale.y, 0), 0.3f)
             .SetEase(Ease.Linear)
             .OnComplete(() =>
             {

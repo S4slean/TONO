@@ -50,11 +50,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(introductionDuration);
 
-        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
-
         UI_Manager.instance.timelinePanel.SetUpIcons();
         UI_Manager.instance.messagePanel.SetUI();
         UI_Manager.instance.pausePanel.SetUI();
+
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
 
         StartBombardmentTurn();
     }
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         UI_Manager.instance.actionPanel.ResetPanelAction();
         UI_Manager.instance.gunPanel.SetUpBullet();
-        UI_Manager.instance.characterInfoPanel.SetUpCharacterInfo();
+        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
         UI_Manager.instance.endTurnPanel.SetUI();
 
         UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);

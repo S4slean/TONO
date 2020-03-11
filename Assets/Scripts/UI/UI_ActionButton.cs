@@ -7,7 +7,8 @@ using TMPro;
 public class UI_ActionButton : MonoBehaviour
 {
     [Header("Skill Reference")]
-    public Skill actionSkill;
+    [HideInInspector] public Skill actionSkill;
+    public UI_ActionPanelBehaviour actionPanel;
 
     [Header("Prefab References")]
     public GameObject paCostPrefab;
@@ -27,6 +28,8 @@ public class UI_ActionButton : MonoBehaviour
     public TextMeshProUGUI tooltipName;
 
     [Header("Tooltip Animation")]
+    public Animator animator;
+
     public AnimationCurve tooltipCurve;
     public float animTime = 0;
     private float currentTime = 0;
@@ -53,6 +56,21 @@ public class UI_ActionButton : MonoBehaviour
             TooltipAnimation();
     }
 
+
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
+    }
 
     /// <summary>
     /// Assign skill values to its corresponding button
@@ -122,12 +140,13 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
+        actionPanel.selectedAction = this;
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
 
     private void CheckSkillCondition()
     {
-        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null || actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
         {
             actionImage.sprite = actionSkill.unenabledSprite;
         }
@@ -140,15 +159,17 @@ public class UI_ActionButton : MonoBehaviour
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {
                 actionSkill = PlayerManager.instance.playerCharacter.reloadSkill;
-                tooltipName.text = actionSkill.skillName;
-                tooltipDescription.text = actionSkill.description;
             }
             else
             {
                 actionSkill = PlayerManager.instance.playerCharacter.gunShotSkill;
-                tooltipName.text = actionSkill.skillName;
-                tooltipDescription.text = actionSkill.description;
             }
+
+            SetUpTooltip();
+        }
+        else
+        {
+            SetUpTooltip();
         }
     }
 

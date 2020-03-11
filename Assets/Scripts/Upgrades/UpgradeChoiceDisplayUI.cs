@@ -15,8 +15,6 @@ public class UpgradeChoiceDisplayUI : MonoBehaviour
     public void ButtonClicked()
     {
         UpgradesManager.Instance.PickUpgrade(this);
-
-
     }
 
     public void Initialize(UpgradeData data)

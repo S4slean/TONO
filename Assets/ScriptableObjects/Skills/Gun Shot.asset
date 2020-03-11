@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669d1a1dda6cbbd4bbe6e385d0a8bb96, type: 3}
   m_Name: Gun Shot
   m_EditorClassIdentifier: 
-  skillName: GunShot
-  description: 
+  skillName: GunSh0t
+  description: Shoot
   cost: 2
   damage: 0
   rangeType: 1
   range: 0
-  enabledSprite: {fileID: 0}
-  unenabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 2879838874169369069, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}
+  unenabledSprite: {fileID: 2879838874169369069, guid: e40d5442edc65e343ad1706b85c2c5f5,
+    type: 3}

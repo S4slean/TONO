@@ -7,23 +7,35 @@ public class UI_EndTurn : Panel_Behaviour
 {
     [Header("End Turn References")]
     public Image endTurnImage;
-    public Button endTurnButton;
-
+    public bool canEndTurn;
+    public Animator animator;
 
 
     private void Update()
     {
         MovePanel();
-        
     }
 
 
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
+    }
+
     public void EndTurn()
     {
-        Debug.Log("Click");
         GameManager.Instance.CheckIfCompleted(true);
-        Debug.Log("End AFTER");
-        endTurnButton.interactable = false;
+        canEndTurn = false;
     }
 
     public void SetUI()
@@ -34,18 +46,18 @@ public class UI_EndTurn : Panel_Behaviour
 
     public override void HidePanel()
     {
-        endTurnButton.interactable = false;
+        canEndTurn = false;
         base.HidePanel();
     }
 
     public override void ShowPanel()
     {
-        endTurnButton.interactable = true;
         base.ShowPanel();
     }
 
     public override void MovePanel()
     {
+        canEndTurn = true;
         base.MovePanel();
     }
 }
