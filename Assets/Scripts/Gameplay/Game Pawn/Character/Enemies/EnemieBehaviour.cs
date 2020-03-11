@@ -7,6 +7,8 @@ public class EnemieBehaviour : GamePawn
 {
     public EnemyData enemyStats;
     public Animator anim;
+    public GameObject defaultVisual;
+    public GameObject buffedVisual;
 
 
     public int health = 1;
@@ -379,7 +381,17 @@ public class EnemieBehaviour : GamePawn
     public override void Die()
     {
         anim.SetTrigger("Death");
+        EnemyManager.instance.enemyList.Remove(this);
+        GameManager.Instance.CheckIfCompleted(false);
         base.Die();
 
     }
+
+    public void SwapVisual()
+    {
+        defaultVisual.SetActive(!defaultVisual.activeSelf);
+        buffedVisual.SetActive(!buffedVisual.activeSelf);
+    }
+
+
 }
