@@ -18,7 +18,7 @@ public enum HoverMode
     NoHover,
     MovePath,
     GunShotHover,
-    ThrowElementHover,
+    MeleeHover,
     Bombardment,
     KickHover
 }
@@ -147,10 +147,11 @@ public class PlayerManager : MonoBehaviour
                         BombardmentManager.Instance.PlaceBarrelMarker(currentHoveredTile);
                 }
                 break;
-            case HoverMode.ThrowElementHover:
+            case HoverMode.MeleeHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-
+                    if (currentHoveredTile.isClickable)
+                        SkillManager.instance.currentActiveSkill.Activate(playerCharacter, currentHoveredTile);
                 }
                 break;
         }
@@ -211,13 +212,16 @@ public class PlayerManager : MonoBehaviour
     public void ThrowElementSkill()
     {
         GridManager.instance.AllTilesBecameNotClickable();
-        if (hoverMode != HoverMode.ThrowElementHover)
+        if (SkillManager.instance.currentActiveSkill is ThrowElement)
         {
-            hoverMode = HoverMode.ThrowElementHover;
-            playerCharacter.HideMoveRange();
+            hoverMode = HoverMode.MovePath;
+            SkillManager.instance.currentActiveSkill = null;
         }
         else
-            hoverMode = HoverMode.MovePath;
+        {
+            hoverMode = HoverMode.MeleeHover;
+            playerCharacter.HideMoveRange();
+        }
 
         Skill throwElement = null;
         foreach (Skill skill in playerCharacter.skills)

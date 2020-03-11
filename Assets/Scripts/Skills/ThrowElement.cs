@@ -15,11 +15,16 @@ public class ThrowElement : Skill
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
             SkillManager.instance.ThrowProjectile(user, target.GetPawnOnTile(), projectilePrefab, damage);
+        }else if(user is PlayerCharacter)
+        {
+            PlayerCharacter player = (PlayerCharacter)user;
+            SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
         }
     }
 
     public override void Preview(GamePawn user)
     {
+        base.Preview(user);
         List<Tile> tilesToHighlight = HasAvailableTarget(user);
 
         if(tilesToHighlight.Count > 0)

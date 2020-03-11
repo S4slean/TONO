@@ -31,7 +31,7 @@ public class Free : Tile
                     rend.material = Highlight_Manager.instance.hoverMat;
                 }
                 break;
-            case HoverMode.ThrowElementHover:
+            case HoverMode.MeleeHover:
                 if (isClickable)
                 {
                     PlayerManager.instance.currentHoveredTile = this;
@@ -64,7 +64,7 @@ public class Free : Tile
                     rend.material = oldMaterial;
                 }
                 break;
-            case HoverMode.ThrowElementHover:
+            case HoverMode.MeleeHover:
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;

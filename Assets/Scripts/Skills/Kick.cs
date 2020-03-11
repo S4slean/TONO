@@ -29,6 +29,7 @@ public class Kick : Skill
 
     public override void Preview(GamePawn user)
     {
+        base.Preview(user);
         List<Tile> tilesToHighlight = HasAvailableTarget(user);
 
         if (tilesToHighlight.Count > 0)

@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class PlayerCharacter : GamePawn
 {
-
+    [Header("References")]
+    public Transform LiftPawnSocket;
     //LOGIC
     public Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineUp = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineRight = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineDown = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
 
     //Stats
@@ -76,7 +77,7 @@ public class PlayerCharacter : GamePawn
 
     public override void SetDestination(Tile destination, bool showHighlight = false)
     {
-        print(destination);
+        //print(destination);
         base.SetDestination(destination, showHighlight);
         HideMoveRange();
         InitializeAllSkillRange(destination);
