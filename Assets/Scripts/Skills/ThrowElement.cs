@@ -90,4 +90,56 @@ public class ThrowElement : Skill
         return tilesToHighlight;
     }
 
+    public void ThrowPreview(GamePawn user, GamePawn liftedPawn)
+    {
+        List<Tile> tilesToHighlight = new List<Tile>();
+        Tile playerTile = user.GetTile();
+
+        if (liftedPawn is EnemieBehaviour)
+        {
+            //UP
+            if(IsAvailableTile(playerTile.neighbours.up))
+                tilesToHighlight.Add(playerTile.neighbours.up);
+            //RIGHT
+            if(IsAvailableTile(playerTile.neighbours.right))
+                tilesToHighlight.Add(playerTile.neighbours.right);
+            //DOWN
+            if(IsAvailableTile(playerTile.neighbours.down))
+                tilesToHighlight.Add(playerTile.neighbours.down);
+            //LEFT
+            if(IsAvailableTile(playerTile.neighbours.left))
+                tilesToHighlight.Add(playerTile.neighbours.left);
+        }
+        else if(liftedPawn is Barrel || liftedPawn is Box)
+        {
+            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2*Vector3.up, ((range - 1)*Vector3.forward)+((range - 1) * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
+            foreach(RaycastHit hit in hits)
+            {
+                Tile tile = hit.transform.GetComponent<Tile>();
+                if (IsAvailableTile(tile))
+                {
+                    tilesToHighlight.Add(tile);
+                }
+            }
+            Debug.Log("THROW PREVIEW : " + tilesToHighlight.Count);
+        }
+
+
+        Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID());
+        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
+        PlayerManager.instance.hoverMode = HoverMode.ThrowHover;
+    }
+
+    public bool IsAvailableTile(Tile tile)
+    {
+        if (tile != null && !(tile is Wall) && !(tile is Water) && tile.GetPawnOnTile() == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

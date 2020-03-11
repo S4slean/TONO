@@ -19,6 +19,7 @@ public class PlayerCharacter : GamePawn
     [HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
 
+    [HideInInspector] public GamePawn liftedPawn;
 
     //Skills
     [Header("Skills")]
