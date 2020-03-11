@@ -116,7 +116,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
         lifePart = (float)lifeBarRect.sizeDelta.x / ((float)playerStats.startingLP + 1f);
         float decal = lifePart * 0.75f;
 
-        for (int i = 0; i < playerStats.startingLP; i++)
+        for (int i = 0; i < playerStats.startingLP - 1; i++)
         {
             GameObject obj = Instantiate(lifeLimitPrefab, Vector3.zero, Quaternion.identity, lifeParentRect.gameObject.transform);
             RectTransform limitRect = obj.GetComponent<RectTransform>();

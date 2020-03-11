@@ -68,8 +68,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void CheckAndRefreshActionUI(int currentPA)
     {
+        CheckGunShotException();
         CheckPlayerPA(currentPA);
-        CheckSkillCondition();
     }
 
     public void ShowTooltip()
@@ -140,6 +140,14 @@ public class UI_ActionButton : MonoBehaviour
 
     private void CheckSkillCondition()
     {
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        {
+            actionImage.sprite = actionSkill.unenabledSprite;
+        }
+    }
+
+    public void CheckGunShotException()
+    {
         if (actionSkill is GunShot)
         {
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
@@ -148,12 +156,12 @@ public class UI_ActionButton : MonoBehaviour
                 tooltipName.text = actionSkill.skillName;
                 tooltipDescription.text = actionSkill.description;
             }
-
-            return;
-        }
-        else
-        {
-
+            else
+            {
+                actionImage.sprite = UI_Manager.instance.uiPreset.shootImage;
+                tooltipName.text = actionSkill.skillName;
+                tooltipDescription.text = actionSkill.description;
+            }
         }
     }
 
@@ -181,6 +189,7 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.enabledSprite;
+            CheckSkillCondition();
         }
     }
 
