@@ -156,14 +156,14 @@ public class PlayerManager : MonoBehaviour
             case HoverMode.MeleeHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (currentHoveredTile.isClickable)
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
                         SkillManager.instance.currentActiveSkill.Activate(playerCharacter, currentHoveredTile);
                 }
                 break;
             case HoverMode.ThrowHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (currentHoveredTile.isClickable)
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
                         SkillManager.instance.ThrowElement(playerCharacter, playerCharacter.liftedPawn, currentHoveredTile);
                 }
                 break;
@@ -183,6 +183,8 @@ public class PlayerManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        playerCharacter.currentPM = playerStats.playerStats.startingMP;
+        playerCharacter.currentPA = playerStats.playerStats.startingAP;
         hoverMode = HoverMode.MovePath;
         playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
     }

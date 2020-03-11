@@ -105,7 +105,7 @@ public class ThrowElement : Skill
         }
         else if(liftedPawn is Barrel || liftedPawn is Box)
         {
-            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2*Vector3.up, ((range - 1)*Vector3.forward)+((range - 1) * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
+            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2 * Vector3.up, ((range - 1) * Vector3.forward) + ((range - 1) * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
             foreach(RaycastHit hit in hits)
             {
                 Tile tile = hit.transform.GetComponent<Tile>();
@@ -114,9 +114,8 @@ public class ThrowElement : Skill
                     tilesToHighlight.Add(tile);
                 }
             }
-            Debug.Log("THROW PREVIEW : " + tilesToHighlight.Count);
         }
-
+        Debug.Log("THROW PREVIEW : " + tilesToHighlight.Count);
 
         Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID());
         user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));

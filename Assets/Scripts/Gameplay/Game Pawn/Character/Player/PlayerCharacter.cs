@@ -99,7 +99,7 @@ public class PlayerCharacter : GamePawn
             }
 
             currentPM -= path.Count;
-            print(currentPM);
+            //print(currentPM);
 
             UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
             //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
