@@ -24,6 +24,8 @@ public class MapBoat : MonoBehaviour
 
     }
 
+    
+
     public void FaceDirection()
     {
         if(currentPathIndex >= BoatPath.Instance.bezierPath.Length-1)
@@ -58,6 +60,8 @@ public class MapBoat : MonoBehaviour
 
     private void Update()
     {
+
+
         if (!moving) return;
 
         Move();
