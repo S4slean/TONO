@@ -50,11 +50,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(introductionDuration);
 
-        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
-
         UI_Manager.instance.timelinePanel.SetUpIcons();
         UI_Manager.instance.messagePanel.SetUI();
         UI_Manager.instance.pausePanel.SetUI();
+
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
 
         StartBombardmentTurn();
     }
