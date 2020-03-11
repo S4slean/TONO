@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         UI_Manager.instance.actionPanel.ResetPanelAction();
         UI_Manager.instance.gunPanel.SetUpBullet();
-        UI_Manager.instance.characterInfoPanel.SetUpCharacterInfo();
+        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
         UI_Manager.instance.endTurnPanel.SetUI();
 
         UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
