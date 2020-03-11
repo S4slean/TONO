@@ -9,22 +9,15 @@ public class ThrowElement : Skill
 
     public override void Activate(GamePawn user, Tile target)
     {
-        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
-        if (user is EnemieBehaviour)
-        {
-            EnemieBehaviour enemy = (EnemieBehaviour)user;
-            enemy.actionPoints -= cost;
-            SkillManager.instance.ThrowProjectile(user, target.GetPawnOnTile(), projectilePrefab, damage);
-        }else if(user is PlayerCharacter)
-        {
-            PlayerCharacter player = (PlayerCharacter)user;
-            SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
-        }
+
+        PlayerCharacter player = (PlayerCharacter)user;
+        SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
+
     }
 
     public override void Preview(GamePawn user)
     {
-        if(HasAvailableTarget(user).Count > 0)
+        if (HasAvailableTarget(user).Count > 0)
         {
             PlayerManager playerManager = PlayerManager.instance;
             PlayerCharacter player = playerManager.playerCharacter;

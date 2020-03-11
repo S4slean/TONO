@@ -27,6 +27,7 @@ public class PlayerCharacter : GamePawn
     public ThrowElement throwElementSkill;
     public Jump jumpSkill;
     public GunShot gunShotSkill;
+    public Reload reloadSkill;
 
     //Stats
     [Header("Stats")]
