@@ -8,8 +8,6 @@ public class PlayerCharacter : GamePawn
     [Header("References")]
     public Transform LiftPawnSocket;
     //LOGIC
-    public Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
-
     [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
     [HideInInspector] 
@@ -20,6 +18,14 @@ public class PlayerCharacter : GamePawn
     public List<Tile> lineDown = new List<Tile>();
     [HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
+
+
+    //Skills
+    [Header("Skills")]
+    public Kick kickSkill;
+    public ThrowElement throwElementSkill;
+    public Jump jumpSkill;
+    public GunShot gunShotSkill;
 
     //Stats
     [Header("Stats")]
@@ -40,10 +46,7 @@ public class PlayerCharacter : GamePawn
         base.Start();
         StartCoroutine(Init());
 
-        foreach (Skill skill in skills)
-        {
-            activatedSkill.Add(skill.skillName, false);
-        }
+        skills.AddRange(new List<Skill> { kickSkill, throwElementSkill, jumpSkill, gunShotSkill});
     }
 
     IEnumerator Init()
@@ -78,7 +81,50 @@ public class PlayerCharacter : GamePawn
     public override void SetDestination(Tile destination, bool showHighlight = false)
     {
         //print(destination);
-        base.SetDestination(destination, showHighlight);
+        //print("Destination : " + destination.transform.position);
+        List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
+
+        if (path.Count != 0)
+        {
+            int highlightPathID = -1;
+
+            if (showHighlight)
+            {
+                Highlight_Manager.instance.HideAllHighlight();
+                highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+            }
+
+            currentPM -= path.Count;
+            print(currentPM);
+
+            UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+            //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+
+            Sequence s = DOTween.Sequence();
+            foreach (Tile tile in path)
+            {
+                s.Append(transform.DOMove(tile.transform.position + new Vector3(0, tile.transform.localScale.y, 0), 0.3f)
+                    .SetEase(Ease.Linear)
+                    .OnComplete(() =>
+                    {
+                        associatedTile.SetPawnOnTile(null);
+                        associatedTile = tile;
+                        associatedTile.SetPawnOnTile(this);
+                        if (tile.highlighted)
+                        {
+                            associatedTile.rend.material = associatedTile.defaultMaterial;
+                            associatedTile.highlighted = false;
+                        }
+                    }));
+            }
+
+            s.OnComplete(() =>
+            {
+                if (highlightPathID > -1)
+                    Highlight_Manager.instance.HideHighlight(highlightPathID);
+                EndAction();
+            });
+        }
 
         HideMoveRange();
         InitializeAllSkillRange(destination);
@@ -87,20 +133,6 @@ public class PlayerCharacter : GamePawn
     public void SetPlayerTile(Tile newTile)
     {
         associatedTile = newTile;
-    }
-
-    public void ShowSkillPreview(Skill skill)
-    {
-        if (activatedSkill[skill.skillName])
-        {
-            Highlight_Manager.instance.HideHighlight(skillPreviewID);
-            activatedSkill[skill.skillName] = false;
-        }
-        else
-        {
-            skill.Preview(this);
-            activatedSkill[skill.skillName] = true;
-        }
     }
 
     public void ShowMoveRange()
@@ -125,7 +157,7 @@ public class PlayerCharacter : GamePawn
         {
             tile.isClickable = false;
         }
-        print(currentPM);
+        //print(currentPM);
         moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, currentPM, false);
         foreach (Tile tile in moveRange)
         {

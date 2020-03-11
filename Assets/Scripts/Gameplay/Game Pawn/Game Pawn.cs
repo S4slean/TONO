@@ -84,9 +84,10 @@ public class GamePawn : MonoBehaviour
                 if(this is PlayerCharacter)
                 {
                     PlayerManager.instance.playerCharacter.currentPM -= path.Count;
+                    print(PlayerManager.instance.playerCharacter.currentPM);
 
                     UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
-                    UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+                    //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
                 }
             }
 

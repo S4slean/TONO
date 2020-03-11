@@ -27,7 +27,7 @@ public class Skill : ScriptableObject
             enemy.actionPoints -= cost; 
         }
 
-        UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PA, cost);
+        //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PA, cost);
 
         user.EndAction();
     }

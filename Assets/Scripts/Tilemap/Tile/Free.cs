@@ -57,6 +57,7 @@ public class Free : Tile
                         player.HideMoveRange();
                     }
                     Highlight_Manager.instance.HideHighlight(previewID, null, false);
+                    UI_Manager.instance.characterInfoPanel.ResetCharacterInfo(UI_SelectedCharacterInfo.Stats.PM);
                     PlayerManager.instance.currentHoveredTile = null;
                 }
                 break;
