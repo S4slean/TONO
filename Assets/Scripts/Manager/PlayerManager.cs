@@ -20,7 +20,7 @@ public enum HoverMode
     GunShotHover,
     MeleeHover,
     Bombardment,
-    KickHover
+    ThrowHover
 }
 
 public class PlayerManager : MonoBehaviour
@@ -158,6 +158,13 @@ public class PlayerManager : MonoBehaviour
                 {
                     if (currentHoveredTile.isClickable)
                         SkillManager.instance.currentActiveSkill.Activate(playerCharacter, currentHoveredTile);
+                }
+                break;
+            case HoverMode.ThrowHover:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (currentHoveredTile.isClickable)
+                        SkillManager.instance.ThrowElement(playerCharacter, playerCharacter.liftedPawn, currentHoveredTile);
                 }
                 break;
         }
