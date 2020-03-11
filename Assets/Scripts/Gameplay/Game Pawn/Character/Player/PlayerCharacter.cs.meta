@@ -3,7 +3,15 @@ guid: dfe653fe071979848a38af293a035b13
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - associatedTile: {instanceID: 0}
+  - LiftPawnSocket: {instanceID: 0}
+  - liftedPawn: {instanceID: 0}
+  - kickSkill: {instanceID: 0}
+  - throwElementSkill: {instanceID: 0}
+  - jumpSkill: {instanceID: 0}
+  - gunShotSkill: {instanceID: 0}
+  - reloadSkill: {fileID: 11400000, guid: 6cdbe49fa56a64a48a874dd7d50187da, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
