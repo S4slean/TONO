@@ -27,6 +27,8 @@ public class UI_ActionButton : MonoBehaviour
     public TextMeshProUGUI tooltipName;
 
     [Header("Tooltip Animation")]
+    public Animator animator;
+
     public AnimationCurve tooltipCurve;
     public float animTime = 0;
     private float currentTime = 0;
@@ -54,14 +56,28 @@ public class UI_ActionButton : MonoBehaviour
     }
 
 
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
+    }
+
     /// <summary>
     /// Assign skill values to its corresponding button
     /// </summary>
     /// <param name="skill">Button skill</param>
     public void SetUpTooltip()
     {
-        this.gameObject.name = actionSkill.skillName;
-        backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
+        //this.gameObject.name = actionSkill.skillName;
         tooltipName.text = actionSkill.skillName;
         tooltipDescription.text = actionSkill.description;
     }
@@ -128,7 +144,7 @@ public class UI_ActionButton : MonoBehaviour
 
     private void CheckSkillCondition()
     {
-        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null ||  actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
         {
             actionImage.sprite = actionSkill.unenabledSprite;
         }
@@ -138,6 +154,8 @@ public class UI_ActionButton : MonoBehaviour
     {
         if (actionSkill is GunShot)
         {
+            Debug.Log("is GUNSHOT");
+
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {
                 actionSkill = PlayerManager.instance.playerCharacter.reloadSkill;
@@ -177,8 +195,9 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.enabledSprite;
-            CheckSkillCondition();
         }
+
+        CheckSkillCondition();
     }
 
     private void TooltipAnimation()
