@@ -78,6 +78,7 @@ public class Free : Tile
                     rend.material = oldMaterial;
                 }
                 break;
+            case HoverMode.ThrowHover:
             case HoverMode.MeleeHover:
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {

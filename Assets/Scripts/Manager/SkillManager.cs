@@ -78,9 +78,12 @@ public class SkillManager : MonoBehaviour
 
     public void LiftPawn(PlayerCharacter user, GamePawn target)
     {
+        target.SetTile(null);
+        user.liftedPawn = target;
         Sequence s = DOTween.Sequence();
         s.Append(target.transform.DOMove(user.LiftPawnSocket.position, 0.3f))
          .SetEase(Ease.OutCubic);
+        user.throwElementSkill.ThrowPreview(user, target);
     }
 
     public void ReloadGun()
@@ -119,9 +122,17 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    public void ThrowElement()
+    public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
     {
+        user.liftedPawn = null;
+        Sequence s = DOTween.Sequence();
 
+        s.Append(pawnToThrow.transform.DOMove(target.transform.position, 1f))
+         .SetEase(Ease.OutCubic)
+         .OnComplete(() => {
+             pawnToThrow.SetTile(target);
+             PlayerManager.instance.hoverMode = HoverMode.MovePath;
+             });
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)
