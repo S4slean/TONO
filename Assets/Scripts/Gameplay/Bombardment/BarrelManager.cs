@@ -28,13 +28,16 @@ public class BarrelManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             Barrel newBarrel = Instantiate(barrel, transform).GetComponent<Barrel>();
-            newBarrel.gameObject.SetActive(false);
-            barrelPool.Enqueue(newBarrel);
+            Repool(newBarrel);
         }
     }
     
     public GameObject GetBarrel(RangeType rangeType)
     {
+        if(barrelPool.Count < 1)
+        {
+            FillBarrelPool();
+        }
         Barrel newBarrel = barrelPool.Dequeue();
         BarrelType type = config.barrelTypes[0];
         for(int i = 0; i < config.barrelTypes.Length; i++)
@@ -47,5 +50,11 @@ public class BarrelManager : MonoBehaviour
         }
         newBarrel.Initialize(type);
         return newBarrel.gameObject;    
+    }
+
+    public void Repool(Barrel barrel)
+    {
+        barrelPool.Enqueue(barrel);
+        barrel.gameObject.SetActive(false);
     }
 }

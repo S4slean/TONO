@@ -43,6 +43,11 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
 
 
 
+    private void Start()
+    {
+        //SetUpCharacterInfo();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -108,20 +113,17 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
 
         //Set number of life parts
         RectTransform lifeBarRect = lifeBarBackground.gameObject.GetComponent<RectTransform>();
-        lifePart = (float)lifeBarRect.sizeDelta.x / (float)playerStats.startingLP;
-        float lifeSizeX = (lifeBarRect.sizeDelta.x * 0.5f) * -1f;
+        lifePart = (float)lifeBarRect.sizeDelta.x / ((float)playerStats.startingLP + 1f);
+        float decal = lifePart * 0.75f;
 
         for (int i = 0; i < playerStats.startingLP; i++)
         {
-            if (i == 0 || i == playerStats.startingLP)
-                continue;
-
             GameObject obj = Instantiate(lifeLimitPrefab, Vector3.zero, Quaternion.identity, lifeParentRect.gameObject.transform);
             RectTransform limitRect = obj.GetComponent<RectTransform>();
             Image image = obj.GetComponent<Image>();
 
             image.sprite = UI_Manager.instance.uiPreset.lifeBarLimitImage;
-            limitRect.anchoredPosition3D = new Vector3(lifeSizeX + lifePart * i, 0, 0);
+            limitRect.anchoredPosition3D = new Vector3(decal + lifePart * i, -21.5f, 0);
         }
 
         float lifeAmount = (float)playerCharacter.currentLife / (float)playerStats.startingLP;
