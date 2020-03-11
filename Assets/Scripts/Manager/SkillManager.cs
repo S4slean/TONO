@@ -71,7 +71,7 @@ public class SkillManager : MonoBehaviour
     public void ThrowProjectile(GamePawn user, GamePawn target, GameObject projectile, int dmg)
     {
        
-        GameObject instance = Instantiate(projectile, user.transform.position, Quaternion.identity);
+        GameObject instance = Instantiate(projectile, user.transform.position + Vector3.up, Quaternion.identity);
         instance.GetComponent<Projectiles>().Throw(target, user, dmg);
        
     }
