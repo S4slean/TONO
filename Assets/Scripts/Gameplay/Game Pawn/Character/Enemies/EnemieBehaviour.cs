@@ -371,6 +371,11 @@ public class EnemieBehaviour : GamePawn
         return Random.Range(0, 100) < threshold;
     }
 
+    public override void ReceiveDamage(int dmg)
+    {
+        Die();
+    }
+
     public override void Die()
     {
         anim.SetTrigger("Death");
