@@ -15,6 +15,20 @@ public class Barrel : GamePawn
         base.Start();
     }
 
+    public override void OnEnable()
+    {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
+        //print(name +" tile : " + hit.transform.name);
+        if (hit.transform == null) return;
+        associatedTile = hit.transform.GetComponent<Tile>();
+        if(associatedTile.GetPawnOnTile() != null)
+        {
+            Explode();
+        }
+        associatedTile.SetPawnOnTile(this);
+    }
+
     public GameObject[] graphics;
 
     public void Initialize(BarrelType type)
@@ -111,6 +125,9 @@ public class Barrel : GamePawn
     public virtual void Explode()
     {
         explosionSkill.Activate(this, GetTile());
+        Debug.Log("Boom");
+        BarrelManager.Instance.Repool(this);
+        
     }
 
     public override void ReceiveDamage(int dmg)

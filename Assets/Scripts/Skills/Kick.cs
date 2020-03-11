@@ -23,6 +23,7 @@ public class Kick : Skill
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
+            enemy.anim.SetTrigger("Kick");
         }
         
     }
