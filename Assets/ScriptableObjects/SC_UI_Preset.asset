@@ -22,17 +22,14 @@ MonoBehaviour:
   pmImage: {fileID: 21300000, guid: 00a0b7cfc88f4db48bef4191133818ec, type: 3}
   unusedPM: {fileID: 21300000, guid: ec5a6b8146074e7448a416ded3dfcf25, type: 3}
   usedPM: {fileID: 21300000, guid: a003583c914bdc545bf2b2e6a9cca4c4, type: 3}
-  barrel_Round: {fileID: -6698789401159455151, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
+  barrel_Round: {fileID: 21300000, guid: 17051007a2bfbda4296607d0c24f8337, type: 3}
   barrel_Default: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
     type: 3}
-  barrel_Plus: {fileID: -6317825017859778240, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
-  barrel_Cross: {fileID: -6317825017859778240, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
-  barrel_Mystery: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  stick: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  playerPortait: {fileID: 21300000, guid: 3ba94c0f1c2151a479b019b62fc38360, type: 3}
+  barrel_Plus: {fileID: 21300000, guid: b51beab15979b57458785edbc96dcecb, type: 3}
+  barrel_Cross: {fileID: 21300000, guid: 7ab9375963519f447954089a47c0098f, type: 3}
+  barrel_Mystery: {fileID: 21300000, guid: 8c936c50dc9500541a1eff0b148c9f0c, type: 3}
+  stick: {fileID: 21300000, guid: 47edac5b3fce6424a9f464374e3df730, type: 3}
+  playerPortait: {fileID: 21300000, guid: f4909bb8f2393d843818965b4b8982a5, type: 3}
   boatPortait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   moussaillonImage: {fileID: 21300000, guid: 79632f862b2903f438f6445d5347a65d, type: 3}
   captainImage: {fileID: 21300000, guid: 5a0d326da15d4cd4aa1c1087daf76754, type: 3}

@@ -61,7 +61,6 @@ public class UI_ActionButton : MonoBehaviour
     public void SetUpTooltip()
     {
         this.gameObject.name = actionSkill.skillName;
-        backgroundImage.sprite = UI_Manager.instance.uiPreset.skillBackgroundImage;
         tooltipName.text = actionSkill.skillName;
         tooltipDescription.text = actionSkill.description;
     }
@@ -177,8 +176,9 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.enabledSprite;
-            CheckSkillCondition();
         }
+
+        CheckSkillCondition();
     }
 
     private void TooltipAnimation()

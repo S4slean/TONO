@@ -122,8 +122,8 @@ public class UI_Portrait : MonoBehaviour
     /// <param name="selectedIndex"></param>
     public void MoveSelectedIcon()
     {
-        if (isMoving || isSelected)
-            return;
+        isSelected = false;
+        isMoving = false;
 
         current = portraitRect.anchoredPosition3D.y;
         float nextValue = 0;
