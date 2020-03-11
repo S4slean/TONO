@@ -59,7 +59,7 @@ public class UI_Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            characterInfoPanel.CreateAndSetAllCharacterInfo();
+            characterInfoPanel.ResetAllCharacterInfo();
             actionPanel.ResetPanelAction();
             SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
         }
