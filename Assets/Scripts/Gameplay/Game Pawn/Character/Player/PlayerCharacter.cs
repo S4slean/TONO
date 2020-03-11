@@ -19,6 +19,7 @@ public class PlayerCharacter : GamePawn
     [HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
 
+    [HideInInspector] public GamePawn liftedPawn;
 
     //Skills
     [Header("Skills")]
@@ -43,6 +44,8 @@ public class PlayerCharacter : GamePawn
     protected override void Start()
     {
         PlayerManager.instance.playerCharacter = this;
+
+        PlayerManager.instance.AssignPlayerStatsToCharacter();
 
         base.Start();
         StartCoroutine(Init());
@@ -96,7 +99,7 @@ public class PlayerCharacter : GamePawn
             }
 
             currentPM -= path.Count;
-            print(currentPM);
+            //print(currentPM);
 
             UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
             //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);

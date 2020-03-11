@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8302d57d38f5d3f468336a8956f5f2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentActiveSkill: {fileID: 0}
   jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -349,6 +350,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpHeight: 3
+  anchor: {fileID: 3990111356901117202, guid: 0f947d6f22093644c9add8db4d60c8b1, type: 3}
 --- !u!1 &6370869967934870422
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,13 +445,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwElement: 51
   gunShot: 52
+  kick: 50
   showMoveRangeWithPathHighlight: 1
+  currentHoveredTile: {fileID: 0}
   playerCharacter: {fileID: 0}
   cam: {fileID: 0}
   mouseMask:
     serializedVersion: 2
     m_Bits: 1792
   hoverMode: 0
+  playerStats: {fileID: 11400000, guid: 7c337270eb241e448aac0d6eb7af2eef, type: 2}
 --- !u!1 &6370869968600417346
 GameObject:
   m_ObjectHideFlags: 0

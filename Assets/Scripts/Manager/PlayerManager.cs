@@ -20,7 +20,7 @@ public enum HoverMode
     GunShotHover,
     MeleeHover,
     Bombardment,
-    KickHover
+    ThrowHover
 }
 
 public class PlayerManager : MonoBehaviour
@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     //[HideInInspector]
     public Tile currentHoveredTile;
 
-    [HideInInspector]public PlayerCharacter playerCharacter;
+    public PlayerCharacter playerCharacter;
     [HideInInspector]public Camera cam;
     public LayerMask mouseMask;
     //[HideInInspector]
@@ -46,6 +46,10 @@ public class PlayerManager : MonoBehaviour
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
+
+    public PlayerStatsConfig playerStats;
+
+
 
     public void Awake()
     {
@@ -61,7 +65,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Start()
     {
-
+        
     }
 
     public void Update()
@@ -152,16 +156,35 @@ public class PlayerManager : MonoBehaviour
             case HoverMode.MeleeHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (currentHoveredTile.isClickable)
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
                         SkillManager.instance.currentActiveSkill.Activate(playerCharacter, currentHoveredTile);
+                }
+                break;
+            case HoverMode.ThrowHover:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
+                        SkillManager.instance.ThrowElement(playerCharacter, playerCharacter.liftedPawn, currentHoveredTile);
                 }
                 break;
         }
 
     }
 
+    public void AssignPlayerStatsToCharacter()
+    {
+        playerCharacter.currentLife = playerStats.playerStats.startingLP;
+        playerCharacter.currentPA = playerStats.playerStats.startingAP;
+        playerCharacter.currentPM = playerStats.playerStats.startingMP;
+        playerCharacter.isGunLoaded = playerStats.playerStats.isGunLoadedAtStart;
+
+        UI_Manager.instance.characterInfoPanel.CreateAndSetAllCharacterInfo();
+    }
+
     public void StartPlayerTurn()
     {
+        playerCharacter.currentPM = playerStats.playerStats.startingMP;
+        playerCharacter.currentPA = playerStats.playerStats.startingAP;
         hoverMode = HoverMode.MovePath;
         playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
     }

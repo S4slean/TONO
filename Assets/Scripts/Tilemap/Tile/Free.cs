@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
+
 
 public class Free : Tile
 {
+
+    [Header("Decal")]
+    public DecalProjector highlightCase;
+    public GameObject ropeUp;
+    public GameObject ropDown;
+    public GameObject ropeRight;
+    public GameObject ropeLeft;
+
     int previewID;
     public override void OnMouseEnter()
     {
@@ -68,6 +78,7 @@ public class Free : Tile
                     rend.material = oldMaterial;
                 }
                 break;
+            case HoverMode.ThrowHover:
             case HoverMode.MeleeHover:
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
