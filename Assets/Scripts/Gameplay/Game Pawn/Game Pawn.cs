@@ -80,6 +80,14 @@ public class GamePawn : MonoBehaviour
             {
                 Highlight_Manager.instance.HideAllHighlight();
                 highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+
+                if(this is PlayerCharacter)
+                {
+                    PlayerManager.instance.playerCharacter.currentPM -= path.Count;
+
+                    UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+                    UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+                }
             }
 
             Sequence s = DOTween.Sequence();
