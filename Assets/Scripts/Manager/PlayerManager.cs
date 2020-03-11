@@ -143,7 +143,7 @@ public class PlayerManager : MonoBehaviour
             case HoverMode.Bombardment:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if(!currentHoveredTile.hasBarrelMarker)
+                    if(currentHoveredTile != null && !(currentHoveredTile is Wall) && !currentHoveredTile.hasBarrelMarker)
                         BombardmentManager.Instance.PlaceBarrelMarker(currentHoveredTile);
                 }
                 break;
