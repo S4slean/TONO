@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669d1a1dda6cbbd4bbe6e385d0a8bb96, type: 3}
   m_Name: Gun Shot
   m_EditorClassIdentifier: 
-  skillName: GunShot
+  skillName: GunSh0t
   description: Shoot
   cost: 2
   damage: 0
