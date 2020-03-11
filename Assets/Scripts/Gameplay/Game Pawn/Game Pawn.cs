@@ -25,6 +25,11 @@ public class GamePawn : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
+        DetectTile();
+    }
+
+    private void DetectTile()
+    {
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, mask);
         //print(name +" tile : " + hit.transform.name);
@@ -32,8 +37,19 @@ public class GamePawn : MonoBehaviour
         associatedTile.SetPawnOnTile(this);
     }
 
-    public virtual void OnMouseEnter() { }
-    public virtual void OnMouseExit() { }
+    public virtual void OnEnable()
+    {
+        DetectTile();
+    }
+
+    public virtual void OnMouseEnter()
+    {
+        GetTile().OnMouseEnter();
+    }
+    public virtual void OnMouseExit()
+    {
+        GetTile().OnMouseExit();
+    }
 
     public Tile GetTile()
     {
@@ -74,6 +90,14 @@ public class GamePawn : MonoBehaviour
             {
                 Highlight_Manager.instance.HideAllHighlight();
                 highlightPathID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight);
+
+                if(this is PlayerCharacter)
+                {
+                    PlayerManager.instance.playerCharacter.currentPM -= path.Count;
+
+                    UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+                    UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
+                }
             }
 
             Sequence s = DOTween.Sequence();

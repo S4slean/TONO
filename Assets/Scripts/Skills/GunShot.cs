@@ -14,8 +14,9 @@ public class GunShot : Skill
     {
         if(user is PlayerCharacter)
         {
+            base.Preview(user);
             PlayerCharacter player = user as PlayerCharacter;
-            user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(player.gunRange, HighlightMode.ActionPreview));
+            user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(player.gunRange, HighlightMode.ActionPreview, true));
         }
     }
 }

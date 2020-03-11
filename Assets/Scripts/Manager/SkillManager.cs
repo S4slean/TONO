@@ -21,6 +21,12 @@ public class SkillManager : MonoBehaviour
 {
 
     public static SkillManager instance;
+    public Skill currentActiveSkill;
+
+    [Header("Skills")]
+    public Skill kickPlayer;
+    public Skill kickEnemies;
+    public Skill throwElement;
 
     private void Start()
     {
@@ -74,6 +80,14 @@ public class SkillManager : MonoBehaviour
         instance.GetComponent<Projectiles>().Throw(target, user, dmg);
        
     }
+
+    public void LiftPawn(PlayerCharacter user, GamePawn target)
+    {
+        Sequence s = DOTween.Sequence();
+        s.Append(target.transform.DOMove(user.LiftPawnSocket.position, 0.3f))
+         .SetEase(Ease.OutCubic);
+    }
+
     public void ReloadGun()
     {
        //anim + son

@@ -33,7 +33,7 @@ public class Highlight_Manager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public int ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode)
+    public int ShowHighlight(List<Tile> tilesToHighlight, HighlightMode highlightMode, bool tilesBecameClickable = false)
     {
         Material highlightMat;
 
@@ -63,12 +63,16 @@ public class Highlight_Manager : MonoBehaviour
         {
             tile.highlighted = true;
             tile.rend.material = highlightMat;
+            if (tilesBecameClickable)
+            {
+                tile.isClickable = true;
+            }
         }
 
         return GenerateNewID(tilesToHighlight);
     }
 
-    public void HideHighlight(int id, Material materialAfterHiding = null)
+    public void HideHighlight(int id, Material materialAfterHiding = null, bool tilesBecameNotClickable = true)
     {
         List<Tile> value = new List<Tile>();
         if (highlights.TryGetValue(id, out value))
@@ -80,6 +84,8 @@ public class Highlight_Manager : MonoBehaviour
                     tile.rend.material = materialAfterHiding;
                 else
                     tile.rend.material = tile.defaultMaterial;
+                if(tilesBecameNotClickable)
+                    tile.isClickable = false;
             }
             //Suppr la liste de highlights
             RemoveHighlight(id);

@@ -11,4 +11,18 @@ public class UpgradeDisplayer : MonoBehaviour
     {
         upgradeData = data;
     }
+
+
+    public bool hovered;
+
+    private void OnMouseEnter()
+    {
+        hovered = true;
+        UpgradesDescriptionDisplayer.Instance.displayedData = upgradeData;
+    }
+
+    private void OnMouseExit()
+    {
+        hovered = false;
+    }
 }

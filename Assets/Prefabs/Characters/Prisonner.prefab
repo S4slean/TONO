@@ -52,6 +52,7 @@ MonoBehaviour:
   skillPreviewID: 0
   skills: []
   enemyStats: {fileID: 11400000, guid: e7005c652d59da949b09709a1aecb6a2, type: 2}
+  anim: {fileID: 5167361045464178729}
   health: 1
   movementPoints: 0
   actionPoints: 0
@@ -135,6 +136,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7985165045746444826}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &5167361045464178729 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2983395280746990131, guid: 17db6ef6e6106ab4cbb671607f6ce576,
+    type: 3}
+  m_PrefabInstance: {fileID: 7985165045746444826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8112904731442732897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,7 +172,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}
@@ -175,7 +182,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}
@@ -190,7 +197,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f411adf84fb946e4993aba4eda59b0c1,
         type: 3}

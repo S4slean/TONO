@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class PlayerCharacter : GamePawn
 {
-
+    [Header("References")]
+    public Transform LiftPawnSocket;
     //LOGIC
     public Dictionary<string, bool> activatedSkill = new Dictionary<string, bool>();
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineUp = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineRight = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineDown = new List<Tile>();
-    //[HideInInspector] 
+    [HideInInspector] 
     public List<Tile> lineLeft = new List<Tile>();
 
     //Stats
@@ -55,6 +56,7 @@ public class PlayerCharacter : GamePawn
     {
         if(PlayerManager.instance.hoverMode == HoverMode.MovePath)
         {
+            base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
             oldMaterial = rend.material;
@@ -66,6 +68,7 @@ public class PlayerCharacter : GamePawn
     {
         if (hovered)
         {
+            base.OnMouseExit();
             hovered = false;
             rend.material = oldMaterial;
             HideMoveRange();
@@ -74,8 +77,9 @@ public class PlayerCharacter : GamePawn
 
     public override void SetDestination(Tile destination, bool showHighlight = false)
     {
-        print(destination);
+        //print(destination);
         base.SetDestination(destination, showHighlight);
+
         HideMoveRange();
         InitializeAllSkillRange(destination);
     }
@@ -101,12 +105,12 @@ public class PlayerCharacter : GamePawn
 
     public void ShowMoveRange()
     {
-        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview));
+        SetPreviewID(Highlight_Manager.instance.ShowHighlight(moveRange, HighlightMode.MoveRangePreview, true));
     }
 
     public void HideMoveRange()
     {
-        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
+        Highlight_Manager.instance.HideHighlight(GetSkillPreviewID(), null, false);
     }
 
     public void ActivateSkill(Skill skill, Tile target)
@@ -121,6 +125,7 @@ public class PlayerCharacter : GamePawn
         {
             tile.isClickable = false;
         }
+        print(currentPM);
         moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, currentPM, false);
         foreach (Tile tile in moveRange)
         {
