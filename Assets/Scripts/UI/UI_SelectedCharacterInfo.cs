@@ -57,7 +57,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
     /// <summary>
     /// Get player character's data (player stats)
     /// </summary>
-    public void SetUpCharacterInfo()
+    public void CreateAndSetAllCharacterInfo()
     {
         lifeBar.sprite = UI_Manager.instance.uiPreset.lifeBarImage;
         lifeBarBackground.sprite = UI_Manager.instance.uiPreset.lifeBarBackgroundImage;

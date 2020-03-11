@@ -177,6 +177,8 @@ public class PlayerManager : MonoBehaviour
         playerCharacter.currentPA = playerStats.playerStats.startingAP;
         playerCharacter.currentPM = playerStats.playerStats.startingMP;
         playerCharacter.isGunLoaded = playerStats.playerStats.isGunLoadedAtStart;
+
+        UI_Manager.instance.characterInfoPanel.CreateAndSetAllCharacterInfo();
     }
 
     public void StartPlayerTurn()
