@@ -103,6 +103,7 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills:
   - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
@@ -115,6 +116,7 @@ MonoBehaviour:
   noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}
+  anim: {fileID: 3761949500075674105}
   graphics:
   - {fileID: 1297307245487854520}
   - {fileID: 7650013952906094851}
