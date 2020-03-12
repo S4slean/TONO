@@ -8,8 +8,10 @@ public class Barrel : GamePawn
     public BarrelType startingExplosionType;
     public bool noStartingInit;
     public bool standing = true;
-    [HideInInspector] public Skill explosionSkill;
+    //[HideInInspector]
+    public Skill explosionSkill;
     private GamePawn _kicker;
+    public Animator anim;
 
     protected override void Start()
     {
@@ -21,17 +23,20 @@ public class Barrel : GamePawn
 
     public override void OnEnable()
     {
+        Debug.Log("Barrel Activate");
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print(name +" tile : " + hit.transform.name);
-        if (hit.transform == null) return;
-        associatedTile = hit.transform.GetComponent<Tile>();
-        if (associatedTile.GetPawnOnTile() != null)
+        Physics.Raycast(transform.position, Vector3.down, out hit, mask, 10);
+        if (hit.transform == null) Debug.Log("Help") ;
+        Debug.Log(" tile : " + hit.transform.name);
+        SetTile(hit.transform.GetComponent<Tile>());
+        if (GetTile().GetPawnOnTile() != null)
         {
-            associatedTile.GetPawnOnTile().Die();
+            GetTile().GetPawnOnTile().ReceiveDamage(1);
         }
 
-        associatedTile.SetPawnOnTile(this);
+        GetTile().SetPawnOnTile(this);
+        anim.Play("Barrel Fall");
+        
 
     }
 
@@ -76,6 +81,26 @@ public class Barrel : GamePawn
 
     public override void OnKicked(GamePawn kicker, int damage, Direction dir)
     {
+        switch (dir)
+        {
+            case Direction.Up:
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+                break;
+
+            case Direction.Right:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                break;
+
+            case Direction.Left:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
+                break;
+
+            case Direction.Down:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                break;
+        }
+
+        anim.SetBool("Rolling", true);
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
         _kicker = kicker;
         SetDestination(path[path.Count - 1]);
@@ -125,7 +150,7 @@ public class Barrel : GamePawn
                 if (highlightPathID > -1)
                     Highlight_Manager.instance.HideHighlight(highlightPathID);
 
-
+                anim.SetBool("Rolling", false);
                 _kicker.EndAction();
                 _kicker = null;
                 EndAction();

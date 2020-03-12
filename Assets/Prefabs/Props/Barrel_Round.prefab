@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5459562697972154321}
+  - component: {fileID: 4601041135779170419}
   m_Layer: 8
   m_Name: Graphic
   m_TagString: Untagged
@@ -33,6 +34,25 @@ Transform:
   m_Father: {fileID: 8923263347291669602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4601041135779170419
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612482679729668397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45bc75fdcf2beb74491f14fd15328a81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4211647077250023432
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +103,7 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills:
   - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
@@ -92,8 +113,10 @@ MonoBehaviour:
     rangeType: 3
     explosionSkill: {fileID: 11400000, guid: 2d5d1e0948c494e4086cc72e7371a338, type: 2}
     graphicsIndex: 0
+  noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}
+  anim: {fileID: 4601041135779170419}
   graphics:
   - {fileID: 1297307245487854520}
   - {fileID: 7650013952906094851}
