@@ -62,6 +62,11 @@ public class GamePawn : MonoBehaviour
             associatedTile.SetPawnOnTile(this);
     }
 
+    public void SetAssociatedTile(Tile newTile)
+    {
+        associatedTile = newTile;
+    }
+
     public int GetSkillPreviewID()
     {
         return skillPreviewID;

@@ -61,7 +61,6 @@ public class UI_Timeline : Panel_Behaviour
         {
             if (replaceCurrentTime < replaceMaxTime)
             {
-                Debug.Log("Rearranginnnnnnnnng");
                 replaceCurrentTime += Time.deltaTime;
                 float percent = replaceIconsCurve.Evaluate(replaceCurrentTime / replaceMaxTime);
 
