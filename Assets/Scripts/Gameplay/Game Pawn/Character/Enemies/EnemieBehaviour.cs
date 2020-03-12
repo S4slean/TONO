@@ -14,6 +14,7 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     [HideInInspector] public int movementPoints = 0;
     [HideInInspector] public int actionPoints = 0;
+    [HideInInspector] public int timelineIndex;
 
 
     protected int rageThreshold = 5;
@@ -55,13 +56,11 @@ public class EnemieBehaviour : GamePawn
 
     public void PlayTurn()
     {
-        Debug.Log(transform.name + "'s Turn");
         _isMyTurn = true;
 
     }
     public virtual void EndTurn()
     {
-        Debug.Log("EndTurn");
         _isDoingSomething = false;
         _isMyTurn = false;
         movementPoints = enemyStats.movement;
@@ -167,6 +166,7 @@ public class EnemieBehaviour : GamePawn
     public bool IsInMeleeRange()
     {
         Tile playerTile = _player.GetTile();
+        DetectTile();
         if (GetTile().neighbours.up == playerTile || GetTile().neighbours.down == playerTile || GetTile().neighbours.left == playerTile || GetTile().neighbours.right == playerTile)
         {
             return true;
@@ -177,17 +177,14 @@ public class EnemieBehaviour : GamePawn
     }
     public void GetClose(Tile tile)
     {
-        Debug.Log("Get Close");
         List<Tile> adjacentTile = tile.GetFreeNeighbours();
         if (adjacentTile.Count > 0)
         {
             Tile destination;
             List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), tile);
-            Debug.Log(path.Count);
             if (path.Count == 0)
             {
                 _isDoingSomething = false;
-                Debug.Log(transform.name + " path was Empty. Destination was " + tile.transform.position);
                 return;
             }
             destination = path[Mathf.Clamp(movementPoints - 1, 0, Mathf.Clamp(path.Count - 2, 0, path.Count - 2))];
@@ -200,7 +197,6 @@ public class EnemieBehaviour : GamePawn
     }
     public void GetInLineSight(Tile target)
     {
-        Debug.Log("Get In Line");
         Tile destination = GetTile();
         if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
         {
@@ -278,7 +274,6 @@ public class EnemieBehaviour : GamePawn
 
             if (!destination.isWalkable || destination.GetPawnOnTile() != null)
             {
-                Debug.Log(transform.name + " destination was not walkable");
                 GetClose(_player.GetTile());
                 return;
             }
@@ -293,7 +288,6 @@ public class EnemieBehaviour : GamePawn
         if (path.Count == 0 || (path.Count == 1 && path[0] == _player.GetTile()))
         {
             _isDoingSomething = false;
-            Debug.Log(transform.name + " path was Empty. Destination was " + destination.transform.position);
             return;
         }
 
@@ -381,6 +375,7 @@ public class EnemieBehaviour : GamePawn
     public override void Die()
     {
         anim.SetTrigger("Death");
+        //UI_Manager.instance.timelinePanel.RemoveCharacterAtIndex();
         EnemyManager.instance.enemyList.Remove(this);
         GameManager.Instance.CheckIfCompleted(false);
         base.Die();

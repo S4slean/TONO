@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3075887623376706926}
   - component: {fileID: 6812347936192759464}
   m_Layer: 8
-  m_Name: Barrel
+  m_Name: Barrel_Plus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
   - {fileID: 11400000, guid: ea636cdc8de20774bbef8da9cc0cf6ed, type: 2}
   - {fileID: 11400000, guid: 2d5d1e0948c494e4086cc72e7371a338, type: 2}
+  startingExplosionType:
+    rangeType: 2
+    explosionSkill: {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
+    graphicsIndex: 2
   standing: 1
   explosionSkill: {fileID: 0}
   graphics:
