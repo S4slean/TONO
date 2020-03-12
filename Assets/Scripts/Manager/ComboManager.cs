@@ -22,15 +22,16 @@ public class ComboManager : MonoBehaviour
         return barrelsInComboPreview.Contains(barrel);
     }
 
-    public List<Tile> AddBarrelToComboPreview(Barrel barrel)
+    public List<Tile> AddBarrelToComboPreview(Barrel barrel, bool usingCombo)
     {
+        //print("ADD BARREL TO COMBO");
         List<Tile> res = new List<Tile>();
         if (!BarrelAlreadyInCombo(barrel))
         {
             barrelsInComboPreview.Add(barrel);
-            res.AddRange(barrel.explosionSkill.GetRange(barrel));
+            res.AddRange(barrel.explosionSkill.GetRange(barrel, usingCombo));
+            //print(res.Count);
         }
-        //print(res.Count);
         return res;
     }
 
