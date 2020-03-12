@@ -25,6 +25,11 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     void Update()
     {
         MovePanel();
+
+        if (Input.GetMouseButtonDown(1) && selectedAction != null)
+        {
+            selectedAction = null;
+        }
     }
 
 
@@ -65,6 +70,10 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
 
             actions.Add(selectedAction);
         }
+
+        selectedAction.actionPanel = this;
+
+        selectedAction = null;
     }
 
     /// <summary>

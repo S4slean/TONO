@@ -9,7 +9,9 @@ public class UI_Timeline : Panel_Behaviour
     public GameObject characterIconPrefab;
     [HideInInspector] public List<UI_Portrait> charactersIcons = new List<UI_Portrait>();
     List<Vector3> iconPositions = new List<Vector3>();
+    public RectTransform charactersPortraitParent;
     public float maxIconsSpacing;
+    float iconSizeref;
 
     [Header("Icon Animations")]
     public AnimationCurve replaceIconsCurve;
@@ -19,6 +21,9 @@ public class UI_Timeline : Panel_Behaviour
     Vector3 currentIconPos;
     Vector3 diffIconPos;
 
+    Vector3 currentPanelPos;
+    Vector3 nextPanelPos;
+    Vector3 diffPanelPos;
 
     List<Vector3> currents;
     List<Vector3> diffs;
@@ -30,6 +35,11 @@ public class UI_Timeline : Panel_Behaviour
     int numberOfIcons = 0;
 
 
+
+    private void Awake()
+    {
+        iconSizeref = characterIconPrefab.GetComponent<RectTransform>().sizeDelta.x * 0.5f;
+    }
 
     void Update()
     {
@@ -59,6 +69,8 @@ public class UI_Timeline : Panel_Behaviour
                 {
                     charactersIcons[i].portraitRect.anchoredPosition3D = new Vector3(currents[i].x + (diffs[i].x * percent), currents[i].y + (diffs[i].y * percent), charactersIcons[i].portraitRect.anchoredPosition3D.z);
                 }
+
+                panelRect.anchoredPosition3D = new Vector3(currentPanelPos.x + (diffPanelPos.x * percent), currentPanelPos.y + (diffPanelPos.y * percent), panelRect.anchoredPosition3D.z);
             }
             else
             {
@@ -79,10 +91,12 @@ public class UI_Timeline : Panel_Behaviour
         //Get the number of characters (knowing that the first one is the BOAT and the last one is the PLAYER)
         numberOfIcons = 2 + EnemyManager.instance.enemyList.Count;
 
+        charactersPortraitParent.anchoredPosition3D = new Vector3(0 - (numberOfIcons * iconSizeref), charactersPortraitParent.anchoredPosition3D.y, 0);
+
         //Get number of characters
         for (int i = 0; i < numberOfIcons; i++)
         {
-            GameObject obj = Instantiate(characterIconPrefab, Vector3.zero, Quaternion.identity, this.transform);
+            GameObject obj = Instantiate(characterIconPrefab, Vector3.zero, Quaternion.identity, charactersPortraitParent);
             UI_Portrait values = obj.GetComponent<UI_Portrait>();
             values.panelRef = this;
             values.indexOrder = i;
@@ -105,22 +119,32 @@ public class UI_Timeline : Panel_Behaviour
                     case EnemyData.EnemyType.Moussaillon:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.moussaillonImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.moussaillonImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        obj.name = "Mousaillon" + i;
                         break;
 
                     case EnemyData.EnemyType.Captain:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.captainImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.captainImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        obj.name = "Captain" + i;
                         break;
 
                     case EnemyData.EnemyType.Kamikaze:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.kamikazeImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.kamikazeImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        obj.name = "Kamikaze" + i;
                         break;
 
                     case EnemyData.EnemyType.Hooker:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.hookerImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.hookerImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        //values.selectedEnnemy.index
+                        obj.name = "Hooker" + i;
                         break;
+
                 }
             }
 
@@ -132,6 +156,8 @@ public class UI_Timeline : Panel_Behaviour
             Vector3 newPos;
             newPos = new Vector3(((values.portraitRect.sizeDelta.x * i) + (maxIconsSpacing * i)), 0, 0);
             values.portraitRect.anchoredPosition3D = newPos;
+            values.normalPos = newPos;
+
 
             //Stock Index Position
             iconPositions.Add(newPos);
@@ -182,6 +208,10 @@ public class UI_Timeline : Panel_Behaviour
         for (int i = 1; i < charactersIcons.Count; i++)
         {
             charactersIcons[i].indexOrder = i;
+
+            if(charactersIcons[i].selectedEnnemy != null)
+                //charactersIcons[i].selectedEnnemy.index
+
             if (charactersIcons[i].isSelected)
                 selectedIcon = charactersIcons[i].indexOrder;
         }
@@ -196,6 +226,12 @@ public class UI_Timeline : Panel_Behaviour
     {
         currents = new List<Vector3>();
         diffs = new List<Vector3>();
+
+        currentPanelPos = charactersPortraitParent.anchoredPosition3D;
+        nextPanelPos = new Vector3(currentPanelPos.x + iconSizeref, currentPanelPos.y + iconSizeref, currentPanelPos.z + iconSizeref);
+        diffPanelPos = new Vector3(nextPanelPos.x - currentPanelPos.x, nextPanelPos.y - currentPanelPos.y, nextPanelPos.z - currentPanelPos.z);
+
+        //Recentrer le panneau
 
         for (int i = 0; i < charactersIcons.Count; i++)
         {
