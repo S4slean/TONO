@@ -78,7 +78,7 @@ public class GamePawn : MonoBehaviour
 
     }
 
-    public virtual void SetDestination(Tile destination, bool showHighlight = false)
+    public virtual void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
