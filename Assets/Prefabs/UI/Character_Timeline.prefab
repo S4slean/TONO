@@ -267,7 +267,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedMaxTime: 0.1
+  selectedMaxTime: 0.15
   removeIconsCurve:
     serializedVersion: 2
     m_Curve:
@@ -301,8 +301,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  removeMaxTime: 0.15
-  removedPos: {x: 0, y: 70, z: 0}
+  removeMaxTime: 0.2
+  removedPos: {x: 0, y: 200, z: 0}
   selectedPos: {x: 0, y: -25, z: 0}
   normalPos: {x: 0, y: 0, z: 0}
   isSelected: 0

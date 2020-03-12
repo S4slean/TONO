@@ -193,6 +193,7 @@ public class PlayerCharacter : GamePawn
     public override void ReceiveDamage(int dmg)
     {
         currentLife = Mathf.Clamp(currentLife - dmg, 0, currentLife);
+        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
         if(currentLife <= 0)
         {
             Die();
@@ -235,5 +236,7 @@ public class PlayerCharacter : GamePawn
         PlayerManager.instance.hoverMode = HoverMode.MovePath;
         InitializeAllSkillRange(GetTile());
     }
+
+    
 
 }

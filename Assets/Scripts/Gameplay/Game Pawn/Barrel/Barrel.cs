@@ -15,8 +15,8 @@ public class Barrel : GamePawn
     {
         base.Start();
 
-        if(!noStartingInit)
-        Initialize(startingExplosionType);
+        if (!noStartingInit)
+            Initialize(startingExplosionType);
     }
 
     public override void OnEnable()
@@ -28,12 +28,11 @@ public class Barrel : GamePawn
         associatedTile = hit.transform.GetComponent<Tile>();
         if (associatedTile.GetPawnOnTile() != null)
         {
-            Explode();
+            associatedTile.GetPawnOnTile().Die();
         }
-        else
-        {
-            associatedTile.SetPawnOnTile(this);
-        }
+
+        associatedTile.SetPawnOnTile(this);
+
     }
 
     public GameObject[] graphics;
