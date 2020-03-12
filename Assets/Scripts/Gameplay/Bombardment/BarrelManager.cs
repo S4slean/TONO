@@ -48,6 +48,7 @@ public class BarrelManager : MonoBehaviour
                 break;
             }
         }
+        newBarrel.noStartingInit = true;
         newBarrel.Initialize(type);
         return newBarrel.gameObject;    
     }

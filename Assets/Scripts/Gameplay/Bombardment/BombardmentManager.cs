@@ -100,7 +100,7 @@ public class BombardmentManager : MonoBehaviour
     public void StopBombardment()
     {
         GameManager.Instance.CheckIfCompleted(true);
-        PlayerManager.instance.currentHoveredTile.rend.material = PlayerManager.instance.currentHoveredTile.oldMaterial;
+        PlayerManager.instance.currentHoveredTile.DeactivateHighlight();
         PlayerManager.instance.hoverMode = HoverMode.NoHover;
         GridManager.instance.AllTilesBecameNotClickable();
     }

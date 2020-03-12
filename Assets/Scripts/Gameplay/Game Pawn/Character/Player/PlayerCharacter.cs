@@ -67,8 +67,8 @@ public class PlayerCharacter : GamePawn
             base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
-            oldMaterial = rend.material;
-            rend.material = Highlight_Manager.instance.hoverMat;
+            //oldMaterial = rend.material;
+            //rend.material = Highlight_Manager.instance.hoverMat;
             ShowMoveRange();
         }
     }
@@ -202,7 +202,6 @@ public class PlayerCharacter : GamePawn
     public override void Die()
     {
         Debug.Log("Player Died");
-        Destroy(gameObject);
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
