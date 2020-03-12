@@ -19,14 +19,14 @@ public class Kick : Skill
         }
         else if (user is PlayerCharacter)
         {
-
+            PlayerManager.instance.playerCharacter.currentPA -= cost;
         }
-        
+
     }
 
     public override void Preview(GamePawn user)
     {
-        if(HasAvailableTarget(user).Count > 0)
+        if (HasAvailableTarget(user).Count > 0 && PlayerManager.instance.playerCharacter.currentPA >= cost)
         {
             GridManager.instance.AllTilesBecameNotClickable();
             PlayerManager playerManager = PlayerManager.instance;
@@ -47,6 +47,7 @@ public class Kick : Skill
                 SkillManager.instance.currentActiveSkill = null;
                 playerManager.hoverMode = HoverMode.MovePath;
                 Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+                UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
                 player.ShowMoveRange();
             }
         }
@@ -95,15 +96,16 @@ public class Kick : Skill
         return tilesToHighlight;
     }
 
-    public void PreviewPawnPath(GamePawn user ,GamePawn selectedPawn)
+    public void PreviewPawnPath(GamePawn user, GamePawn selectedPawn)
     {
         Direction dir = GetDirection(user, selectedPawn);
 
         List<Tile> tilesToHighlight = new List<Tile>();
-        if(selectedPawn is Barrel)
+        if (selectedPawn is Barrel)
         {
             tilesToHighlight = GridManager.instance.GetLineUntilObstacle(dir, selectedPawn.GetTile());
-        }else if(selectedPawn is EnemieBehaviour || selectedPawn is Box)
+        }
+        else if (selectedPawn is EnemieBehaviour || selectedPawn is Box)
         {
             Tile tileToCheck;
             switch (dir)
@@ -139,10 +141,11 @@ public class Kick : Skill
             }
         }
         PlayerManager.instance.SetHighlightID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview));
-        tilesToHighlight[tilesToHighlight.Count - 1].rend.material = Highlight_Manager.instance.actionHighlightMat; ;
+        if (tilesToHighlight.Count > 0)
+            tilesToHighlight[tilesToHighlight.Count - 1].rend.material = Highlight_Manager.instance.actionHighlightMat; 
     }
 
-    public bool IsAvailableTile(Tile currentTile, GamePawn selectedPawn)
+    public override bool IsAvailableTile(Tile currentTile, GamePawn selectedPawn)
     {
         if (currentTile != null && !(currentTile is Wall) && !(currentTile is Water))
         {
@@ -154,7 +157,7 @@ public class Kick : Skill
         return false;
     }
 
-    public Direction GetDirection(GamePawn user, GamePawn selectedPawn)
+    public override Direction GetDirection(GamePawn user, GamePawn selectedPawn)
     {
         //UP
         Tile currentTile = user.GetTile().neighbours.up;
