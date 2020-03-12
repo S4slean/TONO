@@ -130,8 +130,11 @@ public class Barrel : GamePawn
 
     public virtual void Explode()
     {
+
         explosionSkill.Activate(this, GetTile());
         Debug.Log("Boom");
+        associatedTile.SetPawnOnTile(null);
+        SetTile(null);
         BarrelManager.Instance.Repool(this);
         
     }

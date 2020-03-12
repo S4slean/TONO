@@ -14,6 +14,7 @@ public class EnemieBehaviour : GamePawn
     public int health = 1;
     [HideInInspector] public int movementPoints = 0;
     [HideInInspector] public int actionPoints = 0;
+    [HideInInspector] public int timelineIndex;
 
 
     protected int rageThreshold = 5;
@@ -381,6 +382,7 @@ public class EnemieBehaviour : GamePawn
     public override void Die()
     {
         anim.SetTrigger("Death");
+        //UI_Manager.instance.timelinePanel.RemoveCharacterAtIndex();
         EnemyManager.instance.enemyList.Remove(this);
         GameManager.Instance.CheckIfCompleted(false);
         base.Die();
