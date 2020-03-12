@@ -11,13 +11,14 @@ public class ThrowElement : Skill
     {
 
         PlayerCharacter player = (PlayerCharacter)user;
+        player.currentPA -= cost;
         SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
 
     }
 
     public override void Preview(GamePawn user)
     {
-        if (HasAvailableTarget(user).Count > 0)
+        if (HasAvailableTarget(user).Count > 0 && PlayerManager.instance.playerCharacter.currentPA >= cost)
         {
             GridManager.instance.AllTilesBecameNotClickable();
             PlayerManager playerManager = PlayerManager.instance;
