@@ -15,7 +15,7 @@ public class GamePawn : MonoBehaviour
 
 
     //LOGIC
-    protected bool hovered;
+    [SerializeField]protected bool hovered;
     public int skillPreviewID;
     protected bool _isMyTurn = false;
     protected bool _isDoingSomething = false;

@@ -42,9 +42,9 @@ MonoBehaviour:
   shootImage: {fileID: 21300000, guid: a22e23df8413f5c4da59feca9abc4083, type: 3}
   shootImageDeactivated: {fileID: 21300000, guid: ccdec5aa87e1b574bb0525e85daa8e4e,
     type: 3}
-  reloadImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  reloadImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000,
-    type: 0}
+  reloadImage: {fileID: 21300000, guid: 7d3f629fd9563914680a046d4c134f39, type: 3}
+  reloadImageDeactivated: {fileID: 21300000, guid: d55e91c1df4a83444a7bc868021d6d95,
+    type: 3}
   kickImage: {fileID: 21300000, guid: a58c0cd95d608464e8a9b4b060c76243, type: 3}
   kickImageDeactivated: {fileID: 21300000, guid: d0751040b72d17c4f870a588fcb8c964,
     type: 3}
