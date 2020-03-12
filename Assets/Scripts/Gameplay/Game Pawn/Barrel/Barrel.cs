@@ -86,7 +86,7 @@ public class Barrel : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
