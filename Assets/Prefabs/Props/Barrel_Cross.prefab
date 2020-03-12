@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5459562697972154321}
+  - component: {fileID: 3761949500075674105}
   m_Layer: 8
   m_Name: Graphic
   m_TagString: Untagged
@@ -33,6 +34,25 @@ Transform:
   m_Father: {fileID: 8923263347291669602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3761949500075674105
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612482679729668397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45bc75fdcf2beb74491f14fd15328a81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4211647077250023432
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +112,7 @@ MonoBehaviour:
     rangeType: 4
     explosionSkill: {fileID: 11400000, guid: ea636cdc8de20774bbef8da9cc0cf6ed, type: 2}
     graphicsIndex: 1
+  noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}
   graphics:
