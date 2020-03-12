@@ -70,6 +70,12 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            playerCharacter.HideMoveRange();
+        }
+
         //GUN SKILL
         if (Input.GetKeyDown(gunShot))
         {
@@ -211,4 +217,6 @@ public class PlayerManager : MonoBehaviour
     {
         highlightLineID = id;
     }
+
+   
 }

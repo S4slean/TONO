@@ -78,7 +78,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
             GameObject paObj = Instantiate(paPointPrefab, Vector3.zero, Quaternion.identity, paParentRect.gameObject.transform);
             RectTransform rect = paObj.GetComponent<RectTransform>();
 
-            rect.anchoredPosition3D = new Vector3(paParentRect.sizeDelta.x * (i + 1) + pointsSpacing * (i + 1), 0, 0);
+            rect.anchoredPosition3D = new Vector3(paParentRect.sizeDelta.x * i + pointsSpacing * i, 0, 0);
 
             Image image = paObj.GetComponent<Image>();
             image.sprite = UI_Manager.instance.uiPreset.unusedPA;
@@ -92,7 +92,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
             GameObject pmObj = Instantiate(pmPointPrefab, Vector3.zero, Quaternion.identity, pmParentRect.gameObject.transform);
             RectTransform rect = pmObj.GetComponent<RectTransform>();
 
-            rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * (i + 1) + pointsSpacing * (i + 1), 0, 0);
+            rect.anchoredPosition3D = new Vector3(pmParentRect.sizeDelta.x * i + pointsSpacing * i, 0, 0);
 
             Image image = pmObj.GetComponent<Image>();
             image.sprite = UI_Manager.instance.uiPreset.unusedPM;
@@ -160,7 +160,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
-                for (int i = newValue; i < pmPoints.Count; i++)
+                for (int i = Mathf.Clamp(newValue,0,newValue); i < pmPoints.Count; i++)
                 {
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }

@@ -136,6 +136,9 @@ public class Tile : MonoBehaviour
         return null;
     }
 
+    public virtual void ActivateHighlight(HighlightMode highlightMode) { }
+
+    public virtual void DeactivateHighlight() { }
 
     public void Reset()
     {

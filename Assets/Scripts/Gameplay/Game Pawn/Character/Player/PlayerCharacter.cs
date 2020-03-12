@@ -7,6 +7,7 @@ public class PlayerCharacter : GamePawn
 {
     [Header("References")]
     public Transform LiftPawnSocket;
+    public Animator anim;
     //LOGIC
     [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
@@ -66,8 +67,8 @@ public class PlayerCharacter : GamePawn
             base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
-            oldMaterial = rend.material;
-            rend.material = Highlight_Manager.instance.hoverMat;
+            //oldMaterial = rend.material;
+            //rend.material = Highlight_Manager.instance.hoverMat;
             ShowMoveRange();
         }
     }
@@ -201,7 +202,6 @@ public class PlayerCharacter : GamePawn
     public override void Die()
     {
         Debug.Log("Player Died");
-        Destroy(gameObject);
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
@@ -227,6 +227,13 @@ public class PlayerCharacter : GamePawn
             user.EndAction();
 
         });
+    }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+        PlayerManager.instance.hoverMode = HoverMode.MovePath;
+        InitializeAllSkillRange(GetTile());
     }
 
 }

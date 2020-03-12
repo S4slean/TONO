@@ -39,21 +39,24 @@ MonoBehaviour:
   unusedBullet: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   moveImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  shootImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  shootImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  shootImage: {fileID: 21300000, guid: a22e23df8413f5c4da59feca9abc4083, type: 3}
+  shootImageDeactivated: {fileID: 21300000, guid: ccdec5aa87e1b574bb0525e85daa8e4e,
+    type: 3}
   reloadImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   reloadImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000,
     type: 0}
-  kickImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  kickImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  jumpImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  jumpImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  kickImage: {fileID: 21300000, guid: a58c0cd95d608464e8a9b4b060c76243, type: 3}
+  kickImageDeactivated: {fileID: 21300000, guid: d0751040b72d17c4f870a588fcb8c964,
+    type: 3}
+  jumpImage: {fileID: 21300000, guid: 1239d6c90d4683d4a8e339e81dd830e2, type: 3}
+  jumpImageDeactivated: {fileID: 21300000, guid: c95ffae27a385f2459d3f95aee82937c,
+    type: 3}
   skillBackgroundImage: {fileID: 21300000, guid: 13c19a0b478d5ee4baa49df2fcc576ff,
     type: 3}
   pauseImage: {fileID: 21300000, guid: c3e9ee0b1d64cd3429b3b720a2a109d8, type: 3}
   wheelImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   indicatorImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  endTurnImage: {fileID: 21300000, guid: 42e5310b1253da0408a8f8516c0a0eec, type: 3}
+  endTurnImage: {fileID: 21300000, guid: 191bc252b10e1d64594ae5483e5ca503, type: 3}
   messagePanelImage: {fileID: 21300000, guid: 073e101e32f8ce94ca186fb44bbde966, type: 3}
   leftStringImage: {fileID: 21300000, guid: 47edac5b3fce6424a9f464374e3df730, type: 3}
   rightStringImage: {fileID: 21300000, guid: 47edac5b3fce6424a9f464374e3df730, type: 3}
