@@ -19,14 +19,14 @@ public class Kick : Skill
         }
         else if (user is PlayerCharacter)
         {
-
+            PlayerManager.instance.playerCharacter.currentPA -= cost;
         }
         
     }
 
     public override void Preview(GamePawn user)
     {
-        if(HasAvailableTarget(user).Count > 0)
+        if(HasAvailableTarget(user).Count > 0 && PlayerManager.instance.playerCharacter.currentPA >= cost)
         {
             GridManager.instance.AllTilesBecameNotClickable();
             PlayerManager playerManager = PlayerManager.instance;
@@ -47,6 +47,7 @@ public class Kick : Skill
                 SkillManager.instance.currentActiveSkill = null;
                 playerManager.hoverMode = HoverMode.MovePath;
                 Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+                UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
                 player.ShowMoveRange();
             }
         }
