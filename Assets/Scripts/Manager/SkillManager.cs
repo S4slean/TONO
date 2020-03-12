@@ -56,8 +56,8 @@ public class SkillManager : MonoBehaviour
 
         Sequence s = DOTween.Sequence();
 
-        //Play vertical Anim
-        s.Append(transform.DOMove(jumpTile.transform.position + new Vector3(0, jumpTile.transform.localScale.y, 0), 0.3f)
+        PlayerManager.instance.playerCharacter.anim.SetTrigger("Jump");
+        s.Append(user.transform.DOMove(jumpTile.transform.position + new Vector3(0, jumpTile.transform.localScale.y, 0), 0.3f)
             .SetEase(Ease.Linear)
             .OnComplete(() =>
             {
@@ -77,6 +77,7 @@ public class SkillManager : MonoBehaviour
     public void ThrowProjectile(GamePawn user, GamePawn target, GameObject projectile, int dmg)
     {
        
+        
         GameObject instance = Instantiate(projectile, user.transform.position + Vector3.up, Quaternion.identity);
         instance.GetComponent<Projectiles>().Throw(target, user, dmg);
        
@@ -141,6 +142,7 @@ public class SkillManager : MonoBehaviour
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
     {
+        PlayerManager.instance.playerCharacter.anim.SetTrigger("Throw");
         pawnToThrow.OnThrowed(user, target);
         currentActiveSkill = null;
         PlayerManager.instance.hoverMode = HoverMode.NoHover;

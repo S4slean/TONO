@@ -7,16 +7,38 @@ public class LoadingScreenManager : MonoBehaviour
 {
     public static LoadingScreenManager Instance;
 
+    private void Awake()
+    {
+        Instance = this;
+
+        if (duration <= 0f) duration = 0.1f;
+        duration += endThreshold;
+        duration += cinematicDelay;
+    }
+
+    public bool loads;
+
     public float duration;
+    public float endThreshold;
     public float count;
     public float cinematicDelay;
     bool checkedCinematic;
+    bool ended;
 
     private void Start()
     {
         checkedCinematic = false;
-        ao = SceneManager.LoadSceneAsync(LevelManager.sceneToLoadName);
-        ao.allowSceneActivation = false;
+
+        if(loads)
+        {
+            if (LevelManager.sceneToLoadName != "")
+            {
+                ao = SceneManager.LoadSceneAsync(LevelManager.sceneToLoadName);
+                ao.allowSceneActivation = false;
+            }
+        }
+
+
         count = duration;
     }
 
@@ -29,15 +51,29 @@ public class LoadingScreenManager : MonoBehaviour
 
         if(!checkedCinematic)
         {
-            if(count <= cinematicDelay)
+            if(count <= duration - cinematicDelay)
             {
                 checkedCinematic = true;
                 CinematicManager.Instance.CheckCinematic();
             }
+
+            return;
+        }
+
+        if(!ended)
+        {
+            if(count <= endThreshold)
+            {
+                ended = true;
+                CinematicManager.Instance.EndCinematic();
+            }
+
+            return;
         }
 
         if(count <= 0)
         {
+            if(loads)
             LoadScene();
         }
     }

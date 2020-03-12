@@ -14,26 +14,31 @@ public class UI_Portrait : MonoBehaviour
     public Image portraitImage;
 
     public int indexOrder = 0;
+    public EnemieBehaviour selectedEnnemy;
 
     [Header("Animation parameters")]
     public AnimationCurve selectedIconCurve;
-    public float selectedDisplacement = 20;
     public float selectedMaxTime;
     float selectedCurrentTime;
 
     public AnimationCurve removeIconsCurve;
-    public float removeDisplacement = 50;
     public float removeMaxTime;
     float removeCurrentTime;
+
+    public Vector3 removedPos;
+    public Vector3 selectedPos;
+    public Vector3 normalPos;
 
     public bool isSelected;
     public bool isRemoved;
     bool isMoving;
 
-    private float current;
-    private float diff;
+    Vector3 current;
+    Vector3 diff;
 
+    [Header("Button Animation")]
     public Animator animator;
+
 
 
 
@@ -68,7 +73,7 @@ public class UI_Portrait : MonoBehaviour
                 selectedCurrentTime += Time.deltaTime;
                 float percent = selectedIconCurve.Evaluate(selectedCurrentTime / selectedMaxTime);
 
-                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current - (diff * percent), portraitRect.anchoredPosition3D.z);
+                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
             else
             {
@@ -83,7 +88,7 @@ public class UI_Portrait : MonoBehaviour
                 selectedCurrentTime += Time.deltaTime;
                 float percent = selectedIconCurve.Evaluate(selectedCurrentTime / selectedMaxTime);
 
-                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current + (diff * percent), portraitRect.anchoredPosition3D.z);
+                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
             else
             {
@@ -94,20 +99,16 @@ public class UI_Portrait : MonoBehaviour
 
         if (isRemoved)
         {
-            Debug.Log("Removing");
-
             if (removeCurrentTime < removeMaxTime)
             {
                 removeCurrentTime += Time.deltaTime;
                 float percent = removeIconsCurve.Evaluate(removeCurrentTime / removeMaxTime);
 
                 //Remove ICON
-                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current + (diff * percent), portraitRect.anchoredPosition3D.z);
+                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
             else
             {
-                Debug.Log("End of Removing");
-
                 isMoving = false;
                 removeCurrentTime = 0;
                 panelRef.RefreshSelectedIcon(indexOrder);
@@ -122,12 +123,8 @@ public class UI_Portrait : MonoBehaviour
             return;
         }
 
-        current = portraitRect.anchoredPosition3D.y;
-
-        if (isSelected)
-            diff = (removeDisplacement + selectedDisplacement);
-        else
-            diff = removeDisplacement;
+        current = portraitRect.anchoredPosition3D;
+        diff = new Vector3(removedPos.x - current.x, removedPos.y - current.y, current.z);
 
         isRemoved = true;
         isMoving = true;
@@ -139,15 +136,13 @@ public class UI_Portrait : MonoBehaviour
     /// <param name="selectedIndex"></param>
     public void MoveSelectedIcon()
     {
-        isSelected = false;
+        if (isRemoved || isSelected)
+            return;
+
         isMoving = false;
 
-        current = portraitRect.anchoredPosition3D.y;
-        float nextValue = 0;
-
-        nextValue = current + selectedDisplacement;
-
-        diff = nextValue - current;
+        current = portraitRect.anchoredPosition3D;
+        diff = new Vector3(selectedPos.x - current.x, selectedPos.y - current.y, current.z);
 
         isSelected = true;
         isMoving = true;
@@ -155,15 +150,14 @@ public class UI_Portrait : MonoBehaviour
 
     public void MoveBackIcon()
     {
-        if (isMoving || !isSelected)
+
+        if (isRemoved || !isSelected)
             return;
 
-        current = portraitRect.anchoredPosition3D.y;
-        float nextValue = 0;
+        isMoving = false;
 
-        nextValue = current + selectedDisplacement;
-
-        diff = nextValue - current;
+        current = portraitRect.anchoredPosition3D;
+        diff = new Vector3(normalPos.x - current.x, normalPos.y - current.y, current.z);
 
         isSelected = false;
         isMoving = true;

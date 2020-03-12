@@ -69,6 +69,8 @@ public class UI_Timeline : Panel_Behaviour
                 {
                     charactersIcons[i].portraitRect.anchoredPosition3D = new Vector3(currents[i].x + (diffs[i].x * percent), currents[i].y + (diffs[i].y * percent), charactersIcons[i].portraitRect.anchoredPosition3D.z);
                 }
+
+                charactersPortraitParent.anchoredPosition3D = new Vector3(currentPanelPos.x + (diffPanelPos.x * percent), currentPanelPos.y + (diffPanelPos.y * percent), charactersPortraitParent.anchoredPosition3D.z);
             }
             else
             {
@@ -117,26 +119,36 @@ public class UI_Timeline : Panel_Behaviour
                     case EnemyData.EnemyType.Moussaillon:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.moussaillonImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.moussaillonImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        values.selectedEnnemy.timelineIndex = i;
                         obj.name = "Mousaillon" + i;
                         break;
 
                     case EnemyData.EnemyType.Captain:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.captainImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.captainImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        values.selectedEnnemy.timelineIndex = i;
                         obj.name = "Captain" + i;
                         break;
 
                     case EnemyData.EnemyType.Kamikaze:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.kamikazeImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.kamikazeImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        values.selectedEnnemy.timelineIndex = i;
                         obj.name = "Kamikaze" + i;
                         break;
 
                     case EnemyData.EnemyType.Hooker:
                         values.backgroundImage.sprite = UI_Manager.instance.uiPreset.hookerImage;
                         values.portraitImage.sprite = UI_Manager.instance.uiPreset.hookerImage;
+                        values.selectedEnnemy = EnemyManager.instance.enemyList[i - 1];
+                        values.selectedEnnemy.timelineIndex = i;
+                        //values.selectedEnnemy.index
                         obj.name = "Hooker" + i;
                         break;
+
                 }
             }
 
@@ -148,6 +160,7 @@ public class UI_Timeline : Panel_Behaviour
             Vector3 newPos;
             newPos = new Vector3(((values.portraitRect.sizeDelta.x * i) + (maxIconsSpacing * i)), 0, 0);
             values.portraitRect.anchoredPosition3D = newPos;
+            values.normalPos = newPos;
 
 
             //Stock Index Position
@@ -199,6 +212,10 @@ public class UI_Timeline : Panel_Behaviour
         for (int i = 1; i < charactersIcons.Count; i++)
         {
             charactersIcons[i].indexOrder = i;
+
+            if (charactersIcons[i].selectedEnnemy != null)
+                charactersIcons[i].selectedEnnemy.timelineIndex = i;
+
             if (charactersIcons[i].isSelected)
                 selectedIcon = charactersIcons[i].indexOrder;
         }
@@ -217,6 +234,8 @@ public class UI_Timeline : Panel_Behaviour
         currentPanelPos = charactersPortraitParent.anchoredPosition3D;
         nextPanelPos = new Vector3(currentPanelPos.x + iconSizeref, currentPanelPos.y + iconSizeref, currentPanelPos.z + iconSizeref);
         diffPanelPos = new Vector3(nextPanelPos.x - currentPanelPos.x, nextPanelPos.y - currentPanelPos.y, nextPanelPos.z - currentPanelPos.z);
+
+        //Recentrer le panneau
 
         for (int i = 0; i < charactersIcons.Count; i++)
         {

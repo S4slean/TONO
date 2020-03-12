@@ -5,14 +5,18 @@ using DG.Tweening;
 
 public class Barrel : GamePawn
 {
-
+    public BarrelType startingExplosionType;
+    public bool noStartingInit;
     public bool standing = true;
-    [HideInInspector]public Skill explosionSkill;
+    [HideInInspector] public Skill explosionSkill;
     private GamePawn _kicker;
 
     protected override void Start()
     {
         base.Start();
+
+        if(!noStartingInit)
+        Initialize(startingExplosionType);
     }
 
     public override void OnEnable()
@@ -22,18 +26,21 @@ public class Barrel : GamePawn
         //print(name +" tile : " + hit.transform.name);
         if (hit.transform == null) return;
         associatedTile = hit.transform.GetComponent<Tile>();
-        if(associatedTile.GetPawnOnTile() != null)
+        if (associatedTile.GetPawnOnTile() != null)
         {
             Explode();
         }
-        associatedTile.SetPawnOnTile(this);
+        else
+        {
+            associatedTile.SetPawnOnTile(this);
+        }
     }
 
     public GameObject[] graphics;
 
     public void Initialize(BarrelType type)
     {
-        for(int i =0; i < graphics.Length; i++)
+        for (int i = 0; i < graphics.Length; i++)
         {
             graphics[i].SetActive(false);
         }
@@ -73,7 +80,7 @@ public class Barrel : GamePawn
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
         _kicker = kicker;
         SetDestination(path[path.Count - 1]);
-        if(kicker is PlayerCharacter)
+        if (kicker is PlayerCharacter)
         {
             PlayerCharacter player = kicker as PlayerCharacter;
             PlayerManager.instance.hoverMode = HoverMode.MovePath;
@@ -81,7 +88,7 @@ public class Barrel : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
@@ -136,7 +143,7 @@ public class Barrel : GamePawn
         associatedTile.SetPawnOnTile(null);
         SetTile(null);
         BarrelManager.Instance.Repool(this);
-        
+
     }
 
     public override void ReceiveDamage(int dmg)
