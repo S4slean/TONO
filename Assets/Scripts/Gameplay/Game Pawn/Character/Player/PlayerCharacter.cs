@@ -7,6 +7,7 @@ public class PlayerCharacter : GamePawn
 {
     [Header("References")]
     public Transform LiftPawnSocket;
+    public Animator anim;
     //LOGIC
     [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
@@ -227,6 +228,13 @@ public class PlayerCharacter : GamePawn
             user.EndAction();
 
         });
+    }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+        PlayerManager.instance.hoverMode = HoverMode.MovePath;
+        InitializeAllSkillRange(GetTile());
     }
 
 }

@@ -160,7 +160,7 @@ public class UI_SelectedCharacterInfo : Panel_Behaviour
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.unusedPM;
                 }
 
-                for (int i = newValue; i < pmPoints.Count; i++)
+                for (int i = Mathf.Clamp(newValue,0,newValue); i < pmPoints.Count; i++)
                 {
                     pmPoints[i].sprite = UI_Manager.instance.uiPreset.usedPM;
                 }
