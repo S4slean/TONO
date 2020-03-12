@@ -160,7 +160,7 @@ public class GamePawn : MonoBehaviour
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
-             EndAction();
+             user.EndAction();
          });
 
     }
