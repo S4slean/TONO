@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Barrel : GamePawn
 {
     public BarrelType startingExplosionType;
+    public bool noStartingInit;
     public bool standing = true;
     [HideInInspector] public Skill explosionSkill;
     private GamePawn _kicker;
@@ -14,6 +15,7 @@ public class Barrel : GamePawn
     {
         base.Start();
 
+        if(!noStartingInit)
         Initialize(startingExplosionType);
     }
 

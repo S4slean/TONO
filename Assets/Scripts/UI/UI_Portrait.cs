@@ -88,7 +88,7 @@ public class UI_Portrait : MonoBehaviour
                 selectedCurrentTime += Time.deltaTime;
                 float percent = selectedIconCurve.Evaluate(selectedCurrentTime / selectedMaxTime);
 
-                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, (current.y + diff.y) - (diff.y * percent), portraitRect.anchoredPosition3D.z);
+                portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
             else
             {
@@ -136,6 +136,9 @@ public class UI_Portrait : MonoBehaviour
     /// <param name="selectedIndex"></param>
     public void MoveSelectedIcon()
     {
+        if (isRemoved || isSelected)
+            return;
+
         isMoving = false;
 
         current = portraitRect.anchoredPosition3D;
@@ -147,6 +150,10 @@ public class UI_Portrait : MonoBehaviour
 
     public void MoveBackIcon()
     {
+
+        if (isRemoved || !isSelected)
+            return;
+
         isMoving = false;
 
         current = portraitRect.anchoredPosition3D;
