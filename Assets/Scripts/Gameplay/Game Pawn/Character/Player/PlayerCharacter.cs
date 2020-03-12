@@ -66,8 +66,8 @@ public class PlayerCharacter : GamePawn
             base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
-            oldMaterial = rend.material;
-            rend.material = Highlight_Manager.instance.hoverMat;
+            //oldMaterial = rend.material;
+            //rend.material = Highlight_Manager.instance.hoverMat;
             ShowMoveRange();
         }
     }

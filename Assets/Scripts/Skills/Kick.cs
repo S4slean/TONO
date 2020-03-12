@@ -139,7 +139,7 @@ public class Kick : Skill
             }
         }
         PlayerManager.instance.SetHighlightID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview));
-        tilesToHighlight[tilesToHighlight.Count - 1].rend.material = Highlight_Manager.instance.actionHighlightMat; ;
+        tilesToHighlight[tilesToHighlight.Count - 1].ActivateHighlight(HighlightMode.ActionHighlight);
     }
 
     public bool IsAvailableTile(Tile currentTile, GamePawn selectedPawn)

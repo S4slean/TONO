@@ -9,10 +9,10 @@ public class Free : Tile
 
     [Header("Decal")]
     public DecalProjector highlightCase;
-    public GameObject ropeUp;
-    public GameObject ropDown;
-    public GameObject ropeRight;
-    public GameObject ropeLeft;
+    public DecalProjector ropeUp;
+    public DecalProjector ropeDown;
+    public DecalProjector ropeRight;
+    public DecalProjector ropeLeft;
 
     protected int previewID;
     public override void OnMouseEnter()
@@ -40,8 +40,7 @@ public class Free : Tile
                 if (!hasBarrelMarker && tag == "FreeTile")
                 {
                     PlayerManager.instance.currentHoveredTile = this;
-                    oldMaterial = rend.material;
-                    rend.material = Highlight_Manager.instance.hoverMat;
+                    ActivateHighlight(HighlightMode.Hover);
                 }
                 break;
             case HoverMode.ThrowHover:
@@ -50,8 +49,7 @@ public class Free : Tile
                 {
                     PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     PlayerManager.instance.currentHoveredTile = this;
-                    oldMaterial = rend.material;
-                    rend.material = Highlight_Manager.instance.actionHighlightMat;
+                    ActivateHighlight(HighlightMode.ActionHighlight);
 
                     if(SkillManager.instance.currentActiveSkill == player.kickSkill)
                     {
@@ -82,7 +80,7 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    rend.material = oldMaterial;
+                    DeactivateHighlight();
                 }
                 break;
             case HoverMode.ThrowHover:
@@ -90,7 +88,7 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    rend.material = oldMaterial;
+                    DeactivateHighlight();
 
                     if (SkillManager.instance.currentActiveSkill == PlayerManager.instance.playerCharacter.kickSkill)
                     {
@@ -100,6 +98,16 @@ public class Free : Tile
                 }
                 break;
         }
+    }
+
+    public override void ActivateHighlight(HighlightMode highlightMode)
+    {
+        Highlight_Manager.instance.ActivateOutlines(new List<Tile> { this}, highlightMode, false);
+    }
+
+    public override void DeactivateHighlight()
+    {
+        Highlight_Manager.instance.DeactivateOutlines(this, false);
     }
 
     public void SetPreviewID(int id)
