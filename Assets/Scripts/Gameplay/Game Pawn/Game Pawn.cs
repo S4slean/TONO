@@ -43,11 +43,11 @@ public class GamePawn : MonoBehaviour
 
     public virtual void OnMouseEnter()
     {
-        GetTile().OnMouseEnter();
+
     }
     public virtual void OnMouseExit()
     {
-        GetTile().OnMouseExit();
+
     }
 
     public Tile GetTile()
