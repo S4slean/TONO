@@ -202,7 +202,6 @@ public class PlayerCharacter : GamePawn
     public override void Die()
     {
         Debug.Log("Player Died");
-        Destroy(gameObject);
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
