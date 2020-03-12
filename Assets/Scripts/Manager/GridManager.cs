@@ -247,7 +247,7 @@ public class GridManager : MonoBehaviour
             Tile tile = hit.transform.GetComponent<Free>();
             if (tile != null && !IsWater(tile))
             {
-                CheckForCombo(res, tile);
+                CheckForCombo(res, tile, usingCombo);
             }
         }
 
@@ -274,7 +274,7 @@ public class GridManager : MonoBehaviour
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                     if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
                     {
-                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel, usingCombo));
                     }
                 }
             }
@@ -298,7 +298,7 @@ public class GridManager : MonoBehaviour
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                     if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
                     {
-                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel, usingCombo));
                     }
                 }
             }
@@ -322,7 +322,7 @@ public class GridManager : MonoBehaviour
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                     if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
                     {
-                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel, usingCombo));
                     }
                 }
             }
@@ -346,7 +346,7 @@ public class GridManager : MonoBehaviour
                     Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                     if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
                     {
-                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                        res.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel, usingCombo));
                     }
                 }
             }
@@ -392,7 +392,7 @@ public class GridManager : MonoBehaviour
                     {
                         checkTile = currentUp.neighbours.right;
                     }
-                    CheckForCombo(res, checkTile);
+                    CheckForCombo(res, checkTile, usingCombo);
                     if(checkTile != null && !IsWall(checkTile))
                     {
                         currentUp = checkTile.neighbours.up;
@@ -437,7 +437,7 @@ public class GridManager : MonoBehaviour
                     {
                         checkTile = currentRight.neighbours.down;
                     }
-                    CheckForCombo(res, checkTile);
+                    CheckForCombo(res, checkTile, usingCombo);
                     if (checkTile != null && !IsWall(checkTile))
                     {
                         currentRight = checkTile.neighbours.right;
@@ -481,7 +481,7 @@ public class GridManager : MonoBehaviour
                     {
                         checkTile = currentDown.neighbours.left;
                     }
-                    CheckForCombo(res, checkTile);
+                    CheckForCombo(res, checkTile, usingCombo);
                     if (checkTile != null && !IsWall(checkTile))
                     {
                         currentDown = checkTile.neighbours.down;
@@ -525,7 +525,7 @@ public class GridManager : MonoBehaviour
                     {
                         checkTile = currentLeft.neighbours.up;
                     }
-                    CheckForCombo(res, checkTile);
+                    CheckForCombo(res, checkTile, usingCombo);
                     if (checkTile != null && !IsWall(checkTile))
                     {
                         currentLeft = checkTile.neighbours.left;
@@ -550,7 +550,7 @@ public class GridManager : MonoBehaviour
         return res;
     }
 
-    public void CheckForCombo(List<Tile> comboTiles, Tile currentTile)
+    public void CheckForCombo(List<Tile> comboTiles, Tile currentTile, bool usingCombo)
     {
         //print("CHECK FOR COMBO : " + currentTile);
         if (currentTile != null && !IsWall(currentTile) && !IsWater(currentTile))
@@ -561,7 +561,7 @@ public class GridManager : MonoBehaviour
                 Barrel barrel = currentTile.GetPawnOnTile() as Barrel;
                 if (!ComboManager.instance.BarrelAlreadyInCombo(barrel))
                 {
-                    comboTiles.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel));
+                    comboTiles.AddRange(ComboManager.instance.AddBarrelToComboPreview(barrel, usingCombo));
                 }
             }
         }
