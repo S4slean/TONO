@@ -14,6 +14,14 @@ public class Free : Tile
     public DecalProjector ropeRight;
     public DecalProjector ropeLeft;
 
+    [Header("FXs")]
+    public GameObject alcool;
+    public Animator alcoolAnim;
+    public GameObject fire;
+    public Animator fireAnim;
+    public GameObject explosion;
+    public Animator exploAnim;
+
     protected int previewID;
     public override void OnMouseEnter()
     {
@@ -33,7 +41,7 @@ public class Free : Tile
                     UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
                     UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PM, path.Count);
 
-                    SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true));
+                    SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight, true));
                 }
                 break;
             case HoverMode.Bombardment:
@@ -51,7 +59,7 @@ public class Free : Tile
                     PlayerManager.instance.currentHoveredTile = this;
                     ActivateHighlight(HighlightMode.ActionHighlight);
 
-                    if(SkillManager.instance.currentActiveSkill == player.kickSkill)
+                    if (SkillManager.instance.currentActiveSkill == player.kickSkill)
                     {
                         player.kickSkill.PreviewPawnPath(player, GetPawnOnTile());
                     }
@@ -102,7 +110,7 @@ public class Free : Tile
 
     public override void ActivateHighlight(HighlightMode highlightMode)
     {
-        Highlight_Manager.instance.ActivateOutlines(new List<Tile> { this}, highlightMode, false);
+        Highlight_Manager.instance.ActivateOutlines(new List<Tile> { this }, highlightMode, false);
     }
 
     public override void DeactivateHighlight()
@@ -118,5 +126,92 @@ public class Free : Tile
     public int GetPreviewID()
     {
         return previewID;
+    }
+
+    public void SetAlcoolized(bool isAlcoolized)
+    {
+        hasAlcohol = isAlcoolized;
+        if (isAlcoolized)
+        {
+            fire.SetActive(true);
+            alcoolAnim.Play("FadeIn");
+        }
+        else
+        {
+            fireAnim.SetTrigger("FadeOut");
+        }
+
+    }
+
+    public bool onFire = false;
+
+    public void SetFire()
+    {
+        onFire = true;
+        fireAnim.Play("FadeIn");
+        StartCoroutine(FireDelay());
+    }
+
+    public IEnumerator FireDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+        SpreadFire();
+        if(GetPawnOnTile() != null)
+        {
+            GetPawnOnTile().ReceiveDamage(1);
+        }
+    }
+
+    public void SpreadFire()
+    {
+        if (neighbours.up != null && neighbours.up.hasAlcohol)
+        {
+            Free f = (Free)neighbours.up;
+            f.SetFire();
+        }
+        else if (neighbours.up != null && neighbours.up.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.up.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.down != null && neighbours.down.hasAlcohol)
+        {
+            Free f = (Free)neighbours.down;
+            f.SetFire();
+        }
+        else if (neighbours.down != null && neighbours.down.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.down.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.left != null && neighbours.left.hasAlcohol)
+        {
+            Free f = (Free)neighbours.left;
+            f.SetFire();
+        }
+        else if (neighbours.left != null && neighbours.left.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.left.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.right != null && neighbours.right.hasAlcohol)
+        {
+            Free f = (Free)neighbours.right;
+            f.SetFire();
+        }
+        else if (neighbours.right != null && neighbours.right.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.right.GetPawnOnTile();
+            barrel.Explode();
+        }
+    }
+
+    public void PlayExplosion()
+    {
+        explosion.SetActive(true);
+        exploAnim.Play("FadeIn");
     }
 }
