@@ -103,6 +103,7 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills:
   - {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
@@ -111,7 +112,7 @@ MonoBehaviour:
   startingExplosionType:
     rangeType: 2
     explosionSkill: {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
-    graphicsIndex: 2
+    graphicsIndex: 1
   noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}
