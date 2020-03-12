@@ -11,6 +11,7 @@ public class Barrel : GamePawn
     //[HideInInspector]
     public Skill explosionSkill;
     private GamePawn _kicker;
+    public Animator anim;
 
     protected override void Start()
     {
@@ -33,6 +34,8 @@ public class Barrel : GamePawn
         }
 
         associatedTile.SetPawnOnTile(this);
+        anim.Play("BarrelFall");
+        
 
     }
 
@@ -77,6 +80,27 @@ public class Barrel : GamePawn
 
     public override void OnKicked(GamePawn kicker, int damage, Direction dir)
     {
+        Debug.Log("Kicke " + dir);
+        switch (dir)
+        {
+            case Direction.Up:
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+                break;
+
+            case Direction.Right:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                break;
+
+            case Direction.Left:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
+                break;
+
+            case Direction.Down:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                break;
+        }
+
+        anim.SetBool("Rolling", true);
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
         _kicker = kicker;
         SetDestination(path[path.Count - 1]);
@@ -126,7 +150,7 @@ public class Barrel : GamePawn
                 if (highlightPathID > -1)
                     Highlight_Manager.instance.HideHighlight(highlightPathID);
 
-
+                anim.SetBool("Rolling", false);
                 _kicker.EndAction();
                 _kicker = null;
                 EndAction();
