@@ -49,6 +49,7 @@ public class Skill : ScriptableObject
     }
 
     public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }
+    public virtual List<Tile> GetRange(GamePawn user, bool useCombo) { return new List<Tile>(); }
 
     public virtual bool IsAvailableTile(Tile currentTile, GamePawn selectedPawn)
     {
