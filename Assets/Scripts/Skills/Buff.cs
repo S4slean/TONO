@@ -15,7 +15,6 @@ public class Buff : Skill
     {
         if (user is EnemieBehaviour)
         {
-            Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.Buff();
         }

@@ -133,22 +133,17 @@ public class Free : Tile
         hasAlcohol = isAlcoolized;
         if (isAlcoolized)
         {
-            fire.SetActive(true);
-            alcoolAnim.Play("FadeIn");
+            alcool.SetActive(true);
         }
-        else
-        {
-            fireAnim.SetTrigger("FadeOut");
-        }
-
+        alcoolAnim.SetBool("hasAlcohol", isAlcoolized);
     }
 
-    public bool onFire = false;
+
 
     public void SetFire()
     {
-        onFire = true;
-        fireAnim.Play("FadeIn");
+        fire.SetActive(true);
+        fireAnim.SetTrigger("Fire");
         StartCoroutine(FireDelay());
     }
 
@@ -212,6 +207,6 @@ public class Free : Tile
     public void PlayExplosion()
     {
         explosion.SetActive(true);
-        exploAnim.Play("FadeIn");
+        exploAnim.SetTrigger("Explo");
     }
 }

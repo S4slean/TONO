@@ -23,18 +23,19 @@ public class Barrel : GamePawn
 
     public override void OnEnable()
     {
+        Debug.Log("Barrel Activate");
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print(name +" tile : " + hit.transform.name);
-        if (hit.transform == null) return;
-        associatedTile = hit.transform.GetComponent<Tile>();
-        if (associatedTile.GetPawnOnTile() != null)
+        Physics.Raycast(transform.position, Vector3.down, out hit, mask, 10);
+        if (hit.transform == null) Debug.Log("Help") ;
+        Debug.Log(" tile : " + hit.transform.name);
+        SetTile(hit.transform.GetComponent<Tile>());
+        if (GetTile().GetPawnOnTile() != null)
         {
-            associatedTile.GetPawnOnTile().Die();
+            GetTile().GetPawnOnTile().ReceiveDamage(1);
         }
 
-        associatedTile.SetPawnOnTile(this);
-        anim.Play("BarrelFall");
+        GetTile().SetPawnOnTile(this);
+        anim.Play("Barrel Fall");
         
 
     }
@@ -80,7 +81,6 @@ public class Barrel : GamePawn
 
     public override void OnKicked(GamePawn kicker, int damage, Direction dir)
     {
-        Debug.Log("Kicke " + dir);
         switch (dir)
         {
             case Direction.Up:
