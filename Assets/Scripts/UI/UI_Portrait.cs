@@ -101,19 +101,15 @@ public class UI_Portrait : MonoBehaviour
         {
             if (removeCurrentTime < removeMaxTime)
             {
-                Debug.Log("RemovING");
-
                 removeCurrentTime += Time.deltaTime;
                 float percent = removeIconsCurve.Evaluate(removeCurrentTime / removeMaxTime);
 
                 //Remove ICON
                 portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
-
-            if (removeCurrentTime >= removeMaxTime)
+            else
             {
-                Debug.Log("Remove ends NOW");
-                panelRef.RefreshSelectedIcon(indexOrder);
+                //panelRef.RefreshSelectedIcon(indexOrder);
                 isMoving = false;
                 removeCurrentTime = 0;
             }
@@ -134,6 +130,8 @@ public class UI_Portrait : MonoBehaviour
 
         isRemoved = true;
         isMoving = true;
+
+        panelRef.RefreshSelectedIcon(indexOrder);
     }
 
     /// <summary>

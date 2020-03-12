@@ -116,6 +116,7 @@ MonoBehaviour:
   noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}
+  anim: {fileID: 3761949500075674105}
   graphics:
   - {fileID: 1297307245487854520}
   - {fileID: 7650013952906094851}
