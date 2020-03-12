@@ -12,13 +12,17 @@ public class Explosion : Skill
 
         foreach (Tile t in explodedTiles)
         {
+            if (t == user.GetTile()) continue;
+
+            Free f = (Free)t;
+            f.PlayExplosion();
+
             if (t.hasAlcohol)
             {
-                Free f = (Free)t;
                 f.SetFire();
             }
 
-            if(t.GetPawnOnTile() != null)
+            if (t.GetPawnOnTile() != null)
             {
                 t.GetPawnOnTile().ReceiveDamage(1);
             }
