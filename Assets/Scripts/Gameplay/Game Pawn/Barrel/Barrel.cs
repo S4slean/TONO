@@ -25,10 +25,10 @@ public class Barrel : GamePawn
     {
         Debug.Log("Barrel Activate");
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask, 10);
-        if (hit.transform == null) Debug.Log("Help") ;
+        Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, mask);
+        if (hit.transform == null) { Debug.Log("Help"); return; }
         Debug.Log(" tile : " + hit.transform.name);
-        SetTile(hit.transform.GetComponent<Tile>());
+        SetAssociatedTile(hit.transform.GetComponent<Tile>());
         if (GetTile().GetPawnOnTile() != null)
         {
             GetTile().GetPawnOnTile().ReceiveDamage(1);
@@ -36,7 +36,7 @@ public class Barrel : GamePawn
 
         GetTile().SetPawnOnTile(this);
         anim.Play("Barrel Fall");
-        
+
 
     }
 
@@ -49,7 +49,7 @@ public class Barrel : GamePawn
             graphics[i].SetActive(false);
         }
         graphics[type.graphicsIndex].SetActive(true);
-
+        isExplosing = false;
         explosionSkill = type.explosionSkill;
     }
 
@@ -161,7 +161,7 @@ public class Barrel : GamePawn
 
     public virtual void Explode()
     {
-
+        isExplosing = true;
         explosionSkill.Activate(this, GetTile());
         Debug.Log("Boom");
         associatedTile.SetPawnOnTile(null);
@@ -170,8 +170,11 @@ public class Barrel : GamePawn
 
     }
 
+    private bool isExplosing = false;
+
     public override void ReceiveDamage(int dmg)
     {
+        if (isExplosing) return;
         Explode();
     }
 }

@@ -12,6 +12,8 @@ public class Explosion : Skill
 
         foreach (Tile t in explodedTiles)
         {
+            if (t == user.GetTile()) continue;
+
             Free f = (Free)t;
             f.PlayExplosion();
 
