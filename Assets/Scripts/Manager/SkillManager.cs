@@ -38,6 +38,12 @@ public class SkillManager : MonoBehaviour
     public void Kick(GamePawn user, int dmg, GamePawn target, Direction dir)
     {
         //user.PlayAnim
+
+        currentActiveSkill = null;
+        PlayerManager.instance.hoverMode = HoverMode.NoHover;
+
+        Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID(), null, false);
+
         target.OnKicked(user, dmg, dir);
     }
 
@@ -85,7 +91,7 @@ public class SkillManager : MonoBehaviour
         user.BeginAction();
 
         Sequence s = DOTween.Sequence();
-        s.Append(target.transform.DOMove(user.LiftPawnSocket.position + new Vector3(0f, 1.1f, 0f), 0.3f))
+        s.Append(target.transform.DOMove(user.LiftPawnSocket.position , 0.3f))
          .SetEase(Ease.OutCubic);
         user.throwElementSkill.ThrowPreview(user, target);
     }
@@ -135,24 +141,13 @@ public class SkillManager : MonoBehaviour
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
     {
-        user.liftedPawn = null;
-        pawnToThrow.SetTile(target);
-        user.InitializeAllSkillRange(user.GetTile());
-
+        pawnToThrow.OnThrowed(user, target);
         currentActiveSkill = null;
-        user.EndAction();
         PlayerManager.instance.hoverMode = HoverMode.NoHover;
 
         Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID(), null, false);
         user.ShowMoveRange();
 
-        Sequence s = DOTween.Sequence();
-
-        s.Append(pawnToThrow.transform.DOMove(target.transform.position, 1f))
-         .SetEase(Ease.OutCubic)
-         .OnComplete(() => {
-             PlayerManager.instance.hoverMode = HoverMode.MovePath;
-         });
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)

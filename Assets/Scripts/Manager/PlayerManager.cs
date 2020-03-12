@@ -82,6 +82,12 @@ public class PlayerManager : MonoBehaviour
             playerCharacter.throwElementSkill.Preview(playerCharacter);
         }
 
+        //KICK
+        if (Input.GetKeyDown(kick))
+        {
+            playerCharacter.kickSkill.Preview(playerCharacter);
+        }
+
         /*RaycastHit hit;
         Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, mouseMask);*/
 
@@ -134,15 +140,15 @@ public class PlayerManager : MonoBehaviour
                 if(lineToHighlight != currentLineHighlighted)
                 {
                     //print("CHANGE");
-                    if (highlightLineID > -1)
+                    if (GetHighlineID() > -1)
                     {
                         //print(highlightLineID);
-                        Highlight_Manager.instance.HideHighlight(highlightLineID);
+                        Highlight_Manager.instance.HideHighlight(GetHighlineID());
                     }
                     currentLineHighlighted = lineToHighlight;
                     Highlight_Manager.instance.HideHighlight(playerCharacter.GetSkillPreviewID());
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
-                    highlightLineID = Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight);
+                    SetHighlightID(Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight));
                 }
                 //print(playerCharacter.lineUp.Count);
                 break;
@@ -193,5 +199,15 @@ public class PlayerManager : MonoBehaviour
     {
         hoverMode = HoverMode.NoHover;
         GameManager.Instance.CheckIfCompleted(true);
+    }
+
+    public int GetHighlineID()
+    {
+        return highlightLineID;
+    }
+
+    public void SetHighlightID(int id)
+    {
+        highlightLineID = id;
     }
 }

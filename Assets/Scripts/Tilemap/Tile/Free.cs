@@ -14,7 +14,7 @@ public class Free : Tile
     public GameObject ropeRight;
     public GameObject ropeLeft;
 
-    int previewID;
+    protected int previewID;
     public override void OnMouseEnter()
     {
         switch (PlayerManager.instance.hoverMode)
@@ -33,7 +33,7 @@ public class Free : Tile
                     UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
                     UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PM, path.Count);
 
-                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true);
+                    SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true));
                 }
                 break;
             case HoverMode.Bombardment:
@@ -48,9 +48,15 @@ public class Free : Tile
             case HoverMode.MeleeHover:
                 if (isClickable)
                 {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     PlayerManager.instance.currentHoveredTile = this;
                     oldMaterial = rend.material;
                     rend.material = Highlight_Manager.instance.actionHighlightMat;
+
+                    if(SkillManager.instance.currentActiveSkill == player.kickSkill)
+                    {
+                        player.kickSkill.PreviewPawnPath(player, GetPawnOnTile());
+                    }
                 }
                 break;
         }
@@ -67,7 +73,7 @@ public class Free : Tile
                     {
                         player.HideMoveRange();
                     }
-                    Highlight_Manager.instance.HideHighlight(previewID, null, false);
+                    Highlight_Manager.instance.HideHighlight(GetPreviewID(), null, false);
                     UI_Manager.instance.characterInfoPanel.ResetCharacterInfo(UI_SelectedCharacterInfo.Stats.PM);
                     PlayerManager.instance.currentHoveredTile = null;
                 }
@@ -85,8 +91,24 @@ public class Free : Tile
                 {
                     PlayerManager.instance.currentHoveredTile = null;
                     rend.material = oldMaterial;
+
+                    if (SkillManager.instance.currentActiveSkill == PlayerManager.instance.playerCharacter.kickSkill)
+                    {
+                        Highlight_Manager.instance.HideHighlight(PlayerManager.instance.GetHighlineID());
+                    }
+
                 }
                 break;
         }
+    }
+
+    public void SetPreviewID(int id)
+    {
+        previewID = id;
+    }
+
+    public int GetPreviewID()
+    {
+        return previewID;
     }
 }

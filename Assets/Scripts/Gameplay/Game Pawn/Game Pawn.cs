@@ -149,6 +149,22 @@ public class GamePawn : MonoBehaviour
 
     }
 
+    public virtual void OnThrowed(PlayerCharacter user, Tile targetTile)
+    {
+        user.liftedPawn = null;
+        SetTile(null);
+        user.InitializeAllSkillRange(user.GetTile());
+        Sequence s = DOTween.Sequence();
+
+        s.Append(transform.DOMove(targetTile.transform.position + new Vector3(0f, 1.1f, 0f), 1f))
+         .SetEase(Ease.OutCubic)
+         .OnComplete(() => {
+             PlayerManager.instance.hoverMode = HoverMode.MovePath;
+             EndAction();
+         });
+
+    }
+
     public virtual void ReceiveDamage(int dmg)
     {
         
