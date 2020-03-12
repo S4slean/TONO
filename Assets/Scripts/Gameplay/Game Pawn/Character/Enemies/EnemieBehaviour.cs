@@ -376,7 +376,7 @@ public class EnemieBehaviour : GamePawn
     public override void Die()
     {
         anim.SetTrigger("Death");
-        //UI_Manager.instance.timelinePanel.RemoveCharacterAtIndex();
+        UI_Manager.instance.timelinePanel.RemoveCharacterAtIndex(timelineIndex);
         EnemyManager.instance.enemyList.Remove(this);
         GameManager.Instance.CheckIfCompleted(false);
         base.Die();

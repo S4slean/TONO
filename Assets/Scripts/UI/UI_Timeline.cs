@@ -61,6 +61,7 @@ public class UI_Timeline : Panel_Behaviour
         {
             if (replaceCurrentTime < replaceMaxTime)
             {
+                Debug.Log("Rearranginnnnnnnnng");
                 replaceCurrentTime += Time.deltaTime;
                 float percent = replaceIconsCurve.Evaluate(replaceCurrentTime / replaceMaxTime);
 
@@ -91,7 +92,7 @@ public class UI_Timeline : Panel_Behaviour
         //Get the number of characters (knowing that the first one is the BOAT and the last one is the PLAYER)
         numberOfIcons = 2 + EnemyManager.instance.enemyList.Count;
 
-        charactersPortraitParent.anchoredPosition3D = new Vector3(0 - (numberOfIcons * iconSizeref), charactersPortraitParent.anchoredPosition3D.y, 0);
+        charactersPortraitParent.anchoredPosition3D = new Vector3(0 - (numberOfIcons * iconSizeref), 0, 0);
 
         //Get number of characters
         for (int i = 0; i < numberOfIcons; i++)
@@ -182,6 +183,7 @@ public class UI_Timeline : Panel_Behaviour
         isRearranging = false;
         isMoving = false;
         replaceCurrentTime = 0;
+        Debug.Log("Refresh HERE");
 
         //Check if it's not the beginning of the game
         if (selectedIcon < 0)
@@ -189,6 +191,7 @@ public class UI_Timeline : Panel_Behaviour
             charactersIcons.RemoveAt(charactersIcons[indexToRemove].indexOrder);
 
             RefreshIconsOrder();
+            Debug.Log("Refresh THERE");
 
             return;
         }
@@ -201,6 +204,8 @@ public class UI_Timeline : Panel_Behaviour
 
         charactersIcons.RemoveAt(charactersIcons[indexToRemove].indexOrder);
 
+        Debug.Log("Refresh selected");
+
         RefreshIconsOrder();
     }
 
@@ -209,6 +214,8 @@ public class UI_Timeline : Panel_Behaviour
     /// </summary>
     private void RefreshIconsOrder()
     {
+        Debug.Log("Refresh ORDER");
+
         for (int i = 1; i < charactersIcons.Count; i++)
         {
             charactersIcons[i].indexOrder = i;
@@ -228,14 +235,15 @@ public class UI_Timeline : Panel_Behaviour
     /// </summary>
     private void RearrangeIcons()
     {
+        Debug.Log("Rearrange");
+        isRearranging = false;
+
         currents = new List<Vector3>();
         diffs = new List<Vector3>();
 
         currentPanelPos = charactersPortraitParent.anchoredPosition3D;
-        nextPanelPos = new Vector3(currentPanelPos.x + iconSizeref, currentPanelPos.y + iconSizeref, currentPanelPos.z + iconSizeref);
+        nextPanelPos = new Vector3(currentPanelPos.x + iconSizeref, currentPanelPos.y, currentPanelPos.z);
         diffPanelPos = new Vector3(nextPanelPos.x - currentPanelPos.x, nextPanelPos.y - currentPanelPos.y, nextPanelPos.z - currentPanelPos.z);
-
-        //Recentrer le panneau
 
         for (int i = 0; i < charactersIcons.Count; i++)
         {
