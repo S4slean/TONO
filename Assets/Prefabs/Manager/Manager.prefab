@@ -474,7 +474,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   mouseMask:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 1536
   hoverMode: 0
   playerStats: {fileID: 11400000, guid: 7c337270eb241e448aac0d6eb7af2eef, type: 2}
 --- !u!1 &6370869968600417346
@@ -758,6 +758,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6370869968600417347}
     m_Modifications:
+    - target: {fileID: 2266356279212453381, guid: a1eccf7665dab75429f4a977edaef1c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110.000244
+      objectReference: {fileID: 0}
     - target: {fileID: 3919592758139470773, guid: a1eccf7665dab75429f4a977edaef1c8,
         type: 3}
       propertyPath: m_LocalPosition.x

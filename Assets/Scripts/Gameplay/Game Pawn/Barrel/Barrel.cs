@@ -8,15 +8,16 @@ public class Barrel : GamePawn
     public BarrelType startingExplosionType;
     public bool noStartingInit;
     public bool standing = true;
-    [HideInInspector] public Skill explosionSkill;
+    //[HideInInspector]
+    public Skill explosionSkill;
     private GamePawn _kicker;
 
     protected override void Start()
     {
         base.Start();
 
-        if(!noStartingInit)
-        Initialize(startingExplosionType);
+        if (!noStartingInit)
+            Initialize(startingExplosionType);
     }
 
     public override void OnEnable()
@@ -28,12 +29,11 @@ public class Barrel : GamePawn
         associatedTile = hit.transform.GetComponent<Tile>();
         if (associatedTile.GetPawnOnTile() != null)
         {
-            Explode();
+            associatedTile.GetPawnOnTile().Die();
         }
-        else
-        {
-            associatedTile.SetPawnOnTile(this);
-        }
+
+        associatedTile.SetPawnOnTile(this);
+
     }
 
     public GameObject[] graphics;
