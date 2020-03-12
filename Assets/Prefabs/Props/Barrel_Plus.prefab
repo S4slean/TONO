@@ -91,7 +91,7 @@ MonoBehaviour:
   startingExplosionType:
     rangeType: 2
     explosionSkill: {fileID: 11400000, guid: ba2ea993b723b9544bd107de43452b7b, type: 2}
-    graphicsIndex: 0
+    graphicsIndex: 2
   standing: 1
   explosionSkill: {fileID: 0}
   graphics:
