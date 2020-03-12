@@ -78,7 +78,6 @@ public class BombardmentManager : MonoBehaviour
     bool waitingToPlace;
     public void PlaceBarrelMarker(Tile selectedTile)
     {
-        print("Placing Marker");
         waitingToPlace = false;
         if(barrelMarkersPool.Count < 1)
         {

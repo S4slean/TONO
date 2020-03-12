@@ -35,6 +35,7 @@ public class UI_ActionButton : MonoBehaviour
     private float currentTime = 0;
 
     bool isUnfold = false;
+    public bool isSelected = false;
     bool isMoving = false;
     //bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
 
@@ -59,7 +60,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void Highlighting()
     {
-        animator.Play("Highlighted");
+        if (!isSelected)
+            animator.Play("Highlighted");
     }
 
     public void Clicking()
@@ -69,7 +71,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void BackToNormal()
     {
-        animator.Play("Normal");
+        if (!isSelected)
+            animator.Play("Normal");
     }
 
     /// <summary>
@@ -140,13 +143,28 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
-        //actionPanel.selectedAction = this;
+        if (actionPanel.selectedAction != null && actionPanel.selectedAction != this)
+        {
+            actionPanel.selectedAction.isSelected = false;
+            actionPanel.selectedAction.PreviewSkillAction();
+        }
+
+        isSelected = !isSelected;
+
+        if (!isSelected)
+            actionPanel.selectedAction = null;
+        else
+            actionPanel.selectedAction = this;
+
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
 
     private void CheckSkillCondition()
     {
-        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null || actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null)
+            return;
+
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
         {
             actionImage.sprite = actionSkill.unenabledSprite;
         }

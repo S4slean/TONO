@@ -21,9 +21,9 @@ public class UI_Timeline : Panel_Behaviour
     Vector3 currentIconPos;
     Vector3 diffIconPos;
 
-    Vector3 currentPanelPos;
-    Vector3 nextPanelPos;
-    Vector3 diffPanelPos;
+    public Vector3 currentPanelPos;
+    public Vector3 nextPanelPos;
+    public Vector3 diffPanelPos;
 
     List<Vector3> currents;
     List<Vector3> diffs;
@@ -162,7 +162,7 @@ public class UI_Timeline : Panel_Behaviour
             newPos = new Vector3(((values.portraitRect.sizeDelta.x * i) + (maxIconsSpacing * i)), 0, 0);
             values.portraitRect.anchoredPosition3D = newPos;
             values.normalPos = newPos;
-
+            iconSizeref = values.portraitRect.sizeDelta.x + maxIconsSpacing;
 
             //Stock Index Position
             iconPositions.Add(newPos);
