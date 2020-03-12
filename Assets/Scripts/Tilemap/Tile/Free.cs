@@ -142,6 +142,7 @@ public class Free : Tile
 
     public void SetFire()
     {
+        
         fire.SetActive(true);
         fireAnim.SetTrigger("Fire");
         StartCoroutine(FireDelay());
@@ -150,6 +151,7 @@ public class Free : Tile
     public IEnumerator FireDelay()
     {
         yield return new WaitForSeconds(.5f);
+        SetAlcoolized(false);
         SpreadFire();
         if(GetPawnOnTile() != null)
         {
