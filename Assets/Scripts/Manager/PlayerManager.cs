@@ -144,9 +144,10 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
 
-                if(lineToHighlight != currentLineHighlighted)
+                playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
+                if (lineToHighlight != currentLineHighlighted)
                 {
-                    //print("CHANGE");
+                    print("CHANGE");
                     if (GetHighlineID() > -1)
                     {
                         //print(highlightLineID);
