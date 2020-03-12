@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         UI_Manager.instance.messagePanel.SetUI();
         UI_Manager.instance.pausePanel.SetUI();
 
+        UI_Manager.instance.actionPanel.ResetPanelAction();
+
         UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
 
         StartBombardmentTurn();
