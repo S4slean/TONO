@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8552482037565626377}
   - component: {fileID: 8850026579825753707}
   m_Layer: 0
-  m_Name: PS_MuzzleShoot 1
+  m_Name: PS_MuzzleShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
