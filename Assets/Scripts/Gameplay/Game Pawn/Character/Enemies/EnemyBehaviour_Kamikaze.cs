@@ -77,7 +77,7 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
 
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
@@ -104,6 +104,7 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
 
         s.OnComplete(() =>
         {
+            if (movedByPlayer) PlayerManager.instance.playerCharacter.EndAction();
             _isDoingSomething = false;
         });
     }

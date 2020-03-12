@@ -82,7 +82,7 @@ public class PlayerCharacter : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print(destination);
         //print("Destination : " + destination.transform.position);
