@@ -28,13 +28,13 @@ public class GamePawn : MonoBehaviour
         DetectTile();
     }
 
-    private void DetectTile()
+    public void DetectTile()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print(name +" tile : " + hit.transform.name);
-        associatedTile = hit.transform.GetComponent<Tile>();
-        associatedTile.SetPawnOnTile(this);
+        Physics.Raycast(transform.position+Vector3.up, Vector3.down, out hit, mask);
+        print(name +" tile : " + hit.transform.name);
+        SetTile(hit.transform.GetComponent<Tile>());
+        GetTile().SetPawnOnTile(this);
         Debug.Log(GetTile());
     }
 
