@@ -101,17 +101,21 @@ public class UI_Portrait : MonoBehaviour
         {
             if (removeCurrentTime < removeMaxTime)
             {
+                Debug.Log("RemovING");
+
                 removeCurrentTime += Time.deltaTime;
                 float percent = removeIconsCurve.Evaluate(removeCurrentTime / removeMaxTime);
 
                 //Remove ICON
                 portraitRect.anchoredPosition3D = new Vector3(portraitRect.anchoredPosition3D.x, current.y + (diff.y * percent), portraitRect.anchoredPosition3D.z);
             }
-            else
+
+            if (removeCurrentTime >= removeMaxTime)
             {
+                Debug.Log("Remove ends NOW");
+                panelRef.RefreshSelectedIcon(indexOrder);
                 isMoving = false;
                 removeCurrentTime = 0;
-                panelRef.RefreshSelectedIcon(indexOrder);
             }
         }
     }
@@ -122,6 +126,8 @@ public class UI_Portrait : MonoBehaviour
         {
             return;
         }
+
+        Debug.Log("Remove this icon : " + gameObject.name);
 
         current = portraitRect.anchoredPosition3D;
         diff = new Vector3(removedPos.x - current.x, removedPos.y - current.y, current.z);

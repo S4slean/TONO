@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void StartBombardmentTurn()
     {
-        BombardmentManager.Instance.DropBarrels();
+
         turnType = TurnType.bombardment;
 
         UI_Manager.instance.boatPanel.SetUpBoatUI();
@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        BombardmentManager.Instance.DropBarrels();
         turnType = TurnType.player;
         UI_Manager.instance.timelinePanel.NextIconTurn();
 
