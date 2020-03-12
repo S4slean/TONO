@@ -34,7 +34,6 @@ public class GamePawn : MonoBehaviour
         Physics.Raycast(transform.position+Vector3.up, Vector3.down, out hit, mask);
         SetTile(hit.transform.GetComponent<Tile>());
         GetTile().SetPawnOnTile(this);
-        Debug.Log(GetTile());
     }
 
     public virtual void OnEnable()
@@ -129,7 +128,7 @@ public class GamePawn : MonoBehaviour
         }
     }
 
-    public void EndAction()
+    public virtual void EndAction()
     {
         _isDoingSomething = false;
     }
@@ -153,13 +152,13 @@ public class GamePawn : MonoBehaviour
     {
         user.liftedPawn = null;
         SetTile(null);
-        user.InitializeAllSkillRange(user.GetTile());
         Sequence s = DOTween.Sequence();
 
         s.Append(transform.DOMove(targetTile.transform.position + new Vector3(0f, 1.1f, 0f), 1f))
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
+             SetTile(targetTile);
              user.EndAction();
          });
 

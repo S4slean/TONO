@@ -178,6 +178,7 @@ MonoBehaviour:
   skillPreviewID: 0
   skills: []
   LiftPawnSocket: {fileID: 7447926989378040533}
+  anim: {fileID: 2158342682354280628}
   gunRange: []
   lineUp: []
   lineRight: []
@@ -360,6 +361,12 @@ PrefabInstance:
 --- !u!4 &2158342682354280619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788898414273110663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2158342682354280628 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2983395280746990131, guid: 17db6ef6e6106ab4cbb671607f6ce576,
     type: 3}
   m_PrefabInstance: {fileID: 3788898414273110663}
   m_PrefabAsset: {fileID: 0}
