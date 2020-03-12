@@ -53,7 +53,7 @@ public class GridManager : MonoBehaviour
         return tile is Water;
     }
 
-    public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false)
+    public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false, bool throughEnemies = false)
     {
         List<Tile> line = new List<Tile>();
         bool searching = true;
@@ -73,19 +73,11 @@ public class GridManager : MonoBehaviour
                     if (currentTile.neighbours.up != null && !IsWall(currentTile.neighbours.up))
                     {
                         currentNeighbours = currentTile.neighbours.up;
-                        if (IsWater(currentNeighbours))
+                        if (!throughWater && IsWater(currentNeighbours))
                         {
-                            if (throughWater)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                searching = false;
-                                break;
-                            }
+                            searching = false;
                         }
-                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -104,19 +96,11 @@ public class GridManager : MonoBehaviour
                     if (currentTile.neighbours.right != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.right;
-                        if (IsWater(currentNeighbours))
+                        if (throughWater && IsWater(currentNeighbours))
                         {
-                            if (throughWater)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                searching = false;
-                                break;
-                            }
+                            searching = false;
                         }
-                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -135,19 +119,11 @@ public class GridManager : MonoBehaviour
                     if (currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
                     {
                         currentNeighbours = currentTile.neighbours.down;
-                        if (IsWater(currentNeighbours))
+                        if (throughWater && IsWater(currentNeighbours))
                         {
-                            if (throughWater)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                searching = false;
-                                break;
-                            }
+                            searching = false;
                         }
-                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;
@@ -166,19 +142,11 @@ public class GridManager : MonoBehaviour
                     if (currentTile.neighbours.left != null && !IsWall(currentTile.neighbours.left))
                     {
                         currentNeighbours = currentTile.neighbours.left;
-                        if (IsWater(currentNeighbours))
+                        if (throughWater && IsWater(currentNeighbours))
                         {
-                            if (throughWater)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                searching = false;
-                                break;
-                            }
+                            searching = false;
                         }
-                        else if (currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;

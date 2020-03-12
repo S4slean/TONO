@@ -21,6 +21,7 @@ public class GunShot : Skill
             if (SkillManager.instance.currentActiveSkill != this)
             {
                 base.Preview(user);
+                Time.timeScale = 0.3f;
                 player.HideMoveRange();
                 player.SetPreviewID(Highlight_Manager.instance.ShowHighlight(player.gunRange, HighlightMode.ActionPreview, true));
                 playerManager.hoverMode = HoverMode.GunShotHover;
@@ -32,11 +33,10 @@ public class GunShot : Skill
             }
             else
             {
+                Time.timeScale = 1f;
                 Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
                 SkillManager.instance.currentActiveSkill = null;
                 playerManager.hoverMode = HoverMode.MovePath;
-
-
             }
 
         }

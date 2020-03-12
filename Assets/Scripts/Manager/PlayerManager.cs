@@ -46,6 +46,7 @@ public class PlayerManager : MonoBehaviour
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
+    private Barrel barrelInLine;
 
     public PlayerStatsConfig playerStats;
 
@@ -151,10 +152,21 @@ public class PlayerManager : MonoBehaviour
                         //print(highlightLineID);
                         Highlight_Manager.instance.HideHighlight(GetHighlineID());
                     }
+
+                    if(barrelInLine != null)
+                    {
+                        Highlight_Manager.instance.HideHighlight(barrelInLine.GetSkillPreviewID());
+                    }
                     currentLineHighlighted = lineToHighlight;
                     Highlight_Manager.instance.HideHighlight(playerCharacter.GetSkillPreviewID());
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
                     SetHighlightID(Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight));
+
+                    barrelInLine = BarrelInLine(lineToHighlight);
+                    if(barrelInLine != null)
+                    {
+                        barrelInLine.explosionSkill.Preview(barrelInLine);
+                    }
                 }
                 //print(playerCharacter.lineUp.Count);
                 break;
@@ -218,5 +230,15 @@ public class PlayerManager : MonoBehaviour
         highlightLineID = id;
     }
 
-   
+    public Barrel BarrelInLine(List<Tile> line)
+    {
+        foreach(Tile tile in line)
+        {
+            if(tile.GetPawnOnTile() != null && tile.GetPawnOnTile() is Barrel)
+            {
+                return tile.GetPawnOnTile() as Barrel;
+            }
+        }
+        return null;
+    }
 }
