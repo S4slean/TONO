@@ -27,10 +27,10 @@ public class Explosion : Skill
 
     public override void Preview(GamePawn user)
     {
-        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(ComboManager.instance.AddBarrelToComboPreview((Barrel)user), HighlightMode.ExplosionPreview));
+        user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(ComboManager.instance.AddBarrelToComboPreview((Barrel)user, true), HighlightMode.ExplosionPreview));
     }
 
-    public List<Tile> GetRange(GamePawn user, bool useCombo)
+    public override List<Tile> GetRange(GamePawn user, bool useCombo)
     {
         List<Tile> res = new List<Tile>();
         switch (rangeType)
@@ -47,6 +47,7 @@ public class Explosion : Skill
             default:
                 break;
         }
+        //Debug.Log("ExplosionRange : " + res.Count);
         return res;
     }
 }

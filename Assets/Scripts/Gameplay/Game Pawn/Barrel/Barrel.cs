@@ -8,7 +8,8 @@ public class Barrel : GamePawn
     public BarrelType startingExplosionType;
     public bool noStartingInit;
     public bool standing = true;
-    [HideInInspector] public Skill explosionSkill;
+    //[HideInInspector]
+    public Skill explosionSkill;
     private GamePawn _kicker;
 
     protected override void Start()
