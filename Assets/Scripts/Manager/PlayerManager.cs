@@ -197,6 +197,7 @@ public class PlayerManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         hoverMode = HoverMode.NoHover;
         GameManager.Instance.CheckIfCompleted(true);
     }

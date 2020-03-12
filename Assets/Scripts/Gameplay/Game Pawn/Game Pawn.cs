@@ -35,6 +35,7 @@ public class GamePawn : MonoBehaviour
         //print(name +" tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
+        Debug.Log(GetTile());
     }
 
     public virtual void OnEnable()
@@ -160,7 +161,7 @@ public class GamePawn : MonoBehaviour
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
-             EndAction();
+             user.EndAction();
          });
 
     }
@@ -172,7 +173,8 @@ public class GamePawn : MonoBehaviour
 
     public virtual void Die()
     {
-
+        associatedTile.SetPawnOnTile(null);
+        SetTile(null);
     }
 
     
