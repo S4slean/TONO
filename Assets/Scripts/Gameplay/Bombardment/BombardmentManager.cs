@@ -53,6 +53,7 @@ public class BombardmentManager : MonoBehaviour
 
     public void StartBombardment()
     {
+        GridManager.instance.AllTilesBecameClickable();
         CalculateBarrelsToDrop();
         StartCoroutine(WaitThenStartPlacingBarrels());
     }
