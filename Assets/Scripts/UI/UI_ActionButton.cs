@@ -140,7 +140,7 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
-        actionPanel.selectedAction = this;
+        //actionPanel.selectedAction = this;
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
 
