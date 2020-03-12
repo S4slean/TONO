@@ -23,11 +23,11 @@ public class Barrel : GamePawn
 
     public override void OnEnable()
     {
-        Debug.Log("Barrel Activate");
+
         RaycastHit hit;
         Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, mask);
-        if (hit.transform == null) { Debug.Log("Help"); return; }
-        Debug.Log(" tile : " + hit.transform.name);
+        if (hit.transform == null)  return; 
+
         SetAssociatedTile(hit.transform.GetComponent<Tile>());
         if (GetTile().GetPawnOnTile() != null)
         {
@@ -161,9 +161,10 @@ public class Barrel : GamePawn
 
     public virtual void Explode()
     {
+        if (isExplosing) return;
+
         isExplosing = true;
         explosionSkill.Activate(this, GetTile());
-        Debug.Log("Boom");
         associatedTile.SetPawnOnTile(null);
         SetTile(null);
         BarrelManager.Instance.Repool(this);
@@ -174,7 +175,7 @@ public class Barrel : GamePawn
 
     public override void ReceiveDamage(int dmg)
     {
-        if (isExplosing) return;
+
         Explode();
     }
 }
