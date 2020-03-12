@@ -28,13 +28,12 @@ public class GamePawn : MonoBehaviour
         DetectTile();
     }
 
-    private void DetectTile()
+    public void DetectTile()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print(name +" tile : " + hit.transform.name);
-        associatedTile = hit.transform.GetComponent<Tile>();
-        associatedTile.SetPawnOnTile(this);
+        Physics.Raycast(transform.position+Vector3.up, Vector3.down, out hit, mask);
+        SetTile(hit.transform.GetComponent<Tile>());
+        GetTile().SetPawnOnTile(this);
     }
 
     public virtual void OnEnable()
@@ -78,7 +77,7 @@ public class GamePawn : MonoBehaviour
 
     }
 
-    public virtual void SetDestination(Tile destination, bool showHighlight = false)
+    public virtual void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
@@ -129,7 +128,7 @@ public class GamePawn : MonoBehaviour
         }
     }
 
-    public void EndAction()
+    public virtual void EndAction()
     {
         _isDoingSomething = false;
     }
@@ -153,14 +152,14 @@ public class GamePawn : MonoBehaviour
     {
         user.liftedPawn = null;
         SetTile(null);
-        user.InitializeAllSkillRange(user.GetTile());
         Sequence s = DOTween.Sequence();
 
         s.Append(transform.DOMove(targetTile.transform.position + new Vector3(0f, 1.1f, 0f), 1f))
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
-             EndAction();
+             SetTile(targetTile);
+             user.EndAction();
          });
 
     }
@@ -172,7 +171,8 @@ public class GamePawn : MonoBehaviour
 
     public virtual void Die()
     {
-
+        associatedTile.SetPawnOnTile(null);
+        SetTile(null);
     }
 
     

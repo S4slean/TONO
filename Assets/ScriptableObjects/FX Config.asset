@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FX Config
   m_EditorClassIdentifier: 
   fxs:
-  - fxName: Test
-    fx: {fileID: 4866911137466214262, guid: d08869bb7b1369f4a8ed5da99eae8aa9, type: 3}
+  - fxName: Explosion
+    fx: {fileID: 3990111356901117202, guid: 0f947d6f22093644c9add8db4d60c8b1, type: 3}
     poolingAmount: 5
     duration: 5
     randomizeSize: 0

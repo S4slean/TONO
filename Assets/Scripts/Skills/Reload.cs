@@ -12,6 +12,11 @@ public class Reload : Skill
 
     public override void Preview(GamePawn user)
     {
+        if(PlayerManager.instance.playerCharacter.currentPA >= cost)
+        {
+            UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+            UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PA, cost);
+        }
         SkillManager.instance.ReloadGun();
         //Activate();
     }

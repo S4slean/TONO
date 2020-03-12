@@ -7,6 +7,7 @@ public class PlayerCharacter : GamePawn
 {
     [Header("References")]
     public Transform LiftPawnSocket;
+    public Animator anim;
     //LOGIC
     [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
@@ -82,7 +83,7 @@ public class PlayerCharacter : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print(destination);
         //print("Destination : " + destination.transform.position);
@@ -227,6 +228,13 @@ public class PlayerCharacter : GamePawn
             user.EndAction();
 
         });
+    }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+        PlayerManager.instance.hoverMode = HoverMode.MovePath;
+        InitializeAllSkillRange(GetTile());
     }
 
 }
