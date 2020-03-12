@@ -136,7 +136,7 @@ public class UI_Manager : MonoBehaviour
                 pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
-                characterInfoPanel.HidePanel();
+                characterInfoPanel.ShowPanel();
                 break;
 
             case UIDisplayMode.PlayerTurn:
