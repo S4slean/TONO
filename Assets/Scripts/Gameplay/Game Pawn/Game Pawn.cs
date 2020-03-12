@@ -35,6 +35,7 @@ public class GamePawn : MonoBehaviour
         //print(name +" tile : " + hit.transform.name);
         associatedTile = hit.transform.GetComponent<Tile>();
         associatedTile.SetPawnOnTile(this);
+        Debug.Log(GetTile());
     }
 
     public virtual void OnEnable()

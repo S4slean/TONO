@@ -168,6 +168,8 @@ public class EnemieBehaviour : GamePawn
     public bool IsInMeleeRange()
     {
         Tile playerTile = _player.GetTile();
+        
+        Debug.Log(GetTile());
         if (GetTile().neighbours.up == playerTile || GetTile().neighbours.down == playerTile || GetTile().neighbours.left == playerTile || GetTile().neighbours.right == playerTile)
         {
             return true;
