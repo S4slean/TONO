@@ -8,7 +8,7 @@ public class UI_EndTurn : Panel_Behaviour
     [Header("End Turn References")]
     public Image endTurnImage;
     public bool canEndTurn;
-
+    public Animator animator;
 
 
     private void Update()
@@ -16,6 +16,21 @@ public class UI_EndTurn : Panel_Behaviour
         MovePanel();
     }
 
+
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
+    }
 
     public void EndTurn()
     {

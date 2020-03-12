@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62ea3461e9ceba4c89a4fe9ba70aff5, type: 3}
   m_Name: CoupDeSabre
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Coup de Sabre
   description: 
   cost: 3
   damage: 1

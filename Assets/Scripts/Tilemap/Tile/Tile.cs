@@ -42,7 +42,7 @@ public class Tile : MonoBehaviour
 
     public object Connections { get; internal set; }
 
-    protected GamePawn pawnOnTile;
+    [SerializeField]protected GamePawn pawnOnTile;
 
     void Start()
     {

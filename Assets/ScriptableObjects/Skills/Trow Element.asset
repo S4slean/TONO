@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8853711b4ea7bed40a56d19c868c6188, type: 3}
   m_Name: Trow Element
   m_EditorClassIdentifier: 
-  skillName: ThrowElement
+  skillName: Thr0w
   description: Throw something somewhere somehow
   cost: 2
   damage: 0
   rangeType: 0
-  range: 0
+  range: 2
   enabledSprite: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
     type: 3}
   unenabledSprite: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,

@@ -35,7 +35,7 @@ MonoBehaviour:
   captainImage: {fileID: 21300000, guid: 5a0d326da15d4cd4aa1c1087daf76754, type: 3}
   kamikazeImage: {fileID: 21300000, guid: ad35bd7e7e8e5d648ac590a760d5693a, type: 3}
   hookerImage: {fileID: 21300000, guid: 938a7d5065696064396f8c67413c647c, type: 3}
-  usedBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  usedBullet: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
   unusedBullet: {fileID: 21300000, guid: 9ec928877e6f6254284eb41b23d3b24a, type: 3}
   moveImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   moveImageDeactivated: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
