@@ -33,6 +33,7 @@ public class UI_Portrait : MonoBehaviour
     private float current;
     private float diff;
 
+    public Animator animator;
 
 
 
@@ -40,6 +41,22 @@ public class UI_Portrait : MonoBehaviour
     {
         if (isMoving)
             MoveIcon();
+    }
+
+
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
     }
 
     private void MoveIcon()

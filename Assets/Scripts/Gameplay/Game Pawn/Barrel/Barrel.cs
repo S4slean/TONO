@@ -68,11 +68,17 @@ public class Barrel : GamePawn
     }
 
 
-    public virtual void Kick(Direction dir, GamePawn kicker)
+    public override void OnKicked(GamePawn kicker, int damage, Direction dir)
     {
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
         _kicker = kicker;
         SetDestination(path[path.Count - 1]);
+        if(kicker is PlayerCharacter)
+        {
+            PlayerCharacter player = kicker as PlayerCharacter;
+            PlayerManager.instance.hoverMode = HoverMode.MovePath;
+            player.ShowMoveRange();
+        }
     }
 
     public override void SetDestination(Tile destination, bool showHighlight = false)

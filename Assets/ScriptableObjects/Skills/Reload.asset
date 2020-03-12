@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a927c9222124545b2614a191aec07d, type: 3}
   m_Name: Reload
   m_EditorClassIdentifier: 
-  skillName: Reload
+  skillName: Rel0ad
   description: Put another bullet in your gun mate !
   cost: 1
   damage: 0
