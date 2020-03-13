@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.K))
+        {
+            CompleteCombat();
+        }
+    }
     private void Start()
     {
         DataManager.Instance.Load(true, SceneType.game);

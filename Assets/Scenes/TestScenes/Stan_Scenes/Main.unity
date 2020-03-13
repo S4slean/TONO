@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 110.00049
       objectReference: {fileID: 0}
+    - target: {fileID: 5123503716434922292, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110.00012
+      objectReference: {fileID: 0}
     - target: {fileID: 6370869968600417346, guid: 0d2fff71dfacd82479d19eccb8798d0b,
         type: 3}
       propertyPath: m_Name
@@ -193,6 +198,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7929942444638849594, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929942446386315499, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 95.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976453287630908126, guid: 0d2fff71dfacd82479d19eccb8798d0b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125.00012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d2fff71dfacd82479d19eccb8798d0b, type: 3}
 --- !u!1001 &1427292060
@@ -202,6 +222,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2227600310645588496, guid: 9067668bc43900b46890aa0c557de7a2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6206616289428508506, guid: 9067668bc43900b46890aa0c557de7a2,
         type: 3}
       propertyPath: m_Name
@@ -271,11 +296,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1252077536014003595, guid: e8c43a59aed1b4847a4d6e42b97a4a4f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4993142105262302090, guid: e8c43a59aed1b4847a4d6e42b97a4a4f,
         type: 3}
       propertyPath: m_LocalPosition.x
