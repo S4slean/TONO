@@ -22,7 +22,6 @@ public class EnemyBehaviour_Captain : EnemieBehaviour
 
     public override void EndTurn()
     {
-        Debug.Log("EndTurn");
         _isDoingSomething = false;
         _isMyTurn = false;
         movementPoints = enemyStats.movement;

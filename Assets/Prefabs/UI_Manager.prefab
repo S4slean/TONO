@@ -899,6 +899,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   replaceMaxTime: 0.3
+  currentPanelPos: {x: 0, y: 0, z: 0}
+  nextPanelPos: {x: 0, y: 0, z: 0}
+  diffPanelPos: {x: 0, y: 0, z: 0}
 --- !u!1 &3919592758027595532
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 650, y: -100}
+  m_AnchoredPosition: {x: 650, y: -100.00012}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &3919592758027595530
@@ -1226,7 +1229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 95, y: 95}
+  m_AnchoredPosition: {x: 95, y: 95.00012}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &867704807488733686
@@ -1816,7 +1819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40, y: -125}
+  m_AnchoredPosition: {x: 40, y: -125.00012}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &3390996085855522415
@@ -2747,6 +2750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793298029656925684, guid: b177d5602be79514b88e2ee6b6e8f1b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110.00012
       objectReference: {fileID: 0}
     - target: {fileID: 2793298029656925685, guid: b177d5602be79514b88e2ee6b6e8f1b9,
         type: 3}
