@@ -182,7 +182,6 @@ public class UI_Timeline : Panel_Behaviour
         isRearranging = false;
         isMoving = false;
         replaceCurrentTime = 0;
-        Debug.Log("Refresh HERE");
 
         //Check if it's not the beginning of the game
         if (selectedIcon < 0)
@@ -190,7 +189,6 @@ public class UI_Timeline : Panel_Behaviour
             charactersIcons.RemoveAt(charactersIcons[indexToRemove].indexOrder);
 
             RefreshIconsOrder();
-            Debug.Log("Refresh THERE");
 
             return;
         }
@@ -203,7 +201,7 @@ public class UI_Timeline : Panel_Behaviour
 
         charactersIcons.RemoveAt(charactersIcons[indexToRemove].indexOrder);
 
-        Debug.Log("Refresh selected");
+
 
         RefreshIconsOrder();
     }
