@@ -112,7 +112,7 @@ MonoBehaviour:
   startingExplosionType:
     rangeType: 4
     explosionSkill: {fileID: 11400000, guid: ea636cdc8de20774bbef8da9cc0cf6ed, type: 2}
-    graphicsIndex: 1
+    graphicsIndex: 2
   noStartingInit: 0
   standing: 1
   explosionSkill: {fileID: 0}

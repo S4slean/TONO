@@ -22,3 +22,4 @@ MonoBehaviour:
     type: 3}
   unenabledSprite: {fileID: 2879838874169369069, guid: e40d5442edc65e343ad1706b85c2c5f5,
     type: 3}
+  bullet: {fileID: 8178423575629156578, guid: 1561271629b1b9f44a60ac778b07481b, type: 3}

@@ -135,9 +135,12 @@ public class SkillManager : MonoBehaviour
         });
     }
 
-    public void GunShot()
+    public void GunShot(GamePawn user, Tile target, GameObject bullet)
     {
-
+        PlayerCharacter player = user as PlayerCharacter;
+        player.isGunLoaded = false;
+        GameObject instance = Instantiate(bullet, user.transform.position + Vector3.up, Quaternion.identity);
+        instance.GetComponent<Projectiles>().Throw(target.GetPawnOnTile(), user, 1);
     }
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
@@ -154,7 +157,35 @@ public class SkillManager : MonoBehaviour
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)
     {
+        if(affectedTile is Free)
+        {
+            Free f = (Free)affectedTile;
+            f.SetAlcoolized(true);
 
+            if (canSpread)
+            {
+                if(f.neighbours.up != null && f.neighbours.up is Free)
+                {
+                    Free up = (Free)f.neighbours.up;
+                    up.SetAlcoolized(true);
+                }
+                if (f.neighbours.down != null && f.neighbours.down is Free)
+                {
+                    Free down = (Free)f.neighbours.down;
+                    down.SetAlcoolized(true);
+                }
+                if (f.neighbours.right != null && f.neighbours.right is Free)
+                {
+                    Free right = (Free)f.neighbours.right;
+                    right.SetAlcoolized(true);
+                }
+                if (f.neighbours.left != null && f.neighbours.left is Free)
+                {
+                    Free left = (Free)f.neighbours.left;
+                    left.SetAlcoolized(true);
+                }
+            }
+        }
     }
 
 }
