@@ -31,7 +31,13 @@ public class Barrel : GamePawn
         SetAssociatedTile(hit.transform.GetComponent<Tile>());
         if (GetTile().GetPawnOnTile() != null)
         {
+            if (GetTile().GetPawnOnTile() == PlayerManager.instance.playerCharacter)
+                Explode();
+            else
+            {
             GetTile().GetPawnOnTile().ReceiveDamage(1);
+
+            }
         }
 
         GetTile().SetPawnOnTile(this);

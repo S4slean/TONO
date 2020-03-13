@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (MusicManager.Instance)
             MusicManager.Instance.Initialize();
 
-        StartCoroutine("IntroThenStart");
+        StartCoroutine(IntroThenStart());
     }
 
     IEnumerator IntroThenStart()
@@ -72,8 +72,10 @@ public class GameManager : MonoBehaviour
         //UI_Manager.instance.actionPanel.ResetPanelAction();
 
         UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
-        
+
         StartBombardmentTurn();
+
+
     }
 
     public void CheckIfCompleted(bool goesToNext)
@@ -152,12 +154,15 @@ public class GameManager : MonoBehaviour
             combatsCompleted = LevelManager.currentLevel;
         }
 
+        UI_Manager.instance.messagePanel.ShowMessage(UI_MessagePanel.Messages.Victory);
+
         StartCoroutine(DelayEndLevel());
     }
 
     public IEnumerator DelayEndLevel()
     {
-        yield return new WaitForSeconds(1.5f);
+        
+        yield return new WaitForSeconds(2);
         SaveAndQuit();
     }
 

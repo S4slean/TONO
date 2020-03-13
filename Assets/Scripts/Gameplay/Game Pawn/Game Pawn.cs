@@ -177,7 +177,7 @@ public class GamePawn : MonoBehaviour
 
     public virtual void Die()
     {
-        associatedTile.SetPawnOnTile(null);
+        GetTile().SetPawnOnTile(null);
         SetTile(null);
     }
 

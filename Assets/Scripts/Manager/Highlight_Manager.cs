@@ -205,7 +205,7 @@ public class Highlight_Manager : MonoBehaviour
         Free tile;
         foreach (Tile t in tilesToHighlight)
         {
-            if (!(t is Free))
+            if (!(t is Free) || (t is Water))
                 continue;
             tile = t as Free;
 
@@ -322,8 +322,9 @@ public class Highlight_Manager : MonoBehaviour
 
     public void DeactivateOutlines(Tile t, bool tilesBecameNotClickable = true, HighlightMode highlightModeAfter = HighlightMode.NoHighlight)
     {
-        if (!(t is Free))
+        if (!(t is Free) || (t is Water))
             return;
+
         Free tile = t as Free;
 
         tile.highlighted = false;

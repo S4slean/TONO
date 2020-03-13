@@ -14,6 +14,9 @@ public class GunShot : Skill
 
         UI_Manager.instance.gunPanel.RefreshUI();
         UI_Manager.instance.actionPanel.RefreshActions();
+
+        if (UI_Manager.instance.actionPanel.selectedAction == null)
+            return;
         UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
         UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation(); ;
     }

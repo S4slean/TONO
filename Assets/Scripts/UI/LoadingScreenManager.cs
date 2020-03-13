@@ -45,8 +45,13 @@ public class LoadingScreenManager : MonoBehaviour
     AsyncOperation ao;
     private void Update()
     {
-        if (count <= 0) return;
 
+
+        if (count <= 0) return;
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            count = 1f;
+        }
         count -= Time.deltaTime;
 
         if(!checkedCinematic)

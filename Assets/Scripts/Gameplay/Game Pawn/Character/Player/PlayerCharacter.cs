@@ -212,8 +212,10 @@ public class PlayerCharacter : GamePawn
 
     public override void Die()
     {
+        UI_Manager.instance.messagePanel.ShowMessage(UI_MessagePanel.Messages.Defeat);
         anim.SetTrigger("Death");
     }
+
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
     {
