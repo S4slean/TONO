@@ -29,6 +29,7 @@ public class CharacterStick : MonoBehaviour
 
     public void Exit()
     {
+        if(anim != null)
         anim.SetTrigger("exit");
     }
 

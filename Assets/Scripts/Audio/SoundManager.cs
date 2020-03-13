@@ -105,7 +105,7 @@ public class SoundManager : MonoBehaviour
     public IEnumerator PlaySoundCoroutine(GameObject _receptacle, AudioSource source, Sound _sound, bool loops, bool hasPos, Vector3 pos, float spatialBlend, float maximumDistance, float minimumDistance = 5f, bool bypassAudioListener = false)
     {
         source.enabled = true;
-        source.clip = _sound.clips[Random.Range(0, _sound.clips.Count)];
+        source.clip = _sound.clips[Random.Range(0, _sound.clips.Count - 1)];
         source.volume = Random.Range(_sound.minVolume, _sound.maxVolume) * sfxVolume;
         source.pitch = Random.Range(_sound.minPitch, _sound.maxPitch);
         source.maxDistance = maximumDistance;

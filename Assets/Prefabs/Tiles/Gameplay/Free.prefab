@@ -111,6 +111,7 @@ MonoBehaviour:
   down: {fileID: 0}
   left: {fileID: 0}
   pawnOnTile: {fileID: 0}
+  projectileOnTile: {fileID: 0}
   highlightCase: {fileID: 4564317732126390956}
   ropeUp: {fileID: 5140017537750610161}
   ropeDown: {fileID: 7004641480606356874}

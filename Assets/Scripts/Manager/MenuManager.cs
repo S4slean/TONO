@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     public int combatsCompleted;
     public TextMeshProUGUI combatsCompletedTextMesh;
 
+    public GameObject continueButton;
+
     private void Awake()
     {
         Instance = this;
@@ -20,6 +22,16 @@ public class MenuManager : MonoBehaviour
     {
         DataManager.Instance.Load(true, SceneType.menu);
 
+
+
+        if(combatsCompleted == 0)
+        {
+            continueButton.SetActive(false);
+        }
+        else
+        {
+            continueButton.SetActive(true);
+        }
         combatsCompletedTextMesh.text = "Combats Completed : " + combatsCompleted.ToString();
     }
 
