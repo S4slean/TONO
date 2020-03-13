@@ -147,12 +147,13 @@ public class GameManager : MonoBehaviour
             combatsCompleted = LevelManager.currentLevel;
         }
 
-        SaveAndQuit();
+        StartCoroutine(DelayEndLevel());
     }
 
     public IEnumerator DelayEndLevel()
     {
-        yield return null;
+        yield return new WaitForSeconds(1.5f);
+        SaveAndQuit();
     }
 
     public void SaveAndQuit()
