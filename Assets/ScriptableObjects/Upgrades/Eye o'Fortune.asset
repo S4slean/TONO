@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c20c8742ca70eb84d840e22cdd77c0ca, type: 3}
-  m_Name: Upgrade_4
+  m_Name: Eye o'Fortune
   m_EditorClassIdentifier: 
-  upgradeName: Upgrade_4
-  description: What a bunch of baloney !
-  tooltip: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  description: See what Barrel you drop next
+  sprite: {fileID: 0}
+  index: 4
+  choiceIndex: 2

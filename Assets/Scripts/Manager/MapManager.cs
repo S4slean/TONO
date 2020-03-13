@@ -101,7 +101,7 @@ public class MapManager : MonoBehaviour
 
     public void StartGame()
     {
-        LevelManager.GoToScene("CombatCompletion");
+        LevelManager.GoToScene("Main");
     }
 
     public void BackToMenu()

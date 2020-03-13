@@ -28,7 +28,7 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
 
         if (Input.GetMouseButtonDown(1) && selectedAction != null)
         {
-            selectedAction.isSelected = false;
+            selectedAction.PreviewSkillAction();
             selectedAction = null;
         }
     }
