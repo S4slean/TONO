@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cc6f6d1791a444da713ac203d60c5d, type: 3}
   m_Name: Bouteille de Moussaillon
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Bouteille de Moussaillon
   description: 
   cost: 4
   damage: 1

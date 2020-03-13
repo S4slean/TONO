@@ -130,6 +130,7 @@ public class Free : Tile
 
     public void SetAlcoolized(bool isAlcoolized)
     {
+        Debug.Log("alccolized");
         hasAlcohol = isAlcoolized;
         if (isAlcoolized)
         {

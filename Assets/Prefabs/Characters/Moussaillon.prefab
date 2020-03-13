@@ -49,13 +49,17 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
   enemyStats: {fileID: 11400000, guid: faeb4fbb2482e5649bb0e64fb8a9678d, type: 2}
   anim: {fileID: 8044190583182455416}
+  defaultVisual: {fileID: 5615628020265400204}
+  buffedVisual: {fileID: 0}
   health: 1
   movementPoints: 0
   actionPoints: 0
+  timelineIndex: 0
 --- !u!1001 &4525936172075675269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6e5ee9dee39b545852be96a3841a2a, type: 3}
+--- !u!1 &5615628020265400204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2a6e5ee9dee39b545852be96a3841a2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4525936172075675269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5099643250136954955
 PrefabInstance:
   m_ObjectHideFlags: 0
