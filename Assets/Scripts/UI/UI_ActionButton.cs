@@ -34,10 +34,9 @@ public class UI_ActionButton : MonoBehaviour
     public float animTime = 0;
     private float currentTime = 0;
 
-    bool isUnfold = false;
+    bool isUnfold = true;
     public bool isSelected = false;
     bool isMoving = false;
-    //bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
 
     private float current;
     private float diff;
@@ -172,7 +171,7 @@ public class UI_ActionButton : MonoBehaviour
 
     public void CheckGunShotException()
     {
-        if (actionSkill is GunShot)
+        if (actionSkill is GunShot || actionSkill is Reload)
         {
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {

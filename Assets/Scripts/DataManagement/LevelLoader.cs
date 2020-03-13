@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
+    public static LevelLoader Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+
+    }
+
     public LevelList levelList;
 
     GameObject level;
