@@ -74,6 +74,7 @@ public class DataManager : MonoBehaviour
     void SetData(SceneType sceneType)
     {
         //generic
+        /*
         if (SoundManager.Instance)
         {
             data.sfxVolume = SoundManager.Instance.sfxVolume;
@@ -81,7 +82,9 @@ public class DataManager : MonoBehaviour
         if (MusicManager.Instance)
         {
             data.musicVolume = MusicManager.Instance.musicVolume;
-        }
+        }*/
+
+        
 
         if(LevelManager.levelProgresses != null)
         {
@@ -163,11 +166,11 @@ public class DataManager : MonoBehaviour
         //generic behaviors
         if (SoundManager.Instance)
         {
-            SoundManager.Instance.sfxVolume = data.sfxVolume;
+            SoundManager.Instance.sfxVolume = 1f;
         }
         if (MusicManager.Instance)
         {
-            MusicManager.Instance.musicVolume = data.musicVolume;
+            MusicManager.Instance.musicVolume = 1f;
         }
 
         if(data.levelProgresses != null)

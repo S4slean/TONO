@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
         LevelLoader.Instance.LoadLevel();
         GridManager.instance.GetAllTiles();
 
+
+
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();
 
@@ -52,6 +54,9 @@ public class GameManager : MonoBehaviour
 
         BarrelManager.Instance.Initialize();
         BombardmentManager.Instance.Initialize();
+
+        if (MusicManager.Instance)
+            MusicManager.Instance.Initialize();
 
         StartCoroutine("IntroThenStart");
     }

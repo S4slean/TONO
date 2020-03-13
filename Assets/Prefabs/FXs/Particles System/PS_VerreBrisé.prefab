@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6777325040709442922}
   - component: {fileID: 640111428496811960}
   - component: {fileID: 6461825257587144263}
+  - component: {fileID: 5543081360845071390}
   m_Layer: 0
   m_Name: "PS_VerreBris\xE9"
   m_TagString: Untagged
@@ -4756,3 +4757,17 @@ ParticleSystemRenderer:
     type: 3}
   m_Mesh3: {fileID: 8342159127421523248, guid: e283dc8f8765156499a2f6ff8deab812, type: 3}
   m_MaskInteraction: 0
+--- !u!114 &5543081360845071390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921968658739309866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7613a40ec67a009498e0ccb1f071ce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  pool: {fileID: 0}

@@ -28,9 +28,9 @@ MonoBehaviour:
     minMaxSize: {x: 0, y: 0}
     randomizeRotation: 0
   - fxName: BottleBreak
-    fx: {fileID: 5984804879497824612, guid: dfada0d46c44a0f48a1c12b5091eb830, type: 3}
+    fx: {fileID: 8921968658739309866, guid: f25095b443a5b94439a98d6fee2d8673, type: 3}
     poolingAmount: 5
-    duration: 1
+    duration: 0.7
     randomizeSize: 0
     minMaxSize: {x: 0, y: 0}
     randomizeRotation: 0

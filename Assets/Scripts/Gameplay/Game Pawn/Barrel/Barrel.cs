@@ -36,7 +36,7 @@ public class Barrel : GamePawn
 
         GetTile().SetPawnOnTile(this);
         anim.Play("Barrel Fall");
-        SoundManager.Instance.PlaySound(SoundManager.Instance.barrelPlacement);
+
 
 
     }
@@ -56,6 +56,8 @@ public class Barrel : GamePawn
 
     public override void OnMouseEnter()
     {
+        if (explosionSkill == null) return;
+
         if (PlayerManager.instance.hoverMode == HoverMode.MovePath || GameManager.Instance.turnType == TurnType.bombardment)
         {
             base.OnMouseEnter();
@@ -163,6 +165,9 @@ public class Barrel : GamePawn
     public virtual void Explode()
     {
         if (isExplosing) return;
+
+        if (CameraShake.Instance)
+            CameraShake.Instance.Shake(0.3f, 0.01f);
 
         isExplosing = true;
         SoundManager.Instance.PlaySound(SoundManager.Instance.barrelExplosion);

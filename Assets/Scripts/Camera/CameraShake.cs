@@ -13,11 +13,12 @@ public class CameraShake : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
         originalPos = transform.localPosition;
+
     }
     public void Shake(float _duration, float _strength)
     {
+ 
         count = _duration;
         strength = _strength;
     }

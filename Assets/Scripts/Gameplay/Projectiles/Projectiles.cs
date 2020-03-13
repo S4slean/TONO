@@ -40,6 +40,7 @@ public class Projectiles : MonoBehaviour
 
             if(_throwTimeTracker > travelTime)
             {
+                FXPlayer.Instance.PlayFX("BottleBreak", transform.position);
                 _thrown = false;
                 _throwTimeTracker = 0;
                 if(_target.TryGetComponent<PlayerCharacter>(out PlayerCharacter player))

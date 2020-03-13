@@ -126,6 +126,8 @@ public class BombardmentManager : MonoBehaviour
         int amount = activeMarkers.Count;
         for(int i = 0; i < amount; i++)
         {
+            if(i == 0)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.barrelPlacement);
             GameObject toDrop = BarrelManager.Instance.GetBarrel(activeMarkers[0].rangeType);
             toDrop.transform.position = new Vector3(activeMarkers[0].transform.position.x, 0.05f, activeMarkers[0].transform.position.z);
             toDrop.gameObject.SetActive(true);
