@@ -75,6 +75,7 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
             actionPoints += enemyStats.buff.actionBuff;
         }
 
+        EnemyManager.instance.PlayNextEnemyTurn();
     }
 
     public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
