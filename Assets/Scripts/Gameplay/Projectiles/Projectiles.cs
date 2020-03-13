@@ -75,6 +75,7 @@ public class Projectiles : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.bottleBreak);
         SkillManager.instance.CreateAlcoholPool(_associatedTile, createBigPool);
+        FXPlayer.Instance.PlayFX("BottleBreak", transform.position);
         Destroy(gameObject);
     }
 

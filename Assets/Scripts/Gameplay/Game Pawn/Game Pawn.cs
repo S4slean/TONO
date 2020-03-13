@@ -163,6 +163,7 @@ public class GamePawn : MonoBehaviour
          .SetEase(Ease.OutCubic)
          .OnComplete(() => {
              PlayerManager.instance.hoverMode = HoverMode.MovePath;
+             SoundManager.Instance.PlaySound(SoundManager.Instance.objectFalls);
              SetTile(targetTile);
              user.EndAction();
          });
