@@ -201,7 +201,9 @@ public class Highlight_Manager : MonoBehaviour
 
         Free tile;
         foreach (Tile t in tilesToHighlight)
-        { 
+        {
+            if (!(t is Free))
+                continue;
             tile = t as Free;
 
             tile.highlightCase.enabled = false;
@@ -317,6 +319,8 @@ public class Highlight_Manager : MonoBehaviour
 
     public void DeactivateOutlines(Tile t, bool tilesBecameNotClickable = true)
     {
+        if (!(t is Free))
+            return;
         Free tile = t as Free;
 
         tile.highlighted = false;

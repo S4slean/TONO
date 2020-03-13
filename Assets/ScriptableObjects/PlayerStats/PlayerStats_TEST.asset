@@ -16,6 +16,6 @@ MonoBehaviour:
     startingAP: 5
     startingMP: 6
     startingLP: 10
-    isGunLoadedAtStart: 0
+    isGunLoadedAtStart: 1
     upgradeChoicesMade: 
     upgradesPossessed: 
