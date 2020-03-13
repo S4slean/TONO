@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click:
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: a514fdc28530a7d4aaa8f971518fc338, type: 3}
     minVolume: 1
     maxVolume: 1
     minPitch: 1
@@ -121,6 +122,27 @@ MonoBehaviour:
   playerShoots:
     clips:
     - {fileID: 8300000, guid: fbf2df11285ec1c438f23a29b6117105, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  objectFalls:
+    clips:
+    - {fileID: 8300000, guid: ec2439f10c5d821489e2cea887ec8192, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  kickInBody:
+    clips:
+    - {fileID: 8300000, guid: 5a01016ed51db6040bbb5e23e44dc0c5, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  kickInObject:
+    clips:
+    - {fileID: 8300000, guid: 722e64410e130de4ca60defaab916e93, type: 3}
     minVolume: 1
     maxVolume: 1
     minPitch: 1

@@ -117,6 +117,17 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
         }
     }
 
+    public void UpdateCurrentSkill()
+    {
+        for (int i = 0; i < actions.Count; i++)
+        {
+            if(SkillManager.instance.currentActiveSkill == actions[i].actionSkill)
+            {
+                selectedAction = actions[i];
+            }
+        }
+    }
+
 
     public override void HidePanel()
     {

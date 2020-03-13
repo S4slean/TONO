@@ -27,10 +27,6 @@ public class Barrel : GamePawn
         RaycastHit hit;
         Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, mask);
         if (hit.transform == null)  return;
-        else
-        {
-            Debug.Log(hit.transform);
-        }
 
         SetAssociatedTile(hit.transform.GetComponent<Tile>());
         if (GetTile().GetPawnOnTile() != null)

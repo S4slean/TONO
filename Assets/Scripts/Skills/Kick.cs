@@ -23,6 +23,11 @@ public class Kick : Skill
             PlayerManager.instance.playerCharacter.anim.SetTrigger("Kick");
         }
 
+        if(target.GetPawnOnTile() is Barrel || target.GetPawnOnTile() is Box)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.kickInObject);
+        else
+            SoundManager.Instance.PlaySound(SoundManager.Instance.kickInBody);
+
         UI_Manager.instance.actionPanel.RefreshActions();
         UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
         UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation(); ;

@@ -16,6 +16,7 @@ public class Buff : Skill
         if (user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
+            FXPlayer.Instance.PlayFX("BuffEnemy", enemy.transform.position+ Vector3.up);
             enemy.Buff();
         }
         user.EndAction();
