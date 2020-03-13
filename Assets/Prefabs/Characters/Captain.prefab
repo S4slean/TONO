@@ -49,9 +49,10 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
-  enemyStats: {fileID: 0}
+  enemyStats: {fileID: 11400000, guid: 7b0ddd487700526499be646911e151c2, type: 2}
   anim: {fileID: 8292670441766132546}
   defaultVisual: {fileID: 5824681934552025644}
   buffedVisual: {fileID: 1753223624570615611}
@@ -229,17 +230,17 @@ PrefabInstance:
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990125, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}

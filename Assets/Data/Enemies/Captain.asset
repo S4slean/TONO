@@ -9,6 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acee0c5861a3ccd44a94bba7b137f302, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Captain
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Captain
+  enemyType: 1
+  health: 1
+  movement: 2
+  action: 7
+  rageThreshold: 0
+  meleeAttack: {fileID: 11400000, guid: ecd0b5ea404b507478dcf77b4758c2ae, type: 2}
+  rangedAttack: {fileID: 11400000, guid: 71572fbcc1bc5fd46a5198c30194720f, type: 2}
+  buff: {fileID: 11400000, guid: 6e2e36a885c6b0b4f8971d65accc56bd, type: 2}
