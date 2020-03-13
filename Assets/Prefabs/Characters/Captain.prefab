@@ -51,13 +51,14 @@ MonoBehaviour:
   moveRange: []
   skillPreviewID: 0
   skills: []
-  enemyStats: {fileID: 11400000, guid: 7b0ddd487700526499be646911e151c2, type: 2}
+  enemyStats: {fileID: 0}
   anim: {fileID: 8292670441766132546}
   defaultVisual: {fileID: 5824681934552025644}
   buffedVisual: {fileID: 1753223624570615611}
   health: 1
   movementPoints: 0
   actionPoints: 0
+  timelineIndex: 0
 --- !u!1001 &2590836756137153317
 PrefabInstance:
   m_ObjectHideFlags: 0

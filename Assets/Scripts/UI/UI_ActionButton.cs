@@ -7,7 +7,8 @@ using TMPro;
 public class UI_ActionButton : MonoBehaviour
 {
     [Header("Skill Reference")]
-    public Skill actionSkill;
+    [HideInInspector] public Skill actionSkill;
+    public UI_ActionPanelBehaviour actionPanel;
 
     [Header("Prefab References")]
     public GameObject paCostPrefab;
@@ -34,6 +35,7 @@ public class UI_ActionButton : MonoBehaviour
     private float currentTime = 0;
 
     bool isUnfold = false;
+    public bool isSelected = false;
     bool isMoving = false;
     //bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
 
@@ -58,7 +60,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void Highlighting()
     {
-        animator.Play("Highlighted");
+        if (!isSelected)
+            animator.Play("Highlighted");
     }
 
     public void Clicking()
@@ -68,7 +71,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void BackToNormal()
     {
-        animator.Play("Normal");
+        if (!isSelected)
+            animator.Play("Normal");
     }
 
     /// <summary>
@@ -77,7 +81,7 @@ public class UI_ActionButton : MonoBehaviour
     /// <param name="skill">Button skill</param>
     public void SetUpTooltip()
     {
-        //this.gameObject.name = actionSkill.skillName;
+        this.gameObject.name = actionSkill.skillName;
         tooltipName.text = actionSkill.skillName;
         tooltipDescription.text = actionSkill.description;
     }
@@ -139,12 +143,28 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
+        if (actionPanel.selectedAction != null && actionPanel.selectedAction != this)
+        {
+            actionPanel.selectedAction.isSelected = false;
+            actionPanel.selectedAction.PreviewSkillAction();
+        }
+
+        isSelected = !isSelected;
+
+        if (!isSelected)
+            actionPanel.selectedAction = null;
+        else
+            actionPanel.selectedAction = this;
+
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
 
     private void CheckSkillCondition()
     {
-        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null ||  actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter) == null)
+            return;
+
+        if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
         {
             actionImage.sprite = actionSkill.unenabledSprite;
         }
@@ -154,20 +174,20 @@ public class UI_ActionButton : MonoBehaviour
     {
         if (actionSkill is GunShot)
         {
-            Debug.Log("is GUNSHOT");
-
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {
                 actionSkill = PlayerManager.instance.playerCharacter.reloadSkill;
-                tooltipName.text = actionSkill.skillName;
-                tooltipDescription.text = actionSkill.description;
             }
             else
             {
                 actionSkill = PlayerManager.instance.playerCharacter.gunShotSkill;
-                tooltipName.text = actionSkill.skillName;
-                tooltipDescription.text = actionSkill.description;
             }
+
+            SetUpTooltip();
+        }
+        else
+        {
+            SetUpTooltip();
         }
     }
 

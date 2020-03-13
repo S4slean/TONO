@@ -9,12 +9,20 @@ public class Free : Tile
 
     [Header("Decal")]
     public DecalProjector highlightCase;
-    public GameObject ropeUp;
-    public GameObject ropDown;
-    public GameObject ropeRight;
-    public GameObject ropeLeft;
+    public DecalProjector ropeUp;
+    public DecalProjector ropeDown;
+    public DecalProjector ropeRight;
+    public DecalProjector ropeLeft;
 
-    int previewID;
+    [Header("FXs")]
+    public GameObject alcool;
+    public Animator alcoolAnim;
+    public GameObject fire;
+    public Animator fireAnim;
+    public GameObject explosion;
+    public Animator exploAnim;
+
+    protected int previewID;
     public override void OnMouseEnter()
     {
         switch (PlayerManager.instance.hoverMode)
@@ -33,23 +41,28 @@ public class Free : Tile
                     UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
                     UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PM, path.Count);
 
-                    previewID = Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight,true);
+                    SetPreviewID(Highlight_Manager.instance.ShowHighlight(path, HighlightMode.MoveHighlight, true));
                 }
                 break;
             case HoverMode.Bombardment:
                 if (!hasBarrelMarker && tag == "FreeTile")
                 {
                     PlayerManager.instance.currentHoveredTile = this;
-                    oldMaterial = rend.material;
-                    rend.material = Highlight_Manager.instance.hoverMat;
+                    ActivateHighlight(HighlightMode.Hover);
                 }
                 break;
+            case HoverMode.ThrowHover:
             case HoverMode.MeleeHover:
                 if (isClickable)
                 {
+                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     PlayerManager.instance.currentHoveredTile = this;
-                    oldMaterial = rend.material;
-                    rend.material = Highlight_Manager.instance.actionHighlightMat;
+                    ActivateHighlight(HighlightMode.ActionHighlight);
+
+                    if (SkillManager.instance.currentActiveSkill == player.kickSkill)
+                    {
+                        player.kickSkill.PreviewPawnPath(player, GetPawnOnTile());
+                    }
                 }
                 break;
         }
@@ -66,7 +79,7 @@ public class Free : Tile
                     {
                         player.HideMoveRange();
                     }
-                    Highlight_Manager.instance.HideHighlight(previewID, null, false);
+                    Highlight_Manager.instance.HideHighlight(GetPreviewID(), null, false);
                     UI_Manager.instance.characterInfoPanel.ResetCharacterInfo(UI_SelectedCharacterInfo.Stats.PM);
                     PlayerManager.instance.currentHoveredTile = null;
                 }
@@ -75,7 +88,7 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    rend.material = oldMaterial;
+                    DeactivateHighlight();
                 }
                 break;
             case HoverMode.ThrowHover:
@@ -83,9 +96,119 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    rend.material = oldMaterial;
+                    DeactivateHighlight();
+
+                    if (SkillManager.instance.currentActiveSkill == PlayerManager.instance.playerCharacter.kickSkill)
+                    {
+                        Highlight_Manager.instance.HideHighlight(PlayerManager.instance.GetHighlineID());
+                    }
+
                 }
                 break;
         }
+    }
+
+    public override void ActivateHighlight(HighlightMode highlightMode)
+    {
+        Highlight_Manager.instance.ActivateOutlines(new List<Tile> { this }, highlightMode, false);
+    }
+
+    public override void DeactivateHighlight()
+    {
+        Highlight_Manager.instance.DeactivateOutlines(this, false);
+    }
+
+    public void SetPreviewID(int id)
+    {
+        previewID = id;
+    }
+
+    public int GetPreviewID()
+    {
+        return previewID;
+    }
+
+    public void SetAlcoolized(bool isAlcoolized)
+    {
+        hasAlcohol = isAlcoolized;
+        if (isAlcoolized)
+        {
+            alcool.SetActive(true);
+        }
+        alcoolAnim.SetBool("hasAlcohol", isAlcoolized);
+    }
+
+
+
+    public void SetFire()
+    {
+        
+        fire.SetActive(true);
+        fireAnim.SetTrigger("Fire");
+        StartCoroutine(FireDelay());
+    }
+
+    public IEnumerator FireDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+        SetAlcoolized(false);
+        SpreadFire();
+        if(GetPawnOnTile() != null)
+        {
+            GetPawnOnTile().ReceiveDamage(1);
+        }
+    }
+
+    public void SpreadFire()
+    {
+        if (neighbours.up != null && neighbours.up.hasAlcohol)
+        {
+            Free f = (Free)neighbours.up;
+            f.SetFire();
+        }
+        else if (neighbours.up != null && neighbours.up.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.up.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.down != null && neighbours.down.hasAlcohol)
+        {
+            Free f = (Free)neighbours.down;
+            f.SetFire();
+        }
+        else if (neighbours.down != null && neighbours.down.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.down.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.left != null && neighbours.left.hasAlcohol)
+        {
+            Free f = (Free)neighbours.left;
+            f.SetFire();
+        }
+        else if (neighbours.left != null && neighbours.left.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.left.GetPawnOnTile();
+            barrel.Explode();
+        }
+
+        if (neighbours.right != null && neighbours.right.hasAlcohol)
+        {
+            Free f = (Free)neighbours.right;
+            f.SetFire();
+        }
+        else if (neighbours.right != null && neighbours.right.GetPawnOnTile() is Barrel)
+        {
+            Barrel barrel = (Barrel)neighbours.right.GetPawnOnTile();
+            barrel.Explode();
+        }
+    }
+
+    public void PlayExplosion()
+    {
+        explosion.SetActive(true);
+        exploAnim.SetTrigger("Explo");
     }
 }

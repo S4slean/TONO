@@ -7,6 +7,7 @@ public class PlayerCharacter : GamePawn
 {
     [Header("References")]
     public Transform LiftPawnSocket;
+    public Animator anim;
     //LOGIC
     [HideInInspector]
     public List<Tile> gunRange = new List<Tile>();
@@ -66,8 +67,8 @@ public class PlayerCharacter : GamePawn
             base.OnMouseEnter();
             //print("SHOW PREVIEW PLAYER : "+ PlayerManager.instance.hoverMode);
             hovered = true;
-            oldMaterial = rend.material;
-            rend.material = Highlight_Manager.instance.hoverMat;
+            //oldMaterial = rend.material;
+            //rend.material = Highlight_Manager.instance.hoverMat;
             ShowMoveRange();
         }
     }
@@ -82,7 +83,7 @@ public class PlayerCharacter : GamePawn
         }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print(destination);
         //print("Destination : " + destination.transform.position);
@@ -99,7 +100,7 @@ public class PlayerCharacter : GamePawn
             }
 
             currentPM -= path.Count;
-            print(currentPM);
+            //print(currentPM);
 
             UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
             //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PM, path.Count);
@@ -175,10 +176,10 @@ public class PlayerCharacter : GamePawn
         lineDown.Clear();
         lineLeft.Clear();
 
-        lineUp = GridManager.instance.GetLineUntilObstacle(Direction.Up, destination, true);
-        lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true);
-        lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true);
-        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
+        lineUp = GridManager.instance.GetLineUntilObstacle(Direction.Up, destination, true, true);
+        lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true, true);
+        lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true, true);
+        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true, true);
 
         //DEBUG
         //print(destination.neighbours.right);
@@ -192,6 +193,7 @@ public class PlayerCharacter : GamePawn
     public override void ReceiveDamage(int dmg)
     {
         currentLife = Mathf.Clamp(currentLife - dmg, 0, currentLife);
+        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
         if(currentLife <= 0)
         {
             Die();
@@ -201,7 +203,6 @@ public class PlayerCharacter : GamePawn
     public override void Die()
     {
         Debug.Log("Player Died");
-        Destroy(gameObject);
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
@@ -228,5 +229,14 @@ public class PlayerCharacter : GamePawn
 
         });
     }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+        PlayerManager.instance.hoverMode = HoverMode.MovePath;
+        InitializeAllSkillRange(GetTile());
+    }
+
+    
 
 }

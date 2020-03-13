@@ -59,7 +59,7 @@ public class UI_Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            characterInfoPanel.CreateAndSetAllCharacterInfo();
+            characterInfoPanel.ResetAllCharacterInfo();
             actionPanel.ResetPanelAction();
             SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
         }
@@ -136,7 +136,7 @@ public class UI_Manager : MonoBehaviour
                 pausePanel.ShowPanel();
                 boatPanel.HidePanel();
                 actionPanel.HidePanel();
-                characterInfoPanel.HidePanel();
+                characterInfoPanel.ShowPanel();
                 break;
 
             case UIDisplayMode.PlayerTurn:

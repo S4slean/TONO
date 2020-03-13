@@ -20,11 +20,11 @@ public class Skill : ScriptableObject
 
     public virtual void Activate(GamePawn user, Tile target)
     {
-        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name );
-        if(user is EnemieBehaviour)
+        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
+        if (user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
-            enemy.actionPoints -= cost; 
+            enemy.actionPoints -= cost;
         }
 
         //UI_Manager.instance.characterInfoPanel.SetCharacterInfoWithCost(UI_SelectedCharacterInfo.Stats.PA, cost);
@@ -36,8 +36,11 @@ public class Skill : ScriptableObject
     {
         SkillManager.instance.currentActiveSkill = this;
 
-        UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
-        UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PA, cost);
+        if (PlayerManager.instance.playerCharacter.currentPA >= cost)
+        {
+            UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
+            UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PA, cost);
+        }
     }
 
     public virtual List<Tile> HasAvailableTarget(GamePawn user)
@@ -46,6 +49,54 @@ public class Skill : ScriptableObject
     }
 
     public virtual List<Tile> GetRange(GamePawn user) { return new List<Tile>(); }
+    public virtual List<Tile> GetRange(GamePawn user, bool useCombo) { return new List<Tile>(); }
+
+    public virtual bool IsAvailableTile(Tile currentTile, GamePawn selectedPawn)
+    {
+        if (currentTile != null && !(currentTile is Wall) && !(currentTile is Water))
+        {
+            if (currentTile.GetPawnOnTile() == selectedPawn)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public virtual Direction GetDirection(GamePawn user, GamePawn selectedPawn)
+    {
+        //UP
+        Tile currentTile = user.GetTile().neighbours.up;
+        if (IsAvailableTile(currentTile, selectedPawn))
+        {
+            return Direction.Up;
+        }
+
+        //RIGHT
+        currentTile = user.GetTile().neighbours.right;
+        if (IsAvailableTile(currentTile, selectedPawn))
+        {
+            return Direction.Right;
+        }
+
+        //DOWN
+        currentTile = user.GetTile().neighbours.down;
+        if (IsAvailableTile(currentTile, selectedPawn))
+        {
+            return Direction.Down;
+        }
+
+        //LEFT
+        currentTile = user.GetTile().neighbours.left;
+        if (IsAvailableTile(currentTile, selectedPawn))
+        {
+            return Direction.Left;
+        }
+        return Direction.Up;
+    }
+
+
 }
+
 
 public enum RangeType { Default, Line, Plus, Round, Cross }

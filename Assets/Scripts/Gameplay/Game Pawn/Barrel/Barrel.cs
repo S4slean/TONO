@@ -5,40 +5,51 @@ using DG.Tweening;
 
 public class Barrel : GamePawn
 {
-
+    public BarrelType startingExplosionType;
+    public bool noStartingInit;
     public bool standing = true;
-    [HideInInspector]public Skill explosionSkill;
+    //[HideInInspector]
+    public Skill explosionSkill;
     private GamePawn _kicker;
+    public Animator anim;
 
     protected override void Start()
     {
         base.Start();
+
+        if (!noStartingInit)
+            Initialize(startingExplosionType);
     }
 
     public override void OnEnable()
     {
+
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, mask);
-        //print(name +" tile : " + hit.transform.name);
-        if (hit.transform == null) return;
-        associatedTile = hit.transform.GetComponent<Tile>();
-        if(associatedTile.GetPawnOnTile() != null)
+        Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, mask);
+        if (hit.transform == null)  return; 
+
+        SetAssociatedTile(hit.transform.GetComponent<Tile>());
+        if (GetTile().GetPawnOnTile() != null)
         {
-            Explode();
+            GetTile().GetPawnOnTile().ReceiveDamage(1);
         }
-        associatedTile.SetPawnOnTile(this);
+
+        GetTile().SetPawnOnTile(this);
+        anim.Play("Barrel Fall");
+
+
     }
 
     public GameObject[] graphics;
 
     public void Initialize(BarrelType type)
     {
-        for(int i =0; i < graphics.Length; i++)
+        for (int i = 0; i < graphics.Length; i++)
         {
             graphics[i].SetActive(false);
         }
         graphics[type.graphicsIndex].SetActive(true);
-
+        isExplosing = false;
         explosionSkill = type.explosionSkill;
     }
 
@@ -68,14 +79,40 @@ public class Barrel : GamePawn
     }
 
 
-    public virtual void Kick(Direction dir, GamePawn kicker)
+    public override void OnKicked(GamePawn kicker, int damage, Direction dir)
     {
+        switch (dir)
+        {
+            case Direction.Up:
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+                break;
+
+            case Direction.Right:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                break;
+
+            case Direction.Left:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
+                break;
+
+            case Direction.Down:
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                break;
+        }
+
+        anim.SetBool("Rolling", true);
         List<Tile> path = GridManager.instance.GetLineUntilObstacle(dir, GetTile(), false);
         _kicker = kicker;
         SetDestination(path[path.Count - 1]);
+        if (kicker is PlayerCharacter)
+        {
+            PlayerCharacter player = kicker as PlayerCharacter;
+            PlayerManager.instance.hoverMode = HoverMode.MovePath;
+            player.ShowMoveRange();
+        }
     }
 
-    public override void SetDestination(Tile destination, bool showHighlight = false)
+    public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
     {
         //print("Destination : " + destination.transform.position);
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(associatedTile, destination);
@@ -113,7 +150,7 @@ public class Barrel : GamePawn
                 if (highlightPathID > -1)
                     Highlight_Manager.instance.HideHighlight(highlightPathID);
 
-
+                anim.SetBool("Rolling", false);
                 _kicker.EndAction();
                 _kicker = null;
                 EndAction();
@@ -124,14 +161,21 @@ public class Barrel : GamePawn
 
     public virtual void Explode()
     {
+        if (isExplosing) return;
+
+        isExplosing = true;
         explosionSkill.Activate(this, GetTile());
-        Debug.Log("Boom");
+        associatedTile.SetPawnOnTile(null);
+        SetTile(null);
         BarrelManager.Instance.Repool(this);
-        
+
     }
+
+    private bool isExplosing = false;
 
     public override void ReceiveDamage(int dmg)
     {
+
         Explode();
     }
 }

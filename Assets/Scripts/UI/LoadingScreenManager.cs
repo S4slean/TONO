@@ -5,13 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreenManager : MonoBehaviour
 {
+    public static LoadingScreenManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+
+        if (duration <= 0f) duration = 0.1f;
+        duration += endThreshold;
+        duration += cinematicDelay;
+    }
+
+    public bool loads;
+
     public float duration;
-    float count;
+    public float endThreshold;
+    public float count;
+    public float cinematicDelay;
+    bool checkedCinematic;
+    bool ended;
 
     private void Start()
     {
-        ao = SceneManager.LoadSceneAsync(LevelManager.sceneToLoadName);
-        ao.allowSceneActivation = false;
+        checkedCinematic = false;
+
+        if(loads)
+        {
+            if (LevelManager.sceneToLoadName != "")
+            {
+                ao = SceneManager.LoadSceneAsync(LevelManager.sceneToLoadName);
+                ao.allowSceneActivation = false;
+            }
+        }
+
+
         count = duration;
     }
 
@@ -21,8 +48,32 @@ public class LoadingScreenManager : MonoBehaviour
         if (count <= 0) return;
 
         count -= Time.deltaTime;
+
+        if(!checkedCinematic)
+        {
+            if(count <= duration - cinematicDelay)
+            {
+                checkedCinematic = true;
+                CinematicManager.Instance.CheckCinematic();
+            }
+
+            return;
+        }
+
+        if(!ended)
+        {
+            if(count <= endThreshold)
+            {
+                ended = true;
+                CinematicManager.Instance.EndCinematic();
+            }
+
+            return;
+        }
+
         if(count <= 0)
         {
+            if(loads)
             LoadScene();
         }
     }

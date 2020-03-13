@@ -25,6 +25,12 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     void Update()
     {
         MovePanel();
+
+        if (Input.GetMouseButtonDown(1) && selectedAction != null)
+        {
+            selectedAction.isSelected = false;
+            selectedAction = null;
+        }
     }
 
 
@@ -63,8 +69,12 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
             if (PlayerManager.instance.playerCharacter != null)
                 selectedAction.CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);
 
+            selectedAction.actionPanel = this;
+
             actions.Add(selectedAction);
         }
+
+        selectedAction = null;
     }
 
     /// <summary>

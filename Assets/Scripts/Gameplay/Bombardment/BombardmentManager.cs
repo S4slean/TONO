@@ -53,6 +53,7 @@ public class BombardmentManager : MonoBehaviour
 
     public void StartBombardment()
     {
+        GridManager.instance.AllTilesBecameClickable();
         CalculateBarrelsToDrop();
         StartCoroutine(WaitThenStartPlacingBarrels());
     }
@@ -77,7 +78,6 @@ public class BombardmentManager : MonoBehaviour
     bool waitingToPlace;
     public void PlaceBarrelMarker(Tile selectedTile)
     {
-        print("Placing Marker");
         waitingToPlace = false;
         if(barrelMarkersPool.Count < 1)
         {
@@ -99,6 +99,9 @@ public class BombardmentManager : MonoBehaviour
     public void StopBombardment()
     {
         GameManager.Instance.CheckIfCompleted(true);
+        PlayerManager.instance.currentHoveredTile.DeactivateHighlight();
+        PlayerManager.instance.hoverMode = HoverMode.NoHover;
+        GridManager.instance.AllTilesBecameNotClickable();
     }
 
     public void CalculateBarrelsToDrop()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,9 @@ public class UI_BoatInfo : Panel_Behaviour
     /// </summary>
     public void SetUpBoatUI()
     {
+        if (barrels != null && barrels.Count > 0)
+            CleanBarrels();
+
         boatImage.sprite = UI_Manager.instance.uiPreset.boatPortait;
         barrels = new List<UI_Barrel>();
 
@@ -36,9 +40,9 @@ public class UI_BoatInfo : Panel_Behaviour
             GameObject barrelObj = Instantiate(barrelPrefab, Vector3.zero, Quaternion.identity, barrelsParent);
             UI_Barrel barrel = barrelObj.GetComponent<UI_Barrel>();
 
-            if(BombardmentManager.Instance.knowsAllBarrels)
+            if (BombardmentManager.Instance.knowsAllBarrels)
             {
-                switch(BombardmentManager.Instance.barrelsToDrop[i])
+                switch (BombardmentManager.Instance.barrelsToDrop[i])
                 {
                     case RangeType.Default:
                         barrel.barrelImage.sprite = UI_Manager.instance.uiPreset.barrel_Default;
@@ -87,7 +91,7 @@ public class UI_BoatInfo : Panel_Behaviour
                 }
             }
 
-            barrel.barrelRect.anchoredPosition3D = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i,0,0);
+            barrel.barrelRect.anchoredPosition3D = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i, 0, 0);
 
             barrel.selectedPlacement = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i, barrel.selectedPlacement.y, 0);
             barrel.removedPlacement = new Vector3(barrel.barrelRect.sizeDelta.x * i + barrelSpacing * i, barrel.removedPlacement.y, 0);
@@ -99,6 +103,14 @@ public class UI_BoatInfo : Panel_Behaviour
 
         selectedBarrel = barrels[currentBarrel];
         selectedBarrel.MoveSelectedBarrel();
+    }
+
+    private void CleanBarrels()
+    {
+        for (int i = 0; i < barrels.Count; i++)
+        {
+            Destroy(barrels[i].gameObject);
+        }
     }
 
     /// <summary>

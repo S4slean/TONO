@@ -25,8 +25,8 @@ public class Projectiles : MonoBehaviour
         if (_thrown)
         {
             _throwTimeTracker += Time.deltaTime;
-            self.position = new Vector3(Mathf.Lerp(_thrower.transform.position.x, _target.transform.position.x, _throwTimeTracker/travelTime),
-                Mathf.Lerp(_thrower.transform.position.y, _target.transform.position.y, _throwTimeTracker / travelTime) + trajectory.Evaluate(_throwTimeTracker/ travelTime),
+            self.position = new Vector3(Mathf.Lerp(_thrower.transform.position.x , _target.transform.position.x, _throwTimeTracker/travelTime),
+                Mathf.Lerp(_thrower.transform.position.y + 1, _target.transform.position.y + 1, _throwTimeTracker / travelTime) + trajectory.Evaluate(_throwTimeTracker/ travelTime),
                 Mathf.Lerp(_thrower.transform.position.z, _target.transform.position.z, _throwTimeTracker/ travelTime)) ;
 
             if(_throwTimeTracker > travelTime)
@@ -37,6 +37,10 @@ public class Projectiles : MonoBehaviour
                 {
                     PlayerCharacter player = (PlayerCharacter)_target;
                     player.ReceiveDamage(damage);
+                }else if(_target is Barrel)
+                {
+                    Barrel barrel = _target as Barrel;
+                    barrel.Explode();
                 }
                 _thrower.EndAction();
                 Destroy(gameObject);

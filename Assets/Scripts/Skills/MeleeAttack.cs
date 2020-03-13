@@ -7,10 +7,7 @@ public class MeleeAttack : Skill
 {
     public override void Activate(GamePawn user, Tile target)
     {
-        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
-
-
-        user.ReceiveDamage(damage);
+        target.GetPawnOnTile().ReceiveDamage(damage);
         if (user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;

@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         DataManager.Instance.Load(true, SceneType.game);
 
+        LevelLoader.Instance.LoadLevel();
+
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();
 
@@ -50,12 +52,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(introductionDuration);
 
-        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
-
         UI_Manager.instance.timelinePanel.SetUpIcons();
         UI_Manager.instance.messagePanel.SetUI();
         UI_Manager.instance.pausePanel.SetUI();
 
+        UI_Manager.instance.actionPanel.ResetPanelAction();
+
+        UI_Manager.instance.SetUIDisplayModeOn(UIDisplayMode.Start);
+        
         StartBombardmentTurn();
     }
 
@@ -78,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void StartBombardmentTurn()
     {
-        BombardmentManager.Instance.DropBarrels();
+
         turnType = TurnType.bombardment;
 
         UI_Manager.instance.boatPanel.SetUpBoatUI();
@@ -97,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        BombardmentManager.Instance.DropBarrels();
         turnType = TurnType.player;
         UI_Manager.instance.timelinePanel.NextIconTurn();
 

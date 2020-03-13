@@ -14,8 +14,7 @@ public static class LevelManager
 
     public static string sceneToLoadName;
     public static int currentLevel;
-
-
+    public static int playedCinematic;
 
     public static void GoToScene(string sceneName)
     {
@@ -37,10 +36,4 @@ public static class LevelManager
         SceneManager.LoadScene("LoadingScreen");
     }
 
-}
-
-public enum LevelTheme
-{
-    dark,
-    bright
 }

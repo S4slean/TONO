@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviour
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
+    [SerializeField]private Barrel currentBarrelInLine;
+    [SerializeField]private Barrel oldBarrelInLine;
 
     public PlayerStatsConfig playerStats;
 
@@ -70,6 +72,12 @@ public class PlayerManager : MonoBehaviour
 
     public void Update()
     {
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            playerCharacter.HideMoveRange();
+        }
+
         //GUN SKILL
         if (Input.GetKeyDown(gunShot))
         {
@@ -80,6 +88,12 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(throwElement))
         {
             playerCharacter.throwElementSkill.Preview(playerCharacter);
+        }
+
+        //KICK
+        if (Input.GetKeyDown(kick))
+        {
+            playerCharacter.kickSkill.Preview(playerCharacter);
         }
 
         /*RaycastHit hit;
@@ -115,6 +129,7 @@ public class PlayerManager : MonoBehaviour
                 float angleLeft = Vector3.Angle(pointsOnScreen.left - pivotScreenPoint, mouseDir);
 
                 //print("Up : " + angleUp + ", Right : " + angleRight + ", Down : " + angleDown + ", Left : " + angleLeft);
+                playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
 
                 Dictionary<List<Tile>, float> lines = new Dictionary<List<Tile>, float>();
                 lines.Add(playerCharacter.lineUp, angleUp);
@@ -131,18 +146,39 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
 
-                if(lineToHighlight != currentLineHighlighted)
+                if (lineToHighlight != currentLineHighlighted)
                 {
-                    //print("CHANGE");
-                    if (highlightLineID > -1)
+                    print(lineToHighlight.Count);
+                    if (GetHighlineID() > -1)
                     {
                         //print(highlightLineID);
-                        Highlight_Manager.instance.HideHighlight(highlightLineID);
+                        Highlight_Manager.instance.HideHighlight(GetHighlineID());
+                    }
+
+                    if (oldBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
+                    {
+                        print("HIDE EXPLOSION PREVIEW");
+                        Highlight_Manager.instance.HideHighlight(oldBarrelInLine.GetSkillPreviewID());
                     }
                     currentLineHighlighted = lineToHighlight;
                     Highlight_Manager.instance.HideHighlight(playerCharacter.GetSkillPreviewID());
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
-                    highlightLineID = Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight);
+                    SetHighlightID(Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight));
+
+                    if (currentBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
+                    {
+                        print("SHOW EXPLOSION PREVIEW");
+                        currentBarrelInLine.explosionSkill.Preview(currentBarrelInLine);
+                    }
+                    oldBarrelInLine = currentBarrelInLine;
+                    currentBarrelInLine = BarrelInLine(lineToHighlight);
+
+                    if (Input.GetMouseButtonDown(0)){
+                        if(currentBarrelInLine != null)
+                        {
+                            playerCharacter.gunShotSkill.Activate(playerCharacter, currentBarrelInLine.GetTile());
+                        }
+                    }
                 }
                 //print(playerCharacter.lineUp.Count);
                 break;
@@ -156,14 +192,14 @@ public class PlayerManager : MonoBehaviour
             case HoverMode.MeleeHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (currentHoveredTile.isClickable)
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
                         SkillManager.instance.currentActiveSkill.Activate(playerCharacter, currentHoveredTile);
                 }
                 break;
             case HoverMode.ThrowHover:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (currentHoveredTile.isClickable)
+                    if (currentHoveredTile != null && currentHoveredTile.isClickable)
                         SkillManager.instance.ThrowElement(playerCharacter, playerCharacter.liftedPawn, currentHoveredTile);
                 }
                 break;
@@ -183,13 +219,38 @@ public class PlayerManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        playerCharacter.currentPM = playerStats.playerStats.startingMP;
+        playerCharacter.currentPA = playerStats.playerStats.startingAP;
         hoverMode = HoverMode.MovePath;
         playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
     }
 
     public void EndPlayerTurn()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         hoverMode = HoverMode.NoHover;
         GameManager.Instance.CheckIfCompleted(true);
+    }
+
+    public int GetHighlineID()
+    {
+        return highlightLineID;
+    }
+
+    public void SetHighlightID(int id)
+    {
+        highlightLineID = id;
+    }
+
+    public Barrel BarrelInLine(List<Tile> line)
+    {
+        foreach(Tile tile in line)
+        {
+            if(tile.GetPawnOnTile() != null && tile.GetPawnOnTile() is Barrel)
+            {
+                return tile.GetPawnOnTile() as Barrel;
+            }
+        }
+        return null;
     }
 }

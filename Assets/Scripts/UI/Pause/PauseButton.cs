@@ -7,7 +7,7 @@ public class PauseButton : Panel_Behaviour
 {
     [Header("Pause References")]
     public Image pauseImage;
-
+    public Animator animator;
 
 
     private void Update()
@@ -15,6 +15,21 @@ public class PauseButton : Panel_Behaviour
         MovePanel();
     }
 
+
+    public void Highlighting()
+    {
+        animator.Play("Highlighted");
+    }
+
+    public void Clicking()
+    {
+        animator.Play("Clicking");
+    }
+
+    public void BackToNormal()
+    {
+        animator.Play("Normal");
+    }
 
     public void Click()
     {
