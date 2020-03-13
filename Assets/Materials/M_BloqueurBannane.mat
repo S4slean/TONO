@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Banana
+  m_Name: M_BloqueurBannane
   m_Shader: {fileID: -6465566751694194690, guid: 2672d7150460acd499117c0f7015ef7b,
     type: 3}
   m_ShaderKeywords: 
@@ -27,11 +27,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_CCC02C1F:
-        m_Texture: {fileID: 2800000, guid: d8c857eb2666585438ae05114c9a6374, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6ed4c49ea5e0b3a46afcda242014cc26, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D08AC8B2:
-        m_Texture: {fileID: 2800000, guid: f299b83395c6e9d4298ad24ace1c44a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11c8f17e8a60a1943b6d1ee2ba8e465e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -119,11 +119,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_294AF5EC: 1.27
-    - Vector1_5CF97A61: 2.07
-    - Vector1_735BFE91: 0.88
+    - Vector1_294AF5EC: 0.97
+    - Vector1_5CF97A61: 1.12
+    - Vector1_735BFE91: 0.89
     - Vector1_844505D8: 0.34
-    - Vector1_AE7E7348: 0.214
+    - Vector1_AE7E7348: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -246,7 +246,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_1F8CB02E: {r: 0.9433962, g: 0.92611223, b: 0.6452474, a: 1}
+    - Color_1F8CB02E: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
