@@ -32,24 +32,6 @@ public class UI_MessagePanel : MonoBehaviour
 
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            ShowMessage(Messages.Victory);
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ShowMessage(Messages.PlayerTurn);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ShowMessage(Messages.Defeat);
-        }
-    }
-
     public void ShowMessage(Messages message)
     {
         switch (message)

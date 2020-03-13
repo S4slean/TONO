@@ -43,10 +43,17 @@ public class GunShot : Skill
                     Time.timeScale = 1f;
                     Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
                     SkillManager.instance.currentActiveSkill = null;
-                    playerManager.hoverMode = HoverMode.MovePath;
+                    if(GameManager.Instance.turnType == TurnType.player)
+                    {
+                        playerManager.hoverMode = HoverMode.MovePath;
+                    }
+                    else if(GameManager.Instance.turnType == TurnType.enemy)
+                    {
+                        playerManager.hoverMode = HoverMode.NoHover;
+                    }
                 }
             }
-            else
+            else if(GameManager.Instance.turnType == TurnType.player)
             {
                 SkillManager.instance.ReloadGun();
                 UI_Manager.instance.gunPanel.RefreshUI();
