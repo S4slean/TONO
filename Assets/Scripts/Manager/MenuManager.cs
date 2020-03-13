@@ -26,6 +26,7 @@ public class MenuManager : MonoBehaviour
     public void NewGame()
     {
         combatsCompleted = 0;
+        LevelManager.playedCinematic = 1;
         StartGame();
     }
 
