@@ -7,7 +7,6 @@ public static class LevelManager
 {
     public static LevelProgress[] levelProgresses;
 
-    
     public static void InitializeLevelProgresses(LevelList levelList)
     {
         levelProgresses = new LevelProgress[levelList.levelDatas.Length];
@@ -20,21 +19,22 @@ public static class LevelManager
     public static void GoToScene(string sceneName)
     {
         sceneToLoadName = sceneName;
-        if(LightSwitch.Instance)
+        if(FadingScreen.Instance)
         {
-            LightSwitch.Instance.SwitchOffThenLoad(sceneName);
+            FadingScreen.Instance.FadeInThenLoad(sceneName);
         }
         else
         {
-            SceneManager.LoadScene("LoadingScreen");
+            SceneManager.LoadScene("NEW_LoadingScreen");
         }
 
     }
 
+
     public static void GoToSceneDirectly(string sceneName)
     {
         sceneToLoadName = sceneName;
-        SceneManager.LoadScene("LoadingScreen");
+        SceneManager.LoadScene("NEW_LoadingScreen");
     }
 
     public static IEnumerator ReloadCurrentLevel(float delayBeforeReloading)

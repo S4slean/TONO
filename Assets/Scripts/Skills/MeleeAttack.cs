@@ -13,6 +13,7 @@ public class MeleeAttack : Skill
             EnemieBehaviour enemy = (EnemieBehaviour)user;
             enemy.actionPoints -= cost;
             enemy.anim.SetTrigger("Melee");
+            SoundManager.Instance.PlaySound(SoundManager.Instance.wish);
         }
         user.EndAction();
     }

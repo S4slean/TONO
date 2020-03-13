@@ -141,9 +141,9 @@ public class SkillManager : MonoBehaviour
         player.isGunLoaded = false;
         GameObject instance = Instantiate(bullet, user.transform.position + Vector3.up, Quaternion.identity);
         if(target.GetPawnOnTile() != null)
-            instance.GetComponent<Projectiles>().Throw(target.GetPawnOnTile(), user, 1);
+            instance.GetComponent<Projectiles>().Throw(target.GetPawnOnTile().transform, user, 1);
         else if(target.GetProjectileOnTile() != null)
-            instance.GetComponent<Projectiles>().Throw(target.GetPawnOnTile(), user, 1);
+            instance.GetComponent<Projectiles>().Throw(target.GetProjectileOnTile().transform, user, 1);
     }
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
