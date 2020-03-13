@@ -79,7 +79,7 @@ public class SkillManager : MonoBehaviour
        
         
         GameObject instance = Instantiate(projectile, user.transform.position + Vector3.up, Quaternion.identity);
-        instance.GetComponent<Projectiles>().Throw(target, user, dmg);
+        instance.GetComponent<Projectiles>().Throw(target.transform, user, dmg);
        
     }
 

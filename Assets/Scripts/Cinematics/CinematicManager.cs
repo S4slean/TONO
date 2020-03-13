@@ -57,24 +57,14 @@ public class CinematicManager : MonoBehaviour
 
     public void CheckCinematic()
     {
-        if(playsOverridingCinematic)
-        {
-            PlayCinematic(overridingCinematic);
-            return;
-        }
 
-        if(LevelManager.playedCinematic == 0)
-        {
-            return;
-        }
-        else
-        {
             PlayCinematic(LevelManager.playedCinematic);
-        }
+
     }
 
     void PlayCinematic(int index)
     {
+
         waves.DOMove(Vector3.zero, wavesShowingSpeed);
 
         if(index >= datas.Length)
@@ -88,6 +78,8 @@ public class CinematicManager : MonoBehaviour
 
         LoadingScreenManager.Instance.count += (float)datas[index].director.duration + wavesDelay;
         StartCoroutine(PlayAfterWavesEnter(index));
+
+        LevelManager.playedCinematic = 0;
 
     }
 

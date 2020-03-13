@@ -7,8 +7,7 @@ public class UpgradeData : ScriptableObject
 {
     [Header("Properties")]
     public string description;
-    public string tooltip;
-    public Color color;
+    public Sprite sprite;
 
     [Header("Indexation")]
     public int index;

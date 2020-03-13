@@ -18,13 +18,21 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.K))
+        {
+            CompleteCombat();
+        }
+    }
     private void Start()
     {
         DataManager.Instance.Load(true, SceneType.game);
-
         LevelLoader.Instance.LoadLevel();
+        GridManager.instance.GetAllTiles();
 
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();

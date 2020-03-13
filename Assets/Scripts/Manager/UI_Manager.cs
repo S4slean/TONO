@@ -55,22 +55,6 @@ public class UI_Manager : MonoBehaviour
         instance = this;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            characterInfoPanel.ResetAllCharacterInfo();
-            actionPanel.ResetPanelAction();
-            SetUIDisplayModeOn(UIDisplayMode.PlayerTurn);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            boatPanel.SetUpBoatUI();
-            SetUIDisplayModeOn(UIDisplayMode.Boat);
-        }
-    }
-
     public void SetCursorIcon(CursorIconMode icon)
     {
         //switch(icon)

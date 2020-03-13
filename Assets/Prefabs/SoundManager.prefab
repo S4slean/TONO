@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4218314131381850435}
-  - component: {fileID: 1968042018936735547}
+  - component: {fileID: 3289566916324663932}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1968042018936735547
+--- !u!114 &3289566916324663932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,8 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
   throwing:
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 70ebd69ed234b654c9b67e66b46ff09b, type: 3}
     minVolume: 1
     maxVolume: 1
     minPitch: 1
@@ -103,4 +104,4 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
-  sfxVolume: 0
+  sfxVolume: 1

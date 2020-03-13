@@ -18,6 +18,7 @@ public class UI_ActionButton : MonoBehaviour
     public Image actionImage;
     public Image backgroundImage;
     List<Image> costPoints;
+    public Image selectIconImage;
     Color32 unenableColor = new Color32((byte)188, (byte)188, (byte)188, (byte)255);
     Color32 enableColor = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
 
@@ -39,6 +40,8 @@ public class UI_ActionButton : MonoBehaviour
     bool isUnfold = true;
     public bool isSelected = false;
     bool isMoving = false;
+    bool isHighlighted = false;
+    bool isUnenable;
 
     private float current;
     private float diff;
@@ -61,19 +64,36 @@ public class UI_ActionButton : MonoBehaviour
 
     public void Highlighting()
     {
-        if (!isSelected)
-            animator.Play("Highlighted");
+        isHighlighted = true;
+
+        PlayCorrectAnimation();
     }
 
     public void Clicking()
     {
-        animator.Play("Clicking");
+        PlayCorrectAnimation();
     }
 
     public void BackToNormal()
     {
+        isHighlighted = false;
+
+        PlayCorrectAnimation();
+    }
+
+    public void PlayCorrectAnimation()
+    {
         if (!isSelected)
-            animator.Play("Normal");
+        {
+            if (!isHighlighted)
+                animator.Play("Normal");
+            else
+                animator.Play("Highlighted");
+        }
+        else
+        {
+            animator.Play("Clicking");
+        }
     }
 
     /// <summary>
@@ -144,18 +164,33 @@ public class UI_ActionButton : MonoBehaviour
 
     public void PreviewSkillAction()
     {
+        if (isUnenable)
+        {
+            Debug.Log("UNENABLED action");
+            return;
+        }
+
         if (actionPanel.selectedAction != null && actionPanel.selectedAction != this)
         {
             actionPanel.selectedAction.isSelected = false;
             actionPanel.selectedAction.PreviewSkillAction();
         }
 
-        isSelected = !isSelected;
+        if (actionSkill is Reload)
+        {
+            isSelected = false;
+            BackToNormal();
+        }
+        else
+            isSelected = !isSelected;
+
 
         if (!isSelected)
             actionPanel.selectedAction = null;
         else
             actionPanel.selectedAction = this;
+
+        PlayCorrectAnimation();
 
         actionSkill.Preview(PlayerManager.instance.playerCharacter);
     }
@@ -169,7 +204,9 @@ public class UI_ActionButton : MonoBehaviour
         {
             actionImage.sprite = actionSkill.unenabledSprite;
             backgroundImage.color = unenableColor;
+            selectIconImage.color = unenableColor;
             ChangeCostColor(false);
+            isUnenable = true;
         }
     }
 
@@ -221,7 +258,9 @@ public class UI_ActionButton : MonoBehaviour
 
             actionImage.sprite = actionSkill.unenabledSprite;
             backgroundImage.color = unenableColor;
+            selectIconImage.color = unenableColor;
             ChangeCostColor(false);
+            isUnenable = true;
         }
         else
         {
@@ -232,7 +271,9 @@ public class UI_ActionButton : MonoBehaviour
 
             actionImage.sprite = actionSkill.enabledSprite;
             backgroundImage.color = enableColor;
+            selectIconImage.color = enableColor;
             ChangeCostColor(true);
+            isUnenable = false;
         }
 
         CheckSkillCondition();
