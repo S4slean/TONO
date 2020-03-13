@@ -20,6 +20,7 @@ public class Kick : Skill
         else if (user is PlayerCharacter)
         {
             PlayerManager.instance.playerCharacter.currentPA -= cost;
+            PlayerManager.instance.playerCharacter.anim.SetTrigger("Kick");
         }
 
         UI_Manager.instance.actionPanel.RefreshActions();

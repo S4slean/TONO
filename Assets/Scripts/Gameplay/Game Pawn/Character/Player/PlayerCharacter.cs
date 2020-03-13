@@ -188,21 +188,29 @@ public class PlayerCharacter : GamePawn
         gunRange.AddRange(lineRight);
         gunRange.AddRange(lineDown);
         gunRange.AddRange(lineLeft);
+
+        UI_Manager.instance.actionPanel.RefreshActions();
     }
 
     public override void ReceiveDamage(int dmg)
     {
         currentLife = Mathf.Clamp(currentLife - dmg, 0, currentLife);
+        
         UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
         if(currentLife <= 0)
         {
             Die();
         }
+        else
+        {
+            anim.SetTrigger("Hit");
+        }
     }
 
     public override void Die()
     {
-        Debug.Log("Player Died");
+        anim.SetTrigger("Death");
+
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
