@@ -15,6 +15,8 @@ public class Jump : Skill
         {
             PlayerManager.instance.playerCharacter.currentPA -= cost;
         }
+
+        UI_Manager.instance.actionPanel.RefreshActions();
     }
 
     public override void Preview(GamePawn user)

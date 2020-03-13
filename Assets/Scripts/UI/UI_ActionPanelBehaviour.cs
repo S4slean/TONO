@@ -111,6 +111,8 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     /// </summary>
     public void RefreshActions()
     {
+        Debug.Log("Check gun conditions");
+
         for (int i = 0; i < actions.Count; i++)
         {
             actions[i].CheckAndRefreshActionUI(PlayerManager.instance.playerCharacter.currentPA);

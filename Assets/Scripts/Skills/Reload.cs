@@ -17,7 +17,10 @@ public class Reload : Skill
             UI_Manager.instance.characterInfoPanel.ResetAllCharacterInfo();
             UI_Manager.instance.characterInfoPanel.PreviewCharacterInfo(UI_SelectedCharacterInfo.Stats.PA, cost);
         }
+
         SkillManager.instance.ReloadGun();
+
+        UI_Manager.instance.gunPanel.RefreshUI();
         //Activate();
     }
 }
