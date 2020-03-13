@@ -413,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 405638907566125775, guid: a5fe83f66c7a19b4f8b5b2d6f47fa59e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5fe83f66c7a19b4f8b5b2d6f47fa59e, type: 3}
@@ -501,7 +501,17 @@ PrefabInstance:
     - target: {fileID: 2227600310645588497, guid: 9067668bc43900b46890aa0c557de7a2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227600311801899310, guid: 9067668bc43900b46890aa0c557de7a2,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227600311801899311, guid: 9067668bc43900b46890aa0c557de7a2,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Override
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 6206616289428508506, guid: 9067668bc43900b46890aa0c557de7a2,
         type: 3}
@@ -637,6 +647,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549017082526418096, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Override
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549017082526418099, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549017082906963012, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Override
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549017082906963015, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55506675b0c95bd45bc1f976d1e91dfd, type: 3}
 --- !u!1001 &1309529772
@@ -705,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: World2_Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 364836949171916655, guid: 5ccfdd45913e44c4296d1c5b3fa7051f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccfdd45913e44c4296d1c5b3fa7051f, type: 3}
@@ -931,7 +966,7 @@ PrefabInstance:
     - target: {fileID: 7581305655121368977, guid: d019b1f178f3e2442a10eb51021f47c8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d019b1f178f3e2442a10eb51021f47c8, type: 3}

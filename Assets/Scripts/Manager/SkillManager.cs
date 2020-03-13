@@ -144,6 +144,8 @@ public class SkillManager : MonoBehaviour
             instance.GetComponent<Projectiles>().Throw(target.GetPawnOnTile().transform, user, 1);
         else if(target.GetProjectileOnTile() != null)
             instance.GetComponent<Projectiles>().Throw(target.GetProjectileOnTile().transform, user, 1);
+        Time.timeScale = 1;
+        Highlight_Manager.instance.HideAllHighlight();
     }
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
