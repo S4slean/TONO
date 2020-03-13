@@ -211,8 +211,6 @@ public class UI_Timeline : Panel_Behaviour
     /// </summary>
     private void RefreshIconsOrder()
     {
-        Debug.Log("Refresh ORDER");
-
         for (int i = 1; i < charactersIcons.Count; i++)
         {
             charactersIcons[i].indexOrder = i;
@@ -232,7 +230,6 @@ public class UI_Timeline : Panel_Behaviour
     /// </summary>
     private void RearrangeIcons()
     {
-        Debug.Log("Rearrange");
         isRearranging = false;
 
         currents = new List<Vector3>();
