@@ -4455,7 +4455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1157207897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5800,11 +5800,11 @@ MonoBehaviour:
   displayUIDistancesByAmount:
   - 0
   - 0
-  - 300
-  - 250
-  - 250
-  - 250
-  - 250
+  - 400
+  - 350
+  - 350
+  - 350
+  - 350
   upgradeChoiceDisplayUI: {fileID: 7469047797789693346, guid: b8d91e57255c4c54e95289680f103a6b,
     type: 3}
   upgradeChoiceDisplay: {fileID: 2144113545907069501, guid: 5611d8887d3f5c44eae156edcc62377d,
@@ -6558,7 +6558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 289}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1796702387
