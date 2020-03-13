@@ -171,12 +171,8 @@ public class UI_ActionButton : MonoBehaviour
 
     public void CheckGunShotException()
     {
-        Debug.Log("Check ACTION type");
-
         if (actionSkill is GunShot || actionSkill is Reload)
         {
-            Debug.Log("isGunSHot");
-
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {
                 actionSkill = PlayerManager.instance.playerCharacter.reloadSkill;
