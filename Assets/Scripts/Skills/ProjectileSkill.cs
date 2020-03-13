@@ -22,6 +22,7 @@ public class ProjectileSkill : Skill
         {
             PlayerCharacter player = (PlayerCharacter)user;
             SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
+            UI_Manager.instance.actionPanel.RefreshActions();
         }
         
     }

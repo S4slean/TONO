@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public static class LevelManager
 {
     public static LevelProgress[] levelProgresses;
+
     
     public static void InitializeLevelProgresses(LevelList levelList)
     {
@@ -36,4 +37,9 @@ public static class LevelManager
         SceneManager.LoadScene("LoadingScreen");
     }
 
+    public static IEnumerator ReloadCurrentLevel(float delayBeforeReloading)
+    {
+        yield return new WaitForSeconds(delayBeforeReloading);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

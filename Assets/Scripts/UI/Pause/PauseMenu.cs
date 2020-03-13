@@ -42,7 +42,6 @@ public class PauseMenu : MonoBehaviour
     public void HoverButton(int index)
     {
         buttonstexts[index].color = selectedTextColor;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.hover, false, true);
     }
 
     public void ExitButton(int index)
