@@ -175,6 +175,7 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
   LiftPawnSocket: {fileID: 7447926989378040533}
@@ -193,7 +194,7 @@ MonoBehaviour:
   currentPA: 5
   currentPM: 5
   currentLife: 5
-  isGunLoaded: 0
+  isGunLoaded: 1
 --- !u!1001 &2831004781709760098
 PrefabInstance:
   m_ObjectHideFlags: 0

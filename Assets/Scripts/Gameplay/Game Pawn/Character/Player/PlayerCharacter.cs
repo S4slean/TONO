@@ -176,10 +176,10 @@ public class PlayerCharacter : GamePawn
         lineDown.Clear();
         lineLeft.Clear();
 
-        lineUp = GridManager.instance.GetLineUntilObstacle(Direction.Up, destination, true);
-        lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true);
-        lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true);
-        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true);
+        lineUp = GridManager.instance.GetLineUntilObstacle(Direction.Up, destination, true, true);
+        lineRight = GridManager.instance.GetLineUntilObstacle(Direction.Right, destination, true, true);
+        lineDown = GridManager.instance.GetLineUntilObstacle(Direction.Down, destination, true, true);
+        lineLeft = GridManager.instance.GetLineUntilObstacle(Direction.Left, destination, true, true);
 
         //DEBUG
         //print(destination.neighbours.right);

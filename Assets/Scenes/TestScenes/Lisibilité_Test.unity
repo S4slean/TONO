@@ -844,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102681655
 Transform:
   m_ObjectHideFlags: 0
@@ -13554,6 +13554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Chest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ad9335a17e0702842b406332e87cbc6e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -383302835137217727, guid: ad9335a17e0702842b406332e87cbc6e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14262,6 +14267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ad9335a17e0702842b406332e87cbc6e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -383302835137217727, guid: ad9335a17e0702842b406332e87cbc6e,
         type: 3}
