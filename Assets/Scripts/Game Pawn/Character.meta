@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Game Pawn/Character.meta
 guid: 6b0560cf9e62aa84a857258e7a83ba97
+=======
+<<<<<<< HEAD
+guid: 1656f83fd09faa14095c03a9d986bad1
+=======
+guid: fa9612997838f5e4faaf340625275ce7
+>>>>>>> master
+>>>>>>> 3353230d4721112e2677056814ecd89340d35bff:Assets/Scripts/Character.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
