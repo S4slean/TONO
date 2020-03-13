@@ -210,7 +210,6 @@ public class PlayerCharacter : GamePawn
     public override void Die()
     {
         anim.SetTrigger("Death");
-
     }
 
     public override void OnKicked(GamePawn user, int dmg, Direction dir)
