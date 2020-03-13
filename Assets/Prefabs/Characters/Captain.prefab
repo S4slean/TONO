@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8263123818720189865}
-  - component: {fileID: 2394487386578481809}
+  - component: {fileID: 855069193386636577}
   m_Layer: 8
   m_Name: Captain
   m_TagString: Player
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2394487386578481809
+--- !u!114 &855069193386636577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8263123818720189864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4153c5247ae3648499a869261232a515, type: 3}
+  m_Script: {fileID: 11500000, guid: 60c6700dbff983a45ad75694ad71e8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mask:
@@ -49,9 +49,10 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
-  enemyStats: {fileID: 0}
+  enemyStats: {fileID: 11400000, guid: e033fe07a6c3e8145abef51327ba8b03, type: 2}
   anim: {fileID: 8292670441766132546}
   defaultVisual: {fileID: 5824681934552025644}
   buffedVisual: {fileID: 1753223624570615611}
@@ -229,17 +230,17 @@ PrefabInstance:
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990124, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2983395280746990125, guid: 17db6ef6e6106ab4cbb671607f6ce576,
         type: 3}

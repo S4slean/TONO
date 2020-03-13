@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelData_Tuto
   m_EditorClassIdentifier: 
   level: {fileID: 405638907566125775, guid: a5fe83f66c7a19b4f8b5b2d6f47fa59e, type: 3}
-  background: {fileID: 6206616289428508506, guid: 9067668bc43900b46890aa0c557de7a2,
+  background: {fileID: 2227600310645588497, guid: 9067668bc43900b46890aa0c557de7a2,
     type: 3}

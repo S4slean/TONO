@@ -234,40 +234,43 @@ public class EnemieBehaviour : GamePawn
 
 
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), destination);
-        destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
-        if (!destination.isWalkable || destination.GetPawnOnTile() != null)
+        if(path.Count != 0)
         {
-
-
-            if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) < Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
+            destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
+            if (!destination.isWalkable || destination.GetPawnOnTile() != null)
             {
-                while (destination.transform.position.z != target.transform.position.z)
+
+
+                if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) < Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
                 {
-                    if (destination.transform.position.z - target.transform.position.z > 0)
+                    while (destination.transform.position.z != target.transform.position.z)
                     {
-                        if (destination.neighbours.down != null)
-                            destination = destination.neighbours.down;
-                    }
-                    else if ((destination.transform.position.z - target.transform.position.z < 0))
-                    {
-                        if (destination.neighbours.up != null)
-                            destination = destination.neighbours.up;
+                        if (destination.transform.position.z - target.transform.position.z > 0)
+                        {
+                            if (destination.neighbours.down != null)
+                                destination = destination.neighbours.down;
+                        }
+                        else if ((destination.transform.position.z - target.transform.position.z < 0))
+                        {
+                            if (destination.neighbours.up != null)
+                                destination = destination.neighbours.up;
+                        }
                     }
                 }
-            }
-            else if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
-            {
-                while (destination.transform.position.x != target.transform.position.x)
+                else if (Mathf.Abs(GetTile().transform.position.x - target.transform.position.x) > Mathf.Abs(GetTile().transform.position.z - target.transform.position.z))
                 {
-                    if (destination.transform.position.x - target.transform.position.x > 0)
+                    while (destination.transform.position.x != target.transform.position.x)
                     {
-                        if (destination.neighbours.left != null)
-                            destination = destination.neighbours.left;
-                    }
-                    else if ((destination.transform.position.x - target.transform.position.x < 0))
-                    {
-                        if (destination.neighbours.right != null)
-                            destination = destination.neighbours.right;
+                        if (destination.transform.position.x - target.transform.position.x > 0)
+                        {
+                            if (destination.neighbours.left != null)
+                                destination = destination.neighbours.left;
+                        }
+                        else if ((destination.transform.position.x - target.transform.position.x < 0))
+                        {
+                            if (destination.neighbours.right != null)
+                                destination = destination.neighbours.right;
+                        }
                     }
                 }
             }

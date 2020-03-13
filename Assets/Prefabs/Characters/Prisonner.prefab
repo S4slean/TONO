@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4808099304399682975}
-  - component: {fileID: 1238386637759615655}
+  - component: {fileID: 3019610873580206923}
   m_Layer: 8
   m_Name: Prisonner
   m_TagString: Player
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1238386637759615655
+--- !u!114 &3019610873580206923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4808099304399682974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4153c5247ae3648499a869261232a515, type: 3}
+  m_Script: {fileID: 11500000, guid: 527ffde1d6bc74d4fa58cd9b621bee13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mask:
@@ -49,15 +49,17 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
   enemyStats: {fileID: 11400000, guid: e7005c652d59da949b09709a1aecb6a2, type: 2}
   anim: {fileID: 5167361045464178729}
-  defaultVisual: {fileID: 0}
+  defaultVisual: {fileID: 267751735462037096}
   buffedVisual: {fileID: 0}
   health: 1
   movementPoints: 0
   actionPoints: 0
+  timelineIndex: 0
 --- !u!1001 &7985165045746444826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,3 +245,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f411adf84fb946e4993aba4eda59b0c1, type: 3}
+--- !u!1 &267751735462037096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f411adf84fb946e4993aba4eda59b0c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8112904731442732897}
+  m_PrefabAsset: {fileID: 0}

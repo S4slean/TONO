@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7855796390316377237}
-  - component: {fileID: 4508960793543420845}
+  - component: {fileID: 2198272498547124713}
   m_Layer: 8
   m_Name: Kamikaze
   m_TagString: Player
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4508960793543420845
+--- !u!114 &2198272498547124713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7855796390316377236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4153c5247ae3648499a869261232a515, type: 3}
+  m_Script: {fileID: 11500000, guid: 69ceffa36a9171c479c6aaec2e2d43bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mask:
@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Bits: 1536
   associatedTile: {fileID: 0}
   moveRange: []
+  hovered: 0
   skillPreviewID: 0
   skills: []
   enemyStats: {fileID: 11400000, guid: 5ad39ecd08ea3af4e997b56a6e4e56b1, type: 2}
