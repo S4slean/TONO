@@ -76,7 +76,15 @@ public class EnemyManager : MonoBehaviour
     
     public void PlayNextEnemyTurn()
     {
-        _enemyIndex++;
-        PlayEnemyTurn();
+        StartCoroutine(DelayEnemyTurn());
+    }
+
+    public IEnumerator DelayEnemyTurn()
+    {
+        yield return new WaitForSeconds(1);
+        {
+            _enemyIndex++;
+            PlayEnemyTurn();
+        }
     }
 }

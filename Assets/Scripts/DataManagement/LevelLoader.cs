@@ -19,7 +19,6 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel()
     {
-        Debug.Log("CurrentLevel " + LevelManager.currentLevel);
         level = levelList.levelDatas[LevelManager.currentLevel].level;
         background = levelList.levelDatas[LevelManager.currentLevel].background;
 

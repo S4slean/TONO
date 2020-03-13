@@ -150,6 +150,11 @@ public class GameManager : MonoBehaviour
         SaveAndQuit();
     }
 
+    public IEnumerator DelayEndLevel()
+    {
+        yield return null;
+    }
+
     public void SaveAndQuit()
     {
         DataManager.Instance.Save(SceneType.game);
