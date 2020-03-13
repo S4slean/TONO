@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        LevelLoader.Instance.LoadLevel();
+        //LevelLoader.Instance.LoadLevel();
     }
 
     private void Update()
