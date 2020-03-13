@@ -50,55 +50,37 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
   step:
-    clips:
-    - {fileID: 8300000, guid: 560af6e3955578a4d9bdcdcda92bc977, type: 3}
-    - {fileID: 8300000, guid: 18b665c971d2020419ac64a84abd5624, type: 3}
-    - {fileID: 8300000, guid: 877479280d4ec5d48bda28ae2f558065, type: 3}
-    - {fileID: 8300000, guid: 2431d200aa7de2447a8d6b6efe244c99, type: 3}
-    - {fileID: 8300000, guid: b48bd350276795548bc3d33627df1bc7, type: 3}
-    - {fileID: 8300000, guid: 6311b17ad19b33b4d80744591b02886b, type: 3}
-    - {fileID: 8300000, guid: 54489a946225adb46be9f2977662e208, type: 3}
-    - {fileID: 8300000, guid: 6e97eb4b51191e54887a4e26ca957968, type: 3}
-    - {fileID: 8300000, guid: df8d80fd50cae8642bf6ff446ba1025d, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   barrelExplosion:
-    clips:
-    - {fileID: 8300000, guid: 7a691870b529ea84397ef79e5408de4a, type: 3}
-    - {fileID: 8300000, guid: 84ed509d7efff8e42a4f7136d7099bd3, type: 3}
-    - {fileID: 8300000, guid: b41713587aa991e4791c39fd0348798e, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   barrelPlacement:
-    clips:
-    - {fileID: 8300000, guid: 731b95ab227b3a543aa0f2fbb1edb2f7, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   bottleBreak:
-    clips:
-    - {fileID: 8300000, guid: 1dc0051c6e9d15546a21a1f860518a5b, type: 3}
-    - {fileID: 8300000, guid: e6b11e29f8bef8546ace1465e643f38a, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   bottleThrow:
-    clips:
-    - {fileID: 8300000, guid: b6704eeed20f329489d2be6beb0a89bd, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   fallingInWater:
-    clips:
-    - {fileID: 8300000, guid: fba747f19f1400f44a92bbc9a2fd833a, type: 3}
-    - {fileID: 8300000, guid: 0c0e83a818a38fd49a2618e12704a83f, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
@@ -111,15 +93,13 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
   wish:
-    clips:
-    - {fileID: 8300000, guid: 4ab404c5995908440aee2ef09a06d8ee, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   playerShoots:
-    clips:
-    - {fileID: 8300000, guid: fbf2df11285ec1c438f23a29b6117105, type: 3}
+    clips: []
     minVolume: 1
     maxVolume: 1
     minPitch: 1

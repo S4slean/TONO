@@ -43,6 +43,7 @@ public class Tile : MonoBehaviour
     public object Connections { get; internal set; }
 
     [SerializeField]protected GamePawn pawnOnTile;
+    [SerializeField]protected Projectiles projectileOnTile;
 
     void Start()
     {
@@ -156,5 +157,15 @@ public class Tile : MonoBehaviour
     public virtual GamePawn GetPawnOnTile()
     {
         return pawnOnTile;
+    }
+
+    public virtual void SetProjectileOnTile(Projectiles projectiles)
+    {
+        projectileOnTile = projectiles;
+    }
+
+    public virtual Projectiles GetProjectileOnTile()
+    {
+        return projectileOnTile;
     }
 }
