@@ -20,6 +20,11 @@ public class Reload : Skill
 
         SkillManager.instance.ReloadGun();
 
+        if (user is PlayerCharacter)
+        {
+            PlayerManager.instance.playerCharacter.currentPA -= cost;
+        }
+
         UI_Manager.instance.gunPanel.RefreshUI();
         //Activate();
     }
