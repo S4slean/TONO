@@ -23,6 +23,7 @@ public class Kick : Skill
             PlayerManager.instance.playerCharacter.anim.SetTrigger("Kick");
         }
 
+        UI_Manager.instance.actionPanel.RefreshActions();
     }
 
     public override void Preview(GamePawn user)

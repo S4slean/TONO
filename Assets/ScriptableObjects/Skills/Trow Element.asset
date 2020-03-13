@@ -18,8 +18,6 @@ MonoBehaviour:
   damage: 0
   rangeType: 0
   range: 2
-  enabledSprite: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
-  unenabledSprite: {fileID: 2513392079388622926, guid: e40d5442edc65e343ad1706b85c2c5f5,
-    type: 3}
+  enabledSprite: {fileID: 21300000, guid: a5fd7ebe1c4aac7419af66d46724baec, type: 3}
+  unenabledSprite: {fileID: 21300000, guid: c85902f80d55b914c8a0b5b3e2ad5e05, type: 3}
   projectilePrefab: {fileID: 0}
