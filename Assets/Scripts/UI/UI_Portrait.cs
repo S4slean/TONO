@@ -123,8 +123,6 @@ public class UI_Portrait : MonoBehaviour
             return;
         }
 
-        Debug.Log("Remove this icon : " + gameObject.name);
-
         current = portraitRect.anchoredPosition3D;
         diff = new Vector3(removedPos.x - current.x, removedPos.y - current.y, current.z);
 
