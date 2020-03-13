@@ -37,9 +37,3 @@ public static class LevelManager
     }
 
 }
-
-public enum LevelTheme
-{
-    dark,
-    bright
-}

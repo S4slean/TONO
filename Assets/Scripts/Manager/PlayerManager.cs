@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviour
     public GunModePointOnScreen pointsOnScreen;
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
+    [SerializeField]private Barrel currentBarrelInLine;
+    [SerializeField]private Barrel oldBarrelInLine;
 
     public PlayerStatsConfig playerStats;
 
@@ -127,6 +129,7 @@ public class PlayerManager : MonoBehaviour
                 float angleLeft = Vector3.Angle(pointsOnScreen.left - pivotScreenPoint, mouseDir);
 
                 //print("Up : " + angleUp + ", Right : " + angleRight + ", Down : " + angleDown + ", Left : " + angleLeft);
+                playerCharacter.InitializeAllSkillRange(playerCharacter.GetTile());
 
                 Dictionary<List<Tile>, float> lines = new Dictionary<List<Tile>, float>();
                 lines.Add(playerCharacter.lineUp, angleUp);
@@ -143,18 +146,39 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
 
-                if(lineToHighlight != currentLineHighlighted)
+                if (lineToHighlight != currentLineHighlighted)
                 {
-                    //print("CHANGE");
+                    print(lineToHighlight.Count);
                     if (GetHighlineID() > -1)
                     {
                         //print(highlightLineID);
                         Highlight_Manager.instance.HideHighlight(GetHighlineID());
                     }
+
+                    if (oldBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
+                    {
+                        print("HIDE EXPLOSION PREVIEW");
+                        Highlight_Manager.instance.HideHighlight(oldBarrelInLine.GetSkillPreviewID());
+                    }
                     currentLineHighlighted = lineToHighlight;
                     Highlight_Manager.instance.HideHighlight(playerCharacter.GetSkillPreviewID());
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
                     SetHighlightID(Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight));
+
+                    if (currentBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
+                    {
+                        print("SHOW EXPLOSION PREVIEW");
+                        currentBarrelInLine.explosionSkill.Preview(currentBarrelInLine);
+                    }
+                    oldBarrelInLine = currentBarrelInLine;
+                    currentBarrelInLine = BarrelInLine(lineToHighlight);
+
+                    if (Input.GetMouseButtonDown(0)){
+                        if(currentBarrelInLine != null)
+                        {
+                            playerCharacter.gunShotSkill.Activate(playerCharacter, currentBarrelInLine.GetTile());
+                        }
+                    }
                 }
                 //print(playerCharacter.lineUp.Count);
                 break;
@@ -218,5 +242,15 @@ public class PlayerManager : MonoBehaviour
         highlightLineID = id;
     }
 
-   
+    public Barrel BarrelInLine(List<Tile> line)
+    {
+        foreach(Tile tile in line)
+        {
+            if(tile.GetPawnOnTile() != null && tile.GetPawnOnTile() is Barrel)
+            {
+                return tile.GetPawnOnTile() as Barrel;
+            }
+        }
+        return null;
+    }
 }
