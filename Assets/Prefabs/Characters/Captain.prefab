@@ -52,7 +52,7 @@ MonoBehaviour:
   hovered: 0
   skillPreviewID: 0
   skills: []
-  enemyStats: {fileID: 11400000, guid: e033fe07a6c3e8145abef51327ba8b03, type: 2}
+  enemyStats: {fileID: 11400000, guid: ddad6aa683d3ab447bb00e63ccf37810, type: 2}
   anim: {fileID: 8292670441766132546}
   defaultVisual: {fileID: 5824681934552025644}
   buffedVisual: {fileID: 1753223624570615611}

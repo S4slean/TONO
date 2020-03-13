@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Trow Element
   m_EditorClassIdentifier: 
   skillName: Thr0w
-  description: Throw something somewhere somehow
+  description: 'Throw an object '
   cost: 2
   damage: 0
   rangeType: 0

@@ -20,5 +20,5 @@ MonoBehaviour:
   range: 6
   enabledSprite: {fileID: 0}
   unenabledSprite: {fileID: 0}
-  projectilePrefab: {fileID: 8178423575629156578, guid: df7059a1cf8621a41b5d95e1eb87595e,
+  projectilePrefab: {fileID: 8178423575629156578, guid: b61eaa65ae80ff54ea5a09ab780f5562,
     type: 3}
