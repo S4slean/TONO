@@ -10,7 +10,16 @@ public class SoundManager : MonoBehaviour
     public Queue<GameObject> receptaclePool;
 
     public Sound click;
-    public Sound hover;
+    public Sound step;
+    public Sound barrelExplosion;
+    public Sound barrelPlacement;
+    public Sound bottleBreak;
+    public Sound bottleThrow;
+    public Sound fallingInWater;
+    public Sound throwing;
+    public Sound wish;
+    public Sound playerShoots;
+
 
     public float sfxVolume;
 

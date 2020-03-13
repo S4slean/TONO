@@ -27,11 +27,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_CCC02C1F:
-        m_Texture: {fileID: 2800000, guid: f205abd9f47bf654eb0843ea846647e2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8bb2fe2262ffa7548ad5d4ed16bfcd40, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D08AC8B2:
-        m_Texture: {fileID: 2800000, guid: 88d77fad944065342b210309cd2b0523, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6ab3654f66313ad4489249b75dbd3cc2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -119,11 +119,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_294AF5EC: 1.41
-    - Vector1_5CF97A61: 1.82
-    - Vector1_735BFE91: 1.57
-    - Vector1_844505D8: 0.31
-    - Vector1_AE7E7348: 0.291
+    - Vector1_294AF5EC: 1
+    - Vector1_5CF97A61: 1.5
+    - Vector1_735BFE91: 0.8
+    - Vector1_844505D8: 1.61
+    - Vector1_AE7E7348: 0.144
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -246,7 +246,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_1F8CB02E: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
+    - Color_1F8CB02E: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
