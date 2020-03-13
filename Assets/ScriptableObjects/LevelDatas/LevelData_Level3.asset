@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec2b946b3094e4fbaaf6e4a47301cc, type: 3}
+  m_Name: LevelData_Level3
+  m_EditorClassIdentifier: 
+  level: {fileID: 2734804246033078579, guid: 3fe50329ba196e94e8c82377644088be, type: 3}
+  background: {fileID: 7326167101067601788, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+    type: 3}

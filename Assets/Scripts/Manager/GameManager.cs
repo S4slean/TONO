@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         DataManager.Instance.Load(true, SceneType.game);
 
+        LevelLoader.Instance.LoadLevel();
+
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();
 

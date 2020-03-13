@@ -35,6 +35,6 @@ public class EnemyManagerEditor : Editor
 
         serializedObject.ApplyModifiedProperties();
 
-        EditorUtility.SetDirty(target);
+        //EditorUtility.SetDirty(target);
     }
 }
