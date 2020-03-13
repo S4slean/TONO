@@ -65,11 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 6834995557967536788}
-  - {fileID: 0}
-  - {fileID: 5442263600847544331}
-  - {fileID: 7725734847002931525}
   - {fileID: 7725734847098171269}
+  - {fileID: 7725734847002931525}
+  - {fileID: 5442263600847544331}
+  - {fileID: 6834995557967536788}
 --- !u!1 &364836949171916655
 GameObject:
   m_ObjectHideFlags: 0
