@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
     public Sound throwing;
     public Sound wish;
     public Sound playerShoots;
+    public Sound objectFalls;
+    public Sound kickInBody;
+    public Sound kickInObject;
 
 
     public float sfxVolume;

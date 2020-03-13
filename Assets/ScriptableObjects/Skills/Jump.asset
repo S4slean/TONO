@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   skillName: Jump
-  description: Jump because you CAN
+  description: Jump over an obstacle
   cost: 1
   damage: 0
   rangeType: 0
