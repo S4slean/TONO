@@ -33,16 +33,8 @@ public class Projectiles : MonoBehaviour
 
             if(TileBelow() != _associatedTile)
             {
-                if (PlayerManager.instance.hoverMode == HoverMode.GunShotHover)
-                {
-                    if(_previewId > -1)
-                    {
-                        Highlight_Manager.instance.HideHighlight(_previewId);
-                    }
-                    _associatedTile = TileBelow();
-                    OnShotPreview();
-                }
-
+                _associatedTile = TileBelow();
+                _associatedTile.SetProjectileOnTile(this);
             }
 
 
@@ -84,11 +76,13 @@ public class Projectiles : MonoBehaviour
     {
         if (createBigPool)
         {
-            _previewId = Highlight_Manager.instance.ShowHighlight(_associatedTile.GetFreeNeighbours(), HighlightMode.ExplosionPreview);
+            List<Tile> tiles = _associatedTile.GetFreeNeighbours();
+            tiles.Add(_associatedTile);
+            StartCoroutine(HighLightAtEndFrame(tiles, HighlightMode.ExplosionPreview));
         }
         else
         {
-            _previewId = Highlight_Manager.instance.ShowHighlight(new List<Tile>() { _associatedTile}, HighlightMode.ExplosionPreview);
+            StartCoroutine(HighLightAtEndFrame(new List<Tile>() { _associatedTile}, HighlightMode.ExplosionPreview));
         }
     }
 
@@ -105,5 +99,17 @@ public class Projectiles : MonoBehaviour
         {
             return null;
         }
+    }
+
+    IEnumerator HighLightAtEndFrame(List<Tile> tilesToHighlight, HighlightMode highlightMode)
+    {
+        yield return new WaitForEndOfFrame();
+        _previewId = Highlight_Manager.instance.ShowHighlight(tilesToHighlight, highlightMode);
+        print("SHOW BOTTLE RANGE");
+    }
+
+    public int GetPreviewID()
+    {
+        return _previewId;
     }
 }
