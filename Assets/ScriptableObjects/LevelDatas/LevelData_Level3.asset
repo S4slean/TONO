@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelData_Level3
   m_EditorClassIdentifier: 
   level: {fileID: 2734804246033078579, guid: 3fe50329ba196e94e8c82377644088be, type: 3}
-  background: {fileID: 7326167101067601788, guid: 55506675b0c95bd45bc1f976d1e91dfd,
+  background: {fileID: 6549017082515888129, guid: 55506675b0c95bd45bc1f976d1e91dfd,
     type: 3}
