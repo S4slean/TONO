@@ -139,7 +139,7 @@ public class Tile : MonoBehaviour
 
     public virtual void ActivateHighlight(HighlightMode highlightMode) { }
 
-    public virtual void DeactivateHighlight() { }
+    public virtual void DeactivateHighlight(HighlightMode highlightModeAfter) { }
 
     public void Reset()
     {

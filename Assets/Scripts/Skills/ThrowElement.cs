@@ -14,7 +14,8 @@ public class ThrowElement : Skill
         player.currentPA -= cost;
         SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
         UI_Manager.instance.actionPanel.RefreshActions();
-
+        UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
+        UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation();
     }
 
     public override void Preview(GamePawn user)
@@ -34,6 +35,8 @@ public class ThrowElement : Skill
                 if (tilesToHighlight.Count > 0)
                     user.SetPreviewID(Highlight_Manager.instance.ShowHighlight(tilesToHighlight, HighlightMode.ActionPreview, true));
                 playerManager.hoverMode = HoverMode.MeleeHover;
+
+                //UI_Manager.instance.UpdateActiveSkill();
             }
             else
             {
@@ -41,6 +44,9 @@ public class ThrowElement : Skill
                 playerManager.hoverMode = HoverMode.MovePath;
                 Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
                 player.ShowMoveRange();
+
+                UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
+                UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation();
             }
         }
     }

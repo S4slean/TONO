@@ -69,6 +69,7 @@ public class EnemyManager : MonoBehaviour
 
     public void EndEnemyTurn()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         GameManager.Instance.CheckIfCompleted(true);
     }
 

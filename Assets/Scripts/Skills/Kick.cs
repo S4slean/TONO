@@ -29,6 +29,8 @@ public class Kick : Skill
             SoundManager.Instance.PlaySound(SoundManager.Instance.kickInBody);
 
         UI_Manager.instance.actionPanel.RefreshActions();
+        UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
+        UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation(); ;
     }
 
     public override void Preview(GamePawn user)

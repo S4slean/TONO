@@ -57,24 +57,28 @@ public class Free : Tile
                 {
                     PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     PlayerManager.instance.currentHoveredTile = this;
-                    ActivateHighlight(HighlightMode.ActionHighlight);
 
                     if (SkillManager.instance.currentActiveSkill == player.kickSkill)
                     {
                         player.kickSkill.PreviewPawnPath(player, GetPawnOnTile());
                     }
+                    else if (SkillManager.instance.currentActiveSkill == player.throwElementSkill && player.liftedPawn != null)
+                    {
+                        player.throwElementSkill.ThrowPreview(player, player.liftedPawn);
+                    }
+                    ActivateHighlight(HighlightMode.ActionHighlight);
                 }
                 break;
         }
     }
     public override void OnMouseExit()
     {
+        PlayerCharacter player = PlayerManager.instance.playerCharacter;
         switch (PlayerManager.instance.hoverMode)
         {
             case HoverMode.MovePath:
                 if (highlighted)
                 {
-                    PlayerCharacter player = PlayerManager.instance.playerCharacter;
                     if (PlayerManager.instance.showMoveRangeWithPathHighlight)
                     {
                         player.HideMoveRange();
@@ -88,7 +92,7 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    DeactivateHighlight();
+                    DeactivateHighlight(HighlightMode.NoHighlight);
                 }
                 break;
             case HoverMode.ThrowHover:
@@ -96,13 +100,18 @@ public class Free : Tile
                 if (PlayerManager.instance.currentHoveredTile == this)
                 {
                     PlayerManager.instance.currentHoveredTile = null;
-                    DeactivateHighlight();
+
+                    DeactivateHighlight(HighlightMode.NoHighlight);
 
                     if (SkillManager.instance.currentActiveSkill == PlayerManager.instance.playerCharacter.kickSkill)
                     {
                         Highlight_Manager.instance.HideHighlight(PlayerManager.instance.GetHighlineID());
                     }
-
+                    else if(SkillManager.instance.currentActiveSkill == PlayerManager.instance.playerCharacter.throwElementSkill && player.liftedPawn != null)
+                    {
+                        Highlight_Manager.instance.HideHighlight(PlayerManager.instance.playerCharacter.GetSkillPreviewID());
+                        player.throwElementSkill.ThrowPreview(player, player.liftedPawn);
+                    }
                 }
                 break;
         }
@@ -113,9 +122,9 @@ public class Free : Tile
         Highlight_Manager.instance.ActivateOutlines(new List<Tile> { this }, highlightMode, false);
     }
 
-    public override void DeactivateHighlight()
+    public override void DeactivateHighlight(HighlightMode highlightModeAfter)
     {
-        Highlight_Manager.instance.DeactivateOutlines(this, false);
+        Highlight_Manager.instance.DeactivateOutlines(this, false, highlightModeAfter);
     }
 
     public void SetPreviewID(int id)
@@ -138,8 +147,6 @@ public class Free : Tile
         }
         alcoolAnim.SetBool("hasAlcohol", isAlcoolized);
     }
-
-
 
     public void SetFire()
     {
