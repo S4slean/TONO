@@ -73,6 +73,7 @@ public class Projectiles : MonoBehaviour
     }
     public virtual void OnShot()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.bottleBreak);
         SkillManager.instance.CreateAlcoholPool(_associatedTile, createBigPool);
         Destroy(gameObject);
     }
