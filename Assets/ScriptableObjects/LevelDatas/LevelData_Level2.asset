@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ec2b946b3094e4fbaaf6e4a47301cc, type: 3}
-  m_Name: LevelData_Level1
+  m_Name: LevelData_Level2
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  theme: 0
+  level: {fileID: 1302760816280291531, guid: 98dd52aa243ef034ab4ed1364c120978, type: 3}
+  background: {fileID: 8445467622706374695, guid: d019b1f178f3e2442a10eb51021f47c8,
+    type: 3}

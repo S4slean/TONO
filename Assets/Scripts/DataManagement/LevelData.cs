@@ -6,5 +6,5 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public GameObject level;
-    public LevelTheme theme;
+    public GameObject background;
 }
