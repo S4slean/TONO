@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Map.unity
     guid: 3123c30bb52658c4d84d970499b69c9a
   - enabled: 1
-    path: Assets/Scenes/TestScenes/CombatCompletion.unity
-    guid: f3843ecebd9ea514db22533de2752ea5
+    path: Assets/Scenes/Main.unity
+    guid: 44dda7bda9f28ea4a8d816ed59205076
   m_configObjects: {}

@@ -29,21 +29,5 @@ public class TextureScaler : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(TextureScaler))]
-public class TextureScalerEditor : Editor
-{
 
-    public override void OnInspectorGUI()
-    {
-        if(GUILayout.Button("Update Material Scale"))
-        {
-            TextureScaler scaler = serializedObject.targetObject as TextureScaler;
-            scaler.UpdateMaterial();
-        }
-
-        serializedObject.ApplyModifiedProperties();
-
-        
-    }
-}
 
