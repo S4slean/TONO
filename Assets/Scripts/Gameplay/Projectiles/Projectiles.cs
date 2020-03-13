@@ -37,6 +37,10 @@ public class Projectiles : MonoBehaviour
                 {
                     PlayerCharacter player = (PlayerCharacter)_target;
                     player.ReceiveDamage(damage);
+                }else if(_target is Barrel)
+                {
+                    Barrel barrel = _target as Barrel;
+                    barrel.Explode();
                 }
                 _thrower.EndAction();
                 Destroy(gameObject);

@@ -53,7 +53,7 @@ public class GridManager : MonoBehaviour
         return tile is Water;
     }
 
-    public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false, bool throughEnemies = false)
+    public List<Tile> GetLineUntilObstacle(Direction dir, Tile startingTile, bool throughWater = false, bool includeHitTile = false)
     {
         List<Tile> line = new List<Tile>();
         bool searching = true;
@@ -75,7 +75,14 @@ public class GridManager : MonoBehaviour
                         currentNeighbours = currentTile.neighbours.up;
                         if (!throughWater && IsWater(currentNeighbours))
                         {
+                            break;
+                        }
+                        else if (currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel)
+                        {
+                            if(includeHitTile)
+                                line.Add(currentNeighbours);
                             searching = false;
+                            break;
                         }
                         else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
@@ -98,7 +105,14 @@ public class GridManager : MonoBehaviour
                         currentNeighbours = currentTile.neighbours.right;
                         if (throughWater && IsWater(currentNeighbours))
                         {
+                            break;
+                        }
+                        else if (currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel)
+                        {
+                            if (includeHitTile)
+                                line.Add(currentNeighbours);
                             searching = false;
+                            break;
                         }
                         else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
@@ -121,7 +135,14 @@ public class GridManager : MonoBehaviour
                         currentNeighbours = currentTile.neighbours.down;
                         if (throughWater && IsWater(currentNeighbours))
                         {
+                            break;
+                        }
+                        else if (currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel)
+                        {
+                            if (includeHitTile)
+                                line.Add(currentNeighbours);
                             searching = false;
+                            break;
                         }
                         else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
@@ -144,7 +165,14 @@ public class GridManager : MonoBehaviour
                         currentNeighbours = currentTile.neighbours.left;
                         if (throughWater && IsWater(currentNeighbours))
                         {
+                            break;
+                        }
+                        else if (currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel)
+                        {
+                            if (includeHitTile)
+                                line.Add(currentNeighbours);
                             searching = false;
+                            break;
                         }
                         else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
