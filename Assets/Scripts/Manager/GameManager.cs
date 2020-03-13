@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LevelLoader.Instance.LoadLevel();
     }
 
     private void Update()
@@ -31,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         DataManager.Instance.Load(true, SceneType.game);
 
-        LevelLoader.Instance.LoadLevel();
 
         if (PauseManager.Instance)
             PauseManager.Instance.Initialize();
