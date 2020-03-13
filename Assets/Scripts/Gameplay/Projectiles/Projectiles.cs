@@ -16,7 +16,7 @@ public class Projectiles : MonoBehaviour
 
     private bool _thrown = false;
     private float _throwTimeTracker = 0;
-    private GamePawn _target;
+    private Transform _target;
     private GamePawn _thrower;
     private Tile _associatedTile;
     private int _previewId = -1;
@@ -27,9 +27,9 @@ public class Projectiles : MonoBehaviour
         if (_thrown)
         {
             _throwTimeTracker += Time.deltaTime;
-            self.position = new Vector3(Mathf.Lerp(_thrower.transform.position.x , _target.transform.position.x, _throwTimeTracker/travelTime),
-                Mathf.Lerp(_thrower.transform.position.y + 1, _target.transform.position.y + 1, _throwTimeTracker / travelTime) + trajectory.Evaluate(_throwTimeTracker/ travelTime),
-                Mathf.Lerp(_thrower.transform.position.z, _target.transform.position.z, _throwTimeTracker/ travelTime)) ;
+            self.position = new Vector3(Mathf.Lerp(_thrower.transform.position.x , _target.position.x, _throwTimeTracker/travelTime),
+                Mathf.Lerp(_thrower.transform.position.y + 1, _target.position.y + 1, _throwTimeTracker / travelTime) + trajectory.Evaluate(_throwTimeTracker/ travelTime),
+                Mathf.Lerp(_thrower.transform.position.z, _target.position.z, _throwTimeTracker/ travelTime)) ;
 
             if(TileBelow() != _associatedTile)
             {
@@ -50,13 +50,12 @@ public class Projectiles : MonoBehaviour
             {
                 _thrown = false;
                 _throwTimeTracker = 0;
-                if(_target is PlayerCharacter)
+                if(_target.TryGetComponent<PlayerCharacter>(out PlayerCharacter player))
                 {
-                    PlayerCharacter player = (PlayerCharacter)_target;
                     player.ReceiveDamage(damage);
-                }else if(_target is Barrel)
+                }
+                else if(_target.TryGetComponent<Barrel>(out Barrel barrel))
                 {
-                    Barrel barrel = _target as Barrel;
                     barrel.Explode();
                 }
                 _thrower.EndAction();
@@ -66,7 +65,7 @@ public class Projectiles : MonoBehaviour
         }
     }
 
-    public void Throw(GamePawn target, GamePawn origin, int dmg)
+    public void Throw(Transform target, GamePawn origin, int dmg)
     {
         self.parent = null;
         _thrown = true;
