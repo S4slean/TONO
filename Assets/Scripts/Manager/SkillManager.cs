@@ -145,7 +145,8 @@ public class SkillManager : MonoBehaviour
         else if(target.GetProjectileOnTile() != null)
             instance.GetComponent<Projectiles>().Throw(target.GetProjectileOnTile().transform, user, 1);
         Time.timeScale = 1;
-        Highlight_Manager.instance.HideAllHighlight();
+        //Highlight_Manager.instance.HideAllHighlight();
+
     }
 
     public void ThrowElement(PlayerCharacter user, GamePawn pawnToThrow, Tile target)
@@ -156,8 +157,6 @@ public class SkillManager : MonoBehaviour
         PlayerManager.instance.hoverMode = HoverMode.NoHover;
 
         Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID(), null, false);
-        user.ShowMoveRange();
-
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)

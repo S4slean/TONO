@@ -34,7 +34,7 @@ public class UI_EndTurn : Panel_Behaviour
 
     public void EndTurn()
     {
-        GameManager.Instance.CheckIfCompleted(true);
+        PlayerManager.instance.EndPlayerTurn();
         canEndTurn = false;
     }
 

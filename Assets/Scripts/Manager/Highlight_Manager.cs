@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum HighlightMode
 {
+    NoHighlight,
     Hover,
     MoveHighlight,
     MoveRangePreview,
@@ -319,7 +320,7 @@ public class Highlight_Manager : MonoBehaviour
         }
     }
 
-    public void DeactivateOutlines(Tile t, bool tilesBecameNotClickable = true)
+    public void DeactivateOutlines(Tile t, bool tilesBecameNotClickable = true, HighlightMode highlightModeAfter = HighlightMode.NoHighlight)
     {
         if (!(t is Free))
             return;
@@ -335,6 +336,15 @@ public class Highlight_Manager : MonoBehaviour
 
         if (tilesBecameNotClickable)
             tile.isClickable = false;
+
+        switch (highlightModeAfter)
+        {
+            case HighlightMode.NoHighlight:
+                break;
+            default:
+                ActivateOutlines(new List<Tile>() { t}, highlightModeAfter);
+                break;
+        }
     }
 
     bool IsTileAvailableToHighlight(Tile tile)

@@ -24,6 +24,8 @@ public class Kick : Skill
         }
 
         UI_Manager.instance.actionPanel.RefreshActions();
+        UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
+        UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation(); ;
     }
 
     public override void Preview(GamePawn user)

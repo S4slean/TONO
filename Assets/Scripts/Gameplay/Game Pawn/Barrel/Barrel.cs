@@ -41,8 +41,6 @@ public class Barrel : GamePawn
         GetTile().SetPawnOnTile(this);
         anim.Play("Barrel Fall");
         SoundManager.Instance.PlaySound(SoundManager.Instance.barrelPlacement);
-
-
     }
 
     public GameObject[] graphics;

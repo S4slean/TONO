@@ -18,6 +18,9 @@ public class Jump : Skill
         }
 
         UI_Manager.instance.actionPanel.RefreshActions();
+        UI_Manager.instance.actionPanel.selectedAction.isSelected = false;
+        UI_Manager.instance.actionPanel.selectedAction.PlayCorrectAnimation(); ;
+
     }
 
     public override void Preview(GamePawn user)
@@ -55,7 +58,7 @@ public class Jump : Skill
         Tile currentTile = user.GetTile().neighbours.up;
         if (currentTile != null)
         {
-            if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
+            if (IsAvailableTileToJump(currentTile) && IsAvailableTileToStand(currentTile.neighbours.up))
             {
                 tilesToHighlight.Add(currentTile);
             }
@@ -64,7 +67,7 @@ public class Jump : Skill
         currentTile = user.GetTile().neighbours.right;
         if (currentTile != null)
         {
-            if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
+            if (IsAvailableTileToJump(currentTile) && IsAvailableTileToStand(currentTile.neighbours.right))
             {
                 tilesToHighlight.Add(currentTile);
             }
@@ -73,7 +76,7 @@ public class Jump : Skill
         currentTile = user.GetTile().neighbours.down;
         if (currentTile != null)
         {
-            if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
+            if (IsAvailableTileToJump(currentTile) && IsAvailableTileToStand(currentTile.neighbours.down))
             {
                 tilesToHighlight.Add(currentTile);
             }
@@ -82,12 +85,35 @@ public class Jump : Skill
         currentTile = user.GetTile().neighbours.left;
         if (currentTile != null)
         {
-            if (currentTile.GetPawnOnTile() != null && currentTile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
+            if (IsAvailableTileToJump(currentTile) && IsAvailableTileToStand(currentTile.neighbours.left))
             {
                 tilesToHighlight.Add(currentTile);
             }
         }
 
         return tilesToHighlight;
+    }
+
+    bool IsAvailableTileToJump(Tile tile)
+    {
+        if(tile.GetPawnOnTile() != null && tile.GetPawnOnTile() != PlayerManager.instance.playerCharacter)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool IsAvailableTileToStand(Tile tile)
+    {
+        if(tile != null && !(tile is Water) && !(tile is Wall) && tile.GetPawnOnTile() == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -7,7 +7,7 @@ public class UI_ActionPanelBehaviour : Panel_Behaviour
     [Header("Skills/Actions References")]
     public GameObject actionButtonPrefab;
     public RectTransform uiRect;
-    List<UI_ActionButton> actions = new List<UI_ActionButton>();
+    public List<UI_ActionButton> actions = new List<UI_ActionButton>();
 
     float actionHeight = 0;
     public float spacing = 100;
