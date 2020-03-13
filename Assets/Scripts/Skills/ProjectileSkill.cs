@@ -9,7 +9,6 @@ public class ProjectileSkill : Skill
 
     public override void Activate(GamePawn user, Tile target)
     {
-        Debug.Log(user.gameObject.name + " used " + skillName + " on " + target.GetPawnOnTile().transform.name);
         if (user is EnemieBehaviour)
         {
             EnemieBehaviour enemy = (EnemieBehaviour)user;
@@ -22,6 +21,7 @@ public class ProjectileSkill : Skill
         {
             PlayerCharacter player = (PlayerCharacter)user;
             SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
+            UI_Manager.instance.actionPanel.RefreshActions();
         }
         
     }

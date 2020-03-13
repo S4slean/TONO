@@ -13,6 +13,7 @@ public class ThrowElement : Skill
         PlayerCharacter player = (PlayerCharacter)user;
         player.currentPA -= cost;
         SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
+        UI_Manager.instance.actionPanel.RefreshActions();
 
     }
 

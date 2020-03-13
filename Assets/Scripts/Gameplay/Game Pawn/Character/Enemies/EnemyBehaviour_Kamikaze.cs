@@ -75,6 +75,7 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
             actionPoints += enemyStats.buff.actionBuff;
         }
 
+        EnemyManager.instance.PlayNextEnemyTurn();
     }
 
     public override void SetDestination(Tile destination, bool showHighlight = false, bool movedByPlayer = false)
@@ -90,6 +91,8 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
+                    Free f = (Free)GetTile();
+                    f.SetAlcoolized(true);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
@@ -120,6 +123,8 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
+                    Free f = (Free)associatedTile;
+                    f.SetAlcoolized(true);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);

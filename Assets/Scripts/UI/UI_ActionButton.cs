@@ -18,6 +18,8 @@ public class UI_ActionButton : MonoBehaviour
     public Image actionImage;
     public Image backgroundImage;
     List<Image> costPoints;
+    Color32 unenableColor = new Color32((byte)188, (byte)188, (byte)188, (byte)255);
+    Color32 enableColor = new Color32((byte)255, (byte)255, (byte)255, (byte)255);
 
     [Header("RECT References")]
     public RectTransform rect;
@@ -34,10 +36,9 @@ public class UI_ActionButton : MonoBehaviour
     public float animTime = 0;
     private float currentTime = 0;
 
-    bool isUnfold = false;
+    bool isUnfold = true;
     public bool isSelected = false;
     bool isMoving = false;
-    //bool canUnfold = false; //Ask GDs if we can see the tooltip even if you cannot do the action (if you don't have enough PA or are unable to perform it)
 
     private float current;
     private float diff;
@@ -167,12 +168,25 @@ public class UI_ActionButton : MonoBehaviour
         if (actionSkill.HasAvailableTarget(PlayerManager.instance.playerCharacter).Count == 0)
         {
             actionImage.sprite = actionSkill.unenabledSprite;
+            backgroundImage.color = unenableColor;
+            ChangeCostColor(false);
+        }
+    }
+
+    private void ChangeCostColor(bool enable)
+    {
+        for (int i = 0; i < costPoints.Count; i++)
+        {
+            if (enable)
+                costPoints[i].color = enableColor;
+            else
+                costPoints[i].color = unenableColor;
         }
     }
 
     public void CheckGunShotException()
     {
-        if (actionSkill is GunShot)
+        if (actionSkill is GunShot || actionSkill is Reload)
         {
             if (!PlayerManager.instance.playerCharacter.isGunLoaded)
             {
@@ -206,6 +220,8 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.unenabledSprite;
+            backgroundImage.color = unenableColor;
+            ChangeCostColor(false);
         }
         else
         {
@@ -215,6 +231,8 @@ public class UI_ActionButton : MonoBehaviour
             }
 
             actionImage.sprite = actionSkill.enabledSprite;
+            backgroundImage.color = enableColor;
+            ChangeCostColor(true);
         }
 
         CheckSkillCondition();

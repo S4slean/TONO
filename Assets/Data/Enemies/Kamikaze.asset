@@ -18,6 +18,6 @@ MonoBehaviour:
   movement: 2
   action: 1
   rageThreshold: 5
-  meleeAttack: {fileID: 0}
+  meleeAttack: {fileID: 11400000, guid: ecd0b5ea404b507478dcf77b4758c2ae, type: 2}
   rangedAttack: {fileID: 0}
   buff: {fileID: 11400000, guid: 3744c2e4628908e459fc33954261fa4d, type: 2}

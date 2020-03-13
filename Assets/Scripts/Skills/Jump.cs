@@ -14,7 +14,10 @@ public class Jump : Skill
         if (user is PlayerCharacter)
         {
             PlayerManager.instance.playerCharacter.currentPA -= cost;
+            PlayerManager.instance.playerCharacter.anim.SetTrigger("Jump");
         }
+
+        UI_Manager.instance.actionPanel.RefreshActions();
     }
 
     public override void Preview(GamePawn user)
