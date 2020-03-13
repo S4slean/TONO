@@ -77,14 +77,14 @@ public class GridManager : MonoBehaviour
                         {
                             break;
                         }
-                        else if (currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel)
+                        else if ((currentNeighbours.GetPawnOnTile() != null && currentNeighbours.GetPawnOnTile() is Barrel) || ((currentNeighbours.GetProjectileOnTile() != null)))
                         {
                             if(includeHitTile)
                                 line.Add(currentNeighbours);
                             searching = false;
                             break;
                         }
-                        else if (!IsWater(currentNeighbours) && currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
+                        else if ((!IsWater(currentNeighbours) && !IsWall(currentNeighbours)) || currentNeighbours.GetPawnOnTile() == null || currentNeighbours.GetPawnOnTile() is EnemieBehaviour || currentNeighbours.GetPawnOnTile() is PlayerCharacter)
                         {
                             line.Add(currentNeighbours);
                             break;

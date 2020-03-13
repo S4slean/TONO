@@ -47,7 +47,8 @@ public class PlayerManager : MonoBehaviour
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
     [SerializeField]private Barrel currentBarrelInLine;
-    [SerializeField]private Barrel oldBarrelInLine;
+    [SerializeField]private Tile oldBarrelI;
+    private Projectiles currentProjectileInLine;
 
     public PlayerStatsConfig playerStats;
 
@@ -146,40 +147,41 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
 
+                if(currentBarrelInLine != null && currentBarrelInLine.GetTile())
+                {
+
+                }
+
                 if (lineToHighlight != currentLineHighlighted)
                 {
-                    print(lineToHighlight.Count);
-                    if (GetHighlineID() > -1)
-                    {
-                        //print(highlightLineID);
-                        Highlight_Manager.instance.HideHighlight(GetHighlineID());
-                    }
+                    HideObjectInLineHighlight();
 
-                    if (oldBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
-                    {
-                        print("HIDE EXPLOSION PREVIEW");
-                        Highlight_Manager.instance.HideHighlight(oldBarrelInLine.GetSkillPreviewID());
-                    }
                     currentLineHighlighted = lineToHighlight;
+
+                    currentBarrelInLine = BarrelInLine(currentLineHighlighted);
+                    currentProjectileInLine = ProjectileInLine(currentLineHighlighted);
+
+                    //print(lineToHighlight.Count);
+
                     Highlight_Manager.instance.HideHighlight(playerCharacter.GetSkillPreviewID());
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
-                    SetHighlightID(Highlight_Manager.instance.ShowHighlight(lineToHighlight, HighlightMode.ActionHighlight));
+                    SetHighlightID(Highlight_Manager.instance.ShowHighlight(currentLineHighlighted, HighlightMode.ActionHighlight));
 
-                    if (currentBarrelInLine != null && currentBarrelInLine != oldBarrelInLine)
+                    ShowObjectInLineHighlight();
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (currentBarrelInLine != null)
                     {
-                        print("SHOW EXPLOSION PREVIEW");
-                        currentBarrelInLine.explosionSkill.Preview(currentBarrelInLine);
+                        playerCharacter.gunShotSkill.Activate(playerCharacter, currentBarrelInLine.GetTile());
                     }
-                    oldBarrelInLine = currentBarrelInLine;
-                    currentBarrelInLine = BarrelInLine(lineToHighlight);
-
-                    if (Input.GetMouseButtonDown(0)){
-                        if(currentBarrelInLine != null)
-                        {
-                            playerCharacter.gunShotSkill.Activate(playerCharacter, currentBarrelInLine.GetTile());
-                        }
+                    else if(currentProjectileInLine != null)
+                    {
+                        playerCharacter.gunShotSkill.Activate(playerCharacter, currentProjectileInLine.TileBelow());
                     }
                 }
+
                 //print(playerCharacter.lineUp.Count);
                 break;
             case HoverMode.Bombardment:
@@ -252,5 +254,41 @@ public class PlayerManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public Projectiles ProjectileInLine(List<Tile> line)
+    {
+        foreach(Tile tile in line)
+        {
+            if(tile.GetProjectileOnTile() != null)
+            {
+                return tile.GetProjectileOnTile();
+            }
+        }
+        return null;
+    }
+
+    public void ShowObjectInLineHighlight()
+    {
+        if (currentBarrelInLine != null)
+        {
+            currentBarrelInLine.explosionSkill.Preview(currentBarrelInLine);
+        }
+        else if(currentProjectileInLine != null)
+        {
+            currentProjectileInLine.OnShotPreview();
+        }
+    }
+
+    public void HideObjectInLineHighlight()
+    {
+        if(currentBarrelInLine != null)
+        {
+            Highlight_Manager.instance.HideHighlight(currentBarrelInLine.GetSkillPreviewID());
+        }
+        else if (currentProjectileInLine != null)
+        {
+            Highlight_Manager.instance.HideHighlight(currentProjectileInLine.GetPreviewID());
+        }
     }
 }

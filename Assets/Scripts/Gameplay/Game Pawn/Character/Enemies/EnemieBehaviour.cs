@@ -236,8 +236,8 @@ public class EnemieBehaviour : GamePawn
         List<Tile> path = Pathfinder_AStar.instance.SearchForShortestPath(GetTile(), destination);
         if(path.Count != 0)
         {
-            Debug.Log("Clamp : " + Mathf.Clamp(movementPoints - 1, 0, path.Count));
-            Debug.Log("Path : " + path.Count);
+            //Debug.Log("Clamp : " + Mathf.Clamp(movementPoints - 1, 0, path.Count));
+            //Debug.Log("Path : " + path.Count);
             destination = path[Mathf.Clamp(movementPoints - 1, 0, path.Count - 1)];
             if (!destination.isWalkable || destination.GetPawnOnTile() != null)
             {
