@@ -11,6 +11,9 @@ public class GunShot : Skill
         base.Activate(user, target);
         SkillManager.instance.GunShot(user, target, bullet);
         Time.timeScale = 1f;
+
+        UI_Manager.instance.gunPanel.RefreshUI();
+        UI_Manager.instance.actionPanel.RefreshActions();
     }
 
     public override void Preview(GamePawn user)
@@ -45,8 +48,8 @@ public class GunShot : Skill
             }
             else
             {
-                player.isGunLoaded = true;
-                player.currentPA -= cost;
+                SkillManager.instance.ReloadGun();
+                UI_Manager.instance.gunPanel.RefreshUI();
             }
         }
     }
