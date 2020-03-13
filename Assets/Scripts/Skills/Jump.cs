@@ -14,6 +14,7 @@ public class Jump : Skill
         if (user is PlayerCharacter)
         {
             PlayerManager.instance.playerCharacter.currentPA -= cost;
+            PlayerManager.instance.playerCharacter.anim.SetTrigger("Jump");
         }
     }
 

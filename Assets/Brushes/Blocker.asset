@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec8ad26f2f027d4f947ffed4891e1e8, type: 3}
   m_Name: Blocker
   m_EditorClassIdentifier: 
-  m_Prefabs: []
+  m_Prefabs:
+  - {fileID: 8947694152957350543, guid: df44e74c676694942813ade3d19beb81, type: 3}
+  - {fileID: 0}
   m_PerlinScale: 0.5
   m_Z: 0
   m_index: 0
