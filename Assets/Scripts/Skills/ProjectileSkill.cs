@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "projectile" ,menuName = "TONO/Skill/projectile")]
+[CreateAssetMenu(fileName = "projectile", menuName = "TONO/Skill/projectile")]
 public class ProjectileSkill : Skill
 {
     public GameObject projectilePrefab;
@@ -15,7 +15,10 @@ public class ProjectileSkill : Skill
             enemy.actionPoints -= cost;
             enemy.anim.SetTrigger("Throw");
             SkillManager.instance.ThrowProjectile(user, target.GetPawnOnTile(), projectilePrefab, damage);
-
+            if (user is PlayerCharacter)
+                SoundManager.Instance.PlaySound(SoundManager.Instance.playerShoots);
+            else if (user is EnemieBehaviour)
+                SoundManager.Instance.PlaySound(SoundManager.Instance.bottleThrow);
         }
         else if (user is PlayerCharacter)
         {
@@ -23,6 +26,6 @@ public class ProjectileSkill : Skill
             SkillManager.instance.LiftPawn(player, target.GetPawnOnTile());
             UI_Manager.instance.actionPanel.RefreshActions();
         }
-        
+
     }
 }

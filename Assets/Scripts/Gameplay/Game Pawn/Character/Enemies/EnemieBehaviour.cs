@@ -303,6 +303,7 @@ public class EnemieBehaviour : GamePawn
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.step);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
@@ -334,6 +335,7 @@ public class EnemieBehaviour : GamePawn
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.step);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);

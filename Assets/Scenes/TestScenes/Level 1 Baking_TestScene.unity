@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 1073868200}
+  - {fileID: 0}
 --- !u!4 &660937256
 Transform:
   m_ObjectHideFlags: 0
@@ -300,18 +300,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1837950901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1073868200 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2394487386578481809, guid: 20114fe8c6b16e1448fda62b6de8cb26,
-    type: 3}
-  m_PrefabInstance: {fileID: 1835475938}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4153c5247ae3648499a869261232a515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1073868201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8263123818720189865, guid: 20114fe8c6b16e1448fda62b6de8cb26,
@@ -512,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1817849935
 Transform:
   m_ObjectHideFlags: 0

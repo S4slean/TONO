@@ -106,6 +106,7 @@ MonoBehaviour:
   throwing:
     clips:
     - {fileID: 8300000, guid: 70ebd69ed234b654c9b67e66b46ff09b, type: 3}
+    - {fileID: 8300000, guid: 70ebd69ed234b654c9b67e66b46ff09b, type: 3}
     minVolume: 1
     maxVolume: 1
     minPitch: 1

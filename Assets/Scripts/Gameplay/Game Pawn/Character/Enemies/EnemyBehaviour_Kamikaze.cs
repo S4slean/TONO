@@ -25,9 +25,10 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    Free f = (Free)tile;
+                    Free f = (Free)GetTile();
                     f.SetAlcoolized(true);
 
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.step);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
@@ -59,9 +60,10 @@ public class EnemyBehaviour_Kamikaze : EnemieBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    Free f = (Free)tile;
+                    Free f = (Free)GetTile();
                     f.SetAlcoolized(true);
 
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.step);
                     associatedTile.SetPawnOnTile(null);
                     associatedTile = tile;
                     associatedTile.SetPawnOnTile(this);
