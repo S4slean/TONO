@@ -26,7 +26,11 @@ public class Barrel : GamePawn
 
         RaycastHit hit;
         Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, mask);
-        if (hit.transform == null)  return; 
+        if (hit.transform == null)  return;
+        else
+        {
+            Debug.Log(hit.transform);
+        }
 
         SetAssociatedTile(hit.transform.GetComponent<Tile>());
         if (GetTile().GetPawnOnTile() != null)
@@ -36,6 +40,7 @@ public class Barrel : GamePawn
 
         GetTile().SetPawnOnTile(this);
         anim.Play("Barrel Fall");
+        SoundManager.Instance.PlaySound(SoundManager.Instance.barrelPlacement);
 
 
     }
@@ -164,6 +169,7 @@ public class Barrel : GamePawn
         if (isExplosing) return;
 
         isExplosing = true;
+        SoundManager.Instance.PlaySound(SoundManager.Instance.barrelExplosion);
         explosionSkill.Activate(this, GetTile());
         associatedTile.SetPawnOnTile(null);
         SetTile(null);
