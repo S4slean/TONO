@@ -167,7 +167,7 @@ public class PlayerManager : MonoBehaviour
                     playerCharacter.SetPreviewID(Highlight_Manager.instance.ShowHighlight(playerCharacter.gunRange, HighlightMode.ActionPreview));
                     SetHighlightID(Highlight_Manager.instance.ShowHighlight(currentLineHighlighted, HighlightMode.ActionHighlight));
 
-                    ShowObjectInLineHighlight();
+                    //ShowObjectInLineHighlight();
                 }
 
                 if (Input.GetMouseButtonDown(0))

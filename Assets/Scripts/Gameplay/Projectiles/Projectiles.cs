@@ -50,6 +50,10 @@ public class Projectiles : MonoBehaviour
                 {
                     barrel.Explode();
                 }
+                else if(_target.TryGetComponent<Projectiles>(out Projectiles projectile))
+                {
+                    projectile.OnShot();
+                }
                 _thrower.EndAction();
                 Destroy(gameObject);
 
@@ -71,6 +75,7 @@ public class Projectiles : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.bottleBreak);
         SkillManager.instance.CreateAlcoholPool(_associatedTile, createBigPool);
+        Destroy(gameObject);
     }
 
     public void OnShotPreview()

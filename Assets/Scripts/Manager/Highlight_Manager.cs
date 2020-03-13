@@ -114,9 +114,11 @@ public class Highlight_Manager : MonoBehaviour
 
     public void HideAllHighlight()
     {
+        GridManager.instance.AllTilesBecameNotClickable();
         foreach(int id in highlights.Keys)
         {
             HideHighlight(id);
+            print("HIDE");
         }
     }
 
