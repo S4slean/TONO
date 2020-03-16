@@ -11,6 +11,7 @@ public class GunShot : Skill
         base.Activate(user, target);
         SkillManager.instance.GunShot(user, target, bullet);
         Time.timeScale = 1f;
+        GridManager.instance.TilesBecameNotClickableExceptMoveRangeTile();
 
         UI_Manager.instance.gunPanel.RefreshUI();
         UI_Manager.instance.actionPanel.RefreshActions();
@@ -46,7 +47,7 @@ public class GunShot : Skill
                 else
                 {
                     Time.timeScale = 1f;
-                    Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID(), null, false);
+                    Highlight_Manager.instance.HideHighlight(player.GetSkillPreviewID());
                     SkillManager.instance.currentActiveSkill = null;
                     if(GameManager.Instance.turnType == TurnType.player)
                     {

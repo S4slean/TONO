@@ -45,6 +45,8 @@ public class PauseManager : MonoBehaviour
 
         paused = true;
         AudioListener.pause = true;
+        PlayerManager.instance.hoverMode = HoverMode.NoHover;
+        SkillManager.instance.currentActiveSkill = null;
         Time.timeScale = 0;
     }
 
@@ -52,6 +54,7 @@ public class PauseManager : MonoBehaviour
     {
         PauseMenu.Instance.ExitAllButtons();
         Time.timeScale = 1;
+        PlayerManager.instance.hoverMode = HoverMode.MovePath;
         AudioListener.pause = false;
         PauseMenu.Instance.pauseMenuUI.SetActive(false);
         paused = false;

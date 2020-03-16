@@ -166,7 +166,7 @@ public class PlayerCharacter : GamePawn
         }
         //print(currentPM);
         moveRange = Pathfinder_Dijkstra.instance.SearchForRange(destination, currentPM, false);
-        Debug.Log(moveRange.Count);
+        //Debug.Log(moveRange.Count);
         foreach (Tile tile in moveRange)
         {
             tile.isClickable = true;

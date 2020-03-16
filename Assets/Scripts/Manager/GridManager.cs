@@ -130,7 +130,7 @@ public class GridManager : MonoBehaviour
                     }
                     break;
                 case Direction.Down:
-                    if (currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.right))
+                    if (currentTile.neighbours.down != null && !IsWall(currentTile.neighbours.down))
                     {
                         currentNeighbours = currentTile.neighbours.down;
                         if (throughWater && IsWater(currentNeighbours))
@@ -568,6 +568,16 @@ public class GridManager : MonoBehaviour
         foreach(Tile tile in freeTiles)
         {
             tile.isClickable = false;
+        }
+    }
+    public void TilesBecameNotClickableExceptMoveRangeTile()
+    {
+        foreach(Tile tile in freeTiles)
+        {
+            if(PlayerManager.instance.playerCharacter.moveRange.Contains(tile))
+                tile.isClickable = true;
+            else
+                tile.isClickable = false;
         }
     }
 

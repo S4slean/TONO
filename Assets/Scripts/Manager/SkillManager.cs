@@ -52,7 +52,10 @@ public class SkillManager : MonoBehaviour
 
     public void Jump(GamePawn user, GamePawn target, Direction dir)
     {
+        currentActiveSkill = null;
         Tile jumpTile = target.GetTile().GetNeighbours(dir);
+
+        Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID());
 
         Sequence s = DOTween.Sequence();
 
@@ -137,6 +140,8 @@ public class SkillManager : MonoBehaviour
 
     public void GunShot(GamePawn user, Tile target, GameObject bullet)
     {
+        currentActiveSkill = null;
+
         PlayerCharacter player = user as PlayerCharacter;
         player.isGunLoaded = false;
         GameObject instance = Instantiate(bullet, user.transform.position + Vector3.up, Quaternion.identity);
@@ -157,6 +162,8 @@ public class SkillManager : MonoBehaviour
         PlayerManager.instance.hoverMode = HoverMode.NoHover;
 
         Highlight_Manager.instance.HideHighlight(user.GetSkillPreviewID(), null, false);
+        GridManager.instance.TilesBecameNotClickableExceptMoveRangeTile();
+
     }
 
     public void CreateAlcoholPool(Tile affectedTile, bool canSpread)

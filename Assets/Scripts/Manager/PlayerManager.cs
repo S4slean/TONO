@@ -47,8 +47,9 @@ public class PlayerManager : MonoBehaviour
     private List<Tile> currentLineHighlighted;
     private int highlightLineID = -1;
     [SerializeField]private Barrel currentBarrelInLine;
-    [SerializeField]private Tile oldBarrelI;
-    private Projectiles currentProjectileInLine;
+    [SerializeField] private Tile oldBarrelTile;
+    [SerializeField] private Projectiles currentProjectileInLine;
+    [SerializeField] private Tile oldProjectileTile;
 
     public PlayerStatsConfig playerStats;
 
@@ -147,19 +148,11 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
 
-                if(currentBarrelInLine != null && currentBarrelInLine.GetTile())
-                {
-
-                }
-
                 if (lineToHighlight != currentLineHighlighted)
                 {
-                    HideObjectInLineHighlight();
+                    //HideObjectInLineHighlight();
 
                     currentLineHighlighted = lineToHighlight;
-
-                    currentBarrelInLine = BarrelInLine(currentLineHighlighted);
-                    currentProjectileInLine = ProjectileInLine(currentLineHighlighted);
 
                     //print(lineToHighlight.Count);
 
@@ -169,6 +162,7 @@ public class PlayerManager : MonoBehaviour
 
                     //ShowObjectInLineHighlight();
                 }
+
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -181,6 +175,10 @@ public class PlayerManager : MonoBehaviour
                         playerCharacter.gunShotSkill.Activate(playerCharacter, currentProjectileInLine.TileBelow());
                     }
                 }
+
+
+                currentBarrelInLine = BarrelInLine(currentLineHighlighted);
+                currentProjectileInLine = ProjectileInLine(currentLineHighlighted);
 
                 //print(playerCharacter.lineUp.Count);
                 break;

@@ -9,6 +9,7 @@ public class ThrowElement : Skill
 
     public override void Activate(GamePawn user, Tile target)
     {
+        GridManager.instance.AllTilesBecameNotClickable();
 
         PlayerCharacter player = (PlayerCharacter)user;
         player.currentPA -= cost;
@@ -118,7 +119,7 @@ public class ThrowElement : Skill
         else if(liftedPawn is Barrel || liftedPawn is Box)
         {
             Debug.Log("Lift Barrel");
-            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2 * Vector3.up, (5 * Vector3.forward + 5 * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
+            RaycastHit[] hits = Physics.BoxCastAll(user.GetTile().transform.position + 2 * Vector3.up, ((range + 1) * Vector3.forward + (range + 1) * Vector3.right), Vector3.down, Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0f, 45f, 0f)), 2f, LayerMask.GetMask("FreeTile"));
             foreach(RaycastHit hit in hits)
             {
                 Tile tile = hit.transform.GetComponent<Tile>();

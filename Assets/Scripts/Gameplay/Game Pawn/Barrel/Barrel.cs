@@ -84,6 +84,7 @@ public class Barrel : GamePawn
             //rend.material = oldMaterial;
             ComboManager.instance.ClearAllComboList();
             Highlight_Manager.instance.HideHighlight(GetSkillPreviewID());
+            GridManager.instance.TilesBecameNotClickableExceptMoveRangeTile();
         }
     }
 
